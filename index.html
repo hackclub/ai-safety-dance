@@ -269,7 +269,7 @@ What's confusing, interesting, what you like or dislike? Critical honest feedbac
 “How can we make AI robustly serve <em>any intended goal</em> at all?”
 (a problem for computer scientists - surprisingly, still unsolved!)</p>
 </blockquote>
-<p>(Note that &quot;<em>technically</em> aligned&quot; does not mean &quot;humane&quot;! A mad programmer could, in principle, get an AI to robustly serve their intended goals, but their intended goals are inhumane.)</p>
+<p>(To correct a common misconception: &quot;<em>technically</em> aligned&quot; does not mean &quot;humane&quot;! A mad programmer could, in principle, get an AI to robustly serve <em>their</em> intended goals, but their intended goals are inhumane.)</p>
 <p>The <em>technical</em> alignment problem, in turn, can be broken down by &quot;Logic vs Intuition&quot;:</p>
 <blockquote>
 <p><u>Problems with AI Logic</u>:<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (&quot;game theory&quot; problems)</p>
@@ -290,8 +290,9 @@ What's confusing, interesting, what you like or dislike? Critical honest feedbac
 <p>(Again, what &quot;logic&quot; and &quot;intuition&quot; are will be more precisely explained later!)</p>
 <p>Summed in a picture:</p>
 <p><img src="media/intro/Breakdown.png" alt="A diagram breaking down the AI Alignment Problem. &quot;How can we align AI with humane values?&quot; splits into &quot;Technical Alignment&quot; and &quot;Humane Values&quot;. Technical Alignment splits into &quot;AI Logic (game theory)&quot; and &quot;AI Intuition (deep learning)&quot;"></p>
+<p>If I may be a bit sappy, this framework not only helps me understand AI better, it even helps me understand <em>humans</em> better. A lot of <em>our</em> problems in goal-setting, incentives, and learning/teaching values, overlap with <em>AI's</em> problems. Maybe this'll help us solve the <em>human</em> alignment problem: How do we get <em>humans</em> to robustly serve humane values?</p>
 <h3>Part 3: The proposed solutions</h3>
-<p>Finally, we can understand some (possible) ways to solve the problems in logic, intuition, AIs, <em>and</em> humans! These include technical solutions, <em>and</em> more policy/society/human-side solutions. Experts disagree on which proposals will work, if any... but it's a good start!</p>
+<p>Finally, we can understand some (possible) ways to solve the problems in logic, intuition, AIs, <em>and</em> humans! These include technical solutions, <em>and</em> more policy/culture/governance-side solutions. Experts disagree on which proposals will work, if any... but it's a good start!</p>
 <p>(Unfortunately, I can't give a layperson-friendly summary in this Intro, precisely because the solutions won't make sense <em>until</em> you understand the problems, which is what Part 1 &amp; 2 are for. That said, if you want spoilers, <a href="#Part3Details">:click here to see what Part 3 will cover!</a>)</p>
 <hr>
 <h2>🤔 (<em>Optional</em> flashcard review!)</h2>
@@ -317,6 +318,10 @@ What's confusing, interesting, what you like or dislike? Critical honest feedbac
     <orbit-prompt
         question="The Technical Alignment Problem:"
         answer="“How can we make AI robustly serve *any intended goal* at all?”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Common misconception about technical alignment:"
+        answer="*Technically* aligned does not mean 'humane' or 'good'! An AI can be 100% technically aligned to an inhumane user's intentions.">
     </orbit-prompt>
     <orbit-prompt
         question="The Technical Alignment Problem can be broken up into two sub-problems:"
@@ -391,7 +396,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 <p>Too often, we take technology — even life-saving technology — for granted. So, let me zoom out for context. Here's the last 2000+ years of child mortality, the percentage of kids who die before puberty:</p>
 <p><img src="media/intro/owid.jpg" alt="Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today."><em>(from <a href="https://ourworldindata.org/child-mortality">Dattani, Spooner, Ritchie and Roser (2023)</a>)</em></p>
 <p>For <em>thousands</em> of years, in nations both rich and poor, a full <em>half</em> of kids just die. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just <em>so swiftly cut down</em> an <em>eons-old</em> scourge.</p>
-<p>How did we achieve that? Policy's a big part of the story, sure, but policy is &quot;the art of the possible&quot;<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>, and the above wouldn't be possible without <em>good</em> science &amp; tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.</p>
+<p>How did we achieve that? Policy's an important part of the story, but policy is &quot;the art of the possible&quot;<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>, and the above wouldn't be possible without <em>good</em> science &amp; tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.</p>
 <p>F#@☆ going to Mars, <em>that's</em> why advanced AI matters.</p>
 <p>. . .</p>
 <p>Hang on, <em>really?</em> Toys like ChatGPT and DALL-E are <em>life-and-death</em> stakes? That leads us to the final misconception I'd like to address:</p>
@@ -462,7 +467,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 </ul>
 <p>(To review the flashcards, click the Table of Contents icon in the right sidebar, and click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="TODO">Anki deck for the Intro</a>.)</p>
 <p>Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!</p>
-<p><a href="../p1?orbitDebug" style="font-size:3em" target="_self"><b>(PART ONE →)</b></a></p>
+<p><a href="../p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a></p>
 <h4>:x Four Objects</h4>
 <p>Hi! Whenever I have a tangent that doesn't fit the reading flow, I'll shove it into an &quot;expandable&quot; section like this one! (They'll be links with <em>dotted</em> underlines, not solid underlines.)</p>
 <p>Anyway, here's some state-of-the-art generative AIs trying to draw four objects:</p>
@@ -527,6 +532,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 <li>The same way hackers have <a href="https://en.wikipedia.org/wiki/Stuxnet">damaged nuclear power plants</a>, <a href="https://arstechnica.com/information-technology/2015/06/airplanes-grounded-in-poland-after-hackers-attack-flight-plan-computer/">grounded ~1,400 airplane passengers</a>, and <a href="https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206">(almost) poisoned a town's water supply twice</a>: by hacking the computers that real-world infrastructure runs on. A <em>lot</em> of infrastructure runs on internet-connected computers, these days.</li>
 <li>The same way a CEO can affect the world from their air-conditioned office: move money around. An AI could just <em>pay</em> people to do stuff for it.</li>
 <li>Alternatively: an AI could hack into people's private phones &amp; data, then blackmail them into doing stuff for it. (Like in <em>the</em> bleakest Black Mirror episode, <a href="https://en.wikipedia.org/wiki/Shut_Up_and_Dance_%28Black_Mirror%29"><em>Shut Up And Dance</em></a>.)</li>
+<li>Hacking autonomous drones/quadcopters. I'm honestly surprised nobody's committed a murder with a recreational quadcopter yet, like, by flying it into highway traffic, or into a jet's engine during takeoff/landing.</li>
 <li>An AI could persuade/bribe/blackmail a CEO or politician to manufacture a <em>lot</em> physical robots — (for the supposed purpose of manual labor, military warfare, search-and-rescue missions, delivery drones, lab work, a Robot Catboy Maid, etc) — then the AI hacks <em>those</em> robots, and uses them to affect the physical world.</li>
 </ul>
 <h4>:x XZ</h4>
@@ -572,7 +578,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 </li>
 <li id="fn13" class="footnote-item"><p><a href="https://web.archive.org/web/20230727105641/https://www.bbc.com/news/technology-65886125">Vallance, <em>BBC News</em>, 2023</a>: “[LeCun] has said it won't take over the world or permanently destroy jobs. [...] &quot;if you realize it's not safe you just don't build it.&quot; [...] &quot;Will AI take over the world? No, this is a projection of human nature on machines,&quot; he said.” <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn14" class="footnote-item"><p>Melanie Mitchell &amp; Yann LeCun took the &quot;skeptic&quot; side of <a href="https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/">a 2023 public debate on &quot;Is AI an Existential Threat?&quot;</a> The other side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+<li id="fn14" class="footnote-item"><p>Melanie Mitchell &amp; Yann LeCun took the &quot;skeptic&quot; side of <a href="https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/">a 2023 public debate on &quot;Is AI an Existential Threat?&quot;</a> The &quot;concerned&quot; side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn15" class="footnote-item"><p>A Japanese cult that attacked people with chemical &amp; biological weapons. Most infamously, in 1995, they released nerve gas on the Tokyo Metro, injuring 1,050 people &amp; killing 14 people. (<a href="https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack">Wikipedia</a>) <a href="#fnref15" class="footnote-backref">↩︎</a> <a href="#fnref15:1" class="footnote-backref">↩︎</a></p>
 </li>

@@ -399,7 +399,7 @@ Let's plant that tree today!
 
 Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
 
-<a href="../p1?orbitDebug" style="font-size:3em" target="_self"><b>(PART ONE →)</b></a>
+<a href="../p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
 
 
 
