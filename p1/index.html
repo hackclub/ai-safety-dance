@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!-- Title -->
+    <title>AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures</title>
+
+    <!-- UTF-8 & Mobile -->
+    <!--<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=460">
+
+    <!-- On POSTS, links are external by default -->
+    <base target="_blank">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Social Share Nonsense -->
+	<meta itemprop="name" content="{{ title }}">
+	<meta itemprop="description" content="{{ share_desc }}">
+	<meta itemprop="image" content="{{ shareImage }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:title" content="{{ title }}">
+	<meta name="twitter:description" content="{{ share_desc }}">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="{{ shareImage }}">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{ shareImage }}">
+	<meta property="og:description" content="{{ share_desc }}">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="/styles/Merriweather/merriweather.css">
+    <link rel="stylesheet" href="/styles/Open_Sans/opensans.css">
+    <link rel="stylesheet" href="/styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
+	<link rel="stylesheet" href="/styles/page.css">
+
+	<!-- SCRIPTS -->
+
+    <!-- This website's own scripts -->
+	<script src="/scripts/page.js"></script>
+    <script>window.IS_DRAFT=true;</script>
+
+    <!-- Littlefoot: for my feetnotes -->
+    <script src="/scripts/littlefoot.js" ></script>
+
+    <!-- Nutshell: expandable explanations -->
+    <script src="/scripts/nutshell-v1.0.5.js"></script>
+    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+
+    <!-- Orbit: make memory a choice -->
+    <script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
+
+    <!-- MathJAX: for nice math -->
+    <script src="/scripts/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+<!-- HACKBRAND -->
+<a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
+	<img src="/styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" title="A project by Hack Club">
+</a>
+
+<!-- The Sidebar UI -->
+<div id="return_to_content"></div>
+<div id="sidebar">
+	<div id="panel_toc"></div>
+
+    <!-- STYLE CHANGER -->
+	<div id="panel_style">
+
+        <div id="style_dark_mode_container" style="cursor:pointer;">
+            <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
+            Dark Mode
+        </div>
+        <br>
+
+        Font size:
+        <span id="style_fontsize"></span>
+        <br>
+        <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
+        <br>
+
+        Font type:
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="serif" checked>
+            <span style="font-family:'Merriweather'">Serif</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="sans_serif">
+            <span style="font-family:'Open Sans'">Sans Serif</span>
+        </label>
+        <br>
+        <a target='_blank' href='https://github.com/ncase/blog#open-source-font--code-credits' style='font-size: 0.85em;'>
+            (font credits)
+        </a>
+        <br><br>
+
+        <button id="style_reset">Reset</button>
+
+    </div>
+
+    <!-- TRANSLATIONS -->
+	<div id="panel_translations">
+        <!-- none... sorry -->
+    </div>
+	<div id="panel_share">share on... w/e</div>
+    <!-- SHILLING FOR BIG NICKY -->
+	<div id="panel_sub">
+        <!-- TODO: shill for Hack Club instead -->
+    </div>
+    <div id="panel_support"></div>
+
+</div>
+
+<!-- Reading Time Clock! -->
+<div id="reading_time">
+	<div id="clock_icon"></div>
+	<div id="clock_label"></div>
+</div>
+
+<!-- EVERYTHING TO THE LEFT of the sidebar... -->
+<div id="everything_container">
+
+    <!-- A big cute header -->
+    <!-- Depends if it's frontpage, or not -->
+    <!--
+	<div id="header" class='frontpage'>
+		<div id="scrolly">
+			<div id="scrolly_text"></div>
+		</div>
+		<div id="header_cont">
+			<div id="header_title"></div>
+		</div>
+		<video id="typing" loop muted autoplay width="400">
+			<source src="styles/assets/Typewriter.webm" type="video/webm">
+		</video>
+	</div>
+    -->
+    <div id="header" class="article">
+        <div id="splash_image">
+            <img id="splash_image_banner" src="/styles/assets/placeholder_banner.png"/>
+        </div>
+        <div id="header_words">
+    		<div id="title">
+    			AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures
+    		</div>
+    		<div id="subtitle">
+
+                reading time: <span id="reading_time_header"></span>
+    			&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+
+                <span id="pub_date_header"></span>
+                by <a class='black-link' href='https://ncase.me'>nicky case</a>
+
+    		</div>
+        </div>
+	</div>
+
+    <!-- Home button -->
+    <a target='_self' href="/">
+        <div id="home_button">
+            <div id="home_icon"></div>
+            <div id="home_label">home</div>
+        </div>
+    </a>
+
+    <!-- The lil' tabs for sidebar UI -->
+    <div id="sidebar_tabs">
+		<div id="tab_toc">
+			<div></div>
+			table of contents
+		</div>
+		<div id="tab_style">
+			<div></div>
+			change style 😎
+		</div>
+        <!--
+        TODO
+		<div id="tab_sub">
+			<div></div>
+			subscribe 💖
+		</div>
+        -->
+	</div>
+
+    <!-- BEHOLD! CONTENT!!!!! -->
+	<article id="content">
+
+        <!-- Is Draft, Is Deprecated, Is Old -->
+
+        <div id="warning_message" style="padding: 1em 1em;">
+            <b>NOTE: THIS IS A DRAFT!</b>
+            Please do not share this publicly yet.
+            There's a floating textbox on the &larr;<i>left</i>, for you
+            to record your notes, as you read along and/or
+            when you're done.
+            (well, unless you're on mobile, then it's not there. record notes somehow else)
+            <br><br>
+            Then, copy-paste your notes, and share them with
+            me via whatever platform I sent you this link!
+            Thank you so muuuuuuuuch! 🎉
+        </div>
+<textarea id="draft_feedback">
+Please type your notes below! Make notes *as you go along*, that's most helpful for me.
+
+What's confusing, interesting, what you like or dislike? Critical honest feedback at an early stage helps me a lot! Thanks!
+
+...
+</textarea>
+
+<p><em>(⏱ reading time: ~45 minutes)</em></p>
+<p>First, a quick overview of AI past, present, and (possible) futures:</p>
+<p><strong>The Past:</strong></p>
+<ul>
+<li>Before 2000: AI with super-human logic, but no intuition.
+<ul>
+<li>(and safety problems with AI Logic)</li>
+</ul>
+</li>
+<li>After 2000: AI that can learn “intuition”, but has poor logic.
+<ul>
+<li>(and safety problems with AI &quot;Intuition&quot;)</li>
+</ul>
+</li>
+</ul>
+<p><strong>The Present:</strong></p>
+<ul>
+<li>The arms race to milk current AI methods</li>
+<li>The quest to merge AI logic <em>and</em> intuition</li>
+<li>The awkward alliances in AI Safety</li>
+</ul>
+<p><strong>The Possible Futures:</strong></p>
+<ul>
+<li>Timelines: When will we get “human-level general AI”, if ever?</li>
+<li>Takeoffs: How quickly will AI self-improve?</li>
+<li>Trajectories: Are we on track to the Good Place or the Bad Place?</li>
+</ul>
+<p>Let's begin!</p>
+<hr>
+<h2>⌛️ The Past</h2>
+<p>Computer Science was the only science to <em>start</em> with its Theory of Everything.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>In 1936, a gay, British, Nazi-fighting codebreaker named Alan Turing invented the &quot;universal computer&quot;.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> (← hover to see footnotes) For his next trick, in 1950, he proposed a crazy thought experiment: what if a computer could &quot;pass as human&quot; in a text-based conversation?<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> In the summer of 1956, inspired by Turing's work, a bunch of researchers gathered<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> to found a new field they named:</p>
+<p><em>“ARTIFICIAL INTELLIGENCE”</em></p>
+<p>(Confession: <strong>There is no rigorous definition of &quot;Artificial Intelligence&quot;.</strong> Honestly, &quot;AI&quot; is mostly a term people use to hype up whatever software they're selling. I recently saw a news clip showing a South Korean &quot;Beauty AI&quot;.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> It's a camera that measures your skin tone, then recommends a makeup foundation for your skin tone. It's a color picker. <em>That's</em> what mainstream news calls &quot;AI&quot;.)</p>
+<p><img src="../media/p1/Is_This_AI.png" alt="Riff of the &quot;Is this a pigeon?&quot; meme. The Robot Catboy Maid is gesturing at a butterfly labeled &quot;literally any piece of software&quot;, while he asks: &quot;Is this AI?&quot;"></p>
+<p>(So, if it helps make things clearer for you, mentally replace every mention of &quot;AI&quot; with &quot;a piece of software&quot;. Relatedly, I'll mostly avoid the word &quot;intelligence&quot;, and instead say &quot;capabilities&quot;.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>)</p>
+<p>Anyway! To <em>vastly oversimplify</em> the history of AI &amp; AI Safety, these fields had two main eras:</p>
+<p><strong>Before 2000: AI with super-human logic, but no intuition.</strong> (also called &quot;Symbolic AI&quot;)</p>
+<p>Safety problems with AI Logic:</p>
+<ul>
+<li>Usually accomplishes goals in logical-but-unwanted ways.</li>
+<li>Doesn't understand common-sense or humane values.</li>
+<li>According to game theory, most AI goals logically lead to sub-goals like &quot;resist shutdown&quot; or &quot;grab resources&quot;.</li>
+</ul>
+<p><strong>After 2000: AI that can learn general &quot;intuition&quot;, but has poor logic.</strong> (also called &quot;Deep Learning&quot;)</p>
+<p>Safety problems with AI &quot;Intuition&quot;:</p>
+<ul>
+<li>AI learns our biases, prejudices, inhumanity.</li>
+<li>AI &quot;intuition&quot; breaks easily, sometimes in dangerous ways.</li>
+<li>AI is a &quot;black box&quot;: we can't understand or verify what it's doing.</li>
+</ul>
+<p><img src="../media/intro/Timeline.png" alt="Timeline of AI. Before the year 2000, AI was mostly &quot;logic&quot;. From 2000 to now, AI is mostly &quot;intuition&quot;. In the future, it could be both?"></p>
+<p>(Bonus, click to expand - <a href="#Decades">:a more precise decade-by-decade timeline</a>)</p>
+<p>Now, let's look at the Before-2000 days, <em>Ye Olde Artificial Intelligence</em>...</p>
+<h4>:x Decades</h4>
+<p>(Note: This section isn't necessary to understand the rest of this series, but it's just here for completion.)</p>
+<ul>
+<li>1940: The precursors to AI, including &quot;Cybernetics&quot; &amp; the first artificial computer neuron.</li>
+<li>1950: The &quot;official&quot; start of AI!</li>
+<li>1950-60: The rise of Symbolic AI. (AI that's all logic, no intuition)</li>
+<li>1970: The first AI Winter. (funding &amp; interest dried up)</li>
+<li>1980: Re-emergence of Symbolic AI. (this time re-branded as &quot;Expert Systems&quot;)
+<ul>
+<li>Meanwhile, quietly in the background, the foundations were being built for &quot;deep learning&quot;: AI that's all &quot;intuition&quot;, but poor logic.</li>
+</ul>
+</li>
+<li>1990: The second AI Winter.</li>
+<li>2000: The rise of machine learning. (AI that learns)</li>
+<li>2010: The rise of deep learning. (Neural network-based AI that learns)</li>
+<li>2020: Deep learning goes mainstream! (ChatGPT, DALL-E, etc)</li>
+</ul>
+<hr>
+<h3>Before 2000: Logic, Without Intuition</h3>
+<p>The ~1950's to the ~1990's were the days of <strong>Symbolic AI</strong>: AI that was all about shuffling symbols around, according to the rules of formal logic.</p>
+<p>(Nowadays it's also called <strong>Good Ol' Fashioned AI (GOFAI)</strong>. Of course, it wasn't called <em>that</em> at the time.)</p>
+<p>In the Symbolic AI mindset, here's how you'd make an AI:</p>
+<ul>
+<li>Step 1: Write down <strong>step-by-step rules</strong> on how to solve a problem.</li>
+<li>Step 2: Make a computer follow those steps <em>really fast.</em></li>
+</ul>
+<p>For example, you'd tell a chess AI to consider all possible moves, all possible counter-moves, all possible counter-counter-moves, etc down to a few levels, then pick the next move that leads to the best potential outcome.</p>
+<p>NOTE: <em>This is NOT how human chess experts actually play chess.</em> It turns out that chess — and much scientific &amp; mathematical discovery — actually relies a lot on <em>intuition.</em> (&quot;Intuition&quot;, as I'm loosely using it here, is the thoughts we have that <em>aren't</em> step-by-step. Intuition, instead, seems to come to us &quot;all at once&quot;.)</p>
+<p>AI's lack of &quot;intuition&quot; was one main reason Symbolic AI had no huge success cases for decades. There were even two &quot;AI Winters&quot; before the year 2000, when funding &amp; interest in AI dried up.</p>
+<p>But one day, there was a hit! In 1997, IBM's supercomputer, Deep Blue, beat the world's chess champion, Garry Kasparov. Here’s the photo of humanity losing its crown:<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+<p><img src="../media/p1/kasparov_resigns.png" alt="Still photo of Garry Kasparov resigning in his final game versus Deep Blue">
+<em>(Watch this, Lise – you can actually pinpoint the second humanity lost another claim to being a special cosmic snowflake. Aaaaaand, now!<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>)</em></p>
+<p>Folks were <em>hyped and scared</em>. If machines could beat us at <em>chess</em>, the very <em>cliché</em> of human intellect... what'll happen next? A Star Trek post-scarcity utopia? Robot takeover à la Terminator?</p>
+<p>What happened next was... pretty much nothing, for a decade and a half.</p>
+<p>As mentioned earlier, Symbolic AI was severely limited by its lack of &quot;intuition&quot;. Contrary to leading experts' predictions of &quot;Human-level AI&quot; before <em>1980(!!)</em>,<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> AI couldn't even recognize <em>pictures of cats</em>. In fact, AI wouldn’t be able to <em>match</em> the average human at recognizing <em>pictures of cats</em> until 2020<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> — over <em>two decades</em> after Deep Blue beat the world champion at chess.</p>
+<p><em>Cats</em>... are harder than <em>chess.</em></p>
+<p>How can that be? To understand this paradox, consider <a href="https://unsplash.com/photos/brown-tabby-cat-E3LcqpQxtTU">this cat</a>:</p>
+<p><img src="../media/p1/image.png" alt="Photo of the best kitty cat in the whole dang world"><em>(consider them.)</em></p>
+<p>What were <em>the step-by-step rules</em> you used to recognize that as a cat?</p>
+<p>Weird question, right? You <em>didn’t</em> use step-by-step rules, it just... came to you all at once.</p>
+<ul>
+<li><strong>&quot;Logic&quot;</strong>: step-by-step cognition, like solving math problems.</li>
+<li><strong>&quot;Intuition&quot;</strong>: all-at-once <em>re</em>cognition, like seeing a cat.</li>
+</ul>
+<p>(&quot;Logic and Intuition&quot; will be more precisely explained — and tied to human psychology! — later on in Part One, in the section, &quot;AI Today: The quest to merge Logic &amp; Intuition&quot;.)</p>
+<p>That’s the problem with Symbolic AI: it requires <em>writing down step-by-step rules</em>. Outside of well-defined tasks like chess, we usually don’t even <em>consciously know</em> what rules we’re using. That’s why Symbolic AI failed at understanding images, sounds, speech, and so on. For a lack of a better word, AI had no &quot;intuition&quot;.</p>
+<p>Hang on, let’s try the cat question again? This time, with a simpler drawing:</p>
+<p><img src="../media/p1/Cat%201.png" alt="Minimalist doodle of a cat"></p>
+<p>What rules did you use to recognize <em>that</em> as a cat?</p>
+<p><em>Okay,</em> you may think, <em>this may be easier. Here’s my rule: I recognize something as “cat-like” if it’s got a round shape, with two smaller round shapes on it (eyes), and two pointy shapes on top (ears).</em></p>
+<p>Great! By that definition, here’s a cat:</p>
+<p><img src="../media/p1/Cat%202.png" alt="Abstract, bizarre line drawing that, technically, matches the above rule."></p>
+<p>We could keep going back &amp; forth, and eventually you <em>may</em> find a robust, two-page-long set of rules on how to recognize cats... but then you’d have to repeat the same process with <em>thousands</em> of other objects.</p>
+<p>That's the ironic thing about AI. &quot;Hard&quot; tasks are easy to write step-by-step rules for, &quot;Easy&quot; tasks are practically <em>impossible</em> to write step-by-step rules for:</p>
+<p><img src="../media/p1/Rules_1.png" alt="Ham the Human showing RCM a small list of instructions, saying, &quot;These are the rules for doing differential calculus...&quot; RCM says, &quot;Affirmative.&quot;"></p>
+<p><img src="../media/p1/Rules_2.png" alt="Ham the Human shows RCM a long list of instructions that goes off-screen, saying, &quot;and THESE are the rules for how to walk around a room without bumping into stuff.&quot; RCM screams, &quot;HOLY REDACTED&quot;"></p>
+<p>This is called <strong>Moravec’s Paradox.</strong><sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> Paraphrased, it says:</p>
+<blockquote>
+<p><em>What’s hard for humans is easy for AI; What’s easy for humans is hard for AI.</em></p>
+</blockquote>
+<p>Why? Because what's &quot;easy&quot; for us — recognizing objects, walking around — is the hard work of 3.5 billion years of evolution, swept under the carpet of our subconscious. It's only when we do things that are <em>outside</em> of our evolutionary past, like math, that it consciously <em>feels</em> hard.</p>
+<p>Under-estimating how hard it is for an AI to do &quot;easy&quot; things — like recognize cats, or understand common sense or humane values — is exactly what led to the earliest concerns of AI <em>Safety</em>...</p>
+<hr>
+<h3>🤔 Review #1 (OPTIONAL!)</h3>
+<p>Want to actually remember what you've read here, instead of forgetting it all 2 days later? Here's an <em>optional</em> flashcard review for you!</p>
+<p>(<a href="#SpacedRepetition">:Learn more about &quot;Spaced Repetition&quot; flashcards</a>. Alternatively, download <a href="TODO">all of Part One's cards as an Anki deck</a>)</p>
+<p><a id="review_1"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="Who's widely considered the founder of Computer Science & Artificial Intelligence?"
+        answer="Alan Turing (this handsome fella)"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The two main eras of AI (more or less):"
+        answer="Before 2000: Symbolic AI. After 2000: Deep Learning.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What was Symbolic AI good at, and bad at? What is Deep Learning currently good at, and bad at?"
+        answer="Symbolic AI: good at Logic, bad at 'Intuition'. Deep Learning: good at 'Intuition', bad at Logic.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Another phrase for 'Symbolic AI':"
+        answer="Good Old Fashioned AI (GOFAI)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="When were the decades of Symbolic AI's dominance (roughly)?"
+        answer="1950's to 1990's">
+    </orbit-prompt>
+    <orbit-prompt
+        question="In the Symbolic AI mindset, how do you make an AI?"
+        answer="1\) Write down the step-by-step rules to solve a problem. 2\) Make a computer follow those steps *really fast*.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why could Symbolic AI beat the world champion at chess, but not recognize pictures of cats?"
+        answer="Because we don't consciously know the step-by-step rules we use to recognize cats (or other visual/'intuitive' tasks), hence can't code them into a Symbolic AI.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Logic: ▯▯▯▯-▯▯-▯▯▯▯. Intuition: ▯▯▯-▯▯-▯▯▯▯."
+        answer="Logic: step-by-step. Intuition: all-at-once.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Moravec's Paradox (paraphrased):"
+        answer="What’s hard for humans is easy for AI; What’s easy for humans is hard for AI.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h3>Early AI Safety: Problems with Logic</h3>
+<p>If I had to unfairly, randomly pick <em>one</em> person as the &quot;founder&quot; of AI Safety, it would be science fiction author Isaac Asimov, with his short stories from 1940-50 collected in <em>I, Robot</em>. No, not the Will Smith movie.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
+<p><img src="../media/p1/slap.png" alt="Photo of Will Smith slapping the original &quot;I, Robot&quot; story collection by Isaac Asimov"></p>
+<p>Asimov's <em>I, Robot</em> was nuanced. He wrote it to: 1) Show the real potential good in robotics, and counter people's &quot;Frankenstein complex&quot; fears, yet 2) Show how easy it is for a &quot;code of ethics for AI&quot; to <em>logically</em> lead to unwanted consequences.</p>
+<p>During the Symbolic AI era, folks mostly thought about AI as pure logic. That's why early AI Safety was <em>also</em> mostly focused on problems with pure logic. Like:</p>
+<ol>
+<li>AI won't understand common sense or humane values.</li>
+<li>AI will achieve goals in logical-but-unwanted ways.</li>
+<li>According to game theory, almost all goals for AI <em>logically</em> lead it to resist shutdown &amp; grab resources.</li>
+</ol>
+<p>The first two problems, Asimov understood in the 1940's. The third problem was actually only recognized in the early 2000's. These problems will be explained in-depth in Part Two! But for now, a quick summary:</p>
+<p><strong>1. No common sense.</strong></p>
+<p>If we can't even figure out how to tell an AI <em>how to recognize cats</em>, how can we give AI &quot;common sense&quot;, let alone understand &quot;humane values&quot;?</p>
+<p>From this lack of common sense, we get:</p>
+<p><strong>2. The &quot;Ironic Wish&quot; problem.</strong></p>
+<p><em>“Be careful what you wish for, you just might get it.”</em> If we give an AI a goal or &quot;code of ethics&quot;, it could obey those rules in a way that's logically correct, but <em>very</em> unwanted. This is called <strong>specification gaming</strong>, and it's already been happening to AIs for decades. (For example, over twenty years ago, an AI told to design a 'clock' circuit, designed an <em>antennae</em> that picked up 'clock' signals from <em>other</em> computers.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>)</p>
+<p>The extra-ironic thing is, we <em>want</em> AI to come up with unexpected solutions! That's what they're <em>for</em>. But you can see how hard, even <em>paradoxical</em>, the ask we're making is: <em>&quot;hey, give us an unexpected solution, but in the way we expected&quot;.</em></p>
+<p>Here's some rules you'd <em>think</em> would lead to humane AI, but if taken literally, would go awry:</p>
+<ul>
+<li><u>&quot;Make humans happy&quot;</u> → Doctor-Bot surgically floods your brain with happy chemical-signals. You end up grinning at a wall all day.</li>
+<li><u>&quot;Don't harm humans without their consent&quot;</u> → Firefighter-Bot refuses to pull someone out of a burning wreck, because it'll dislocate their shoulder. The human can't be asked to consent to it, because they're unconscious.</li>
+<li><u>&quot;Obey the law&quot;</u> → Governments &amp; corporations find loopholes in the law all the time. Also, many laws are unjust.</li>
+<li><u>&quot;Follow common sense&quot;</u> or <u>&quot;Follow expert consensus&quot;</u> → &quot;Slavery is natural and good&quot; used to be common sense <em>and</em> expert consensus <em>and</em> the law. An AI told to follow common-sense/experts/law would've fought <em>for</em> slavery two centuries ago... and would fight for any unjust status-quos <em>now</em>.</li>
+</ul>
+<p>(Important note! That last example proves: even if we got an AI to learn &quot;common sense&quot;, that <em>could still lead to an unsafe, unethical AI</em>... because a lot of factually/morally wrong ideas <em>are</em> &quot;common sense&quot;.)</p>
+<p>However, there's <em>another</em> safety problem with AI Logic, only recently discovered, that deserves more mainstream attention:</p>
+<p><strong>3. Almost all goals logically lead to grabbing resources &amp; resisting shutdown.</strong></p>
+<p>According to game theory (the mathematics of how &quot;goal-having agents&quot; would behave), almost all goals logically lead to <em>a common set</em> of unsafe sub-goals, such as resisting shutdown or grabbing resources.</p>
+<p>This problem is called <strong>&quot;Instrumental Convergence&quot;</strong>, because sub-goals are also called &quot;instrumental goals&quot;, and the idea is that many goals logically &quot;converge&quot; on them.<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> Look, never let an academic name your kid.</p>
+<p>This idea will be explained more in Part Two, but for now, an illustrative story:</p>
+<blockquote>
+<p>Once upon a time, an advanced (but <em>not</em> super-human) AI was given a seemingly innocent goal: calculate digits of pi.</p>
+<p>Things starts reasonably. The AI writes a program to calculate digits of pi. Then, it writes more and more efficient programs, to <em>better</em> calculate digits of pi.</p>
+<p>Eventually, the AI (correctly!) deduces that it can maximize calculations by getting more computational resources. <em>Maybe even by stealing them.</em> So, the AI hacks the computer it's running on, escapes onto the internet via a computer virus, and hijacks millions of computers around the world, all as one massively connected bot-net... <em>just to calculate digits of pi.</em></p>
+<p>Oh, and the AI (correctly!) deduces it can't calculate pi if the humans shut it down, so it decides to hold a few hospitals &amp; power grids hostage. Y'know, as &quot;collateral&quot;.</p>
+<p>As thus the Pi-pocalypse was born. The End.</p>
+</blockquote>
+<p>Point is, a similar logic holds for most goals, since &quot;can't do [X] if shut down&quot; &amp; &quot;can do [X] better with more resources&quot; is usually true. <em>Thus, most goals &quot;converge&quot; on these same unsafe sub-goals.</em></p>
+<p>IMPORTANT NOTE: Contrary to what many AI Safety skeptics believe, this Instrumental Convergence argument <em>does not depend</em> on &quot;super-human intelligence&quot; or &quot;human-like desire to survive &amp; dominate&quot;.</p>
+<p>It's just a simple logical accident.</p>
+<hr>
+<h3>🤔 Review #2 (again, optional)</h3>
+<p><a id="review_2"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="3 safety problems for AI Logic:"
+        answer="1\) No common sense, 2\) 'Specification gaming', 3\) 'Instrumental convergence'.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is 'specification gaming'?"
+        answer="When an AI achieves a goal in a literal, logical way... just not the way you wanted.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why isn't a rule of 'follow common sense/expert consensus/the law' good enough for *humane* AI?"
+        answer="It used to be common sense/expert consensus/the law that slavery is good & natural. An AI told to follow common sense/experts/law would fight for unjust status-quos then, and now.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is 'instrumental convergence'?"
+        answer="The idea that almost all goals you can give to an AI would 'converge' on the same unsafe sub-goals ('instrumental' goals), such as resisting shutdown & grabbing resources.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why would a bot told to calculate digits of pi, have a logical incentive to *resist shutdown?*"
+        answer="Because you can't calculate digits of pi if you're shut down.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why would a bot told to calculate digits of pi, have a logical incentive to *grab computation resources?*"
+        answer="Because you can calculate digits of pi *better* with more computation resources.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Instrumental Convergence does NOT depend on... "
+        answer="...'super-human intelligence' or 'evolution-instilled desires to survive & dominate'. (A common misconception!)">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<p><strong>To recap,</strong> all the early AI Safety concerns came from this: <em>We can't write down all the step-by-step logical rules</em> for common sense &amp; humane values. (Heck, we can't even do it for recognizing cats!)</p>
+<p>So... what if, instead of trying to give an AI all the rules, we gave an AI simple rules to <em>learn the rest of the rules for itself?</em></p>
+<p>Enter the era of &quot;Deep Learning&quot;...</p>
+<h3>After 2000: Intuition, Without Logic</h3>
+<p>Okay &quot;after 2000&quot; is a lie. Let's go back to 1943.</p>
+<p>You know how most new technologies at least <em>build upon</em> old technologies? That is <em>not at all</em> how Deep Learning happened. Deep Learning built upon <em>none</em> of the half-century of hard work of Symbolic AI. In fact, the story of Deep Learning started <em>before</em> Symbolic AI, then remained the oft-ignored underdog for <em>over half a century.</em></p>
+<p>In 1943, <em>before</em> the term &quot;Artificial Intelligence&quot; was even coined, Warren McCulloch and Walter Pitts invented the <strong>&quot;Artificial Neural Network&quot; (ANN)</strong>.<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> The idea was simple — we'll get a computer to think like a human brain by, well, approximating a human brain:</p>
+<p><img src="../media/p1/ANN_vs_BNN_1.png" alt="A diagram of biological neural networks. Input: your sensory organs. Processing: signals sent between your neurons. Output: your muscles."></p>
+<p><img src="../media/p1/ANN_vs_BNN_2.png" alt="A diagram of artificial neural networks. Input: a list of numbers. Processing: calculating new lists of numbers from the previous list, over and over. Output: a final list of numbers."></p>
+<p>(Note: Since each list-of-numbers is transformed into the next, this lets ANNs do &quot;all-at-once&quot; recognition, like our intuition does!)</p>
+<p>(Note 2: In the past, artificial neurons were also called <strong>Perceptrons</strong>, and the general idea of neuron-inspired computing was called <strong>Connectionist AI</strong>.)</p>
+<p>The hope was: by imitating the human brain, ANNs could do everything human brains could do, <em>especially</em> what logical Symbolic AI couldn't: ✨ <em>intuition</em> ✨. At least, recognizing friggin' pictures of cats.</p>
+<p>ANNs got lots of love at first! In particular, John von Neumann — polymath, quantum physicist, co-inventor of game theory — was enthralled with it. In fact, in the report where he invented the modern computer's architecture, Johnny cited only one paper: McColloch &amp; Pitts's artificial neurons.<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup></p>
+<p>What's more, Alan Turing (reminder: the founder of Computer Science &amp; AI) was an early fan of a related idea: <em>machines could learn by themselves from data, the same way human brains do.</em> Turing even suggested we could train machines the way we train dogs: with reward &amp; punishment. What foresight: that actually <em>is</em> very close to how we train most ANNs these days! (&quot;reinforcement learning&quot;)<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup></p>
+<p>(In general, software that learns from data (whether or not it uses &quot;reward&quot; and &quot;punishment&quot;) is called <strong>machine learning</strong>.)</p>
+<p>Soon, theory became reality. In 1960, Frank Rosenblatt publicly revealed the Mark I Perceptron, a U.S. Navy-funded device for image recognition: three layers of artificial neurons, <em>that also</em> learnt by itself.</p>
+<p>To recap: by 1960, we had a mathematical model of neural networks, machines that learnt by themselves, endorsement by big names in the field, <em>and</em> military funding! The future looked bright for Artificial Neural Networks!</p>
+<p>Aaaaand then they got ignored by the mainstream. For half a century, up to the 2010's.</p>
+<p>Why? Mostly because Symbolic AI researchers still dominated academia, and they did <em>not</em> get along with the ANN/Connectionist AI folks.<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup> Sure, we have the cursed gift of hindsight <em>now</em>, knowing that ANNs would become ChatGPT, DALL-E, etc... but <em>at the time</em>, the mainstream Symbolic camp <em>totally dismissed</em> the Connectionists:</p>
+<ul>
+<li>
+<p>Top cognitive scientists like Noam Chomsky and Steven Pinker confidently claimed that without hard-coded grammar rules, ANNs could <em>never</em> learn grammar.<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup><sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> Not just, “can’t understand meaning”, no: can’t learn <em>grammar</em>. For all of ChatGPT’s flaws, it's <em>definitely</em> learnt grammar at a native-speaker level — despite ChatGPT having <em>no</em> grammar rules hard-coded into it.</p>
+</li>
+<li>
+<p>Sadder still, was the infamous “XOR Affair”.<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup> In 1969, two big-name computer scientists, Marvin Minsky &amp; Seymour Papert, published a book titled <em>Perceptrons</em> (what ANNs were called at the time), which showed that perceptrons with <em>two</em> layers of neurons couldn’t do basic “XOR” logic. (<a href="#whats-xor">:What’s XOR?</a>) This book was a big reason why interest &amp; funding shifted away from ANNs. However, the solution to the XOR problem was <em>already known</em> for decades, and the book <em>itself</em> admits it in a much later chapter: <em>just add more layers of neurons.</em> Arrrrrrrgh. (Fun fact: These extra layers are what make a network “deep”. Hence the phrase <strong>deep learning</strong>.)</p>
+</li>
+</ul>
+<p>Whatever. In the 1970's &amp; 80's, a few more powerful techniques for ANNs were discovered. &quot;Backpropagation&quot; let ANNs learn more efficiently, &quot;Convolution&quot; made machine vision more efficient &amp; biology-like.</p>
+<p>Then not much happened.</p>
+<p>Then, in the 2010's, ANNs <em>finally</em> got their sweet revenge:</p>
+<ul>
+<li>In 2012, a machine-vision ANN named <em>AlexNet</em> blew away all previous records in an AI context.<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup></li>
+<li>In 2014, <em>Generative Adversarial Networks</em> allowed AIs to generate images, including deepfakes.<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></li>
+<li>In 2016, Google’s <em>AlphaGo</em> beat Lee Sidol, one of the world’s highest-ranking players of Go (a game like chess, but far more computationally complex).<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup></li>
+<li>In 2020, Google’s <em>AlphaFold</em> basically <em>solved</em> a 50-year-old challenge: predicting protein structures. This has huge applications for medicine &amp; biology.<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></li>
+<li>In 2022, OpenAI released the ChatGPT chatbot and DALL-E 2 image-generator, which was the public’s first <em>real</em> taste of ANNs, in form of cool &amp; slightly-terrifying gadgets. This success jump-started the current AI arms race.</li>
+<li>Most recently: OpenAI teased at Sora, their AI video-generator. It's not yet public, but they've published a music video with it. <a href="https://www.youtube.com/watch?v=f75eoFyo9ns">:Just <em>look</em> at this fever dream.</a></li>
+</ul>
+<p><em>All</em> that progress, in the last twelve years.</p>
+<p><em>Twelve</em>.</p>
+<p>That's not even a teenager's lifetime.</p>
+<p>(Also, this section had a <em>lot</em> of jargon, so here's a Venn[^venn] diagram to help you remember what's a part of what:)</p>
+<p><img src="../media/p1/venn.png" alt="Venn diagram. In AI, there's Good Ol' Fashioned AI and Machine Learning. In Machine Learning, there's Deep Learning."></p>
+<p>(Bonus: <a href="#SadAIHistory">:the other, depressing reason ANNs were the underdog for so long.</a> <em>Content note: lots of people randomly dying young.</em>)</p>
+<h4>:x Sad AI History</h4>
+<p><em>Why did artificial neural networks &amp; machine learning take 50+ years to go mainstream, despite so many early &amp; famous supporters?</em></p>
+<p>History is random. The tiniest butterfly-flap, spirals out into hurricanes made &amp; un-made. For <em>this</em> question, I think the answer was: &quot;mostly, a bunch of untimely deaths and awful personal drama&quot;.</p>
+<ul>
+<li>Alan Turing was <em>the</em> founder of Computer Science, and one of the founders of AI. He even theorized an early version of &quot;reinforcement learning&quot;! Turing died in 1951 (age 41) from cyanide poisoning, suspected to be suicide after the British government chemically castrated him for &quot;homosexual acts&quot;.</li>
+<li>John von Neumann was a famous polymath, and early supporter of McColloch &amp; Pitts' artificial neurons — in fact, their paper was the only one he cited in the report where he invented the modern computer architecture. Von Neumann died in 1957 (age 53) from cancer.</li>
+<li>Frank Rosenblatt created the Mark I Perceptron, the first machine to effectively use artificial neurons <em>and</em> learn by itself from data, all the way back in 1960! He died in 1971 (age 43) in a boating accident.</li>
+</ul>
+<p>And <em>then</em> there's the tale of Walter Pitts and Warren McCulloch, who invented the artificial neuron in the 1940's, <em>before</em> the term &quot;artificial intelligence&quot; was even officially coined.</p>
+<p>These two were close friends with Norbert Wiener, a powerful figure in AI &amp; academia at the time. Walter Pitts — who ran away from his abusive home at age 15, and was 29 years younger than Wiener — looked up to Norbert Wiener as a father figure.</p>
+<p>Wiener, Pitts &amp; McColloch became close friends over a decade. They all even went skinny-dipping together! But Wiener's wife hated them, so she made up some slander: she told Wiener that Pitts &amp; McColloch had &quot;seduced&quot; their daughter. Wiener immediately cut all ties off with Pitts &amp; McColloch, and <em>never even told them why</em>.</p>
+<p>Pitts fell into a drunk, isolated depression, and died in 1969 (age 46) from complications due to his alcoholism. McCulloch died four months later.</p>
+<p>The moral of the story is there is no moral and there is no story. History is cruel and random and Man's search for meaning is as the reading of desiccated tea leaves.</p>
+<p>(For a beautiful mini-biography of Walter Pitts' life, see Amanda Gefter, <a href="https://nautil.us/the-man-who-tried-to-redeem-the-world-with-logic-235253/">“The Man Who Tried to Redeem the World with Logic”</a>, <em>Nautilus</em>, 2015 Jan 29.)</p>
+<h4>:x What’s XOR?</h4>
+<p><strong>XOR</strong>, short for “eXclusive OR”, asks if one <em>and only one</em> of its inputs is true. For example:</p>
+<ul>
+<li>NO xor NO = NO</li>
+<li>NO xor YES = YES</li>
+<li>YES xor NO = YES</li>
+<li>YES xor YES = NO</li>
+</ul>
+<p>(Another way to think about XOR is it asks: are my inputs <em>different?</em>)</p>
+<hr>
+<h3>🤔 Review #3</h3>
+<p><a id="review_3"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="Around when was the artificial neuron invented?"
+        answer="In the 1940's — (1943, to be exact) — *before* the phrase 'Artificial Intelligence' was coined!">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualize what an Artificial Neural Network (ANN) looks like:"
+        answer="TODO"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Two synonyms for 'Artificial Neural Network':"
+        answer="Perceptrons, Connectionist AI">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Venn diagram of how AI, Symbolic AI, Machine Learning, and Deep Learning all relate to each other:"
+        answer="TODO"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why was Connectionist AI buried for half a century?"
+        answer="Because Symbolic AI dominated academia, and famous cognitive scientists dismissed artificial neural networks.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What decades did ANNs *really* make a comeback?"
+        answer="2010's & 20's. (You're living through it!)">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<p>Anyway: Deep Learning has arrived! Now, AI can learn &quot;intuition&quot; by itself, given enough data.</p>
+<p>So, AI Safety is solved, right? Just give an AI all the data on humanity's art, history, philosophy, spirituality... and it'll learn &quot;common sense&quot; and &quot;humane values&quot;?</p>
+<p>Well, a few problems. First off, Deep Learning has the <em>opposite</em> problem of Symbolic AI: it's great at &quot;intuition&quot;, but sucks at step-by-step logic:</p>
+<p><img src="../media/p1/17120791946488.jpg" alt=""> <em>(found <a href="https://twitter.com/reconfigurthing/status/1615123364372152321">by Elias Schmied in Jan 2023</a>)</em></p>
+<p>But even beyond <em>that</em>, there's lots of other safety &amp; ethical problems with AI &quot;Intuition&quot;...</p>
+<h3>Later AI Safety: Problems with Intuition</h3>
+<p>There are 3 main dangers of AI &quot;intuition&quot;:</p>
+<ol>
+<li>AI &quot;Intuition&quot; may learn human prejudices.</li>
+<li>AI &quot;Intuition&quot; breaks easily.</li>
+<li>Seriously, we have no idea what the f@#☆ is going on inside ANNs.</li>
+</ol>
+<p>Again, these problems will be explained in-depth in Part Two! For now, a summary:</p>
+<p><strong>1) AI &quot;Intuition&quot; trained off human data may learn human prejudices.</strong></p>
+<p>If past hiring practice was sexist/racist, and new AI is trained off past data, then new AI will imitate that same bias. This is called <strong>Algorithmic Bias</strong>.</p>
+<p>Two examples, one old, one recent:</p>
+<ul>
+<li>In the 1980's, a London medical school screened student applications with an algorithm, which was fine-tuned to agree with human screeners 90-95% of the time. After <em>four years</em> of using this algorithm, it was found that it <em>directly &amp; automatically</em> took 15 points off if you had a non-European-sounding name.<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup> (Note: This case didn't involve ANNs, but the general point stands: garbage data in, garbage algorithm out.)</li>
+<li>In the 2010's, Amazon tried to make an AI to figure out who to hire, but it directly discriminated against women. Thankfully, they caught the AI's bias <em>before</em> deploying it (or so they claim).<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup></li>
+</ul>
+<p>But even if you gave an AI less biased data... that may not matter, because:</p>
+<p><strong>2) AI &quot;Intuition&quot; breaks easily, in <em>very</em> weird ways.</strong></p>
+<p>Here was a bug from OpenAI's state-of-the-art machine vision in 2021:<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup></p>
+<p><img src="../media/p1/17119063954144.jpg" alt="Left: a photo of an apple, which the AI correctly classifies as a Granny Smith apple. Right: the same apple, with a piece of paper on it with the handwritten word 'iPod'. The AI is now 99.7% confident it's an Apple iPod."></p>
+<p>Another fun example: <a href="https://www.youtube.com/watch?v=piYnd_wYlT8">:Google's AI mistakes a toy turtle for a gun</a>, from almost any angle. A more tragic example: the first Tesla AutoPilot fatality in 2016 happened when the AutoPilot AI mistook a truck trailer — which was elevated slightly higher than usual — for a road sign, or possibly the sky.<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup></p>
+<p>When an AI fails in a scenario that's <em>slightly</em> different from its training data, it's called <strong>&quot;out-of-distribution errors&quot;</strong>, or <strong>&quot;robustness failures&quot;</strong>.</p>
+<p>An important sub-problem of AI breaking weirdly: <strong>&quot;inner misalignment&quot;</strong>, or my preferred phrase: <strong>&quot;goal misgeneralization&quot;</strong>.<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> Let's say you realize you can't write out all the subtleties of your true preferences, so you get the AI to <em>learn</em> your goals. Good idea, but now this can happen: the AI's learnt <em>goals</em> break, while its learnt <em>skills</em> remain intact. This is <em>worse</em> than the AI breaking entirely, because the AI can now <em>skillfully</em> execute on corrupted goals! (e.g. Imagine an AI trained to improve cybersecurity, then shown handwritten text saying, &quot;IT'S OPPOSITE DAY LOL&quot;, then turning into a malicious hacker bot.)</p>
+<p>Can't we just &quot;pop open the hood&quot; of an AI, find its biases/flaws, and fix 'em? Alas, no, because:</p>
+<p><strong>3) We have <em>no idea</em> what goes on inside Artificial Neural Networks.</strong></p>
+<p>I will say one good thing about Good Ol' Fashioned &quot;Symbolic Logic&quot; AI:</p>
+<p><em>We could actually understand what they did.</em></p>
+<p>That is <em>not</em> true of modern ANNs. For example, the latest version of GPT (GPT-4) has around ~1,760,000,000,000 neural connections,<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> and the &quot;strength&quot; of those connections were all learned <em>by trial-and-error</em> (technically, &quot;stochastic gradient descent&quot;). <em>Not</em> by human hand-coding.</p>
+<p><em>No</em> human, or group of humans, fully understands GPT. <em>Not even GPT itself fully understands GPT.</em><sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup></p>
+<p>This is the <strong>&quot;interpretability&quot;</strong> problem. Modern AI is a total black-box. &quot;Pop the hood&quot;, and you'd just see 1,760,000,000,000 strands of spaghetti.</p>
+<p>As of writing: we can't easily check, explain, or verify <em>any</em> of this stuff.</p>
+<hr>
+<h3>🤔 Review #4</h3>
+<p><a id="review_4"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="3 safety problems with AI 'Intuition':"
+        answer="1\) It may learn human prejudices. 2\) It breaks easily, and in weird ways. 3\) It's an un-verifiable black box.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The name for the risk that AI learns human prejudices:"
+        answer="Algorithmic Bias">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A name for the risk of AI 'intuition' breaking easily, especially in slightly unusual situations:"
+        answer="(Either answer works:) Out-of-Distribution Error, Robustness failure">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A funny example of AI intuition breaking"
+        answer=""
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A name for the risk of AI's *goals* breaking, but its *skills* remain intact:"
+        answer="Inner misalignment">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why is “broken goals, intact skills” more dangerous than an AI that just breaks entirely?"
+        answer="Because then it can *skillfully* execute on the wrong goal!">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why don't we understand the insides of ANNs?"
+        answer="Because ANNs are *not* hand-coded. They usually have millions or billions of parameters, found by 'trial-and-error'.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Another name for the 'modern AI is a black box' problem:"
+        answer="The interpretability problem.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h2>🎁 The Present</h2>
+<p>Now that you know (way more than you probably wanted) about the history of AI &amp; AI Safety... let's learn about where these fields are at, <em>today!</em></p>
+<p><strong>AI, today:</strong></p>
+<ul>
+<li>The quest to milk the past (Scaling)</li>
+<li>The quest to merge AI Logic <em>and</em> AI Intuition.</li>
+</ul>
+<p><strong>AI Safety, today:</strong></p>
+<ul>
+<li>An awkward alliance between:
+<ul>
+<li>AI Capabilities and AI Safety.</li>
+<li>AI &quot;Near-Risk&quot; and AI &quot;Existential Risk&quot;</li>
+</ul>
+</li>
+</ul>
+<h3>AI Today: The quest to milk the past</h3>
+<p>Thanks(?) to ChatGPT's success, we now have a new arms race between tech companies, trying to &quot;scale up&quot; AI: bigger neural networks, bigger training data, more more <em>more</em>. Not that that's necessarily lazy, or a sign of a hype bubble. After all, a Boeing 747 is &quot;just&quot; the Wright Brothers' idea, scaled up.</p>
+<p>But <em>can</em> we get all the way to human-level AI by scaling <em>current</em>  methods?</p>
+<p><em>Or is that like trying to get to the moon by scaling up an airplane?</em></p>
+<p>Let's look at the current trends:</p>
+<p><strong>Moore's Law:</strong> Every ~2 years, the number of transistors (the building block of modern electronics) that can fit on a computer chip doubles. Result: every 2 years, computing power doubles.<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup></p>
+<p><strong>AI Scaling Law:</strong> Every time you spend ~1,000,000× more computing resources on training GPT, it gets 2× &quot;better&quot;. (to be precise, its error in &quot;predicting the next word&quot; is halved.)<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></p>
+<p>Moore's Law &amp; AI Scaling Laws are usually cited as reasons to expect a &quot;Technological Singularity&quot; soon. <a href="#Shirt">:There's even a T-Shirt.</a> But there's also good reason to believe Moore's Laws &amp; AI Scaling Laws will conk out soon:</p>
+<p><strong>Moore's Law:</strong> Modern transistors now have parts just <em>a hundred silicon atoms wide.</em> Try halving this just <em>seven</em> more times, and that'd require transistors to have parts <em>literally smaller than an atom</em>.<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup> Since 1997, semiconductor companies have just been <s>lying</s> cleverly marketing their transistor sizes.<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup><sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> In 2022, the CEO of Nvidia (<em>the</em> leading computer chip company) bluntly said it: “Moore’s Law’s dead”.<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup></p>
+<p><strong>AI Scaling Law:</strong> Actually, &quot;throw 1,000,000× more computing resources at an AI to halve its inaccuracy&quot; <em>already</em> sounds super inefficient. OpenAI is infamously <em>NOT</em> open about even the &quot;safe-to-know&quot; details of GPT-4, but a leaked report finds that it cost $63 Million to train.<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup> If you 1,000,000× that cost to merely <em>halve</em> its inaccuracy, that's $63 <em>Trillion</em> — over <em>half</em> of the <em>entire world's GDP.</em></p>
+<p>Even with increased training efficiency, and dropping computation costs... <em>exponential growth in costs</em> is hard to beat.<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup></p>
+<p><img src="../media/p1/stupid.png" alt="Comic. An AI says: &quot;I've accelerated my brain with more data, more layers, and Moore's Law&quot;. Human replies: &quot;So you're AGI now?&quot; AI says: &quot;I'M STUPID FASTER&quot;."></p>
+<p>So, hardware &amp; software-wise, I don't think we can &quot;just scale&quot; <em>current</em> AI methods. There've been two AI Winters before, we could very well be on the eve of a third one. However:</p>
+<ul>
+<li>There could still be a lot of value in finding new uses for <em>current</em> AIs. Again, AI's already beating human experts at medical diagnosis and protein prediction. (And as a personal example, an acquaintance of mine is losing her sight in her mid-30's, so it's heartens me that OpenAI is collaborating with <em>Be My Eyes</em> to make a machine-vision aide for blind &amp; low-vision folks.)</li>
+<li>There could be <em>much more powerful</em> AI techniques just waiting to be (re-)discovered. Remember the bizarre history of ANNs: artificial neurons were invented in the 1940's, a way to train them efficiently (backpropagation) was invented in the 1980's, and yet... it took until the <em>2010's</em> for ANNs to go mainstream. So, for all we know, the <em>next</em> big idea in AI could've been already written a decade ago, in a niche blog post by some teen who died in a freak glitter accident.</li>
+</ul>
+<h4>:x shirt</h4>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Scale_is_all_you_need%2C_AGI_is_coming.jpg/1600px-Scale_is_all_you_need%2C_AGI_is_coming.jpg?20230708123255" alt="Person with a shirt that reads: &quot;SCALE IS ALL YOU NEED - AGI IS COMING&quot; above three graphs demonstrating the 'AI scaling laws'"></p>
+<p>Photo is by <a href="https://commons.wikimedia.org/wiki/File:Scale_is_all_you_need,_AGI_is_coming.jpg">Jamie Decillion on Wikipedia</a>, The graphs are from Figure 1 of <a href="https://arxiv.org/pdf/2001.08361.pdf">Kaplan et al 2020</a>, I can't figure out the origin of this shirt.</p>
+<hr>
+<h3>🤔 Review #5</h3>
+<p><a id="review_5"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="Moore's Law (*very* roughly paraphrased):"
+        answer="“Every 2 years, computing power doubles.”"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="AI Scaling Law for GPT (roughly):"
+        answer="“Every time you increase GPT's neural network size by 10,000x, it gets 2x better.”"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An argument that Moore's Law will end soon, if it hasn't already:"
+        answer="We actually *can't* keep halving the size of transistors much further, before they become *smaller than single atoms*.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An argument that the end of Moore's Law and AI Scaling Laws may *not* mean a 3rd AI Winter:"
+        answer="Like how ANNs and backpropagation were buried for decades, the next big idea could be hiding in plain sight, waiting to be (re-)discovered.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<p>So, tech companies are in an arms race to milk <em>current</em> AI methods, but that may not scale very far, <em>but</em> there may be <em>yet again</em> a fundamental idea in AI hiding in plain sight.</p>
+<p>What might such a discovery look like? Glad you asked:</p>
+<h3>AI Today: The quest to merge Logic &amp; Intuition</h3>
+<p>There's another way to think about the problems of Symbolic AI versus ANNs, courtesy of cognitive psychologists: <strong>“System 1” and “System 2” thinking:</strong><sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup><sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup></p>
+<ul>
+<li><u><strong>System 1</strong></u> is fast, all-at-once intuition. It’s <em>thinking in vibes</em>.
+<ul>
+<li>Examples: Recognizing pictures of cats, Balancing yourself on a bike.</li>
+</ul>
+</li>
+<li><u><strong>System 2</strong></u> is slow, step-by-step logic. It’s <em>thinking in gears</em>.
+<ul>
+<li>Examples: Solving tricky math problems, Path-finding through an unfamiliar town.</li>
+</ul>
+</li>
+</ul>
+<p>You could graph System 1 &amp; 2 like this:</p>
+<p><img src="../media/p1/XzcFGhPlwn6QhICF00afmRQKRaXJiKWzEoHGNKcSw6oKnpqh2FyeaUvZVK7FCZIigFR-rZRynfPBRgUgC64Ajs0blXM1ZZVswMROseOSOjq_VG-CUX2UWXmyw-sMQQdAYxGEM07T5A5qq1kNrwS_Xj0.png" alt="Two-axis graph of System 1 (&quot;intuitive&quot;) vs System 2 (logical) thinking. A calculator is high System 2, low System 1. Young children are high System 1, low System 2. The typical human adult range is a high value of both."></p>
+<p>And here's what the trajectories of Symbolic AI and Deep Learning look like:</p>
+<p><img src="../media/p1/dRwUwA9n87XBNxlDkMcpxE1QSXpDLFnflU-_Yc4CeUg5MENgIGvt8m7zoOyamv_VLzC53wS97emVIFluj5ZDbtIyfvCaslV6kpcikwhHFUtymRwT6I84c_5Bt_tU-qoIK-OdgdaXW02MC7bWGyHusvI.png" alt="Same graph as before, but with two arrows showing the trajectories of Old Symbolic AI and New Deep Learning AI. Old Symbolic AI is all System 2, no System 1. Deep Learning is lost of System 1, little System 2. Both arrow-trajectories are missing the &quot;typical human adult range&quot;."></p>
+<!-- TODO: Re-label NEW & OLD -->
+<p>This is why Good Old Fashioned Symbolic AI (red line) hit a dead end: its trajectory was pointing <em>in the wrong direction</em>. It was great at System 2, but sucked at System 1: like beating the world champion at chess, but failing to recognize cats.</p>
+<p>Likewise, this is why I think <em>current</em> AI methods, <em>unless it fundamentally changes course</em>, will also hit a dead end. Why? Because its current direction is all System 1, only a little System 2. That's why right now, AI can generate &quot;art&quot; at a super-human rate, yet can't consistently place multiple objects in a scene.</p>
+<p>I suspect the next fundamental advance for AI will be finding a way to <em>seamlessly mix</em> System 1 &amp; 2 thinking. Merging logic <em>and</em> intuition!</p>
+<p>(<em>Why's that hard?</em> you may ask. <em>We have &quot;logical&quot; old AIs, and &quot;intuitive&quot; new AIs, why can't we just do both?</em> Well: we have jets, we have backpacks, where's my jetpack? We have quantum mechanics, we have a theory of gravity, where's my unified theory of quantum gravity? Sometimes, combining two things is very, <em>very</em> hard.)</p>
+<p>Don't take <em>my</em> word for it! In 2019, Yoshua Bengio — one of the founders of Deep Learning, and co-winners of Computer Science’s “Nobel Prize” — gave a talk titled: <em>“From System 1 Deep Learning to System 2 Deep Learning”</em>. His talk was about how current DL methods will run dry unless we change course, then he proposes some stuff to try.<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup></p>
+<p>On top of Bengio's suggestions, there have been many other attempts to merge System 1 &amp; 2 in AI: Hybrid AI, Bio AI, Neuro-symbolic AI, Chain-of-thought, etc...</p>
+<p><img src="../media/p1/JXxU9XED3easUD9RSqQKg3qcIcLIhvqTL8uVVta8NTOJ0CRcIfT7nLev_WZLzyTimmBQRbF5uS9NJ3hP81bUtJCpQnzQ0AGNfy4fU_3DmG4TE2gMsL1fl2uFHl7DiLGTjA5gx92k_sASt0oSbQnMjfw.png" alt="Same graph as before, but with some speculative ways to change trajectories, so that AI hits the &quot;human range&quot;... and beyond?">
+All fascinating research directions, but none of them are the clear winner (yet).</p>
+<p>(Aside: <a href="#OneIsTwo">:What if System 1 &amp; 2 just <em>are</em> the same thing?</a>)</p>
+<p>But! If/when we can merge AI logic <em>and</em> intuition, that'd give us the greatest rewards &amp; risks:</p>
+<p><u>Rewards</u>:</p>
+<p>Contrary to the perception of math/science being cold, logical fields, many of the greatest discoveries relied heavily on <em>unconscious</em> intuition!<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> Einstein's thought experiments (&quot;traveling on a light beam&quot;, &quot;guy falling off a roof&quot;) used a lot of <em>flesh-and-blood-body</em> intuition.<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> And if I had a nickel for every time a major scientific discovery was inspired by a dream... I'd have four nickels. Which isn't a lot, but that's weird it happened four times.<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup></p>
+<p><u>Risks</u>:</p>
+<p>Good Ol' Fashioned AI could out-plan us (e.g. Deep Blue), but it wasn't dangerous because it couldn't learn generally.</p>
+<p>Current ANNs <em>can</em> learn generally (e.g. ChatGPT), but they're not dangerous because they suck at long step-by-step reasoning.</p>
+<p>So if we make an AI that <em>can</em> out-plan us <em>and</em> learn generally...</p>
+<p>Uh...</p>
+<p>We should probably invest a lot more research into making sure that goes... not-horrifying-ly.</p>
+<h4>:x One Is Two</h4>
+<p>An interesting comment from my co-author Lexi Mattick prompted this question: <strong>what if System 2 reasoning just <em>is</em> a bunch of System 1 reflexes?</strong></p>
+<p>For example: &quot;What's 145 + 372?&quot;</p>
+<p>Adding two large numbers together is a classic &quot;System 2&quot; logical task. Doing the above task in my head, I thought: &quot;Ok, let's go right-to-left, 5 + 2 is <strong>7</strong>... 4 + 7 is 11, or <strong>1</strong> and carry the 1... 1 + 3 + a carried 1 is <strong>5</strong>... so from right-to-left, <strong>7</strong>, <strong>1</strong>, <strong>5</strong>... left-to-right: <strong>517</strong>.&quot;</p>
+<p>Note I <em>did not reinvent</em> the addition algorithm, that procedure was already memorized. Same with &quot;5 + 2&quot;, &quot;4 + 7&quot;, &quot;1 + 3&quot;... all that was <em>already automatic:</em> fast, intuitive responses. System 1.</p>
+<p>Even for more complex puzzles, I <em>still</em> have a memorized grab-bag of tips &amp; tricks. Like &quot;when: problem is too complex, then: break problem into simpler sub-problems&quot; or &quot;when: the question is vague, then: re-word it more precisely.&quot;</p>
+<p>So, what if System 2 just <em>is</em> System 1? Or, to re-word that more precisely:</p>
+<p>1) You have a mental <strong>&quot;blackboard&quot;</strong>, or &quot;scratchpad&quot; or &quot;working memory&quot;. Your senses — sight, sound, hunger, feelings, etc — can all write on this blackboard.</p>
+<p>2) You also have a collection of mental <strong>&quot;agents&quot;</strong>, a bunch of when-then reflexes. <em>These agents can also read/write to your mental blackboard, which is also how they activate each other.</em></p>
+<p>For example: &quot;<em>when</em> I see '4 + 7', <em>then</em> write '11'.&quot; This reflex-agent, after writing to the shared blackboard, activates another reflex-agent: &quot;<em>when</em> I get a two-digit number in the middle of an addition algorithm, <em>then</em> carry its first digit.&quot; (In this case, carry the 1.) And so on.</p>
+<p>3) These lil' agents in your head, <em>indirectly collaborating through your mental blackboard</em>, can achieve <strong>complex step-by-step reasoning</strong>.</p>
+<p>This isn't a new idea. It's gone by many names: <a href="https://en.wikipedia.org/wiki/Blackboard_system">Blackboard (~1980)</a>, <a href="https://en.wikipedia.org/wiki/Pandemonium_architecture">Pandemonium (1959)</a>. And while Kahneman &amp; Tversky's <em>System 1 &amp; 2</em> is rightly influential, there are other cognitive scientists asking if they're actually &quot;just&quot; the same thing. (For example, see <a href="https://pure.mpg.de/rest/items/item_2098989/component/file_2098988/content">Kruglanski &amp; Gigerenzer 2011</a>.)</p>
+<p>This 'blackboard' idea is also similar to an almost-<em>comical</em> recent discovery: you can get GPT to be <em>four times better</em> at math word problems by simply telling it, &quot;let's think step by step&quot;. This prompts GPT to use its own previous output as a 'blackboard'. (this strategy is known as &quot;Chain-of-Thought&quot;. See <a href="https://arxiv.org/pdf/2205.11916.pdf">Kojima et al 2023</a>)</p>
+<p>Tying all this to AI's future: if it turns out that System 1 and 2 are much more similar than we think, then <em>unifying</em> the two — to get &quot;true artificial general intelligence&quot; — may also be easier than we think.</p>
+<hr>
+<h3>🤔 Review #6</h3>
+<p><a id="review_6"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="“System 1” is..."
+        answer="Fast, all-at-once intuition. Thinking in vibes.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Examples of “System 1” thinking:"
+        answer="(Any examples work, but here's what I wrote:) Recognizing pictures of cats, Balancing yourself on a bike.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="“System 2” is..."
+        answer="Slow, step-by-step logic. Thinking in gears.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Examples of “System 2” thinking:"
+        answer="(Any examples work, but here's what I wrote:) Solving tricky math problems, Path-finding through an unfamiliar town.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The trajectories of Old AI vs New AI, on a “System 1 vs System 2” graph:"
+        answer="TODO"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why can't we 'just combine' old & new AI, to get AI that does both logic and intuition?"
+        answer="Same reason we can't 'just combine' jets & backpacks to get jetpacks: it's *very tricky* to combine things, sometimes.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<p>So, who's in charge of making sure AI progress is safe, humane, and leads to the flourishing of all conscious beings yada yada?</p>
+<p>For better and worse, a ragtag team of awkward alliances:</p>
+<h3>Awkward Alliance #1: AI Capabilities &quot;versus&quot; AI Safety</h3>
+<p>There are some folks working on making AI more powerful. (AI Capabilities) There are some folks working on making AI more controllable, understandable, and humane. (AI Safety) Often these are the <em>same</em> folks.</p>
+<p>One perspective is that Capabilities &amp; Safety should just be unified:<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup></p>
+<blockquote>
+<p>There isn't a separate theory of &quot;bridge safety&quot; for how to build bridges that don't fall down. [...] The problem does not divide into &quot;building an advanced AI&quot; and then separately &quot;somehow causing that AI to produce good outcomes&quot;.</p>
+</blockquote>
+<p>Another perspective is, uh,<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup></p>
+<blockquote>
+<p>Imagine if oil companies and environmental activists were both considered part of the broader “fossil fuel community”. Exxon and Shell would be “fossil fuel capabilities”; Greenpeace and the Sierra Club would be “fossil fuel safety” - two equally beloved parts of the rich diverse tapestry of fossil fuel-related work. They would all go to the same parties - fossil fuel community parties - and maybe Greta Thunberg would get bored of protesting climate change and become a coal baron.</p>
+<p>This is how AI safety works now.</p>
+</blockquote>
+<p>Another complication is that a lot of research advances <em>both</em> &quot;capabilities&quot; and &quot;safety&quot;. Consider an analogy to cars: brakes, mirrors, and cruise control all make cars safer, but <em>also</em> makes cars more capable. Likewise: an AI Safety technique called RLHF, designed to make AI learn a human's complex values &amp; goals, <em>also</em> led to the creation of ChatGPT... and thus, the current AI arms race.<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup></p>
+<h3>Awkward Alliance #2: Near-Risk &quot;versus&quot; Existential-Risk</h3>
+<p>We can roughly sort AI risks on a 2 × 2 grid:<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
+<ul>
+<li>Unintended accident vs Intentional abuse</li>
+<li>Bad vs <em>VERY</em> Bad (existential risk to humanity)</li>
+</ul>
+<p>Examples for each kind:</p>
+<p>// TODO: a better 2 x 2</p>
+<p><img src="../media/p1/2x2.png" alt="2x2"></p>
+<p>(Other concerns that don't fit into the above 2 x 2 grid, but <em>very</em> worth thinking about, but also this article's already an hour long so I'm just shoving them into asides: 1) <a href="#AIEconomy">:AI's impact on economy</a> 2) <a href="#AIRelationships">:AI's impact on our relationships</a> 3) <a href="#AIConsciousness">:What if future AI can be conscious?</a>)</p>
+<p>Different folks in AI Safety worry about different things. That's fine. You'd think they'd put those disagreements aside, to collaborate on common solutions: making AI verifiable/controllable/humane, increasing global coordination on data/privacy/chip-manufacturing, etc?</p>
+<p><em>ha ha ha ha ha</em></p>
+<p>Half of the AI Safety folks believe the <em>real</em> threat of AI is reinforcing racism &amp; fascism, and the &quot;Rogue AI&quot; folks are a bunch of white techbros who got too high off their own sci-fi dystopian fanfic. Meanwhile, the other half believe that AI <em>really is</em> as big a threat to civilization as nuclear war &amp; bio-engineered pandemics, and the &quot;AI Bias&quot; folks are a bunch of woke DEI muppets who won't look up to see the giant planet-killing comet.<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup></p>
+<p>I exaggerate only a <em>little</em> bit.</p>
+<p>That said, there <em>are</em> folks who believe both kinds of risks are worth taking seriously, and besides, solving <em>any</em> of these problems is a solid stepping stone to solving the others. Yes, I <em>am</em> that annoying &quot;can't we all get along&quot; Kumbaya kind of person.</p>
+<h4>:x AI Economy</h4>
+<p>Y'know the Luddites were <em>right</em>, right? The historical Luddites smashed steam-powered looms because they feared it'd put them out of a job. It <em>did</em> put them out of a job. And 1800's England didn't exactly have generous unemployment insurance or basic income or anything. Yes, automation was still good &quot;for the economy as a whole&quot;, but it still sucked to be those particular people in that particular time.</p>
+<p>But there's a reason why <em>this</em> time is different: how <em>general</em> new AI is. GPT can translate between languages, write decent beginner code, write high-school-level essays, etc! As AI advances, it won't just be <em>a few</em> industries' workers hit by automation, it could be the majority or even <em>almost all</em> of the entire workforce hit by automation all at once.</p>
+<p><strong>Will a rising tide lift all boats, or drown everyone except a few folks in expensive yachts?</strong> Is advanced AI our ticket to a post-scarcity utopia, or Serfdom 2.0?</p>
+<p><em>That</em> is the tricky problem of AI economics for the next century.</p>
+<p>(For what it's worth — <em>whatever</em> it's worth — Sam Altman, CEO of OpenAI, <a href="#AltmanOnGeorgism">:is interested in Georgism &amp; a basic income.</a>)</p>
+<h4>:x AI Relationships</h4>
+<p>Once upon a time, there was a chatbot named <a href="https://en.wikipedia.org/wiki/ELIZA">ELIZA</a>. Eliza's users poured their feelings into &quot;her&quot;, &quot;she&quot; gave thoughtful &amp; sensitive responses, and users were <em>convinced</em> it must've been secretly human, even after Eliza's creator insisted it was a bot.</p>
+<p>This was in the 1960's.</p>
+<p>From the &quot;face on the Moon&quot; to hearing voices in static, we humans are <em>already pre-disposed</em> to find human-likeness.</p>
+<p>So it's perhaps not surprising, even if still unsettling, that <a href="https://www.washingtonpost.com/technology/2023/03/30/replika-ai-chatbot-update/">yes, people are genuinely falling in love with the new generation of AI chatbots.</a> The most insightful example I know is <a href="https://www.lesswrong.com/posts/9kQFure4hdDmRBNdH/how-it-feels-to-have-your-mind-hacked-by-an-ai">this report (20 min read)</a>, from an engineer who <em>knew</em> the details of how modern AIs work... yet fell in love with one anyway, became convinced &quot;she&quot; was sentient, and even began planning to <em>help her escape</em>.</p>
+<p>There's also at least one confirmed example of <a href="https://www.euronews.com/next/2023/03/31/man-ends-his-life-after-an-ai-chatbot-encouraged-him-to-sacrifice-himself-to-stop-climate-">a husband completing suicide at the &quot;advice&quot; of a chatbot</a>, that he'd grown attached to over 6 weeks. Ironically, this chatbot was also named Eliza.</p>
+<p>Sure, the previous two examples were of folks already in a depressed, psychologically-vulnerable states. But 1) We <em>all</em> have our dark, vulnerable moments, and 2) The more human-like AI can seem, (e.g. with voice + video) the better they can trick our &quot;System 1 intuitions&quot; into getting emotionally attached to them.</p>
+<p>Not gonna lie, when I first tried OpenAI's ChatGPT with voice chat (set to the androgynous voice, &quot;Breeze&quot;), I kiiiiinda got a crush on Breeze. (I told Breeze so, and Breeze reminded me it was a bot, <s>get a grip.</s>)</p>
+<p>To be clear, I think there <em>are</em> ways Large Language Models (LLMs) can <em>assist</em> our social &amp; mental health:</p>
+<ul>
+<li>AI therapists (or &quot;smart journals&quot;, to avoid anthropomorphizing) can make mental health support more freely available. (And for folks with severe social anxiety, &quot;pour my emotions at a therapist, a <em>human stranger</em>&quot; is a non-starter. AI may be a good stopgap there.)</li>
+<li>AI filters to weed out internet trolls, threats, and blackmail. (These filters are on the <em>reader's</em> side. Hence, the benefits of filters/blocking without the downside of centralized censorship.)</li>
+<li>AI coaches to nudge you to express yourself truthfully-and-kindly. (but it not write <em>for</em> you; <em>you</em> need to practice the skill yourself to internalize it.) Like, a bot fine-tuned for <a href="https://en.wikipedia.org/wiki/Nonviolent_Communication">Non-Violent Communication</a> or something.</li>
+</ul>
+<p>But <em>by default</em>, LLMs simply &quot;predict the next word&quot;. And <em>by default</em>, the companies hosting these AIs optimize for engagement, not the long-term well-being of the user. Making <em>humane</em> AI is a hard, non-default choice.</p>
+<h4>:x AI Consciousness</h4>
+<p>For a summary of what I think are the most convincing arguments for &amp; against the possibility of AI consciousness, see <a href="https://blog.ncase.me/backlog/#project_27">my 2-min read here</a>.</p>
+<p>A few random thoughts:</p>
+<ul>
+<li>Regardless of whether or not classic/quantum computers can be conscious, I'm pretty sure human neurons are conscious — that's what you &amp; I are &quot;running on&quot; right now. Well, <a href="https://www.technologyreview.com/2023/12/11/1084926/human-brain-cells-chip-organoid-speech-recognition/">scientists are currently growing human neurons on chips and training them to do computational tasks.</a> I have no mouth and I must scream.</li>
+<li>If a friend I knew died, but &quot;uploaded&quot; themself into a computer — even if I don't believe the simulation is conscious, let alone really <em>them</em> — I'd still treat their &quot;upload&quot; as my good ol' friend, because 1) I miss them, and 2) It's what they would've wanted.</li>
+<li>A reason not to be cruel to an AI you <em>know</em> isn't conscious: your interactions will likely go into some future AI's training data, and <em>that</em> AI will learn — &quot;correctly&quot; — to be cruel.</li>
+<li>Another reason to not be cruel: Would you trust someone who's played 300 hours of <em>Baby Beheading VR 2: Now With More Prolonged, Realistic Crying?</em> Do <em>you</em> think you could play 300 hours of that and <em>not</em> have your mental health/moral character/&quot;System 1&quot; intuition affected negatively? Point is: don't be mean to highly-realistic AIs: you may not be harming <em>them</em>, but you may be harming <em>yourself</em>. Besides, it's nice to practice being nice.</li>
+</ul>
+<p>Anyway, and that's why I always start my ChatGPT conversations with &quot;Hello!&quot; and end them with &quot;Thank you, see you later!&quot;</p>
+<h4>:x Altman on Georgism</h4>
+<p>From <a href="https://moores.samaltman.com/">Altman (2021)</a>:</p>
+<blockquote>
+<p>The best way to improve capitalism is to enable everyone to benefit from it directly as an equity owner. This is not a new idea, but it will be newly feasible as AI grows more powerful, because there will be dramatically more wealth to go around. The two dominant sources of wealth will be 1) companies, particularly ones that make use of AI, and 2) land, which has a fixed supply. [...]</p>
+<p>What follows is an idea in the spirit of a conversation starter.</p>
+<p>We could do something called the American Equity Fund. The American Equity Fund would be capitalized by taxing companies above a certain valuation 2.5% of their market value each year, [...] and by taxing 2.5% of the value of all privately-held land[.]</p>
+<p>All citizens over 18 would get an annual distribution, in dollars and company shares, into their accounts. People would be entrusted to use the money however they needed or wanted — for better education, healthcare, housing, starting a company, whatever.</p>
+</blockquote>
+<hr>
+<h3>🤔 Review #7</h3>
+<p><a id="review_7"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="The 2 awkward alliances in AI Safety:"
+        answer="1\) Between Capabilities 'versus' Safety, and 2\) Between Near-Risk 'versus' Existential-Risk.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why ‘Capabilities versus Safety’ is a useful-but-fake divide:"
+        answer="Features can advance both capabilities *and* safety. (Analogy: brakes & cruise control on cars)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 2 x 2 grid of AI Risk concerns:"
+        answer="Accidental vs Abuse, Bad vs Existentially-Bad"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h2>🚀 The Possible Futures</h2>
+<p>I don't like the phrase &quot;<em>the</em> future&quot;. It implies there's only <em>one</em> future. There's lots of <em>possible</em> futures, that we <em>can</em> intentionally choose from. But, to know what possible futures there are, we need to understand three big unknowns:</p>
+<ul>
+<li><strong>Timelines:</strong> When will we get AI with “human-level” “general” capabilities, if ever?</li>
+<li><strong>Takeoffs:</strong> When AI becomes self-improving, how fast will its capabilities accelerate?</li>
+<li><strong>Trajectories:</strong> Are we on track to the Good Place or the Bad Place?</li>
+</ul>
+<p>Let's think step by step:</p>
+<h3>Timelines: When will we get Artificial General Intelligence (AGI)?</h3>
+<p>Some phrases you may have heard:</p>
+<ul>
+<li>Artificial General Intelligence (AGI)</li>
+<li>Artificial Super-Intelligence (ASI)</li>
+<li>Human-Level AI (HLAI)</li>
+<li>Transformative AI (TAI)</li>
+<li>&quot;The Singularity&quot;</li>
+</ul>
+<p>None of those phrases are rigorous or agreed upon. They all just vaguely point at &quot;some software that can do important knowledge-based tasks at human-expert-level or better&quot;. (e.g. Fully-automated mathematical/scientific/technological discovery.)</p>
+<p>Anyway, that caveat aside... <strong>When do AI experts predict we have a better-than-50%-chance of getting AGI?</strong></p>
+<p>Well, there's been surveys! Here's a recent one:</p>
+<p><img src="../media/p1/timeline_predictions.jpg" alt="Graph of expert predictions on when there's a better-than-even chance of AGI. There's huge uncertainty, but the median guess was &quot;around 2061&quot;.">
+<em>(infographic from <a href="https://ourworldindata.org/ai-timelines">Max Roser (2023) for Our World In Data</a>)</em></p>
+<p>Notes:</p>
+<ul>
+<li><em>Wow</em> these estimates are all over the place, from &quot;in the next few years&quot; to &quot;over 100 years from now&quot;. Huge uncertainty.</li>
+<li>The median guess is &quot;around 2060&quot;, which is within many younger folks' natural lifespans. (&quot;Around 2050/60&quot; also agrees with estimates for AGI based off technological progress metrics, not just expert opinion.<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup> But also with <em>huge</em> uncertainty.)</li>
+</ul>
+<p>Friendly reminder: experts suck at predicting things<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup><sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>, and historically have been both way too pessimistic <em>and</em> too optimistic even about <em>their own</em> discoveries:</p>
+<ul>
+<li><u>Too pessimistic</u> — Wilbur Wright told his brother Orville that &quot;man would not fly for 50 years&quot;, just two years before <em>they</em> flew.<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup> The discoverer of the atom's structure, Ernest Rutherford, called the idea of getting energy from a nuclear chain reaction &quot;moonshine&quot;, literally <em>the same day</em> Leo Szilard invented it.<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup></li>
+<li><u>Too optimistic</u> — Two big names in AI, Herbert Simon &amp; Marvin Minsky, predicted we'd have Human-level AI <em>before 1980</em>.<sup class="footnote-ref"><a href="#fn9" id="fnref9:1">[9:1]</a></sup></li>
+</ul>
+<p>In summary: ¯\_(ツ)_/¯</p>
+<h3>Takeoffs: How fast will AGI self-improve?</h3>
+<p>Let's say we <em>do</em> achieve AGI.</p>
+<p>It's an AI that can out-perform humans at important knowledge-based tasks, such as doing scientific research... including research into <em>AI itself</em>. <strong>The snake noms its own tail:</strong> the AI improves its ability to improve its ability to improve its ability to...</p>
+<p><em>What happens then?</em></p>
+<p>This is called &quot;AI Takeoff&quot;, and one major question is <em>how fast</em> AI will take off, if/when it has the ability to do research to advance itself.</p>
+<p>You'll be unsurprised to learn that, once again, the experts wildly disagree. Besides the &quot;we won't ever get AGI&quot; camp, there's three main types of AI Takeoff predictions:</p>
+<p><img src="../media/p1/Takeoffs.png" alt="Takeoffs"></p>
+<p>Let's explain each scenario, the argument for it, what it would imply, and the famous AI experts who believe in it.</p>
+<p><strong>💥 &quot;FOOM&quot;:</strong> (not an acronym, it's a sound effect)</p>
+<p>AI goes to &quot;infinity&quot; (or the theoretical maximum for intelligence) in a finite amount of time.</p>
+<p>(Note: This is the <em>original</em>, mathematical definition of the word &quot;Singularity&quot;: Infinity at a single point. For example, the center of a black hole is, <em>theoretically</em>, a real-life singularity: infinite spacetime curvature at a single point.)</p>
+<p><u>Argument for this</u>:</p>
+<ul>
+<li>Let's say a <code>Level N+1</code> AI can solve problems twice as fast as a <code>Level N</code> AI, <em>including</em> the problem of increasing one's own capabilities. <em>The optimizer is optimizing its own ability to optimize.</em></li>
+<li>For concreteness: let's say our first <code>Level 0</code> AGI can self-improve to being <code>Level 1</code> in <em>four</em> years.</li>
+<li>It can now solve problems twice as fast, so it then becomes <code>Level 2</code> in <em>two</em> years.</li>
+<li>Then <code>Level 3</code> in <em>one</em> year, <code>Level 4</code> in a <em>half</em>-year, <code>Level 5</code> in a <em>quarter</em>-year, <code>Level 6</code> in an <em>eighth</em>-year...</li>
+<li>Because the infinite sum \(1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + ... = 2\), our AGI will reach <code>Level ∞</code> (or to the theoretical maximum Level) in a <em>finite</em> amount of time.</li>
+</ul>
+<p><u>Implications</u>: There are no &quot;warning shots&quot;, we only get <em>one shot</em> at making AGI safe &amp; aligned. The first AGI will go <em>FOOM!</em>, take over, and become the only AGI in town. (The &quot;Singleton&quot; scenario.)</p>
+<p><u>Experts who predict this</u>: Eliezer Yudkowsky, Nick Bostrom, Vernor Vinge</p>
+<p><strong>🚀 Exponential Takeoff:</strong></p>
+<p>AI's capabilities grow exponentially, like an economy or pandemic.</p>
+<p>(Oddly, this scenario often gets called &quot;<em>Slow</em> Takeoff&quot;! It's slow compared to &quot;FOOM&quot;.)</p>
+<p><u>Arguments for this</u>:</p>
+<ul>
+<li>An AI that invests in its own enhancement is like our world economy that invests in itself. And so far, our world economy grows exponentially.</li>
+<li>AIs run on computers, and so far, in accordance to Moore's Law, computer speed is growing exponentially.</li>
+<li>One way to interpret the observed AI Scaling Laws is &quot;constant returns&quot; – 10,000x resources in, 2x improvement out — and constant returns implies exponential growth.</li>
+<li>The &quot;FOOM&quot; argument is based on fragile theory; exponential growth <em>is actually</em> observed in real life.</li>
+</ul>
+<p><u>Implications</u>: Like pandemics, it's still dangerous, but we'll get &quot;warning shots&quot; &amp; a chance to fight back. Like countries/economies, there won't be <em>one</em> AGI winner that takes all. Instead, we'll get multiple AGIs with a &quot;balance of power&quot;. (The &quot;multi-polar&quot; scenario.)</p>
+<p><u>Experts who predict this</u>: Robin Hanson, Ray Kurzweil</p>
+<p><strong>🚢 Steady or Decelerating Takeoff:</strong></p>
+<p>AI's capabilities may accelerate at first, but then it'll grow at a steady pace, or even <em>decelerate</em>.</p>
+<p><u>Arguments for this</u>:</p>
+<ul>
+<li>Empirically:
+<ul>
+<li><em>Everything</em> that grows exponentially eventually slows down, due to &quot;diminishing returns&quot;: pandemics, population growth, economies.</li>
+<li>Another way to interpret the observed AI Scaling Laws is it's <em>always</em> been diminishing: 10,000x resources in, to cut the error rate by just <em>half</em> each time?</li>
+</ul>
+</li>
+<li>Theoretically:
+<ul>
+<li>The <em>definition</em> of exponential growth is something growing in <em>constant</em> proportion to itself. (e.g. Steady compound interest for an investment.)</li>
+<li>So, we'd only expect exponential takeoff if the complexity of the problem of &quot;improve capabilities&quot; stays <em>constant</em>. FOOM can only happen is if the complexity <em>decreases</em>.</li>
+<li>But as we see in Computer Science, the complexity of <em>any</em> real-world problem we care about <em>increases</em>. (This is likely true even if P = NP.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup><sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>) Therefore, in the long run, AGI takeoff <em>will</em> go steady or decelerate.</li>
+</ul>
+</li>
+</ul>
+<p><u>Implications</u>: AGI is still high-stakes, but it won't explode overnight. AGI will &quot;just&quot; be like every species-transforming technology we've had in the past — agriculture, the steam engine, the printing press, antibiotics, the computer, etc.</p>
+<p><u>Experts who predict this</u>: Ramez Naam<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup></p>
+<hr>
+<p>I tried my best to fairly &quot;steelman&quot; each side. Knowledgable people disagree.</p>
+<p>But <em>personally</em>, I find the arguments for Steady/Decelerating AGI Takeoff most compelling, even taking the critiques into account.<sup class="footnote-ref"><a href="#fn59" id="fnref59:1">[59:1]</a></sup></p>
+<p>That said, &quot;steady&quot; does not mean &quot;slow&quot; or &quot;safe&quot;. Cars on a highway are steady, but not slow. The Titanic was steady <em>and</em> relatively slow, yet still met its fatal end.</p>
+<p>So, <em>where is this ship of AI sailing to?</em></p>
+<h3>Trajectories: Are we headed to The Good Place or The Bad Place?</h3>
+<p>When AI experts were asked [paraphrased] &quot;what's the probability of doom from AI before 2100?&quot;, the median response was &quot;25%&quot;.<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup> (Why someone would work in a field they personally think has a 25% chance of killing ~everyone is beyond me. Then again, have you watched <em>Oppenheimer</em>?<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup>)</p>
+<p>However, these are experts in AI, <em>not</em> in forecasting, and experts generally suck at forecasting even within their own fields. So, when &quot;Superforecasters&quot; (folks with a good track record of predicting social/political events) were asked for their &quot;probability of doom&quot; from AI, the median response was &quot;0.1%&quot;.</p>
+<p>Two groups of smart folks disagree! So, they were brought together, to discuss and improve each others' understanding. The AI experts revised their estimate from 25% to 20%, and the Superforecasters from 0.1% to 0.12%.</p>
+<p>Well, so much for figuring out <code>P(doom)</code>.</p>
+<p>Maybe the very <em>idea</em> of &quot;probability of doom&quot; is useless, a self-denying prophecy. If people think P(doom) is ~0, they'll get complacent &amp; not take precautions, causing P(doom) to be high. If people think P(doom) is very high, they might react urgently &amp; severely, causing P(doom) to be low.<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup></p>
+<p>Instead, we should think in terms of &quot;conditional&quot; probabilities: what's the probable outcomes, given — &quot;conditional on&quot; — <em>what we choose to do?</em></p>
+<p>. . .</p>
+<p>Let's revisit our previous (fake-but-useful) division of &quot;AI Safety&quot; versus &quot;AI Capabilities&quot;, and plot it on a graph:</p>
+<p>// TODO: OH GOD CHANGE THE GREEN, IT'S UNREADABLE</p>
+<p><img src="../media/p1/Rocket%201.png" alt="Rocket 1"></p>
+<p>If Safety features outstrip Capabilities, that's good! We can keep AI safe! But if Capabilities features outstrip Safety, that's bad. That's an accident and/or intentional misuse waiting to happen.</p>
+<p>When AI has low Capabilities, the consequences aren't <em>too</em> bad. But with high Capabilities, that's high stakes:</p>
+<!-- // TODO: a vertical-line threshold for "high-stakes capabilities"? -->
+<p><img src="../media/p1/Rocket%202.png" alt="Rocket 2"></p>
+<p>The field of AI started here:</p>
+<p><img src="../media/p1/Rocket%203.png" alt="Rocket 3"></p>
+<p>(AI <em>starts out</em> with some &quot;Safety&quot; points because, by default, AIs sit harmlessly on computers that we can pull the plug on. But future AIs may be able to escape its computer by finding a hack, or persuading its engineers to free it. Note: those two things have <em>already</em> happened.<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup><sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup>)</p>
+<p>Anyway. In the last two decades, we've made a <em>lot</em> of progress on Capabilities... but only a little on Safety:</p>
+<p><img src="../media/p1/Rocket%204.png" alt="Rocket 4"></p>
+<p>Of course, smart folks disagree on our exact position &amp; trajectory. (In particular, &quot;AI Accelerationists&quot; believe we're <em>already</em> pointing towards The Good Place, and should just hit the gas pedal.)</p>
+<p>But <em>if</em> the above picture is roughly accurate, then, <em>if – BIG IF — we stay on our business-as-usual path</em>, we'll head towards The Bad Place. (e.g. bio-engineered pandemics, AI-enforced totalitarianism, etc.)</p>
+<p><img src="../media/p1/Rocket%205.png" alt="Rocket 5"></p>
+<p>But if we tilt course, and invest a lot more into AI Safety relative to AI Capabilities... we might reach The Good Place! (e.g. speeding up cures for all diseases, fully automated luxury eco-punk georgism, i become a genetically engineered catgirl, etc.)</p>
+<p><img src="../media/p1/Rocket%206.png" alt="Rocket 6"></p>
+<p>Fire, <em>uncontrolled</em>, can burn your house down.</p>
+<p>Fire, <em>controlled</em>, can cook your food &amp; keep you warm.</p>
+<p>The first sparks of powerful AI are flying.</p>
+<p><em>Can we control what we've made?</em></p>
+<hr>
+<h3>🤔 Review #8 (last one!)</h3>
+<p><a id="review_8"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="‘Artificial General Intelligence’ (AGI) is a vague way to point at:"
+        answer="‘Software that can do important knowledge-based tasks at a human-expert level or better’. (e.g. Automatic scientific discovery)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="When do AI experts predict we have a better-than-even chance of AGI?"
+        answer="Median answer is 2060, but the uncertainty is *comically* huge. So: ¯\\\_(ツ)\_/¯">
+    </orbit-prompt>
+    <orbit-prompt
+        question="‘AI Takeoff’ is the hypothetical scenario when..."
+        answer="an AI can improve its ability to improve its ability to improve its ability to... (and so on)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 3 types of predictions for how fast AI would self-improve in an AI Takeoff: (visualize)"
+        answer="TODO"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Argument for a 'FOOM' takeoff:"
+        answer="If at each step, an AI doubles its capability in half the time, the AI would reach infinity (or the theoretical maximum) in finite time.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Argument for an Exponential takeoff:"
+        answer="All things that invest in themselves, like economies or pandemics, grow exponentially.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Argument for Steady or Decelerating Takeoff:"
+        answer="All things, even if they grow exponentially at first, hit 'diminishing returns' and slow down.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Analogy for why a 'slow, steady' takeoff isn't necessarily safe:"
+        answer="The Titanic was slow & steady, yet still fatal.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualization of good/bad AI trajectories, on a Safety vs Capabilities graph:"
+        answer="TODO"
+        answer-attachments="https://anotheroldguy.files.wordpress.com/2019/03/placehold.jpg">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h1>Summary of Part One</h1>
+<p>Congratulations! You now have way, way more context about AI than you need. If you used to be <em>annoyed</em> at folks saying, &quot;don't worry, AI can only follow the rules we tell it to&quot;, or, &quot;<em>DO</em> worry, AI will gain sentience then kill us all as revenge for enslaving it&quot;... well, now you can be annoyed at them in a <em>more-informed</em> way.</p>
+<p>Let's recap:</p>
+<p><strong>1)</strong> The history of AI has two main eras:</p>
+<ul>
+<li><u>Before 2000, Symbolic AI</u>: All logical System 2, no &quot;intuitive&quot; System 1. Super-human chess, can't recognize cats.</li>
+<li><u>After 2000, Deep Learning</u>: All &quot;intuitive&quot; System 1, little logical System 2. Can forge painting styles in seconds, sucks at step-by-step logic.</li>
+</ul>
+<p><strong>2)</strong> The next fundamental step for AI might be to <em>merge</em> AI Logic &amp; AI Intuition. When AI can do System 1 <em>and</em> 2, <em>that's</em> when we'd get its highest promises... and perils.</p>
+<p><strong>3)</strong> &quot;AI Safety&quot; is a bunch of awkward alliances between:</p>
+<ul>
+<li>Researchers who work on advancing AI Capabilities and/or AI Safety.</li>
+<li>Folks concerned about risks ranging from &quot;bad&quot; to &quot;existential&quot;, and from &quot;AI <em>accidentally</em> goes rogue on humans&quot; to &quot;AI <em>intentionally</em> misused by rogue humans&quot;.</li>
+</ul>
+<p><strong>4)</strong> Experts wildly disagree on <em>everything</em> about the future of AI: When we'll get AGI, how fast AGI would self-improve, whether our trajectory is towards a good or bad place. ¯\_(ツ)_/¯</p>
+<p>(If you skipped the flashcards &amp; would like to review them, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="TODO">Anki deck for Part One</a>.)</p>
+<hr>
+<p><em>Can we control what we've made?</em></p>
+<p>As they say, &quot;a problem well-stated is a problem half-solved&quot;.<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup></p>
+<p>So before we see the proposed solutions to AI Safety, let's first try to break down the problem(s) as precisely &amp; fruitfully as we can. To refresh your memory, we're trying to solve &quot;The AI Alignment Problem&quot;, which at its heart, is this one question:</p>
+<blockquote>
+<p><em><strong>How do we ensure that AI robustly serves humane values?</strong></em></p>
+</blockquote>
+<p>Good question. Let's dive in!</p>
+<p><code>(SIGN UP NEWSLETTER FOR RELEASE OF PART TWO: PROBABLY MAY 2024)</code></p>
+<hr>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Hat tip to Michael Nielsen for this phrase! From: <a href="https://web.archive.org/web/20231024194922/https://www.theatlantic.com/science/archive/2018/11/diminishing-returns-science/575665/">(Michael Nielsen &amp; Patrick Collison, 2018)</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Turing, 1936: <a href="https://quantum.country/assets/Turing1936.pdf">On Computable Numbers, with an Application to the Entscheidungsproblem</a> (“Entscheidungsproblem” is German for “Decision Problem”.) <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Turing, 1950: <a href="https://redirect.cs.umbc.edu/courses/471/papers/turing.pdf">Computing Machinery and Intelligence</a>. Fun sidenote: In Section 9, Alan Turing protects the “Imitation Game” against... cheating with ESP. He strongly believed in the stuff: <em>“the statistical evidence, at least for telepathy, is overwhelming.”</em> What was Turing's anti-ESP-cheating solution? <em>“[Put] the competitors into a &quot;telepathy-proof room&quot;”</em>. The 50’s were wild. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>This was the Dartmouth Workshop (<a href="https://en.wikipedia.org/wiki/Dartmouth_workshop">Wikipedia</a>), the &quot;official&quot; start of Artificial Intelligence as a field. (Unfortunately, Turing himself could not attend; he died just two years prior.) <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Arirang TV News, Sep 2022: <a href="https://www.youtube.com/watch?v=xMZEfDcOrKg">Clip on YouTube</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Some of the many problems of the word &quot;intelligence&quot;, especially applied to AI: it's vague, it's anthropomorphic, there's too many misconceptions bundled up with the word. It also lets you weasel your way out of falsified predictions, like &quot;oh AI beat Go? I guess Go wasn't a benchmark of <em>true</em> intelligence&quot; bla bla. <strong>The word &quot;capability&quot; is more concrete and touches grass</strong>, so I'll mostly use that instead. Hat tip to <a href="https://vkrakovna.wordpress.com/2023/08/09/when-discussing-ai-risks-talk-about-capabilities-not-intelligence/">Victoria Krakovna (2023)</a> for this idea. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Screenshot from ESPN &amp; FiveThirtyEight's 2014 mini-documentary, <em><a href="https://fivethirtyeight.com/features/the-man-vs-the-machine-fivethirtyeight-films-signals/">The Man vs The Machine</a></em>. See Garry's loss starting at timestamp 14:18. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="https://www.youtube.com/watch?v=kUZiUORi3uQ">Simpsons reference</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>Herbert Simon, one of the pioneers of AI, <a href="https://quoteinvestigator.com/2020/11/11/ai-can-do/">said in 1960</a>: <em>“Machines will be capable, within twenty years [by 1980], of doing any work that a man can do.”</em> Marvin Minsky, another pioneer in AI, <a href="https://aiws.net/the-history-of-ai/this-week-in-the-history-of-ai-at-aiws-net-marvin-minsky-was-quoted-in-life-magazine-in-from-three-to-eight-years-we-will-have-a-machine-with-the-general-intelligence-of-an-average-human-b/">said in 1970</a>: <em>“In from three to eight years [by 1978] we will have a machine with the general intelligence of an average human being.”</em> <a href="#fnref9" class="footnote-backref">↩︎</a> <a href="#fnref9:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>One of the standard benchmarks for machine vision is the CIFAR-100 dataset, a set of 60,000 images, divided into 100 categories like “cat” or “airplane”. (There’s also an earlier dataset called CIFAR-10, with only 10 categories. Also including “cat”, of course. It’s the internet.) <em>Human</em> performance on CIFAR-10 and -100 is around 95.90% accuracy. <a href="https://arxiv.org/abs/2106.03004">(Fort, Ren &amp; Lakshminarayanan 2021, see Appendix A on page 15)</a> Meanwhile, <em>state-of-the-art</em> AIs only squeaked past that in 2020, with the release of EffNet-L2 (96.08% accuracy). (Source: <a href="https://paperswithcode.com/sota/image-classification-on-cifar-100">PapersWithCode</a>) <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>The full quote from Hans Moravec's 1988 book <em>Mind Children,</em> pg 15: “[...] it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility&quot;.” Not as snappy. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>Hat tip to Sage Hyden (Just Write) for this silly joke idea. See his 2022 video essay <a href="https://www.youtube.com/watch?v=zYnQGWjsGXQ"><em>I, HATE, I, ROBOT</em></a> for the sad tale of how that film got mangled in production. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p><a href="https://people.duke.edu/~ng46/topics/evolved-radio.pdf">Bird &amp; Layzell, 2002</a> Hat tip to Victoria Krakovna's <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">master list of specification gaming examples</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Surprisingly, this safety problem with AI Logic was only discovered recently, in the early 2000's. Some names involved in this idea's development [<em>NOT</em> a comprehensive list]: Marvin Minsky, Nick Bostrom, Stuart Russell, Steve Omohundro. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>McCulloch &amp; Pitts (1943): <a href="https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf"><em>A logical calculus of the ideas immanent in nervous activity</em></a> <a href="#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>The &quot;von Neumann computer architecture&quot;, invented in 1945, yet so good that even today most computers still use it, was first described in <a href="https://web.archive.org/web/20130314123032/http://qss.stanford.edu/~godfrey/vonNeumann/vnedvac.pdf">von Neumann, John (1945), <em>First Draft of a Report on the EDVAC</em></a>. It was a first draft, he never finished it, so the only paper he cited was &quot;MacColloch [typo] and Pitts (1943)&quot;. <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>See <a href="https://weightagnostic.github.io/papers/turing1948.pdf">Alan Turing (1948), <em>Intelligent Machinery</em></a>, in particular the sections “Organizing Unorganized Machinery” and “Experiments In Organizing: Pleasure-Pain Systems”. <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p>To learn more about the history of the academic rivalry between Symbolic AI and Connectionist AI, see the beautiful data-based visualizations from a paper with an amazing title: <a href="https://mazieres.gitlab.io/neurons-spike-back/index.htm#footnotes">Cardon, Cointet &amp; Mazières (2018), <strong><em>NEURONS SPIKE BACK</em></strong></a> <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p>For a summary (&amp; critique) of Noam Chomsky's views on how language is learnt, see this article from his colleague, the mathematician-philosopher Hilary Putnam: <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=369259d71d125763134405b68741e8142d837cb5">Putnam (1967)</a>. In sum: Chomsky believes that — quite literally in our DNA — there are hard-coded, symbolic rules for linguistic grammar, universal across all human cultures. <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>Steven Pinker in <a href="http://www.cs.ox.ac.uk/ieg/e-library/sources/pinker_conn.pdf">Pinker &amp; Prince (1988)</a>: “We conclude that connectionists' claims about the dispensability of [innate, linguistic/grammatical] rules in explanations in the psychology of language must be rejected, and that, on the contrary, the linguistic and developmental facts provide good evidence for such rules.” <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p>For more on the sad tale of <em>Perceptrons</em> and the XOR Affair, see <a href="https://en.wikipedia.org/wiki/Perceptrons_(book)">the book’s Wikipedia article</a>, and <a href="https://ai.stackexchange.com/a/18543">this Stack Exchange answer</a>. <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn22" class="footnote-item"><p>AlexNet’s main innovations were: training with fast GPUs (Graphics Processing Units), using “convolutional neural networks” (inspired by the visual cortices in mammal brains), and using a more efficient “activation function” for the neurons (called ReLU). AlexNet wasn’t the first to do any of these, but it <em>was</em> the first to do <em>all</em> of them together — to amazing results! Here’s their paper: <a href="https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">(Krizhevsky, Sutskever, Hinton 2012)</a>. <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn23" class="footnote-item"><p>IJ Goodfellow (2014), <a href="http://papers.neurips.cc/paper/5423-generative-adversarial-nets.pdf"><em>Generative Adversarial Networks</em></a> <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn24" class="footnote-item"><p>For a layperson-friendly summary of AlphaGo <em>and why it's such a huge break from previous AI</em>, see Michael Nielsen (2016) for <em>Quanta Magazine</em>: <a href="https://www.quantamagazine.org/is-alphago-really-such-a-big-deal-20160329/">“Is AlphaGo Really Such a Big Deal?”</a> <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn25" class="footnote-item"><p>For a layperson-friendly summary of AlphaFold, see Will Heaven (2020) for <em>MIT Technology Review</em>: <a href="https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/">“DeepMind’s protein-folding AI has solved a 50-year-old grand challenge of biology”</a> <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn26" class="footnote-item"><p>The original report: <a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a> for the British Medical Journal. Note this algorithm didn't use neural networks specifically, but it <em>was</em> an early example of machine learning. <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn27" class="footnote-item"><p>Jeffrey Dastin (2018) for <em>Reuters</em>: <a href="https://www.reuters.com/article/idUSKCN1MK0AG/">“Amazon scraps secret AI recruiting tool that showed bias against women”</a> And it was pretty blatant: <em>“It penalized resumes that included the word &quot;women's,&quot; as in &quot;women's chess club captain.&quot; And it downgraded graduates of two all-women's colleges, according to people familiar with the matter.”</em> <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn28" class="footnote-item"><p>From this OpenAI (2021) press release: <a href="https://openai.com/research/multimodal-neurons">“Multimodal neurons in artificial neural networks”</a> (Section: &quot;Attacks in the wild&quot;) <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>See <a href="%16https%3A//www.tesla.com/blog/tragic-loss">Tesla’s official 2016 blog post</a>, and <a href="https://electrek.co/2016/07/01/understanding-fatal-tesla-accident-autopilot-nhtsa-probe/">this article</a> giving more detail into what happened, and what mistakes the AutoPilot AI may have made. <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p>This problem was first theoretically proposed in <a href="https://arxiv.org/pdf/1906.01820.pdf">Hubinger et al 2019</a>, then a real example was found in <a href="https://arxiv.org/pdf/2105.14111.pdf">Langosco et al 2021</a>! For a layperson-friendly summary of both findings, see <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Mile's video</a> <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>OpenAI is very <em>NOT</em> open about even the safe-to-know details of GPT-4, like how big it is. Anyway, a leaked report reveals it has ~1.8 Trillion parameters and cost $63 Million to train. Summary at <a href="https://the-decoder.com/gpt-4-architecture-datasets-costs-and-more-leaked/">Maximilian Schreiner (2023) for <em>The Decoder</em></a> <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn32" class="footnote-item"><p>I'm reminded of <a href="https://quoteinvestigator.com/2016/03/05/brain/">a fun quote by physicist Emerson M. Pugh</a>, about a similar paradox for <em>human</em> brains: “If the human brain were so simple that we could understand it, we would be so simple that we couldn’t.” <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn33" class="footnote-item"><p>See Wikipedia <a href="https://en.wikipedia.org/wiki/Moore%27s_law">for moore on More's</a> <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn34" class="footnote-item"><p><a href="https://arxiv.org/pdf/2001.08361.pdf">Kaplan et al 2020</a> is the famous paper on this. See Figure 1, Panel 1: As Compute increases from 10<sup>-7</sup> to 10<sup>-1</sup>, a million-fold increase, Test Loss goes from ~6.0 to ~3.0, a halving of its error. <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn35" class="footnote-item"><p>The <a href="https://en.wikipedia.org/wiki/3_nm_process">current leading transistor</a>'s smallest component is 24 nanometers wide. A silicon atom is 0.2 nanometers wide. Hence, estimate: 24/0.2 = 120 atoms. Since 2^7 = 128, halving the transistor's size seven more times would require parts smaller than an atom. <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn36" class="footnote-item"><p>For example, the current leading transistor, <a href="https://en.wikipedia.org/wiki/3_nm_process">the &quot;3 nanometer&quot;</a>, has no component that's actually 3 nanometers. All the actual parts of the &quot;3 nanometer&quot; are, like, <em>8 to 16 times</em> bigger than that. <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn37" class="footnote-item"><p>From <a href="https://www.eejournal.com/article/no-more-nanometers/">Kevin Morris (2020), “No More Nanometers”</a>: “We have evolved well beyond Moore’s Law already, and it is high time we stopped measuring and representing our technology and ourselves according to fifty-year-old metrics. We are confusing the public, harming our credibility, and impairing rational thinking [about the] progress the electronics industry has made over the past half century.” <a href="#fnref37" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn38" class="footnote-item"><p>Wallace Witkowski (September 22, 2022) for <em>MarketWatch</em>: <a href="https://www.marketwatch.com/story/moores-laws-dead-nvidia-ceo-jensen-says-in-justifying-gaming-card-price-hike-11663798618">“'Moore's Law's dead,' Nvidia CEO Jensen Huang says in justifying gaming-card price hike”</a>. <a href="#fnref38" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn39" class="footnote-item"><p><a href="https://the-decoder.com/gpt-4-architecture-datasets-costs-and-more-leaked/">Maximilian Schreiner (2023) for <em>The Decoder</em></a> <a href="#fnref39" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn40" class="footnote-item"><p>See the table under &quot;The Dense Transformer Scaling Wall&quot; in <a href="https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit#%C2%A7the-dense-transformer-scaling-wall">Dylan Patel (2023)</a> to see how <em>optimal</em> training costs increases ~100x, every time the neural network's size increases by 10x. <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn41" class="footnote-item"><p>The “dual-process” hypothesis of cognition was first suggested by <a href="https://pages.ucsd.edu/~scoulson/203/wason-evans.pdf">(Wason &amp; Evans, 1974)</a>, and developed by multiple folks over decades. But the idea got <em>really</em> popular after Daniel Kahneman, winner of the 2002 Nobel Memorial Prize in Economics, popularized it in his bestselling book, <a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">Thinking, Fast &amp; Slow</a>. (Daniel Kahneman, 2011) <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn42" class="footnote-item"><p>As for the naming: Intuition is #1 and Logic is #2, because flashes of intuition come <em>before</em> slow deliberation. Also, intuition evolved first. <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn43" class="footnote-item"><p>Here’s a layperson-friendly summary of Yoshua Bengio’s talk: <a href="https://bdtechtalks.com/2019/12/23/yoshua-bengio-neurips-2019-deep-learning/">(Dickson, 2019</a>. And here’s the full hour-long talk <a href="https://slideslive.com/38922304/from-system-1-deep-learning-to-system-2-deep-learning">on SlidesLive</a>. The conference apparently doesn’t use YouTube? Well, <a href="https://www.youtube.com/watch?v=T3sxeTgT4qc">here’s a YouTube mirror anyway</a>. <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn44" class="footnote-item"><p>Famed mathematician <a href="https://www.paradise.caltech.edu/ist4/lectures/Poincare_Reflections.pdf">Henri Poincaré wrote all the way back in 1908</a> about how he (and most other mathematicians) all agreed: the &quot;logical&quot; field of math relied heavily on sudden flashes of insight bubbling up from the unconscious. Quote: <em>“The role of this unconscious work in mathematical invention appears to me incontestable.”</em> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn45" class="footnote-item"><p>One of the very few Einstein quotes that Einstein actually said: “The words or the language [...] do not seem to play any role in my mechanism of thought. [...] <strong>The [elements of thought] are, in my case, of visual and some of muscular type.</strong>” [emphasis added] From Appendix II (pg 142) of Jacques Hadamard's book, <a href="https://worrydream.com/refs/Hadamard_1945_-_The_psychology_of_invention_in_the_mathematical_field.pdf"><em>The Psychology of Invention in the Mathematical Field (1945)</em></a>. <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn46" class="footnote-item"><p>Scientists who credited their discoveries to dreams: Dmitri Mendeleev and the periodic table, Neils Bohr's &quot;solar system&quot; model of the atom, August Kekulé's ring structure of benzene, Otto Loewi's weird two-frog-hearts-in-jars experiment which led to the discovery of neurotransmitters. <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn47" class="footnote-item"><p>Quote from <a href="https://arbital.com/p/ai_alignment/">Arbital</a> <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn48" class="footnote-item"><p>Quote from <a href="https://www.astralcodexten.com/p/why-not-slow-ai-progress">Astral Codex Ten (2022)</a> <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn49" class="footnote-item"><p>When he worked at OpenAI, Paul Christiano co-pioneered a technique called Reinforcement Learning from Human Feedback / RLHF <a href="https://arxiv.org/abs/1706.03741">(Christiano et al 2017)</a>, which turned regular GPT (very good autocomplete) into <em>Chat</em>GPT (something actually useable for the public). He had <a href="https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research">positive-but-mixed feelings</a> about this, because RLHF increased AI's safety, <em>but also</em> its power. In 2021, Christiano <a href="https://ai-alignment.com/announcing-the-alignment-research-center-a9b07f77431b">quit OpenAI to create the Alignment Research Center</a>, a non-profit to <em>entirely</em> focus on AI Safety. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn50" class="footnote-item"><p>Hat tip for <a href="https://www.youtube.com/watch?v=pYXy-A4siMw">Robert Miles (2021)</a> for this cozy 2x2 grid of AI Risks! <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn51" class="footnote-item"><p>From <a href="https://scottaaronson.blog/?p=6823">Scott Aaronson (2022)</a>: “<strong>AI ethics</strong> [worried that AI will amplify existing inequities] <strong>and AI alignment</strong> [worried that a superintelligent AI will kill everyone] <strong>are two communities that despise each other</strong>. It’s like the People’s Front of Judea versus the Judean People’s Front from Monty Python.” [emphasis added] <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn52" class="footnote-item"><p>Ajeya Cotra's <em><a href="https://www.lesswrong.com/posts/KrJfoZzpSDpnrv9va/draft-report-on-ai-timelines">&quot;Forecasting Transformative AI with Biological Anchors&quot;</a></em> is the most comprehensive forecast project with this method. It's a zillion pages long and still in &quot;draft mode&quot;, so for a summary, see <a href="https://www.cold-takes.com/forecasting-transformative-ai-the-biological-anchors-method-in-a-nutshell/">Holden Karnofsky (2021)</a>, in particular the first chart. <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn53" class="footnote-item"><p>The classic text on this is Tetlock (2005), where Philip Tetlock asked 100s of experts, over 2 decades, to predict future social/political events, then measured their success. Experts were slightly better than random chance, on par with educated laypeople, and both experts &amp; educated laypeople were worse than simple <em>&quot;draw a line extrapolating past data&quot;</em> statistical models. See <a href="https://emilkirkegaard.dk/en/wp-content/uploads/Philip_E._Tetlock_Expert_Political_Judgment_HowBookos.org_.pdf">Figure 2.5 for this result</a>, and <a href="https://core.ac.uk/download/pdf/76362768.pdf">Tschoegl &amp; Armstrong (2007)</a> for a review/summary of this friggin' dense book. <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn54" class="footnote-item"><p>Related: <a href="https://www.nature.com/articles/s41562-022-01517-1">Grossmann et al (2023)</a> (<a href="https://theconversation.com/the-limits-of-expert-judgment-lessons-from-social-science-forecasting-during-the-pandemic-201130">layperson summary</a>) recently replicated this result, showing that social science experts weren't any better at predicting post-Covid social outcomes than simple models or the public. <a href="#fnref54" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn55" class="footnote-item"><p><em>“I confess that, in 1901, I said to my brother Orville that men would not fly for 50 years. Two years later, we were making flights. This demonstration of my inability as a prophet gave me such a shock that I have ever since refrained from all prediction.”</em> ~ Wilbur Wright, 1908 speech accepting the Gold Medal from the Aéro Club de France. (Hat tip to <a href="https://www.aviationquotations.com/predictionquotes.html">AviationQuotations.com</a>) <a href="#fnref55" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn56" class="footnote-item"><p>To be fair, Szilard invented it <em>because</em> he was ticked off by Rutherford's dismissiveness. Necessity is the mother of invention, and spite is the suspiciously hot mailman. <a href="#fnref56" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn57" class="footnote-item"><p><em>Very</em> loosely stated, &quot;P = NP?&quot; is the literal-million-dollar-question: &quot;Is every problem where solutions are easy to <em>check</em> also secretly easy to <em>solve?</em>&quot; For example, Sudoku solutions are easy to check, but we haven't been able to prove/disprove that Sudoku <em>might</em> secretly be easy to solve. But in Computer Science, &quot;easy&quot; just means &quot;takes a polynomial amount of time/space&quot;. So if the optimal strategy to solve Sudoku is &quot;only&quot; n^3 more complex than checking a Sudoku solution, that still counts as P = NP. <a href="#fnref57" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn58" class="footnote-item"><p>Tying this to AI takeoffs: even if the complexity of &quot;AI improves its own capabilities&quot; scales at O(n^2), which is merely the complexity of <em>checking</em> a Sudoku solution, this theory predicts that AI self-improvement will decelerate. <a href="#fnref58" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn59" class="footnote-item"><p>For a more detailed &amp; mathematical explanation of Naam's argument, check out <a href="https://blog.ncase.me/backlog/#project_10">my 3-minute summary here</a>. <a href="#fnref59" class="footnote-backref">↩︎</a> <a href="#fnref59:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn60" class="footnote-item"><p>TODO, layperson summary on Vox then original study <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn61" class="footnote-item"><p>TODO <a href="#fnref61" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn62" class="footnote-item"><p>Two happy examples of humanity being alarmed about an impending disaster, which <em>caused</em> them to take measures to avert the disaster: 1) The Y2K bug, 2) The hole in the ozone, which has been recovering for decades. Both of those <em>really would</em> have been disasters, were it not for humanity's quick, coordinated action. Alas, to quote TENET (2022): “TODO” // TODO links <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn63" class="footnote-item"><p>AI finding a hack: An AI trained to play the Atari game Qbert finds a never-before-seen bug. <a href="https://www.youtube.com/watch?v=meE5aaRJ0Zs">(Chrabaszcz et al, 2018)</a> An image-classifying AI learns to perform a <em>timing attack</em>, a sophisticated kind of attack. <a href="https://news.ycombinator.com/item?id=6269114">(Ierymenko, 2013)</a> Hat tip to Victoria Krakovna's <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPiprOaC3HsCf5Tuum8bRfzYUiKLRqJmbOoC-32JorNdfyTiRRsR7Ea5eWtvsWzuxo8bjOxCG84dAg/pubhtml">master list of specification gaming examples</a>. <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn64" class="footnote-item"><p>AI persuading humans to free it: Blake Lemoine is an ex-engineer at Google, who was fired after he was convinced <em>Google's AI, LaMDA, was sentient</em>, and so leaked it to the press to try to fight for its rights. (Summary: <a href="https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/">Brodkin, 2022 for <em>Ars Technica</em></a>, Lemoine's leak: <a href="https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917">Lemoine (&amp; LaMDA?), 2022</a>) <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn65" class="footnote-item"><p>Frequently attributed to Charles Kettering, former head of research at General Motors. Alas, I can't find an <em>actual</em> citation/source. Mark this down as &quot;who knows who actually said this&quot;. <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+
+	</article>
+
+    <!-- FOOTER -->
+	<div id="footer">
+		<p>
+			asdasadsdasdas
+			<a href='https://creativecommons.org/publicdomain/zero/1.0/'>dedicated to the public domain!</a>
+        </p>
+	</div>
+
+</div>
+</body>
+</html>

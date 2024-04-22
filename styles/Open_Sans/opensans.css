@@ -1,0 +1,10 @@
+@font-face{
+    font-family: 'Open Sans';
+    font-style: normal;
+    src: url(OpenSans-VariableFont.ttf) format('truetype');
+}
+@font-face{
+    font-family: 'Open Sans';
+    font-style: italic;
+    src: url(OpenSans-Italic-VariableFont.ttf) format('truetype');
+}

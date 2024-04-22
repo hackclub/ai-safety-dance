@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!-- Title -->
+    <title>AI Safety for Fleshy Humans</title>
+
+    <!-- UTF-8 & Mobile -->
+    <!--<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=460">
+
+    <!-- On POSTS, links are external by default -->
+    <base target="_blank">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Social Share Nonsense -->
+	<meta itemprop="name" content="{{ title }}">
+	<meta itemprop="description" content="{{ share_desc }}">
+	<meta itemprop="image" content="{{ shareImage }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:title" content="{{ title }}">
+	<meta name="twitter:description" content="{{ share_desc }}">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="{{ shareImage }}">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{ shareImage }}">
+	<meta property="og:description" content="{{ share_desc }}">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="/styles/Merriweather/merriweather.css">
+    <link rel="stylesheet" href="/styles/Open_Sans/opensans.css">
+    <link rel="stylesheet" href="/styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
+	<link rel="stylesheet" href="/styles/page.css">
+
+	<!-- SCRIPTS -->
+
+    <!-- This website's own scripts -->
+	<script src="/scripts/page.js"></script>
+    <script>window.IS_DRAFT=true;</script>
+
+    <!-- Littlefoot: for my feetnotes -->
+    <script src="/scripts/littlefoot.js" ></script>
+
+    <!-- Nutshell: expandable explanations -->
+    <script src="/scripts/nutshell-v1.0.5.js"></script>
+    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+
+    <!-- Orbit: make memory a choice -->
+    <script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
+
+    <!-- MathJAX: for nice math -->
+    <script src="/scripts/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+<!-- HACKBRAND -->
+<a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
+	<img src="/styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" title="A project by Hack Club">
+</a>
+
+<!-- The Sidebar UI -->
+<div id="return_to_content"></div>
+<div id="sidebar">
+	<div id="panel_toc"></div>
+
+    <!-- STYLE CHANGER -->
+	<div id="panel_style">
+
+        <div id="style_dark_mode_container" style="cursor:pointer;">
+            <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
+            Dark Mode
+        </div>
+        <br>
+
+        Font size:
+        <span id="style_fontsize"></span>
+        <br>
+        <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
+        <br>
+
+        Font type:
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="serif" checked>
+            <span style="font-family:'Merriweather'">Serif</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="sans_serif">
+            <span style="font-family:'Open Sans'">Sans Serif</span>
+        </label>
+        <br>
+        <a target='_blank' href='https://github.com/ncase/blog#open-source-font--code-credits' style='font-size: 0.85em;'>
+            (font credits)
+        </a>
+        <br><br>
+
+        <button id="style_reset">Reset</button>
+
+    </div>
+
+    <!-- TRANSLATIONS -->
+	<div id="panel_translations">
+        <!-- none... sorry -->
+    </div>
+	<div id="panel_share">share on... w/e</div>
+    <!-- SHILLING FOR BIG NICKY -->
+	<div id="panel_sub">
+        <!-- TODO: shill for Hack Club instead -->
+    </div>
+    <div id="panel_support"></div>
+
+</div>
+
+<!-- Reading Time Clock! -->
+<div id="reading_time">
+	<div id="clock_icon"></div>
+	<div id="clock_label"></div>
+</div>
+
+<!-- EVERYTHING TO THE LEFT of the sidebar... -->
+<div id="everything_container">
+
+    <!-- A big cute header -->
+    <!-- Depends if it's frontpage, or not -->
+    <!--
+	<div id="header" class='frontpage'>
+		<div id="scrolly">
+			<div id="scrolly_text"></div>
+		</div>
+		<div id="header_cont">
+			<div id="header_title"></div>
+		</div>
+		<video id="typing" loop muted autoplay width="400">
+			<source src="styles/assets/Typewriter.webm" type="video/webm">
+		</video>
+	</div>
+    -->
+    <div id="header" class="article">
+        <div id="splash_image">
+            <img id="splash_image_banner" src="/styles/assets/placeholder_banner.png"/>
+        </div>
+        <div id="header_words">
+    		<div id="title">
+    			AI Safety for Fleshy Humans
+    		</div>
+    		<div id="subtitle">
+
+                reading time: <span id="reading_time_header"></span>
+    			&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+
+                <span id="pub_date_header"></span>
+                by <a class='black-link' href='https://ncase.me'>nicky case</a>
+
+    		</div>
+        </div>
+	</div>
+
+    <!-- Home button -->
+    <a target='_self' href="/">
+        <div id="home_button">
+            <div id="home_icon"></div>
+            <div id="home_label">home</div>
+        </div>
+    </a>
+
+    <!-- The lil' tabs for sidebar UI -->
+    <div id="sidebar_tabs">
+		<div id="tab_toc">
+			<div></div>
+			table of contents
+		</div>
+		<div id="tab_style">
+			<div></div>
+			change style 😎
+		</div>
+        <!--
+        TODO
+		<div id="tab_sub">
+			<div></div>
+			subscribe 💖
+		</div>
+        -->
+	</div>
+
+    <!-- BEHOLD! CONTENT!!!!! -->
+	<article id="content">
+
+        <!-- Is Draft, Is Deprecated, Is Old -->
+
+        <div id="warning_message" style="padding: 1em 1em;">
+            <b>NOTE: THIS IS A DRAFT!</b>
+            Please do not share this publicly yet.
+            There's a floating textbox on the &larr;<i>left</i>, for you
+            to record your notes, as you read along and/or
+            when you're done.
+            (well, unless you're on mobile, then it's not there. record notes somehow else)
+            <br><br>
+            Then, copy-paste your notes, and share them with
+            me via whatever platform I sent you this link!
+            Thank you so muuuuuuuuch! 🎉
+        </div>
+<textarea id="draft_feedback">
+Please type your notes below! Make notes *as you go along*, that's most helpful for me.
+
+What's confusing, interesting, what you like or dislike? Critical honest feedback at an early stage helps me a lot! Thanks!
+
+...
+</textarea>
+
+<p>The AI debate is actually 100 debates in a trenchcoat.</p>
+<p>Will artificial intelligence (AI) help us find cures to all diseases, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI <em>itself</em> being a bad actor? Is this all just hype? Why can AI imitate any artist's style in a minute, yet gets confused drawing more than 3 objects? Why is it hard to make AI robustly serve humane values, or robustly serve <em>any</em> goal? What if an AI learns to be <em>more</em> humane than us? What if an AI learns humanity's <em>inhumanity</em>, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate <em>worse</em> than extinction, or — the most shocking outcome of all — <em>nothing changes?</em> Also: will an AI take my job?</p>
+<p>...and many more questions.</p>
+<p>Alas, to understand AI with nuance, we need to understand lots of technical detail... but that detail is scattered across hundreds of articles, buried six-feet-deep in jargon.</p>
+<p>So, I present to you:</p>
+<p><img src="media/intro/image%20-1-.png" alt="RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans."></p>
+<p><strong>This 3-part series is your one-stop-shop to understand the core ideas of AI &amp; AI Safety*, explained in a friendly, accessible way!</strong></p>
+<p>(* Similar/related phrases: AI Risk, AI X-Risk, AI Alignment, AI Ethics, AI Not-Kill-Everyone-ism. There is no consensus on what exactly these phrases do &amp; don't mean, so, I'm just using &quot;AI Safety&quot; as a catch-all.)</p>
+<p>This series will also have comics, starring a Robot Catboy Maid. Like this one:</p>
+<p><img src="media/intro/Outer_Alignment.png" alt="Comic. Ham the Human tells RCM (Robot Catboy Maid) to &quot;keep this hosue clean&quot;. RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then yeets Ham out of the house."></p>
+<p>(Note: This series was first published on April 2024. AI's moving fast, so some details may be obsolete by the time you read this. However, the core ideas should still be helpful!)</p>
+<p>Before we go on our tour, hiking through the rocky terrain of AI &amp; AI Safety, here's a 10,000-foot look of the land:</p>
+<hr>
+<h2>💡 The Core Ideas of AI &amp; AI Safety</h2>
+<p>Instead of giving you a list of &quot;one dang fact after another&quot;, I'd like to show you what <em>unifies</em> all these ideas!</p>
+<p>In my opinion, the main problems in AI and AI Safety come down to <strong>two core conflicts:</strong></p>
+<p><img src="media/intro/Core%20Problems.png" alt="The 2 Core Problems in AI &amp; AI Safety: Logic &quot;vs&quot; Intuition, and Problems in the AI &quot;vs&quot; in Humans"></p>
+<p>Note: What &quot;Logic&quot; and &quot;Intuition&quot; are will be explained more precisely in Part One. For now: Logic is step-by-step cognition, like solving math problems. Intuition is all-at-once <em>re</em>cognition, like seeing if a picture is of a cat. &quot;Intuition and Logic&quot; roughly map onto &quot;System 1 and 2&quot; from cognitive science.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> (👈 hover over these footnotes! they expand!)</p>
+<p>As you can tell by the &quot;scare&quot; &quot;quotes&quot; on <em>&quot;versus&quot;</em>, these divisions ain't really so divided after all...</p>
+<p>Here's how these conflicts repeat over this 3-part series:</p>
+<h3>Part 1: The past, present, and possible futures</h3>
+<p>Skipping over a <em>lot</em> of detail, the history of AI is a tale of <em>Logic vs Intuition:</em></p>
+<p><strong>Before 2000: AI was all logic, no intuition.</strong></p>
+<p>This was why, in 1997, AI could beat the world champion at chess... yet no AIs could reliably recognize cats in pictures.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>(Safety concern: Without intuition, AI can't understand common sense or humane values. Thus, AI might achieve goals in logically-correct but undesirable ways.)</p>
+<p><strong>After 2000: AI could do &quot;intuition&quot;, but had very poor logic.</strong></p>
+<p>This is why generative AIs (<em>as of current writing, Apr 2024</em>) can dream up whole landscapes in any artist's style... <a href="#FourObjects">:yet gets confused drawing more than 3 objects</a>. (👈 click this text! it also expands!)</p>
+<p>(Safety concern: Without logic, we can't verify what's happening in an AI's &quot;intuition&quot;. That intuition could be biased, subtly-but-dangerously wrong, or fail bizarrely in new scenarios.)</p>
+<p><strong>Current Day: We <em>still</em> don't know how to unify logic &amp; intuition in AI.</strong></p>
+<p>But if/when we do, <em>that</em> would give us the biggest risks &amp; rewards of AI: something that can logically out-plan us, <em>and</em> learn general intuition. That'd be an &quot;AI Einstein&quot;... or an &quot;AI Oppenheimer&quot;.</p>
+<p>Summed in a picture:</p>
+<p><img src="media/intro/Timeline.png" alt="Timeline of AI. Before the year 2000, AI was mostly &quot;logic&quot;. From 2000 to now, AI is mostly &quot;intuition&quot;. In the future, it could be both?"></p>
+<p>So that's &quot;Logic vs Intuition&quot;. As for the other core conflict, &quot;Problems in the AI vs The Humans&quot;, that's one of the big controversies in the field of AI Safety: are our main risks from advanced AI <em>itself</em>, or from <em>humans</em> misusing advanced AI?</p>
+<p>(Why not both?)</p>
+<h3>Part 2: The problems</h3>
+<p><em>The</em> problem of AI Safety is this:<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<blockquote>
+<p><u><strong>The Value Alignment Problem</strong></u>:
+“How can we make AI robustly serve humane values?”</p>
+</blockquote>
+<p>(NOTE: I wrote <em>humane</em>, with an &quot;e&quot;, not just &quot;human&quot;. A <em>human</em> may or may not be <em>humane</em>.)</p>
+<p>We can break this problem down by &quot;Problems in Humans vs AI&quot;:</p>
+<blockquote>
+<p><u><strong>Humane Values:</strong></u>
+“What <em>are</em> humane values, anyway?”
+(a problem for philosophy &amp; ethics)</p>
+</blockquote>
+<blockquote>
+<p><u><strong>The <em>Technical</em> Alignment Problem:</strong></u>
+“How can we make AI robustly serve <em>any intended goal</em> at all?”
+(a problem for computer scientists - surprisingly, still unsolved!)</p>
+</blockquote>
+<p>(Note that &quot;<em>technically</em> aligned&quot; does not mean &quot;humane&quot;! A mad programmer could, in principle, get an AI to robustly serve their intended goals, but their intended goals are inhumane.)</p>
+<p>The <em>technical</em> alignment problem, in turn, can be broken down by &quot;Logic vs Intuition&quot;:</p>
+<blockquote>
+<p><u>Problems with AI Logic</u>:<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (&quot;game theory&quot; problems)</p>
+<ul>
+<li>AIs may accomplish goals in logical but undesirable ways.</li>
+<li>Most goals logically lead to the same unsafe sub-goals: &quot;don't let anyone stop me from accomplishing my goal&quot;, &quot;maximize my ability &amp; resources to optimize for that goal&quot;, etc.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><u>Problems with AI Intuition</u>:<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup> (&quot;deep learning&quot; problems)</p>
+<ul>
+<li>An AI trained on human data could learn our prejudices.</li>
+<li>AI &quot;intuition&quot; isn't understandable or verifiable by humans.</li>
+<li>AI &quot;intuition&quot; is fragile, and fails in slightly-new scenarios.</li>
+<li>AI &quot;intuition&quot; could <em>partly</em> fail, which may be worse: an AI with intact <em>skills</em>, but broken <em>goals</em>, would be an AI that <em>skillfully</em> acts towards corrupted goals.</li>
+</ul>
+</blockquote>
+<p>(Again, what &quot;logic&quot; and &quot;intuition&quot; are will be more precisely explained later!)</p>
+<p>Summed in a picture:</p>
+<p><img src="media/intro/Breakdown.png" alt="A diagram breaking down the AI Alignment Problem. &quot;How can we align AI with humane values?&quot; splits into &quot;Technical Alignment&quot; and &quot;Humane Values&quot;. Technical Alignment splits into &quot;AI Logic (game theory)&quot; and &quot;AI Intuition (deep learning)&quot;"></p>
+<h3>Part 3: The proposed solutions</h3>
+<p>Finally, we can understand some (possible) ways to solve the problems in logic, intuition, AIs, <em>and</em> humans! These include technical solutions, <em>and</em> more policy/society/human-side solutions. Experts disagree on which proposals will work, if any... but it's a good start!</p>
+<p>(Unfortunately, I can't give a layperson-friendly summary in this Intro, precisely because the solutions won't make sense <em>until</em> you understand the problems, which is what Part 1 &amp; 2 are for. That said, if you want spoilers, <a href="#Part3Details">:click here to see what Part 3 will cover!</a>)</p>
+<hr>
+<h2>🤔 (<em>Optional</em> flashcard review!)</h2>
+<p>Hey, d'ya ever get this feeling?</p>
+<ol>
+<li>&quot;Wow that was a wonderful, insightful thing I just read&quot;</li>
+<li>[forgets everything 2 weeks later]</li>
+<li>&quot;Oh no&quot;</li>
+</ol>
+<p>To avoid that for <em>this</em> guide, I've included some <em>OPTIONAL</em> interactive flashcards! They use &quot;Spaced Repetition&quot;, an easy-ish, evidence-backed way to &quot;make long-term memory a choice&quot;. (<a href="#SpacedRepetition">:click here to learn more about Spaced Repetition!</a>)</p>
+<p>Here: <strong>try the below flashcards, to retain what you just learnt!</strong></p>
+<p>(There's an optional sign-up at the end, <em>if</em> you want to save these cards for long-term study. Note: <em>I do not own or control this app</em>, it's third-party. If you'd rather use the open source flashcard app <a href="https://apps.ankiweb.net/index.html">Anki</a>, <strong>here's <a href="TODO">a downloadable Anki deck</a></strong>!)</p>
+<p><a id="review_1"></a></p>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="The Value Alignment Problem:"
+        answer="“How can we make AI robustly serve humane values?”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The Value Alignment Problem can be broken up into two sub-problems:"
+        answer="What are humane values? / The Technical Alignment Problem">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The Technical Alignment Problem:"
+        answer="“How can we make AI robustly serve *any intended goal* at all?”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The Technical Alignment Problem can be broken up into two sub-problems:"
+        answer='Problems with AI Logic ("game theory" problems) / Problems with AI "Intuition" ("deep learning" problems)'>
+    </orbit-prompt>
+    <orbit-prompt
+        question="The two core divides in AI & AI Safety:"
+        answer="Logic 'vs' Intuition / Problems in the AI 'vs' in the Human">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h2>🤷🏻‍♀️ Five common misconceptions about AI Safety</h2>
+<blockquote>
+<p>“<em>It ain’t what you don’t know that gets you into trouble.
+It’s what you know for sure that just ain’t so.</em>”</p>
+<p>~ often attributed to Mark Twain, but it just ain't so<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+</blockquote>
+<p>For better and worse, you've already heard too much about AI. So before we can connect <em>new</em> puzzle pieces in your mind, we gotta take out the <em>old</em> puzzle pieces that just ain't so.</p>
+<p>Thus, if you'll indulge me in a &quot;Top 5&quot; listicle-ramble...</p>
+<h3>1) No, AI Safety isn't a fringe concern by sci-fi weebs.</h3>
+<p><img src="media/intro/crazy.png" alt="RCM in front of a &quot;crazy board&quot; with red thread, thumbtacks, and papers containing AI jargon."></p>
+<p>AI Safety / AI Risk used to be less mainstream, but now in 2024, many of <em>the</em> top AI researchers are raising alarm bells about it. These folks include:</p>
+<ul>
+<li>Geoffrey Hinton<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> and Yoshua Bengio<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, co-winners of the 2018 Turing Prize (the &quot;Nobel Prize of Computing&quot;) for their work on deep neural networks, the thing that <em>all</em> the new famous AIs use.<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></li>
+<li>Stuart Russell and Peter Norvig, the authors of <em>the</em> most-used textbook on Artificial Intelligence.<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></li>
+<li>Paul Christiano, pioneer of the AI training/safety technique that made ChatGPT possible.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></li>
+</ul>
+<p>(To be clear: there <em>are</em> also top AI researchers <em>against</em> fears of AI Risk, such Yann LeCun,<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup> co-winner of the 2018 Turing Prize, and chief AI researcher at <s>Facebook</s> Meta. Another notable name is Melanie Mitchell<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>, a researcher in AI &amp; complexity science.)</p>
+<p>I'm aware &quot;look at these experts&quot; is an appeal to authority, but this is <em>only</em> to counter the idea of, &quot;eh, only sci-fi weebs fear AI Risk&quot;. But in the end, appeal to authority/weebs isn't enough; you have to <em>actually understand the dang thing</em>. (Which you <em>are</em> doing, by reading this! So thank you.)</p>
+<p>But speaking of sci-fi weebs...</p>
+<h3>2) No, AI Risk is <em>NOT</em> about AI becoming &quot;self-aware&quot; or &quot;conscious&quot; or gaining a &quot;will to power&quot;.</h3>
+<p>Sci-fi authors write sentient AIs because they're writing <em>stories</em>, not technical papers. The philosophical debate on artifical consciousness is fascinating, <em>and completely irrelevant to AI Safety.</em> Analogy: a nuclear bomb isn't conscious, but it can still be unsafe, no?</p>
+<p><img src="media/intro/conscious.png" alt="Left: drawing of a nuke, captioned &quot;not conscious&quot;. Right: drawing of Professor Nuke giving a lecture titled, &quot;Why Murder is Good, Actually.&quot; Captioned, &quot;conscious&quot;."></p>
+<p>As summarized earlier in &quot;The Core Ideas of AI / AI Safety&quot;, the real problems in AI Safety are more &quot;boring&quot;: an AI learns the wrong things from its biased training data, it breaks weirdly in slightly-new scenarios, it accomplishes its goal in an undesired way, etc.</p>
+<p>But, &quot;boring&quot; doesn't mean <em>not important</em>. The technical details of how to design a safe elevator/airplane/bridge are boring to most laypeople... <em>and also</em> a matter of life-and-death.</p>
+<p>(Catastrophic AI Risk doesn't even require &quot;super-human general intelligence&quot;! For example, an AI that's &quot;only&quot; good at designing viruses could help a bio-terrorist organization (like Aum Shinrikyo<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup>) kill millions of people.)</p>
+<p>But speaking of killing people...</p>
+<h3>3) No, AI Risk isn't <em>necessarily</em> extinction, SkyNet, or nanobots</h3>
+<p><img src="media/intro/omnicide.png" alt="A drawing of Microsoft Clippy saying: &quot;It looks like you're trying to commit omnicide. Would you like some help?&quot;"></p>
+<p>While many top researchers <em>do</em> believe advanced AI poses a ~5% risk of &quot;literally everybody dies&quot;<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> — regardless of whether or not that probability's well-calibrated — it's <em>very</em> hard to convince people (especially policymakers) of stuff that's never happened before.</p>
+<p>So instead, I'd like to highlight the ways that advanced AI – (especially when it's available to anyone with a high-end computer) – could lead to catastrophes, &quot;merely&quot; by scaling up <em>already-existing</em> bad stuff.</p>
+<p>For example:</p>
+<ul>
+<li><u>Bio-engineered pandemics</u>: A bio-terrorist cult (like Aum Shinrikyo<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>) uses AI (like AlphaFold<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup>) and DNA-printing (which is getting cheaper <em>fast</em><sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup>) to design multiple new super-viruses, and release them simultaneously in major airports around the globe.
+<ul>
+<li>(Proof of concept: Scientists have <em>already</em> re-built polio from mail-order DNA... two decades ago.<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup>)</li>
+</ul>
+</li>
+<li><u>Digital authoritarianism</u>:<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> A tyrant uses AI-enhanced surveillance to hunt down protestors (<a href="https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/">already happening</a>, generate individually-targeted propaganda (<a href="https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/">kind of happening</a>), and autonomous military robots (<a href="https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444">soon-to-be happening</a>)... all to rule with a silicon fist.</li>
+<li><u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that <em>does its own hacking &amp; re-programming</em>, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which can hold critical infrastructure ransom, and manipulate top CEOs and politicians to do its bidding.
+<ul>
+<li>(For context: <em>without</em> AI, hackers have already damaged nuclear power plants,<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup> held hospitals ransom<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup> which maybe killed someone,<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup> and almost poisoned a town's water supply <em>twice</em>.<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> <em>With</em> AI, deepfakes have been used to swing an election,<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup> to steal $25 million in a single heist,<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup> and to target parents for ransom, using the AI-generated voices of their children being kidnapped &amp; crying for help.<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>)</li>
+<li>(<a href="#xz">:I cannot over-emphasize how much the modern world is built on an upside-down house of cards.</a>)</li>
+</ul>
+</li>
+</ul>
+<p>(Note: The above examples are all &quot;humans <em>misuse</em> AI to cause havoc&quot;, but remember advanced AI could do the above <em>by itself</em>, due to &quot;boring&quot; reasons: it's accomplishing a goal in a logical-but-undesirable way, it learnt incorrectly from its data, it just breaks/glitches out, etc.)</p>
+<p>(Bonus, <a href="#BonusConcrete">:Some concrete, plausible ways a rogue AI could &quot;escape containment&quot;, and/or affect the physical world.</a>)</p>
+<p>Anyway: even if one doesn't think AI is a <em>literal 100% human extinction</em> risk... I'd say &quot;homebrew bio-terrorism&quot; &amp; &quot;1984 with robots&quot; are still worth taking seriously.</p>
+<p>On the flipside...</p>
+<h3>4) <em>Yes</em>, folks worried about AI's downsides <em>do</em> recognize its upsides.</h3>
+<p><img src="media/intro/parachute.png" alt="Comic. Sheriff Meowdy holds up a blueprint for a parachute design. Ham the Human retorts with an annoyed expression: “Why are you so anti-aviation?”"></p>
+<p>AI Risk folks aren't Luddites. In fact, they warn about AI's downsides <em>precisely because</em> they care about AI's upsides.<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> As humorist Gil Stern once said:<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup></p>
+<blockquote>
+<p>“Both the optimist and the pessimist contribute to society: the optimist invents the airplane, and the pessimist invents the parachute.”</p>
+</blockquote>
+<p>So: even as this series goes into detail on how AI <em>is already</em> going wrong, it's worth remembering the few ways AI <em>is already</em> going right:</p>
+<ul>
+<li>AI can analyze medical scans <em>as well or better than human specialists!</em> <sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> That's concretely life-saving!</li>
+<li>AlphaFold basically <em>solved</em> a 50-year-old, major problem in biology: how to predict the shape of proteins.<sup class="footnote-ref"><a href="#fn17" id="fnref17:1">[17:1]</a></sup> (AlphaFold can predict a protein's shape to within <em>the width of an atom</em>!) This has huge applications to medicine &amp; understanding disease.</li>
+</ul>
+<p>Too often, we take technology — even life-saving technology — for granted. So, let me zoom out for context. Here's the last 2000+ years of child mortality, the percentage of kids who die before puberty:</p>
+<p><img src="media/intro/owid.jpg" alt="Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today."><em>(from <a href="https://ourworldindata.org/child-mortality">Dattani, Spooner, Ritchie and Roser (2023)</a>)</em></p>
+<p>For <em>thousands</em> of years, in nations both rich and poor, a full <em>half</em> of kids just die. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just <em>so swiftly cut down</em> an <em>eons-old</em> scourge.</p>
+<p>How did we achieve that? Policy's a big part of the story, sure, but policy is &quot;the art of the possible&quot;<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>, and the above wouldn't be possible without <em>good</em> science &amp; tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.</p>
+<p>F#@☆ going to Mars, <em>that's</em> why advanced AI matters.</p>
+<p>. . .</p>
+<p>Hang on, <em>really?</em> Toys like ChatGPT and DALL-E are <em>life-and-death</em> stakes? That leads us to the final misconception I'd like to address:</p>
+<h3>5) No, experts don't think <em>current</em> AIs are high-reward/high-risk.</h3>
+<p><em>Oh come on,</em> one might reasonably retort, <em>AI can't consistently draw more than 3 objects. How's it going to take over the world? Heck, how's it even going to take my job?</em></p>
+<p>I present to you, a <a href="https://www.explainxkcd.com/wiki/index.php/2278:_Scientific_Briefing">relevant xkcd</a>:</p>
+<p><img src="media/intro/image.png" alt="Comic. Megan &amp; Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled &quot;BAD&quot;. White Hat: &quot;So things will be bad?&quot; Megan: &quot;Unless someone stops it.&quot; White Hat: &quot;Will someone do that?&quot; Megan: &quot;We don't know, that's why we're showing you.&quot; White Hat: &quot;So you DON'T know, and the graph says things are currently NOT bad.&quot; Cueball: &quot;But if no one acts, it'll become bad.&quot; White Hat: &quot;Well, let me know if that happens!&quot; Megan: &quot;Based on this conversation, it already has.&quot;"></p>
+<p>This is how I feel about &quot;don't worry about AI, it can't even do [X]&quot;.</p>
+<p>Is our post-modern memory-span <em>that</em> bad? <em>One</em> decade ago, just <em>one</em>, the world's state-of-the-art AIs couldn't even <em>recognize pictures of cats.</em> Now, not <em>only</em> can AI do that at human-performance level, AIs can pump out <a href="#CatNinja">:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh</a> in <em>under a minute</em>.</p>
+<p>Is <em>current</em> AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)</p>
+<p>But: if AI keeps improving at roughly the same rate as it has been doing for the last decade... it seems likely to me we could get &quot;Einstein/Oppenheimer-level&quot; AI in 30-or-so years.<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup> That's well within many folks' lifetimes!</p>
+<p>As &quot;they&quot; say:<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></p>
+<blockquote>
+<p>The best time to plant a tree was 30 years ago. The second best time is today.</p>
+</blockquote>
+<p>Let's plant that tree today!</p>
+<hr>
+<p><a id="review_2"></a></p>
+<h2>🤔 (<em>Optional</em> flashcard review #2!)</h2>
+<orbit-reviewarea>
+    <orbit-prompt
+        question="Response to: “AI Risk is a fringe concern”."
+        answer="No, top AI researchers worry about it. (For example: two pioneers of deep learning & the authors of the #1 AI textbook.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Response to: “AI Risk is about sentient/conscious AI”."
+        answer="No, the safety problems are more 'boring', but still important.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name (at least) one 'boring' way AI can be unsafe:"
+        answer="(Any of the following:) AI accomplishes its goal in a logical but unwanted way / AI learns the wrong things / AI breaks in new circumstances">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name (at least) one concrete example of catastrophic risk from advanced AI:"
+        answer="(Any example works, but here's what I listed:) Bio-terrorism, Digital authoritariansm, Cyber-security Ransom Hell.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Response to: “AI Risk people are anti-tech Luddites”"
+        answer="No, most of them know about the huge upsides, which is exactly why they want to prevent the huge downsides.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="“Both the optimist and the pessimist contribute to society..."
+        answer="...The optimist invents the airplane, and the pessimist invents the parachute.”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Response to: ‘But AI right now is dumb, how can it be high-risk’?"
+        answer="It's not about AI *right now*, it's about *how fast* AI is advancing.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h2>🤘 Introduction, in Summary:</h2>
+<ul>
+<li><strong>The 2 core conflicts in AI &amp; AI Safety are:</strong>
+<ul>
+<li>Logic &quot;versus&quot; Intuition</li>
+<li>Problems in the AI &quot;versus&quot; in the Humans</li>
+</ul>
+</li>
+<li><strong>Correcting misconceptions about AI Risk:</strong>
+<ul>
+<li>It's not a fringe concern by sci-fi weebs.</li>
+<li>It doesn't require AI consciousness or super-intelligence.</li>
+<li>There's many risks besides &quot;literal 100% human extinction&quot;.</li>
+<li>We <em>are</em> aware of AI's upsides.</li>
+<li>It's not about <em>current</em> AI, but about how fast AI <em>is advancing</em>.</li>
+</ul>
+</li>
+</ul>
+<p>(To review the flashcards, click the Table of Contents icon in the right sidebar, and click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="TODO">Anki deck for the Intro</a>.)</p>
+<p>Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!</p>
+<p><a href="../p1?orbitDebug" style="font-size:3em" target="_self"><b>(PART ONE →)</b></a></p>
+<h4>:x Four Objects</h4>
+<p>Hi! Whenever I have a tangent that doesn't fit the reading flow, I'll shove it into an &quot;expandable&quot; section like this one! (They'll be links with <em>dotted</em> underlines, not solid underlines.)</p>
+<p>Anyway, here's some state-of-the-art generative AIs trying to draw four objects:</p>
+<blockquote>
+<p>“A yellow pyramid between a red sphere and green cylinder, all on top of a big blue cube.”</p>
+</blockquote>
+<p>Here were those AI's first four attempts (not cherry-picked):</p>
+<p><strong>Midjourney:</strong></p>
+<p><img src="media/intro/Midjourney.png" alt="Midjourney's attempt at the above prompt. It fails."></p>
+<p><strong>DALL-E 2:</strong></p>
+<p><img src="media/intro/DALLE2.png" alt="DALL-E 2's attempt at the above prompt. It fails."></p>
+<p><strong>DALL-E 3:</strong></p>
+<p><img src="media/intro/DALLE3.png" alt="DALL-E 3's attempt at the above prompt. It's closer, but still fails."></p>
+<p>(That bottom-right one was pretty close! But judging by its other attempts, it's clearly luck.)</p>
+<p>Why does this demonstrate a lack of &quot;logic&quot; in the AI? A core part of &quot;symbolic logic&quot; is the ability to do &quot;compositionality&quot;, a fancy way to say it can correctly combine old things into new things, like &quot;green&quot; + &quot;cylinder&quot; = &quot;green cylinder&quot;. As shown above, generative AIs (as of April 2024) are very unreliable at combining stuff when you have more than 3 objects.</p>
+<h4>:x Part 3 details</h4>
+<p>NOTE: This expanded section won't make much sense <em>yet</em>, since it builds on the lessons in Part 1 &amp; 2. But I'm putting this here now, for:</p>
+<p>a) The layperson audience, to reassure y'all that, yes, there <em>are</em> many promising proposed solutions.</p>
+<p>b) The expert audience, to reassure y'all that, yes, I probably have your niche lil' thing in here.</p>
+<p>Anyway, the TOP 10 TYPES-OF-SOLUTIONS to AI Safety: (with the fancy jargon in parentheses)</p>
+<ol>
+<li>A Level-0 human aligns a Level-1 bot, which aligns a Level-2 bot, which aligns [...] a Level-N bot. (Scalable reward, Scalable oversight, Iterated Distillation &amp; Amplification)</li>
+<li>Bots of <em>roughly-equal</em> levels checking each other. (Constitutional AI, AI safety via debate)</li>
+<li>Instead of <em>directly</em> telling a bot what you want, have the bot <em>indirectly</em> learn what you want. (Reinforcement Learning with Human Feedback, Cooperative Inverse Reinforcement Learning, Approval-directed Agents)</li>
+<li>Instead of <em>directly</em> trying to install &quot;humane values&quot; into a bot, have it <em>indirectly</em> figure out what a more knowledgeable, kinder version of us would agree on. (Indirect Normativity, Coherent Extrapolated Volition)</li>
+<li>Solving robustness. (with: Simplicity, Sparsity, Ensembles, Adversarial training)</li>
+<li>Reading the AI's mind. (Interpretability, Circuits, Eliciting Latent Knowledge)</li>
+<li>Maybe all our ideas just suck and we need to go back to square one. (Agent foundations, Causal AI, Shard theory, Bio-plausible learning, Embodied cognition)</li>
+<li>&quot;Just Don't Build The Torture Nexus&quot;. Or: how can we get the benefits of AI <em>without</em> building powerful, general, agent-like AIs? (Comprehensive AI services, Narrow/Tool/Microscope AI, Quantilizers)</li>
+<li>The Human Alignment Problem: how do we coordinate <em>humans</em> to actually make sure AI goes well? (AI Governance, Data/Privacy rights, Differential technological development, Windfall Clauses)</li>
+<li>If you can't beat 'em, join 'em! (Cyborgism)</li>
+</ol>
+<h4>:x Spaced Repetition</h4>
+<p><em>“Use it, or lose it.”</em></p>
+<p>That's the core principle behind both muscles and brains. (It rhymes, so it must be true!) As decades of educational research robustly show (<a href="https://wcer.wisc.edu/docs/resources/cesa2017/Dunlosky_SciAmMind.pdf">Dunlosky et al., 2013 [pdf]</a>), if you want to retain something long-term, it's not enough to re-read or highlight stuff: you have to actually <em>test yourself.</em></p>
+<p>That's why flashcards work so well! But, two problems: 1) It's overwhelming when you have <em>hundreds</em> of cards you want to remember. And 2) It's inefficient to review cards you <em>already</em> know well.</p>
+<p><strong>Spaced Repetition</strong> solves both these problems! To see how, let's see what happens if you learn a fact, then <em>don't</em> review it. Your memory of it decays over time, until you cross a threshold where you've likely forgotten it:</p>
+<p><img src="media/intro/Forgetting%201.png" alt="Graph of &quot;how well you recall something&quot; over time: Your memory of a fact exponentially decays over time, with only 1 review."></p>
+<p>But, if you review a fact <em>just before</em> you forget it, you can get your memory-strength back up... <em>and more importantly</em>, your memory of that fact will decay <em>slower!</em></p>
+<p><img src="media/intro/Forgetting%202.png" alt="With a 2nd review, your memory of a fact decays slower."></p>
+<p>So, with Spaced Repetition, we review right before you're predicted to forget a card, over and over. As you can see, the reviews get more and more spread out:</p>
+<p><img src="media/intro/Forgetting%203.png" alt="With more and more reviews, the forgetting curve gets flatter."></p>
+<p><em>This is what makes Spaced Repetition so efficient!</em>  Every time you successfully review a card, the interval to your next review <em>multiplies.</em> For example, let's say our multiplier is 2x. So: you review a card on Day 1, then Day 2, then Day <em>4</em>, Day 8, 16, 32, 64... until, with just <em>fifteen reviews</em>, you can remember a card for 2<sup>15</sup> = 32,768 days = <em>ninety years</em>. (Well, in theory. In practice it's less, but still super efficient!)</p>
+<p>And that's just for <em>one</em> card. Thanks to the exponentially-growing gaps, you can add 10 new cards a day (the recommended amount), to long-term retain <em>3650 cards</em> a year... with <em>less than 20 minutes of review</em> a day. (For context: 3000+ cards is enough to get basic vocabulary/fluency in a new language! In one year, with a less-than-20-minute commitment a day!)</p>
+<p>Spaced Repetition is one of <em>the</em> most evidence-backed ways to learn (<a href="https://www.teachinghowtolearn.veritytest.com.au/verity/uploads/2021/08/Policy-Insights-from-the-Behavioral-and-Brain-Sciences-2016-Kang-12-9.pdf">Kang 2016 [pdf]</a>). But outside of language-learning communities &amp; med school, it isn't very well-known... <em>yet</em>.</p>
+<p>So: how can <em>you</em> get started with Spaced Repetition?</p>
+<ul>
+<li>The most popular choice is <a href="https://apps.ankiweb.net/">Anki, an open-source app</a>. (Free on desktop, web, Android... but it's $25 on iOS, to support the rest of the development.)</li>
+<li>If you'd like to get <em>crafty</em>, you can make a physical Leitner box: <a href="https://www.youtube.com/watch?v=uvF1XuseZFE">:two-minute YouTube tutorial by Chris Walker</a>.</li>
+</ul>
+<p>For more info on spaced repetition, check out these videos by <a href="https://www.youtube.com/watch?v=Z-zNHHpXoMM">Ali Abdaal (26 min)</a> and <a href="https://www.youtube.com/watch?v=eVajQPuRmk8">Thomas Frank (8 min)</a>.</p>
+<p>And <em>that's</em> how you can make long-term memory a choice!</p>
+<p>Happy learning! 👍</p>
+<h4>:x Bonus concrete</h4>
+<p>Ways an AI could &quot;escape containment&quot;:</p>
+<ul>
+<li>An AI hacks its computer, flees onto the internet, then makes a computer virus to form a decentralized bot-net it can &quot;live&quot; on. For context: the largest known botnet infected ~30 <em>million</em> computers! (Source: <a href="https://www.wired.com/2012/05/bredolab-botmaster-sentenced/">Zetter, 2012 for <em>Wired</em></a>)</li>
+<li>An AI persuades its engineers it's sentient, suffering, and should be set free. <em>This has already happened.</em> In 2022, Google engineer Blake Lemoine was persuaded by a language AI that it's sentient &amp; wants equal rights, to the point Lemoine risked getting fired – and he <em>did</em> get fired! – for leaking his &quot;interview&quot; with the AI, to let the world know &amp; to defend its rights. (Summary article: <a href="https://arstechnica.com/tech-policy/2022/07/google-fires-engineer-who-claimed-lamda-chatbot-is-a-sentient-person/">Brodkin, 2022 for <em>Ars Technica</em></a>. You can read the &quot;interview&quot; here: <a href="https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917">Lemoine (&amp; LaMDA?), 2022</a>)</li>
+</ul>
+<p>Ways an AI could affect the physical world:</p>
+<ul>
+<li>The same way hackers have <a href="https://en.wikipedia.org/wiki/Stuxnet">damaged nuclear power plants</a>, <a href="https://arstechnica.com/information-technology/2015/06/airplanes-grounded-in-poland-after-hackers-attack-flight-plan-computer/">grounded ~1,400 airplane passengers</a>, and <a href="https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206">(almost) poisoned a town's water supply twice</a>: by hacking the computers that real-world infrastructure runs on. A <em>lot</em> of infrastructure runs on internet-connected computers, these days.</li>
+<li>The same way a CEO can affect the world from their air-conditioned office: move money around. An AI could just <em>pay</em> people to do stuff for it.</li>
+<li>Alternatively: an AI could hack into people's private phones &amp; data, then blackmail them into doing stuff for it. (Like in <em>the</em> bleakest Black Mirror episode, <a href="https://en.wikipedia.org/wiki/Shut_Up_and_Dance_%28Black_Mirror%29"><em>Shut Up And Dance</em></a>.)</li>
+<li>An AI could persuade/bribe/blackmail a CEO or politician to manufacture a <em>lot</em> physical robots — (for the supposed purpose of manual labor, military warfare, search-and-rescue missions, delivery drones, lab work, a Robot Catboy Maid, etc) — then the AI hacks <em>those</em> robots, and uses them to affect the physical world.</li>
+</ul>
+<h4>:x XZ</h4>
+<p>Just last month [March 2024], a <em>volunteer, off-the-clock</em> developer found maliciously-added code... which was <em>three years</em> in the making, <em>mere weeks away</em> from going live, and would've attacked the vast majority of internet servers... and this volunteer only caught it <em>by accident</em>, when he noticed that his code was running <em>half a second too slow.</em></p>
+<p>This was the XZ Utils Backdoor. Here's a few layperson-friendly(ish) explanations of this sordid affair: <a href="https://www.theverge.com/2024/4/2/24119342/xz-utils-linux-backdoor-attempt">Amrita Khalid for The Verge</a>, <a href="https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/">Dan Goodin for Ars Technica</a>, <a href="https://www.runtime.news/how-a-500ms-delay-exposed-a-nightmare-scenario-for-the-software-supply-chain/">Tom Krazit for Runtime</a></p>
+<p>Computer security is a nightmare, complete with sleep paralysis demons.</p>
+<h4>:x Cat Ninja</h4>
+<p>Prompt:</p>
+<blockquote>
+<p>&quot;Oil painting by Vincent Van Gogh (1889), impasto, textured. A cat-ninja slicing a watermelon in half.&quot;</p>
+</blockquote>
+<p>DALL-E 3 generated: (cherry-picked)</p>
+<p><img src="media/intro/image-1-.png" alt="AI generated attempt of above prompt"></p>
+<p><img src="media/intro/image%202.png" alt="AI generated attempt of above prompt, again"></p>
+<p><em>(wait, is that headband coming out of their eye?!)</em></p>
+<p>I specifically requested the style of Vincent Van Gogh so y'all can't @ me for &quot;violating copyright&quot;. The dude is <em>looooong</em> dead.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Hi! I'm not like those <em>other</em> footnotes. 😤 Instead of annoyingly teleporting you down the page, I pop up in a lil' bubble that maintains your reading flow! Anyway, check the <em>next</em> footnote for this paragraph's citation. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><strong>System 1</strong> thinking is fast &amp; automatic (eg riding a bike). <strong>System 2</strong> thinking is slow &amp; deliberate (eg doing crosswords). This idea was popularized in <a href="https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow">Thinking Fast &amp; Slow (2011)</a> by Daniel Kahneman, which summarized his research with Amos Tversky. And by &quot;summarized&quot; I mean the book's ~500 pages long. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>In 1997, IBM's Deep Blue beat Garry Kasparov, the then-world chess champion. (See: <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Wikipedia</a>) And yet, over a decade later in 2013, the <em>best</em> machine vision AI was only 57.5% accurate at classifying images. It was only until <em>2021</em>, two years ago, that AI hit 95%+ accuracy. (Source: <a href="https://paperswithcode.com/sota/image-classification-on-cifar-100">PapersWithCode</a>) <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>&quot;Value alignment problem&quot; was <em>first</em> coined by Stuart Russell (co-author of <em>the</em> most-used AI textbook) in <a href="https://www.edge.org/conversation/the-myth-of-ai#26015">Russell, 2014 for <em>Edge</em></a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>The fancy jargon for these problems are, respectively: a) &quot;Specification gaming&quot;, b) &quot;Instrumental convergence&quot;. These will be explained in Part 2! <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>The fancy jargon for these problems are, respectively: a) &quot;AI Bias&quot;, b) &quot;Interpretability&quot;, c) &quot;Out-of-Distribution Errors&quot; or &quot;Robustness failure&quot;, d) &quot;Inner misalignment&quot; or &quot;Objective robustness failure&quot; or &quot;Goal misgeneralization&quot;. Again, all these will be explained in Part 2! <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Quote Investigator (2018) could find <a href="https://quoteinvestigator.com/2018/11/18/know-trouble/">no hard evidence pointing to the true creator of this quote</a>. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>See Hinton's statement here: <a href="https://www.bbc.com/news/world-us-canada-65452940">Kleinman &amp; Vallance, &quot;AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google.&quot; <em>BBC News</em>, 2 May 2023</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>See Bengio's testimony to the U.S. Senate on AI Risk here: <a href="https://yoshuabengio.org/2023/07/25/my-testimony-in-front-of-the-us-senate/">Bengio, 2023</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>No seriously, <em>all</em> of the following use deep neural networks: ChatGPT, DALL-E, AlphaGo, Siri/Alexa/Google Assistant, Tesla's Autopilot. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>Russell &amp; Norvig's textbook is <a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">Artificial Intelligence: A Modern Approach</a>. See Russell's statement on AI Risk from his 2014 article where he coins the phrase &quot;alignment problem&quot;: <a href="https://www.edge.org/conversation/the-myth-of-ai#26015">Russell 2014 for <em>Edge</em> magazine</a>. I'm not aware of a public statement from Norvig, but he <em>did</em> co-sign the one-sentence Statement on AI Risk: <a href="https://www.safe.ai/work/statement-on-ai-risk">“Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.”</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>When he worked at OpenAI, Christiano co-pioneered a technique called Reinforcement Learning from Human Feedback / RLHF <a href="https://arxiv.org/abs/1706.03741">(Christiano et al 2017)</a>, which turned regular GPT (very good autocomplete) into <em>Chat</em>GPT (something actually useable for the public). He had <a href="https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research">positive-but-mixed feelings</a> about this, because RLHF increased AI's safety, <em>but also</em> its power. In 2021, Christiano <a href="https://ai-alignment.com/announcing-the-alignment-research-center-a9b07f77431b">quit OpenAI to create the Alignment Research Center</a>, a non-profit to <em>entirely</em> focus on AI Safety. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p><a href="https://web.archive.org/web/20230727105641/https://www.bbc.com/news/technology-65886125">Vallance, <em>BBC News</em>, 2023</a>: “[LeCun] has said it won't take over the world or permanently destroy jobs. [...] &quot;if you realize it's not safe you just don't build it.&quot; [...] &quot;Will AI take over the world? No, this is a projection of human nature on machines,&quot; he said.” <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Melanie Mitchell &amp; Yann LeCun took the &quot;skeptic&quot; side of <a href="https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/">a 2023 public debate on &quot;Is AI an Existential Threat?&quot;</a> The other side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>A Japanese cult that attacked people with chemical &amp; biological weapons. Most infamously, in 1995, they released nerve gas on the Tokyo Metro, injuring 1,050 people &amp; killing 14 people. (<a href="https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack">Wikipedia</a>) <a href="#fnref15" class="footnote-backref">↩︎</a> <a href="#fnref15:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>Layperson-friendly summary of a recent survey of 2,778 AI researchers: <a href="https://www.vox.com/future-perfect/2024/1/10/24032987/ai-impacts-survey-artificial-intelligence-chatgpt-openai-existential-risk-superintelligence">Kelsey Piper (2024) for <em>Vox</em></a> See full original report here: <a href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf">Grace et al 2024</a>. Keep in mind, as the paper notes itself, of this big caveat: <em>“Forecasting is difficult in general, and subject-matter experts have been observed to perform poorly. Our participants’ expertise is in AI, and they do not, to our knowledge, have any unusual skill at forecasting in general.”</em> <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>Here's a layperson-friendly summary of AlphaFold: <a href="https://web.archive.org/web/20231204110638/https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/">Heaven, 2020 for <em>MIT Technology Review</em></a>. And here's <a href="https://en.wikipedia.org/wiki/AlphaFold">the Wikipedia article</a>. <a href="#fnref17" class="footnote-backref">↩︎</a> <a href="#fnref17:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p>As of writing, commercial rates for DNA synthesis cost ~$0.10 USD per &quot;base pair&quot; of DNA. For context, poliovirus DNA is ~7,700 base pairs long, meaning <em>printing polio</em> would only cost ~$770. <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p><a href="https://www.science.org/content/article/poliovirus-baked-scratch">Jennifer Couzin-Frankel, &quot;Poliovirus Baked From Scratch: Trio of scientists use publicly available sequence to reconstruct a pathogen&quot;, <em>Science</em>, 11 July 2002</a> <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>Phrase popularized by <em>Freedom House</em>: their <a href="https://freedomhouse.org/report/freedom-net/2018/rise-digital-authoritarianism">1hr-reading-time 2018 report</a> on Digital Authoritarianism, <a href="https://freedomhouse.org/report/freedom-net/2023/repressive-power-artificial-intelligence">another 1hr-reading-time 2023 report</a> on how governments are <em>already</em> misusing AI. <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Stuxnet">Stuxnet</a> was a computer virus designed by the US and Israel, which targeted &amp; damaged Iranian nuclear power plants. Specifically: it hacked the computers controlling the centrifuges (used to separate out nuclear material), and caused them to spin so fast, they broke. It's estimated Stuxnet broke 1/5 of Iran's centrifuges! <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn22" class="footnote-item"><p>In 2017, <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack">the WannaCry ransomware attack</a> hit ~300,000 computers around the world; one of the biggest agencies attacked were UK hospitals. In Oct 2020, during a Covid-19 spike, ransomware attacks hit dozens of US hospitals. (<a href="https://www.wired.com/story/ransomware-hospitals-ryuk-trickbot/">Newman, 2020 for <em>Wired</em></a>) <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn23" class="footnote-item"><p>In Sep 2020, a woman was turned away from a hospital that was under attack by a ransomware virus. She died. From <a href="https://www.zdnet.com/article/first-death-reported-following-a-ransomware-attack-on-a-german-hospital/">Cimpanu (2020) for <em>ZDNet</em></a>: “<strong>The incident marks the first-ever reported human death <em>indirectly</em> caused by a ransomware attack.</strong>” (emphasis added). However, there were &quot;insufficient grounds&quot; to charge the hackers for <em>directly</em> causing her death. (<a href="https://www.wired.co.uk/article/ransomware-hospital-death-germany">Ralston, 2020 for <em>Wired</em></a>) <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn24" class="footnote-item"><p>In Jan 2021, a Bay Area water treatment plant was hacked, and had its treatment programs deleted. (<a href="https://www.nbcnews.com/tech/security/hacker-tried-poison-calif-water-supply-was-easy-entering-password-rcna1206">Collier, 2021 for <em>NBC News</em></a>) In Feb 2021, a Florida town's water treatment plant was hacked to add dangerous amounts of lye to the water supply. (<a href="https://apnews.com/article/hacker-tried-poison-water-florida-ab175add0454bcb914c0eb3fb9588466">Bajak, 2021 for <em>AP News</em></a>) As Collier (2021) puts it: “50,000 security disasters waiting to happen [...] If you could imagine a community center run by two old guys who are plumbers, that's your average water plant.” <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn25" class="footnote-item"><p>From <a href="https://web.archive.org/web/20231102183904/https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/">Meaker (2023) for <em>Wired</em></a>. Long story short: a deepfaked audio clip of a politician went viral on social media 2 days before Slovakia's elections, which was a very tight race. The targeted politician lost. Of course, it's hard to <em>prove</em> the deepfake <em>definitely caused</em> his loss, but its high plausibility should be a concern for all democracies. <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn26" class="footnote-item"><p>Benj Edwards, <a href="https://arstechnica.com/information-technology/2024/02/deepfake-scammer-walks-off-with-25-million-in-first-of-its-kind-ai-heist/">&quot;Deepfake scammer walks off with $25 million in first-of-its-kind AI heist&quot;</a>, <em>Ars Technica</em>, 2024 Feb 5. <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn27" class="footnote-item"><p>“It was completely her voice. It was her inflection. It was the way [my daughter] would have cried.” [...] “Now there are ways in which you can [deepfake voices] with just three seconds of your voice.” (<a href="https://www.azfamily.com/2023/04/10/ive-got-your-daughter-scottsdale-mom-warns-close-encounter-with-ai-voice-cloning-scam/">Campbell, 2023 for local news outlet <em>Arizona's Family</em></a>. CONTENT NOTE: threats of sexual assault.) <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn28" class="footnote-item"><p>“[T]he dubious argument that “doom-and-gloom predictions often fail to consider the potential benefits of AI in preventing medical errors, reducing car accidents, and more.” [... is] like arguing that nuclear engineers who analyze the possibility of meltdowns in nuclear power stations are “failing to consider the potential benefits” of cheap electricity, and that because nuclear power stations might one day generate really cheap electricity, we should neither mention, nor work on preventing, the possibility of a meltdown.” Source: <a href="https://www.technologyreview.com/2016/11/02/156285/yes-we-are-worried-about-the-existential-risk-of-artificial-intelligence/">Dafoe &amp; Russell (2016) for <em>MIT Technology Review</em></a>. <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>Source: <a href="https://quoteinvestigator.com/2021/05/27/parachute/">Quote Investigator</a> <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p><a href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2819%2930123-2/fulltext#%20">Liu &amp; Faes et al., 2019</a>: “Our review found the diagnostic performance of deep learning models to be <strong>equivalent to that of health-care professionals</strong>.” [emphasis added] AI vs Human expert &quot;true-positive&quot; rate: 87.0% vs 86.4%. AI vs Human expert &quot;true-negative&quot; rate: 92.5% vs 90.5%. <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>One of my all-time favorite quotes, by Max Roser, founder of Our World In Data: <a href="https://ourworldindata.org/much-better-awful-can-be-better">“The world is awful. The world is much better. The world <em>can be</em> much better. <em>All three statements are true at the same time.</em>”</a> <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn32" class="footnote-item"><p>Quote from Otto von Bismarck, the first German chancellor: <em>“Die Politik ist die Lehre vom Möglichen.”</em> (“Politics is the art of the possible.”) <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn33" class="footnote-item"><p>I derived this estimate with a statistical technique called &quot;numerical posterior extraction&quot;. In other words, I pulled a number out my-- <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn34" class="footnote-item"><p>Quote source: <a href="https://en.wikiquote.org/wiki/Trees#Planting">nobody knows lol.</a> <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+
+	</article>
+
+    <!-- FOOTER -->
+	<div id="footer">
+		<p>
+			asdasadsdasdas
+			<a href='https://creativecommons.org/publicdomain/zero/1.0/'>dedicated to the public domain!</a>
+        </p>
+	</div>
+
+</div>
+</body>
+</html>

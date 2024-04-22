@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!-- Title -->
+    <title>{{title}}</title>
+
+    <!-- UTF-8 & Mobile -->
+    <!--<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=460">
+
+    <!-- On POSTS, links are external by default -->
+    <base target="_blank">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Social Share Nonsense -->
+	<meta itemprop="name" content="{{ title }}">
+	<meta itemprop="description" content="{{ share_desc }}">
+	<meta itemprop="image" content="{{ shareImage }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:title" content="{{ title }}">
+	<meta name="twitter:description" content="{{ share_desc }}">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="{{ shareImage }}">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{ shareImage }}">
+	<meta property="og:description" content="{{ share_desc }}">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="/styles/Merriweather/merriweather.css">
+    <link rel="stylesheet" href="/styles/Open_Sans/opensans.css">
+    <link rel="stylesheet" href="/styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
+	<link rel="stylesheet" href="/styles/page.css">
+
+	<!-- SCRIPTS -->
+
+    <!-- This website's own scripts -->
+	<script src="/scripts/page.js"></script>
+    <script>window.IS_DRAFT=true;</script>
+
+    <!-- Littlefoot: for my feetnotes -->
+    <script src="/scripts/littlefoot.js" ></script>
+
+    <!-- Nutshell: expandable explanations -->
+    <script src="/scripts/nutshell-v1.0.5.js"></script>
+    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+
+    <!-- Orbit: make memory a choice -->
+    <script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
+
+    <!-- MathJAX: for nice math -->
+    <script src="/scripts/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+<!-- HACKBRAND -->
+<a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
+	<img src="/styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" title="A project by Hack Club">
+</a>
+
+<!-- The Sidebar UI -->
+<div id="return_to_content"></div>
+<div id="sidebar">
+	<div id="panel_toc"></div>
+
+    <!-- STYLE CHANGER -->
+	<div id="panel_style">
+
+        <div id="style_dark_mode_container" style="cursor:pointer;">
+            <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
+            Dark Mode
+        </div>
+        <br>
+
+        Font size:
+        <span id="style_fontsize"></span>
+        <br>
+        <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
+        <br>
+
+        Font type:
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="serif" checked>
+            <span style="font-family:'Merriweather'">Serif</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="sans_serif">
+            <span style="font-family:'Open Sans'">Sans Serif</span>
+        </label>
+        <br>
+        <a target='_blank' href='https://github.com/ncase/blog#open-source-font--code-credits' style='font-size: 0.85em;'>
+            (font credits)
+        </a>
+        <br><br>
+
+        <button id="style_reset">Reset</button>
+
+    </div>
+
+    <!-- TRANSLATIONS -->
+	<div id="panel_translations">
+        <!-- none... sorry -->
+    </div>
+	<div id="panel_share">share on... w/e</div>
+    <!-- SHILLING FOR BIG NICKY -->
+	<div id="panel_sub">
+        <!-- TODO: shill for Hack Club instead -->
+    </div>
+    <div id="panel_support"></div>
+
+</div>
+
+<!-- Reading Time Clock! -->
+<div id="reading_time">
+	<div id="clock_icon"></div>
+	<div id="clock_label"></div>
+</div>
+
+<!-- EVERYTHING TO THE LEFT of the sidebar... -->
+<div id="everything_container">
+
+    <!-- A big cute header -->
+    <!-- Depends if it's frontpage, or not -->
+    <!--
+	<div id="header" class='frontpage'>
+		<div id="scrolly">
+			<div id="scrolly_text"></div>
+		</div>
+		<div id="header_cont">
+			<div id="header_title"></div>
+		</div>
+		<video id="typing" loop muted autoplay width="400">
+			<source src="styles/assets/Typewriter.webm" type="video/webm">
+		</video>
+	</div>
+    -->
+    <div id="header" class="article">
+        <div id="splash_image">
+            <img id="splash_image_banner" src="/styles/assets/placeholder_banner.png"/>
+        </div>
+        <div id="header_words">
+    		<div id="title">
+    			{{title}}
+    		</div>
+    		<div id="subtitle">
+
+                reading time: <span id="reading_time_header"></span>
+    			&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+
+                <span id="pub_date_header"></span>
+                by <a class='black-link' href='https://ncase.me'>nicky case</a>
+
+    		</div>
+        </div>
+	</div>
+
+    <!-- Home button -->
+    <a target='_self' href="/">
+        <div id="home_button">
+            <div id="home_icon"></div>
+            <div id="home_label">home</div>
+        </div>
+    </a>
+
+    <!-- The lil' tabs for sidebar UI -->
+    <div id="sidebar_tabs">
+		<div id="tab_toc">
+			<div></div>
+			table of contents
+		</div>
+		<div id="tab_style">
+			<div></div>
+			change style 😎
+		</div>
+        <!--
+        TODO
+		<div id="tab_sub">
+			<div></div>
+			subscribe 💖
+		</div>
+        -->
+	</div>
+
+    <!-- BEHOLD! CONTENT!!!!! -->
+	<article id="content">
+
+        <!-- Is Draft, Is Deprecated, Is Old -->
+
+        <div id="warning_message" style="padding: 1em 1em;">
+            <b>NOTE: THIS IS A DRAFT!</b>
+            Please do not share this publicly yet.
+            There's a floating textbox on the &larr;<i>left</i>, for you
+            to record your notes, as you read along and/or
+            when you're done.
+            (well, unless you're on mobile, then it's not there. record notes somehow else)
+            <br><br>
+            Then, copy-paste your notes, and share them with
+            me via whatever platform I sent you this link!
+            Thank you so muuuuuuuuch! 🎉
+        </div>
+<textarea id="draft_feedback">
+Please type your notes below! Make notes *as you go along*, that's most helpful for me.
+
+What's confusing, interesting, what you like or dislike? Critical honest feedback at an early stage helps me a lot! Thanks!
+
+...
+</textarea>
+
+{{INSERT_CONTENT_HERE}}
+
+	</article>
+
+    <!-- FOOTER -->
+	<div id="footer">
+		<p>
+			asdasadsdasdas
+			<a href='https://creativecommons.org/publicdomain/zero/1.0/'>dedicated to the public domain!</a>
+        </p>
+	</div>
+
+</div>
+</body>
+</html>
