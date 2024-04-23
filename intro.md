@@ -117,7 +117,7 @@ If I may be a bit sappy, this framework not only helps me understand AI better, 
 
 [^fancy-1]: The fancy jargon for these problems are, respectively: a) "Specification gaming", b) "Instrumental convergence". These will be explained in Part 2!
 
-[^fancy-2]: The fancy jargon for these problems are, respectively: a) "AI Bias", b) "Interpretability", c) "Out-of-Distribution Errors" or "Robustness failure", d) "Inner misalignment" or "Objective robustness failure" or "Goal misgeneralization". Again, all these will be explained in Part 2!
+[^fancy-2]: The fancy jargon for these problems are, respectively: a) "AI Bias", b) "Interpretability", c) "Out-of-Distribution Errors" or "Robustness failure", d) "Inner misalignment" or "Goal misgeneralization" or "Objective robustness failure". Again, all these will be explained in Part 2!
 
 ### Part 3: The proposed solutions
 
@@ -465,8 +465,8 @@ Anyway, the TOP 10 TYPES-OF-SOLUTIONS to AI Safety: (with the fancy jargon in pa
 6. Reading the AI's mind. (Interpretability, Circuits, Eliciting Latent Knowledge)
 7. Maybe all our ideas just suck and we need to go back to square one. (Agent foundations, Causal AI, Shard theory, Bio-plausible learning, Embodied cognition)
 8. "Just Don't Build The Torture Nexus". Or: how can we get the benefits of AI *without* building powerful, general, agent-like AIs? (Comprehensive AI services, Narrow/Tool/Microscope AI, Quantilizers)
-9. The Human Alignment Problem: how do we coordinate *humans* to actually make sure AI goes well? (AI Governance, Data/Privacy rights, Differential technological development, Windfall Clauses)
-10. If you can't beat 'em, join 'em! (Cyborgism)
+9. The Human Alignment Problem: how do we coordinate *humans* to actually make sure AI goes well? (AI Governance, Evals, Data/Privacy rights, Differential technological development, Windfall Clauses)
+10. If you can't beat 'em, join 'em! (Cyborgism, Centaurs, Intelligence Amplification)
 
 #### :x Spaced Repetition
 
