@@ -300,7 +300,7 @@ For *thousands* of years, in nations both rich and poor, a full *half* of kids j
 
 [^roser]: One of my all-time favorite quotes, by Max Roser, founder of Our World In Data: [“The world is awful. The world is much better. The world *can be* much better. *All three statements are true at the same time.*”](https://ourworldindata.org/much-better-awful-can-be-better)
 
-How did we achieve that? Policy's an important part of the story, but policy is "the art of the possible"[^otto], and the above wouldn't be possible without *good* science & tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day. 
+How did we achieve that? Policy's an important part of the story, but policy is "the art of the possible"[^otto], and the above wouldn't be possible without *good* science & tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.
 
 [^otto]: Quote from Otto von Bismarck, the first German chancellor: *“Die Politik ist die Lehre vom Möglichen.”* (“Politics is the art of the possible.”)
 
@@ -399,7 +399,7 @@ Let's plant that tree today!
 
 Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
 
-<a href="../p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
+<a href="p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
 
 
 
