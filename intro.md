@@ -76,30 +76,30 @@ So that's "Logic vs Intuition". As for the other core conflict, "Problems in the
 
 *The* problem of AI Safety is this:[^russell-coined]
 
-> <u>**The Value Alignment Problem**</u>:
+> <u>**The Value Alignment Problem**</u>:    
 > “How can we make AI robustly serve humane values?”
 
 (NOTE: I wrote *humane*, with an "e", not just "human". A *human* may or may not be *humane*.)
 
 We can break this problem down by "Problems in Humans vs AI":
 
-> <u>**Humane Values:**</u>
-> “What *are* humane values, anyway?”
+> <u>**Humane Values:**</u>    
+> “What *are* humane values, anyway?”    
 > (a problem for philosophy & ethics)
 
-> <u>**The *Technical* Alignment Problem:**</u>
-> “How can we make AI robustly serve *any intended goal* at all?”
+> <u>**The *Technical* Alignment Problem:**</u>    
+> “How can we make AI robustly serve *any intended goal* at all?”    
 > (a problem for computer scientists - surprisingly, still unsolved!)
 
 (To correct a common misconception: "*technically* aligned" does not mean "humane"! A mad programmer could, in principle, get an AI to robustly serve *their* intended goals, but their intended goals are inhumane.)
 
 The *technical* alignment problem, in turn, can be broken down by "Logic vs Intuition":
 
-> <u>Problems with AI Logic</u>:[^fancy-1] ("game theory" problems)
+> <u>Problems with AI Logic</u>:[^fancy-1] ("game theory" problems)    
 > * AIs may accomplish goals in logical but undesirable ways.
 > * Most goals logically lead to the same unsafe sub-goals: "don't let anyone stop me from accomplishing my goal", "maximize my ability & resources to optimize for that goal", etc.
 
-> <u>Problems with AI Intuition</u>:[^fancy-2] ("deep learning" problems)
+> <u>Problems with AI Intuition</u>:[^fancy-2] ("deep learning" problems)    
 > * An AI trained on human data could learn our prejudices.
 > * AI "intuition" isn't understandable or verifiable by humans.
 > * AI "intuition" is fragile, and fails in slightly-new scenarios.
