@@ -3,63 +3,62 @@
 // Import shtuff
 import * as fs from 'fs'; // for fs's sake
 const __dirname = import.meta.dirname;
+import parse from 'html-dom-parser';
 import markdownit from 'markdown-it';
-import md_footnote from 'markdown-it-footnote';
-const md = markdownit({
-    html: true
-}).use(md_footnote);
+const md = markdownit();
 
-// For each of these files...
-// Get the markdown, convert to HTML, insert it in the template & export
-let convertConfigs = [
-    {
-        markdown:'test/test.md', template:'templates/test_template.html', exportTo:'test/index.html',
-        extras:{ foo:'there once', bar:'was a man', etc:'from nantucket' }
-    },
-    {
-        markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
-        extras:{
-            title:'AI Safety for Fleshy Humans',
-            root:''
-        }
-    },
-    {
-        markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
-        extras:{
-            title:'AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures',
-            root:'../'
-        }
-    }
-];
-convertConfigs.forEach((config)=>{
-    // Get markdown
-    fs.readFile( config.markdown, "utf-8", (err, markdown)=>{
-        if(err){ console.log(err); }else{
+// Should pass filepath as argument
+if(process.argv.length != 4){
+    console.error('Ay, pass input & output filepaths as arguments!');
+    process.exit(1);
+}
+const inputFilepath = process.argv[2];
+const outputFilepath = process.argv[3];
 
-            // Get template
-            fs.readFile( config.template, "utf-8", (err, template)=>{
-                if(err){ console.log(err); }else{
+// Get the MD/HTML, convert to CSV for Anki (with image if need be)
+fs.readFile( inputFilepath, "utf-8", (err, input)=>{
+    if(err){ console.log(err); }else{
 
-                    // Convert MD => HTML & put in template
-                    let convertedMD = md.render(markdown);
-                    let html = template.replace("{{INSERT_CONTENT_HERE}}",convertedMD);
+        let ankiLines = [];
 
-                    // Put all extra stuff in template
-                    // Note: can put {{keys}} in the MARKDOWN too and it'll work!
-                    if(config.extras){
-                        for(const key in config.extras){
-                            html = html.replaceAll(`{{${key}}}`, config.extras[key]);
-                        }
+        // 1) Find each instance of <orbit-reviewarea>,
+        const regexp = /<orbit-reviewarea>(\n|.)*?<\/orbit-reviewarea>/g
+        const orbitReviews = [...input.matchAll(regexp)];
+
+        // 2) For each, parse into DOM,
+        orbitReviews.forEach( (orbitReview)=>{
+
+            let dom = parse(orbitReview[0]); // the whole string
+
+            // 3) Then for each <orbit-prompt>, make a row "Question";"Answer"
+            dom[0].children.forEach( (child)=>{
+                if(child.type=='tag' && child.name=='orbit-prompt'){
+
+                    let ankiCSVLine;
+                    let q = md.render(child.attribs.question).trim(); // md'ified!
+                    let a = md.render(child.attribs.answer).trim(); // md'ified!
+
+                    // 4) and append anki-image=".*" as <br><img> if present
+                    if(child.attribs['answer-attachments']){
+                        let comment = child.children.filter(c=>c.type=='comment')[0].data;
+                        let img = comment.trim();
+                        ankiCSVLine = `"${q}";"${a}<img src='${img}'>"`;
+                    }else{
+                        ankiCSVLine = `"${q}";"${a}"`; // otherwise, normal
                     }
 
-                    // Write to a subfolder!
-                    fs.writeFile( __dirname+'/'+config.exportTo, html, err=>{
-                        if(err) console.error(err);
-                        else console.log('Built '+config.markdown+'!');
-                    });
-
+                    ankiLines.push(ankiCSVLine);
                 }
             });
-        }
-    });
+
+        });
+
+        // 5) Write out CSV!
+        let ankiCSV = ankiLines.join("\n");
+        fs.writeFile( __dirname+'/'+outputFilepath, ankiCSV, err=>{
+            if(err) console.error(err);
+            else console.log('Converted Orbits at '+inputFilepath+' to Ankis at '+outputFilepath+'!');
+        });
+
+    }
 });

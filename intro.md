@@ -235,7 +235,7 @@ But speaking of killing people...
 
 ![A drawing of Microsoft Clippy saying: "It looks like you're trying to commit omnicide. Would you like some help?"](media/intro/omnicide.png)
 
-While many top researchers *do* believe advanced AI poses a ~5% risk of "literally everybody dies"[^ai-xrisk] — regardless of whether or not that probability's well-calibrated — it's *very* hard to convince people (especially policymakers) of stuff that's never happened before.
+While most AI researchers *do* believe advanced AI poses a 5+% risk of "literally everybody dies"[^ai-xrisk], it's *very* hard to convince people (especially policymakers) of stuff that's never happened before.
 
 So instead, I'd like to highlight the ways that advanced AI – (especially when it's available to anyone with a high-end computer) – could lead to catastrophes, "merely" by scaling up *already-existing* bad stuff.
 
@@ -243,7 +243,7 @@ For example:
 
 * <u>Bio-engineered pandemics</u>: A bio-terrorist cult (like Aum Shinrikyo[^aum]) uses AI (like AlphaFold[^alphafold]) and DNA-printing (which is getting cheaper *fast*[^dna-printing]) to design multiple new super-viruses, and release them simultaneously in major airports around the globe.
     * (Proof of concept: Scientists have *already* re-built polio from mail-order DNA... two decades ago.[^polio])
-* <u>Digital authoritarianism</u>:[^da] A tyrant uses AI-enhanced surveillance to hunt down protestors ([already happening](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/), generate individually-targeted propaganda ([kind of happening](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)), and autonomous military robots ([soon-to-be happening](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444))... all to rule with a silicon fist.
+* <u>Digital authoritarianism</u>:[^da] A tyrant uses AI-enhanced surveillance to hunt down protestors ([already happening](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/)), generate individually-targeted propaganda ([kind of happening](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)), and autonomous military robots ([soon-to-be happening](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444))... all to rule with a silicon fist.
 * <u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that *does its own hacking & re-programming*, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which can hold critical infrastructure ransom, and manipulate top CEOs and politicians to do its bidding.
   * (For context: *without* AI, hackers have already damaged nuclear power plants,[^stuxnet] held hospitals ransom[^ransom-hospitals] which maybe killed someone,[^hospital-death] and almost poisoned a town's water supply *twice*.[^water-supply] *With* AI, deepfakes have been used to swing an election,[^deepfake-election] to steal $25 million in a single heist,[^hong-kong] and to target parents for ransom, using the AI-generated voices of their children being kidnapped & crying for help.[^deepfake-ransom])
   * ([:I cannot over-emphasize how much the modern world is built on an upside-down house of cards.](#xz))
@@ -296,11 +296,11 @@ Too often, we take technology — even life-saving technology — for granted. S
 
 ![Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today.](media/intro/owid.jpg)*(from [Dattani, Spooner, Ritchie and Roser (2023)](https://ourworldindata.org/child-mortality))*
 
-For *thousands* of years, in nations both rich and poor, a full *half* of kids just die. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept[^roser] a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just *so swiftly cut down* an *eons-old* scourge.
+For *thousands* of years, in nations both rich and poor, a full *half* of kids just died. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept[^roser] a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just *so swiftly cut down* an *eons-old* scourge.
 
 [^roser]: One of my all-time favorite quotes, by Max Roser, founder of Our World In Data: [“The world is awful. The world is much better. The world *can be* much better. *All three statements are true at the same time.*”](https://ourworldindata.org/much-better-awful-can-be-better)
 
-How did we achieve that? Policy's an important part of the story, but policy is "the art of the possible"[^otto], and the above wouldn't be possible without *good* science & tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.
+How did we achieve that? Sure, policy's a big of the story, but policy is "the art of the possible"[^otto], and the above wouldn't be possible without *good* science & tech. If safe, humane AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.
 
 [^otto]: Quote from Otto von Bismarck, the first German chancellor: *“Die Politik ist die Lehre vom Möglichen.”* (“Politics is the art of the possible.”)
 
@@ -328,7 +328,7 @@ I present to you, a [relevant xkcd](https://www.explainxkcd.com/wiki/index.php/2
 
 This is how I feel about "don't worry about AI, it can't even do [X]".
 
-Is our post-modern memory-span *that* bad? *One* decade ago, just *one*, the world's state-of-the-art AIs couldn't even *recognize pictures of cats.* Now, not *only* can AI do that at human-performance level, AIs can pump out [:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh](#CatNinja) in *under a minute*.
+Is our postmodern memory-span *that* bad? *One* decade ago, just *one*, the world's state-of-the-art AIs couldn't even *recognize pictures of cats.* Now, not *only* can AI do that at human-performance level, AIs can pump out [:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh](#CatNinja) in *under a minute*.
 
 Is *current* AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)
 
@@ -340,7 +340,7 @@ As "they" say:[^quote-trees]
 
 Let's plant that tree today!
 
-[^numerical-extraction]: I derived this estimate with a statistical technique called "numerical posterior extraction". In other words, I pulled a number out my--
+[^numerical-extraction]: Estimate derived via "numerical posterior extraction". In other words, I pulled a number out my--
 
 [^quote-trees]: Quote source: [nobody knows lol.](https://en.wikiquote.org/wiki/Trees#Planting)
 

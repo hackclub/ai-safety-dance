@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "html-dom-parser": "^5.0.8",
     "markdown-it": "^14.1.0",
     "markdown-it-footnote": "^4.0.0"
   }

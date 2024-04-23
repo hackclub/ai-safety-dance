@@ -1,0 +1,4 @@
+"<p>Who's widely considered the founder of Computer Science &amp; Artificial Intelligence?</p>";"<p>Alan Turing (this handsome fella)</p><img src='aisffs-turing.jpg'>"
+"<p>The two main eras of AI (more or less):</p>";"<p>Before 2000: Symbolic AI. After 2000: Deep Learning.</p>"
+"<p>What was Symbolic AI good at, and bad at? What is Deep Learning currently good at, and bad at?</p>";"<p>Symbolic AI: good at Logic, bad at 'Intuition'. Deep Learning: good at 'Intuition', bad at Logic.</p>"
+"<p>Visualize what an Artificial Neural Network (ANN) looks like:</p>";"<img src='aisffs-ann.png'>"

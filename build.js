@@ -52,7 +52,7 @@ convertConfigs.forEach((config)=>{
                         }
                     }
 
-                    // Write to a subfolder!
+                    // Write out!
                     fs.writeFile( __dirname+'/'+config.exportTo, html, err=>{
                         if(err) console.error(err);
                         else console.log('Built '+config.markdown+'!');
