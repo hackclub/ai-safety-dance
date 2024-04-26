@@ -401,7 +401,7 @@ Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whir
 
 **Beta-readers: THE DRAFT IS TWO PAGES LONG, CLICK LINK BELOW, THX**
 
-<a href="p1/index2.html" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
+<a href="p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
 
 
 
