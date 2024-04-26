@@ -8,26 +8,38 @@ import md_footnote from 'markdown-it-footnote';
 const md = markdownit({
     html: true
 }).use(md_footnote);
+import nunjucks from 'nunjucks';
+nunjucks.configure({ autoescape:false });
 
 // For each of these files...
-// Get the markdown, convert to HTML, insert it in the template & export
+// Get the markdown, convert to HTML, render it in template w Nunjucks & export
 let convertConfigs = [
     {
         markdown:'test/test.md', template:'templates/test_template.html', exportTo:'test/index.html',
-        extras:{ foo:'there once', bar:'was a man', etc:'from nantucket' }
+        extras:{
+            foo:'there once!',
+            bar:'was a man...',
+            etc:'from nantucket?'
+        }
     },
     {
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
-            title:'AI Safety for Fleshy Humans',
-            root:''
+            title:'[DRAFT, DO NOT PUBLICLY SHARE]', //AI Safety for Fleshy Humans',
+            share_desc: 'TODO',
+            share_image: 'TODO',
+            root:'',
+
+            isFrontpage: true
         }
     },
     {
         markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
         extras:{
-            title:'AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures',
-            root:'../'
+            title:'[DRAFT, DO NOT PUBLICLY SHARE]', //AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures',
+            root:'../',
+
+            isPartOne: true
         }
     }
 ];
@@ -40,17 +52,13 @@ convertConfigs.forEach((config)=>{
             fs.readFile( config.template, "utf-8", (err, template)=>{
                 if(err){ console.log(err); }else{
 
-                    // Convert MD => HTML & put in template
-                    let convertedMD = md.render(markdown);
-                    let html = template.replace("{{INSERT_CONTENT_HERE}}",convertedMD);
+                    // Convert MD => HTML
+                    let renderedHTML = md.render(markdown);
 
-                    // Put all extra stuff in template
-                    // Note: can put {{keys}} in the MARKDOWN too and it'll work!
-                    if(config.extras){
-                        for(const key in config.extras){
-                            html = html.replaceAll(`{{${key}}}`, config.extras[key]);
-                        }
-                    }
+                    // Render in template with Nunjucks
+                    let data = config.extras || {};
+                    data.content = renderedHTML;
+                    let html = nunjucks.render(config.template, data);
 
                     // Write out!
                     fs.writeFile( __dirname+'/'+config.exportTo, html, err=>{

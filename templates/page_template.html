@@ -3,7 +3,7 @@
 <head>
 
     <!-- Title -->
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
 
     <!-- UTF-8 & Mobile -->
     <!--<meta charset="utf-8">
@@ -17,21 +17,15 @@
     <base target="_blank">
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="/favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Social Share Nonsense -->
 	<meta itemprop="name" content="{{ title }}">
 	<meta itemprop="description" content="{{ share_desc }}">
-	<meta itemprop="image" content="{{ shareImage }}">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:title" content="{{ title }}">
-	<meta name="twitter:description" content="{{ share_desc }}">
-	<meta name="twitter:creator" content="@ncasenmare">
-	<meta name="twitter:image" content="{{ shareImage }}">
+	<meta itemprop="image" content="{{ share_image }}">
 	<meta property="og:title" content="{{ title }}">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{ shareImage }}">
+	<meta property="og:image" content="{{ share_image }}">
 	<meta property="og:description" content="{{ share_desc }}">
 
 	<!-- STYLES -->
@@ -42,22 +36,15 @@
 
 	<!-- SCRIPTS -->
 
-    <!-- This website's own scripts -->
-	<script src="{{root}}scripts/page.js"></script>
-    <script>window.IS_DRAFT=true;</script>
-
     <!-- Littlefoot: for my feetnotes -->
     <script src="{{root}}scripts/littlefoot.js" ></script>
-
     <!-- Nutshell: expandable explanations -->
     <script src="{{root}}scripts/nutshell-v1.0.5.js"></script>
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
-
-    <!-- Orbit: make memory a choice -->
-    <script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
-
     <!-- MathJAX: for nice math -->
     <script src="{{root}}scripts/tex-mml-chtml.js"></script>
+    <!-- This website's own scripts -->
+	<script src="{{root}}scripts/page.js"></script>
 
 </head>
 <body>
@@ -131,47 +118,82 @@
 <div id="everything_container">
 
     <!-- A big cute header -->
-    <!-- Depends if it's frontpage, or not -->
-    <!--
-	<div id="header" class='frontpage'>
-		<div id="scrolly">
-			<div id="scrolly_text"></div>
-		</div>
-		<div id="header_cont">
-			<div id="header_title"></div>
-		</div>
-		<video id="typing" loop muted autoplay width="400">
-			<source src="styles/assets/Typewriter.webm" type="video/webm">
-		</video>
-	</div>
-    -->
-    <div id="header" class="article">
+    <div id="header" class="{{ 'frontpage' if isFrontpage else 'chapter' }}">
         <div id="splash_image">
-            <img id="splash_image_banner" src="{{root}}styles/assets/placeholder_banner.png"/>
+            <div id="crt_lines"></div>
+            <div id="static"></div>
+            <video id="dancing" loop muted autoplay width="400">
+    			<source src="media/splash/noone.webm" type="video/webm">
+    		</video>
         </div>
-        <div id="header_words">
-    		<div id="title">
-    			{{title}}
-    		</div>
-    		<div id="subtitle">
+        {% if isFrontpage %}
 
-                reading time: <span id="reading_time_header"></span>
-    			&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            <div id="header_words">
+                <div id="title">
+                    AI Safety for Fleshy Humans
+                </div>
+                <div id="subtitle">
+                    by
+                    <a href="https://ncase.me">Nicky Case</a>
+                    &amp;
+                    <a href="https://hackclub.com/">Hack Club</a>
+                    [<b>DRAFT</b>: DO NOT SHARE PUBLICLY YET]
+                </div>
+            </div>
 
-                <span id="pub_date_header"></span>
-                by <a class='black-link' href='https://ncase.me'>nicky case</a>
+        {% elif isPartOne %}
 
-    		</div>
-        </div>
+            <div id="header_words" style="position: absolute; top: 55px;">
+                <div id="title" style="font-size: 143px;">
+                    P<span style="position: relative;left: -7px;">A</span>RT
+                    O<span style="position: relative;left: -4px;">N</span>E
+                </div>
+                <div id="subtitle" style="font-size: 40px; margin-top: -10px;">
+                    The Past, Present, &amp; Possible Futures
+                </div>
+            </div>
+
+        {% endif %}
 	</div>
 
-    <!-- Home button -->
-    <a target='_self' href="/">
-        <div id="home_button">
-            <div id="home_icon"></div>
-            <div id="home_label">home</div>
+    <!-- Chapter Navigation -->
+    <div id="chapter_nav">
+        <div id="chapter_nav_centered">
+            <a target="_self" href="{{root}}"
+                class="live">
+                <div {{ 'selected' if isFrontpage }} style="line-height:41px;">
+                    introduction
+                </div>
+            </a>
+            <a target="_self" href="{{root}}p1"
+                class="live">
+                <div {{ 'selected' if isPartOne }} >
+                    part 1<br>past & future
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING JULY 2024, probably"
+                onclick="alert('COMING JULY 2024, probably')">
+                <div>
+                    part 2<br>problems
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING OCT 2024, probably"
+                onclick="alert('COMING OCT 2024, probably')">
+                <div>
+                    part 3<br>solutions?
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING OCT 2024, probably"
+                onclick="alert('COMING OCT 2024, probably')">
+                <div style="line-height:41px; border-right:1px solid rgba(128,128,128,0.8);">
+                    conclusion
+                </div>
+            </a>
         </div>
-    </a>
+    </div>
 
     <!-- The lil' tabs for sidebar UI -->
     <div id="sidebar_tabs">
@@ -194,31 +216,7 @@
 
     <!-- BEHOLD! CONTENT!!!!! -->
 	<article id="content">
-
-        <!-- Is Draft, Is Deprecated, Is Old -->
-
-        <div id="warning_message" style="padding: 1em 1em;">
-            <b>NOTE: THIS IS A DRAFT!</b>
-            Please do not share this publicly yet.
-            There's a floating textbox on the &larr;<i>left</i>, for you
-            to record your notes, as you read along and/or
-            when you're done.
-            (well, unless you're on mobile, then it's not there. record notes somehow else)
-            <br><br>
-            Then, copy-paste your notes, and share them with
-            me via whatever platform I sent you this link!
-            Thank you so muuuuuuuuch! 🎉
-        </div>
-<textarea id="draft_feedback">
-Please type your notes below! Make notes *as you go along*, that's most helpful for me.
-
-What's confusing, interesting, what you like or dislike? Critical honest feedback at an early stage helps me a lot! Thanks!
-
-...
-</textarea>
-
-{{INSERT_CONTENT_HERE}}
-
+{{content}}
 	</article>
 
     <!-- FOOTER -->
@@ -232,3 +230,7 @@ What's confusing, interesting, what you like or dislike? Critical honest feedbac
 </div>
 </body>
 </html>
+
+<!-- Load these scripts last. Screw 'em. -->
+<!-- Orbit: make memory a choice -->
+<script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>

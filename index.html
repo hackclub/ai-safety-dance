@@ -3,7 +3,7 @@
 <head>
 
     <!-- Title -->
-    <title>AI Safety for Fleshy Humans</title>
+    <title>[DRAFT, DO NOT PUBLICLY SHARE]</title>
 
     <!-- UTF-8 & Mobile -->
     <!--<meta charset="utf-8">
@@ -17,22 +17,16 @@
     <base target="_blank">
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="/favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Social Share Nonsense -->
-	<meta itemprop="name" content="{{ title }}">
-	<meta itemprop="description" content="{{ share_desc }}">
-	<meta itemprop="image" content="{{ shareImage }}">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:title" content="{{ title }}">
-	<meta name="twitter:description" content="{{ share_desc }}">
-	<meta name="twitter:creator" content="@ncasenmare">
-	<meta name="twitter:image" content="{{ shareImage }}">
-	<meta property="og:title" content="{{ title }}">
+	<meta itemprop="name" content="[DRAFT, DO NOT PUBLICLY SHARE]">
+	<meta itemprop="description" content="TODO">
+	<meta itemprop="image" content="TODO">
+	<meta property="og:title" content="[DRAFT, DO NOT PUBLICLY SHARE]">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="{{ shareImage }}">
-	<meta property="og:description" content="{{ share_desc }}">
+	<meta property="og:image" content="TODO">
+	<meta property="og:description" content="TODO">
 
 	<!-- STYLES -->
 	<link rel="stylesheet" href="styles/Merriweather/merriweather.css">
@@ -42,22 +36,15 @@
 
 	<!-- SCRIPTS -->
 
-    <!-- This website's own scripts -->
-	<script src="scripts/page.js"></script>
-    <script>window.IS_DRAFT=true;</script>
-
     <!-- Littlefoot: for my feetnotes -->
     <script src="scripts/littlefoot.js" ></script>
-
     <!-- Nutshell: expandable explanations -->
     <script src="scripts/nutshell-v1.0.5.js"></script>
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
-
-    <!-- Orbit: make memory a choice -->
-    <script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
-
     <!-- MathJAX: for nice math -->
     <script src="scripts/tex-mml-chtml.js"></script>
+    <!-- This website's own scripts -->
+	<script src="scripts/page.js"></script>
 
 </head>
 <body>
@@ -131,47 +118,70 @@
 <div id="everything_container">
 
     <!-- A big cute header -->
-    <!-- Depends if it's frontpage, or not -->
-    <!--
-	<div id="header" class='frontpage'>
-		<div id="scrolly">
-			<div id="scrolly_text"></div>
-		</div>
-		<div id="header_cont">
-			<div id="header_title"></div>
-		</div>
-		<video id="typing" loop muted autoplay width="400">
-			<source src="styles/assets/Typewriter.webm" type="video/webm">
-		</video>
-	</div>
-    -->
-    <div id="header" class="article">
+    <div id="header" class="frontpage">
         <div id="splash_image">
-            <img id="splash_image_banner" src="styles/assets/placeholder_banner.png"/>
+            <div id="crt_lines"></div>
+            <div id="static"></div>
+            <video id="dancing" loop muted autoplay width="400">
+    			<source src="media/splash/noone.webm" type="video/webm">
+    		</video>
         </div>
-        <div id="header_words">
-    		<div id="title">
-    			AI Safety for Fleshy Humans
-    		</div>
-    		<div id="subtitle">
+        
 
-                reading time: <span id="reading_time_header"></span>
-    			&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            <div id="header_words">
+                <div id="title">
+                    AI Safety for Fleshy Humans
+                </div>
+                <div id="subtitle">
+                    by
+                    <a href="https://ncase.me">Nicky Case</a>
+                    &amp;
+                    <a href="https://hackclub.com/">Hack Club</a>
+                    [<b>DRAFT</b>: DO NOT SHARE PUBLICLY YET]
+                </div>
+            </div>
 
-                <span id="pub_date_header"></span>
-                by <a class='black-link' href='https://ncase.me'>nicky case</a>
-
-    		</div>
-        </div>
+        
 	</div>
 
-    <!-- Home button -->
-    <a target='_self' href="/">
-        <div id="home_button">
-            <div id="home_icon"></div>
-            <div id="home_label">home</div>
+    <!-- Chapter Navigation -->
+    <div id="chapter_nav">
+        <div id="chapter_nav_centered">
+            <a target="_self" href=""
+                class="live">
+                <div selected style="line-height:41px;">
+                    introduction
+                </div>
+            </a>
+            <a target="_self" href="p1"
+                class="live">
+                <div  >
+                    part 1<br>past & future
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING JULY 2024, probably"
+                onclick="alert('COMING JULY 2024, probably')">
+                <div>
+                    part 2<br>problems
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING OCT 2024, probably"
+                onclick="alert('COMING OCT 2024, probably')">
+                <div>
+                    part 3<br>solutions?
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING OCT 2024, probably"
+                onclick="alert('COMING OCT 2024, probably')">
+                <div style="line-height:41px; border-right:1px solid rgba(128,128,128,0.8);">
+                    conclusion
+                </div>
+            </a>
         </div>
-    </a>
+    </div>
 
     <!-- The lil' tabs for sidebar UI -->
     <div id="sidebar_tabs">
@@ -194,35 +204,12 @@
 
     <!-- BEHOLD! CONTENT!!!!! -->
 	<article id="content">
-
-        <!-- Is Draft, Is Deprecated, Is Old -->
-
-        <div id="warning_message" style="padding: 1em 1em;">
-            <b>NOTE: THIS IS A DRAFT!</b>
-            Please do not share this publicly yet.
-            There's a floating textbox on the &larr;<i>left</i>, for you
-            to record your notes, as you read along and/or
-            when you're done.
-            (well, unless you're on mobile, then it's not there. record notes somehow else)
-            <br><br>
-            Then, copy-paste your notes, and share them with
-            me via whatever platform I sent you this link!
-            Thank you so muuuuuuuuch! 🎉
-        </div>
-<textarea id="draft_feedback">
-Please type your notes below! Make notes *as you go along*, that's most helpful for me.
-
-What's confusing, interesting, what you like or dislike? Critical honest feedback at an early stage helps me a lot! Thanks!
-
-...
-</textarea>
-
-<p>The AI debate is actually 100 debates in a trenchcoat.</p>
+<p><strong>The AI debate is actually 100 debates in a trenchcoat.</strong></p>
 <p>Will artificial intelligence (AI) help us find cures to all diseases, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI <em>itself</em> being a bad actor? Is this all just hype? Why can AI imitate any artist's style in a minute, yet gets confused drawing more than 3 objects? Why is it hard to make AI robustly serve humane values, or robustly serve <em>any</em> goal? What if an AI learns to be <em>more</em> humane than us? What if an AI learns humanity's <em>inhumanity</em>, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate <em>worse</em> than extinction, or — the most shocking outcome of all — <em>nothing changes?</em> Also: will an AI take my job?</p>
 <p>...and many more questions.</p>
 <p>Alas, to understand AI with nuance, we need to understand lots of technical detail... but that detail is scattered across hundreds of articles, buried six-feet-deep in jargon.</p>
 <p>So, I present to you:</p>
-<p><img src="media/intro/image%20-1-.png" alt="RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans."></p>
+<p><img src="media/intro/confetti.png" alt="RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans."></p>
 <p><strong>This 3-part series is your one-stop-shop to understand the core ideas of AI &amp; AI Safety*, explained in a friendly, accessible way!</strong></p>
 <p>(* Similar/related phrases: AI Risk, AI X-Risk, AI Alignment, AI Ethics, AI Not-Kill-Everyone-ism. There is no consensus on what exactly these phrases do &amp; don't mean, so, I'm just using &quot;AI Safety&quot; as a catch-all.)</p>
 <p>This series will also have comics, starring a Robot Catboy Maid. Like this one:</p>
@@ -361,7 +348,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 <p>But speaking of killing people...</p>
 <h3>3) No, AI Risk isn't <em>necessarily</em> extinction, SkyNet, or nanobots</h3>
 <p><img src="media/intro/omnicide.png" alt="A drawing of Microsoft Clippy saying: &quot;It looks like you're trying to commit omnicide. Would you like some help?&quot;"></p>
-<p>While many top researchers <em>do</em> believe advanced AI poses a ~5% risk of &quot;literally everybody dies&quot;<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> — regardless of whether or not that probability's well-calibrated — it's <em>very</em> hard to convince people (especially policymakers) of stuff that's never happened before.</p>
+<p>While most AI researchers <em>do</em> believe advanced AI poses a 5+% risk of &quot;literally everybody dies&quot;<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup>, it's <em>very</em> hard to convince people (especially policymakers) of stuff that's never happened before.</p>
 <p>So instead, I'd like to highlight the ways that advanced AI – (especially when it's available to anyone with a high-end computer) – could lead to catastrophes, &quot;merely&quot; by scaling up <em>already-existing</em> bad stuff.</p>
 <p>For example:</p>
 <ul>
@@ -370,7 +357,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 <li>(Proof of concept: Scientists have <em>already</em> re-built polio from mail-order DNA... two decades ago.<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup>)</li>
 </ul>
 </li>
-<li><u>Digital authoritarianism</u>:<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> A tyrant uses AI-enhanced surveillance to hunt down protestors (<a href="https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/">already happening</a>, generate individually-targeted propaganda (<a href="https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/">kind of happening</a>), and autonomous military robots (<a href="https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444">soon-to-be happening</a>)... all to rule with a silicon fist.</li>
+<li><u>Digital authoritarianism</u>:<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> A tyrant uses AI-enhanced surveillance to hunt down protestors (<a href="https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/">already happening</a>), generate individually-targeted propaganda (<a href="https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/">kind of happening</a>), and autonomous military robots (<a href="https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444">soon-to-be happening</a>)... all to rule with a silicon fist.</li>
 <li><u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that <em>does its own hacking &amp; re-programming</em>, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which can hold critical infrastructure ransom, and manipulate top CEOs and politicians to do its bidding.
 <ul>
 <li>(For context: <em>without</em> AI, hackers have already damaged nuclear power plants,<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup> held hospitals ransom<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup> which maybe killed someone,<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup> and almost poisoned a town's water supply <em>twice</em>.<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> <em>With</em> AI, deepfakes have been used to swing an election,<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup> to steal $25 million in a single heist,<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup> and to target parents for ransom, using the AI-generated voices of their children being kidnapped &amp; crying for help.<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>)</li>
@@ -395,17 +382,17 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 </ul>
 <p>Too often, we take technology — even life-saving technology — for granted. So, let me zoom out for context. Here's the last 2000+ years of child mortality, the percentage of kids who die before puberty:</p>
 <p><img src="media/intro/owid.jpg" alt="Chart of child mortality over the last 2000+ years. Worldwide, it was constant at around 48%, from hunter-gatherer times to 1800. Then suddenly, starting 1800, it plummets to 4.3% today."><em>(from <a href="https://ourworldindata.org/child-mortality">Dattani, Spooner, Ritchie and Roser (2023)</a>)</em></p>
-<p>For <em>thousands</em> of years, in nations both rich and poor, a full <em>half</em> of kids just die. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just <em>so swiftly cut down</em> an <em>eons-old</em> scourge.</p>
-<p>How did we achieve that? Policy's an important part of the story, but policy is &quot;the art of the possible&quot;<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>, and the above wouldn't be possible without <em>good</em> science &amp; tech. If (safe, aligned) AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.</p>
+<p>For <em>thousands</em> of years, in nations both rich and poor, a full <em>half</em> of kids just died. This was a constant. Then, starting in the 1800s — thanks to scientific/technological discoveries like germ theory, sanitation, medicine, clean water, vaccines, etc — child mortality fell off like a cliff. We still have far more to go — I refuse to accept<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> a worldwide 4.3% (1 in 23) child death rate — but let's appreciate how humanity just <em>so swiftly cut down</em> an <em>eons-old</em> scourge.</p>
+<p>How did we achieve that? Sure, policy's a big of the story, but policy is &quot;the art of the possible&quot;<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>, and the above wouldn't be possible without <em>good</em> science &amp; tech. If safe, humane AI can help us progress further by even just a few percent — towards slaying the remaining dragons of cancer, Alzheimer's, HIV/AIDS, etc — that'd be tens of millions more of our loved ones, who get to beat the Reaper for another day.</p>
 <p>F#@☆ going to Mars, <em>that's</em> why advanced AI matters.</p>
 <p>. . .</p>
 <p>Hang on, <em>really?</em> Toys like ChatGPT and DALL-E are <em>life-and-death</em> stakes? That leads us to the final misconception I'd like to address:</p>
 <h3>5) No, experts don't think <em>current</em> AIs are high-reward/high-risk.</h3>
 <p><em>Oh come on,</em> one might reasonably retort, <em>AI can't consistently draw more than 3 objects. How's it going to take over the world? Heck, how's it even going to take my job?</em></p>
-<p>I present to you, a <a href="https://www.explainxkcd.com/wiki/index.php/2278:_Scientific_Briefing">relevant xkcd</a>:</p>
-<p><img src="media/intro/image.png" alt="Comic. Megan &amp; Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled &quot;BAD&quot;. White Hat: &quot;So things will be bad?&quot; Megan: &quot;Unless someone stops it.&quot; White Hat: &quot;Will someone do that?&quot; Megan: &quot;We don't know, that's why we're showing you.&quot; White Hat: &quot;So you DON'T know, and the graph says things are currently NOT bad.&quot; Cueball: &quot;But if no one acts, it'll become bad.&quot; White Hat: &quot;Well, let me know if that happens!&quot; Megan: &quot;Based on this conversation, it already has.&quot;"></p>
+<p>I present to you, a <a href="https://xkcd.com/2278/">relevant xkcd</a>:</p>
+<p><img src="media/intro/xkcd.png" alt="Comic. Megan &amp; Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled &quot;BAD&quot;. White Hat: &quot;So things will be bad?&quot; Megan: &quot;Unless someone stops it.&quot; White Hat: &quot;Will someone do that?&quot; Megan: &quot;We don't know, that's why we're showing you.&quot; White Hat: &quot;So you DON'T know, and the graph says things are currently NOT bad.&quot; Cueball: &quot;But if no one acts, it'll become bad.&quot; White Hat: &quot;Well, let me know if that happens!&quot; Megan: &quot;Based on this conversation, it already has.&quot;"></p>
 <p>This is how I feel about &quot;don't worry about AI, it can't even do [X]&quot;.</p>
-<p>Is our post-modern memory-span <em>that</em> bad? <em>One</em> decade ago, just <em>one</em>, the world's state-of-the-art AIs couldn't even <em>recognize pictures of cats.</em> Now, not <em>only</em> can AI do that at human-performance level, AIs can pump out <a href="#CatNinja">:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh</a> in <em>under a minute</em>.</p>
+<p>Is our postmodern memory-span <em>that</em> bad? <em>One</em> decade ago, just <em>one</em>, the world's state-of-the-art AIs couldn't even <em>recognize pictures of cats.</em> Now, not <em>only</em> can AI do that at human-performance level, AIs can pump out <a href="#CatNinja">:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh</a> in <em>under a minute</em>.</p>
 <p>Is <em>current</em> AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)</p>
 <p>But: if AI keeps improving at roughly the same rate as it has been doing for the last decade... it seems likely to me we could get &quot;Einstein/Oppenheimer-level&quot; AI in 30-or-so years.<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup> That's well within many folks' lifetimes!</p>
 <p>As &quot;they&quot; say:<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></p>
@@ -469,7 +456,7 @@ It’s what you know for sure that just ain’t so.</em>”</p>
 <p>Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!</p>
 <p><strong>Beta-readers: if you took feedback notes using the textbox on the left, copy-paste it somewhere safe
 before you click onto the next page! thank you~</strong></p>
-<p><a href="p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a></p>
+<p><a href="p1/index2.html" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a></p>
 <h4>:x Four Objects</h4>
 <p>Hi! Whenever I have a tangent that doesn't fit the reading flow, I'll shove it into an &quot;expandable&quot; section like this one! (They'll be links with <em>dotted</em> underlines, not solid underlines.)</p>
 <p>Anyway, here's some state-of-the-art generative AIs trying to draw four objects:</p>
@@ -547,8 +534,8 @@ before you click onto the next page! thank you~</strong></p>
 <p>&quot;Oil painting by Vincent Van Gogh (1889), impasto, textured. A cat-ninja slicing a watermelon in half.&quot;</p>
 </blockquote>
 <p>DALL-E 3 generated: (cherry-picked)</p>
-<p><img src="media/intro/image-1-.png" alt="AI generated attempt of above prompt"></p>
-<p><img src="media/intro/image%202.png" alt="AI generated attempt of above prompt, again"></p>
+<p><img src="media/intro/ninja-cat-1.png" alt="AI generated attempt of above prompt"></p>
+<p><img src="media/intro/ninja-cat-2.png" alt="AI generated attempt of above prompt, again"></p>
 <p><em>(wait, is that headband coming out of their eye?!)</em></p>
 <p>I specifically requested the style of Vincent Van Gogh so y'all can't @ me for &quot;violating copyright&quot;. The dude is <em>looooong</em> dead.</p>
 <hr class="footnotes-sep">
@@ -618,13 +605,12 @@ before you click onto the next page! thank you~</strong></p>
 </li>
 <li id="fn32" class="footnote-item"><p>Quote from Otto von Bismarck, the first German chancellor: <em>“Die Politik ist die Lehre vom Möglichen.”</em> (“Politics is the art of the possible.”) <a href="#fnref32" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn33" class="footnote-item"><p>I derived this estimate with a statistical technique called &quot;numerical posterior extraction&quot;. In other words, I pulled a number out my-- <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+<li id="fn33" class="footnote-item"><p>Estimate derived via &quot;numerical posterior extraction&quot;. In other words, I pulled a number out my-- <a href="#fnref33" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn34" class="footnote-item"><p>Quote source: <a href="https://en.wikiquote.org/wiki/Trees#Planting">nobody knows lol.</a> <a href="#fnref34" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
-
 
 	</article>
 
@@ -639,3 +625,7 @@ before you click onto the next page! thank you~</strong></p>
 </div>
 </body>
 </html>
+
+<!-- Load these scripts last. Screw 'em. -->
+<!-- Orbit: make memory a choice -->
+<script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>

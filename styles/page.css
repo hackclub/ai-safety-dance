@@ -104,114 +104,128 @@ img + em{
     position: relative;
     width:100%;
     font-weight: 900;
-    font-size: 70px;
+    font-size: 60px;
     color:#000;
     text-align: center;
-}
-
-/* FOR FRONTPAGE ONLY */
-#header.frontpage{
-    background:#ddd;
-    height:380px;
-}
-#header > #typing{
-    position: relative;
-    top:20px;
-}
-#header > #scrolly, #header > #header_cont{
-    width:100%;
-    height:100%;
-    position: absolute;
     overflow: hidden;
+    animation: header-background 8s linear infinite;
 }
-#header > #scrolly > #scrolly_text{
-    position: relative;
-    left:-5%;
-    width:110%;
-    font-weight: 100;
-    font-size:12px;
-    color:#aaa;
+@keyframes header-background {
+    0% {
+        background-color: #41898D
+    }
+    50% {
+        background-color: #91237A
+    }
+    100%{
+        background-color: #41898D
+    }
 }
-#header > #header_cont > #header_title{
-    position: absolute;
-    top:0;
-    left: calc(50% - 480px);
-    background: url(assets/HeaderTitle.png);
-    background-size: 960px;
-    width:960px;
-    height:380px;
-}
-
-/* FOR ARTICLE */
-#header.article{
-    width: 100%;
-    overflow: hidden;
-    background: #ddd;
-}
-#header > #splash_image{
+#header #splash_image{
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-#header > #splash_image > #splash_image_banner{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-#header > #splash_image > #splash_image_banner.blur{
-    filter: blur(5px);
 }
 #header > #header_words{
-    /*text-shadow: 0px 3px 10px rgba(0,0,0,0.6);*/
+    color: #fff;
     position: relative;
     top: 0;
-    width: calc(100% - 100px);
+    width: 100%;
     overflow: hidden;
-    padding: 55px 50px 60px 50px;
 }
 #header > #header_words > #title{
     line-height: 1em;
 }
 #header > #header_words > #subtitle{
-    font-weight: 300;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 25px;
     margin-top: 10px;
 }
+#header a{
+    color:#fff;
+    position: relative;
+    transition: top 0.1s;
+    top:0px;
+}
+#header a:hover{
+    color:#fff;
+    top:-2px;
+}
 
-/*******************************/
-/* HOME BUTTON */
-/*******************************/
-
-#home_button{
+/* FOR FRONTPAGE ONLY */
+#header.frontpage{
+    height:500px;
+}
+#header #dancing{
+    position: relative;
+    top:20px;
+}
+#header > #header_words{
     position: absolute;
-    top:10px;
-    left:8px;
+    top: 355px;
+    text-shadow: -3px 0px 0px rgba(255,0,0,0.35), 3px 0px 0px rgba(0,0,255,0.35);
+}
+#crt_lines{
+    background: url(../media/splash/crt_lines.png);
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    background-size: 100% 500px;
+}
+#static{
+    background: url(../media/splash/static.png);
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    background-size: 100% 500px;
+    background-position: 0px 250px;
+}
+
+/* FOR ARTICLE */
+#header.chapter{
+    height:300px;
+}
+#header.chapter > #header_words{
+    text-shadow: -4px 0px 0px rgba(255,0,0,0.35), 4px 0px 0px rgba(0,0,255,0.35);
+}
+
+/*******************************/
+/* CHAPTER NAVIGATION */
+/*******************************/
+
+#chapter_nav{
+    background: rgba(128,128,128,0.1337);
     overflow: hidden;
+}
+#chapter_nav #chapter_nav_centered{
+    width:656px;
+    margin:0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+#chapter_nav a{
+    cursor: default;
+    text-decoration: none;
+}
+#chapter_nav a > div{
+    float: left;
+    width: 120px;
+    padding: 11px 5px 13px 5px;
+    font-size: 16px;
+    color: rgba(128,128,128,0.8);
+    border-left: 1px solid rgba(128,128,128,0.8);
+    height: 40px;
+    transition: background 0.2s;
+    background: rgba(255,255,255,0);
+}
+#chapter_nav a.live:hover > div{
     cursor: pointer;
-    transition: top 0.15s ease-in-out;
+    background: rgba(255,255,255,0.7);
 }
-#home_icon{
-    width:40px; height:40px;
-    background-image: url(assets/icons/home.png);
-    background-size: 100% 100%;
-    float:left;
-}
-#home_label{
-    display: none;
-    float:left;
-    margin-left: 8px;
-    width: 50px;
-    color: #000;
-    line-height: 44px;
-}
-#home_button:hover{
-    top:8px;
-}
-#home_button:hover #home_label{
-    display: block;
+#chapter_nav a > div[selected]{
+    font-weight: 900;
+    background: #fff;
 }
 
 /*******************************/
@@ -410,7 +424,7 @@ body[sidebar_state=open] #sidebar_tabs{
 #sidebar_tabs{
     position: fixed;
     right:-145px;
-    top: calc(50% - 125px);
+    top: calc(50% - 100px);
     z-index: 102;
 
     transition: right 0.3s ease-in-out,
@@ -555,13 +569,16 @@ input#submit:hover{
 }
 .orpheus-flag:hover {
     background:none;
-    animation:orpheus-flag-wave .5s linear infinite alternate
+    animation:orpheus-flag-wave .3s ease-in-out infinite
 }
 @keyframes orpheus-flag-wave {
     0% {
         transform:rotate(0)
     }
-    to {
-        transform:rotate(-5deg)
+    50% {
+        transform:rotate(-3deg)
+    }
+    100% {
+        transform:rotate(0)
     }
 }

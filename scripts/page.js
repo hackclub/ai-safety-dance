@@ -1,3 +1,4 @@
+// The poor man's jQuery
 window.$ = (query, el=document)=>{
     return document.querySelector(query);
 };
@@ -5,7 +6,7 @@ window.$all = (query, el=document)=>{
     return [...document.querySelectorAll(query)];
 };
 
-window.addEventListener("load", ()=>{
+window.addEventListener("DOMContentLoaded", ()=>{
 
     // ARTICLE SUMMARIES
     // Scale the thumnails:
@@ -210,95 +211,30 @@ window.addEventListener("load", ()=>{
     // SCROLLY for NOT-FRONTPAGE pages /////////////////////////
     ////////////////////////////////////////////////////////////
 
-    if(!window.IS_FRONTPAGE){
-
-        // RAF: scroll the text & do parallax
-        let animloop = ()=>{
-            $("#splash_image").style.top = (window.scrollY*0.3)+"px";
-            requestAnimationFrame(animloop);
-        };
-        requestAnimationFrame(animloop);
-
-        // Also, get the average color, then modify text & text-shadow color.
-        let bannerImage = $("#splash_image_banner");
-        bannerImage.onload = ()=>{
-
-            // Get average RGB
-            let r=0, g=0, b=0;
-            // Dump the image onto a smol canvas
-            let canvas = document.createElement("canvas"),
-                ctx = canvas.getContext('2d');
-            const SIZE = 50;
-            canvas.width = SIZE;
-            canvas.height = SIZE;
-            ctx.drawImage(bannerImage, 0,0,SIZE,SIZE);
-            let avgColor;
-            // TRY reading its data
-            try {
-                let data = ctx.getImageData(0,0,SIZE,SIZE);
-                data = data.data;
-                const TOTAL_PIXELS = SIZE*SIZE;
-                // Go through each pixel...
-                for(let i=0; i<TOTAL_PIXELS*4; i+=4){
-                    r += data[i];
-                    g += data[i+1];
-                    b += data[i+2];
-                }
-                // And average it (also, floor)
-                r = Math.floor(r/TOTAL_PIXELS);
-                g = Math.floor(g/TOTAL_PIXELS);
-                b = Math.floor(b/TOTAL_PIXELS);
-            }catch(err){
-                // security error probably, use default 0 0 0
-            }
-
-            // If it's mostly dark, shift to white text
-            let luminance = 0.2126*(r/256) + 0.7152*(g/256) + 0.0722*(b/256);
-            let isDark = (luminance < 0.5);
-            if(isDark){
-                $("#header").style.color = $("#home_label").style.color = "#fff";
-            }
-
-            // Text shadow
-            let hex;
-            if( Math.abs(luminance-0.5)<0.1 ){
-                hex = isDark ? "#000" : "#fff"; // if too close to middle-gray, go extreme
-            }else{
-                hex = "#"+r.toString(16)+g.toString(16)+b.toString(16); // else, avg color!
-            }
-            $("#header_words").style.textShadow = `
-                0px 0px 5px ${hex},
-                0px 0px 5px ${hex},
-                0px 0px 5px ${hex}`;
-
+    // RAF: scroll the text & do parallax
+    const splash_image = $("#splash_image"),
+          crt_lines = $("#crt_lines"),
+          static = $("#static");
+    let clicker = 0,
+        crtY = 0,
+        staticY = 0;
+    let animloop = ()=>{
+        splash_image.style.top = (window.scrollY*0.3)+"px";
+        clicker++;
+        if(clicker>3){
+            clicker = 0;
+            crtY += 5;
+            staticY += 100 + Math.floor(Math.random()*100);
+            crt_lines.style.backgroundPositionY = crtY+"px";
+            static.style.backgroundPositionY = staticY+"px";
         }
-        try{
-            if(bannerImage.complete) bannerImage.onload();
-        }catch(e){ console.warn(e); }
-
-    }
+        requestAnimationFrame(animloop);
+    };
+    requestAnimationFrame(animloop);
 
     ////////////////////////////////////////////////////////////
     // FOR POSTS: PUB DATE, FEETNOTES, READING TIME ////////////
     ////////////////////////////////////////////////////////////
-
-    // Pub Date
-    if(window.postDate){
-
-        let formatOptions = { year: 'numeric', month: 'short', day: 'numeric' },
-            formattedDate = window.postDate.toLocaleDateString("en-US", formatOptions).toLowerCase();
-        $("#pub_date_header").innerHTML = `on ${formattedDate} &nbsp;&nbsp;&middot;&nbsp;&nbsp`;
-
-        // Too old? Older than 2 years
-        if($("#warning_years")){
-            let years = ((new Date())-window.postDate) / (1000*60*60*24*365)
-            if( years >= 2 ){
-                $("#warning_message").style.display = 'block';
-                $("#warning_years").innerText = Math.floor(years);
-            }
-        }
-
-    }
 
     // All CONTENT links that go to "#" are self!
     $all('#content a').filter(a=>{
@@ -345,7 +281,6 @@ window.addEventListener("load", ()=>{
     const NUMBER_OF_WORDS = ($("#content").innerText.match(/\s/g) || []).length,
           AVERAGE_READING_SPEED = 180, // well, lowballing it. remember i usually have pictures AND Orbits! AND Nutshells/feetnotes
           READING_TIME_IN_MINUTES = Math.ceil(NUMBER_OF_WORDS/AVERAGE_READING_SPEED);
-    $("#reading_time_header").innerText = `${READING_TIME_IN_MINUTES} min`;
 
     // THE CLOCK SCROLLY
     const HEADER_CONTENT_GAP = 48,

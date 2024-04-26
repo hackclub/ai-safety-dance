@@ -1,4 +1,4 @@
-The AI debate is actually 100 debates in a trenchcoat.
+**The AI debate is actually 100 debates in a trenchcoat.**
 
 Will artificial intelligence (AI) help us find cures to all diseases, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI _itself_ being a bad actor? Is this all just hype? Why can AI imitate any artist's style in a minute, yet gets confused drawing more than 3 objects? Why is it hard to make AI robustly serve humane values, or robustly serve _any_ goal? What if an AI learns to be _more_ humane than us? What if an AI learns humanity's _inhumanity_, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate _worse_ than extinction, or — the most shocking outcome of all — _nothing changes?_ Also: will an AI take my job?
 
@@ -8,7 +8,7 @@ Alas, to understand AI with nuance, we need to understand lots of technical deta
 
 So, I present to you:
 
-![RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans.](media/intro/image%20-1-.png)
+![RCM (Robot Catboy Maid) throwing confetti under a banner that reads: A Whirlwood Tour Guide to AI Safety for Us Warm, Normal Fleshy Humans.](media/intro/confetti.png)
 
 **This 3-part series is your one-stop-shop to understand the core ideas of AI & AI Safety\*, explained in a friendly, accessible way!**
 
@@ -322,9 +322,9 @@ Hang on, *really?* Toys like ChatGPT and DALL-E are *life-and-death* stakes? Tha
 
 *Oh come on,* one might reasonably retort, *AI can't consistently draw more than 3 objects. How's it going to take over the world? Heck, how's it even going to take my job?*
 
-I present to you, a [relevant xkcd](https://www.explainxkcd.com/wiki/index.php/2278:_Scientific_Briefing):
+I present to you, a [relevant xkcd](https://xkcd.com/2278/):
 
-![Comic. Megan & Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled "BAD". White Hat: "So things will be bad?" Megan: "Unless someone stops it." White Hat: "Will someone do that?" Megan: "We don't know, that's why we're showing you." White Hat: "So you DON'T know, and the graph says things are currently NOT bad." Cueball: "But if no one acts, it'll *become* bad." White Hat: "Well, let me know if that happens!" Megan: "Based on this conversation, it already has."](media/intro/image.png)
+![Comic. Megan & Cueball show White Hat a graph of a line going up, not yet at, but heading towards, a threshold labelled "BAD". White Hat: "So things will be bad?" Megan: "Unless someone stops it." White Hat: "Will someone do that?" Megan: "We don't know, that's why we're showing you." White Hat: "So you DON'T know, and the graph says things are currently NOT bad." Cueball: "But if no one acts, it'll *become* bad." White Hat: "Well, let me know if that happens!" Megan: "Based on this conversation, it already has."](media/intro/xkcd.png)
 
 This is how I feel about "don't worry about AI, it can't even do [X]".
 
@@ -402,7 +402,7 @@ Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whir
 **Beta-readers: if you took feedback notes using the textbox on the left, copy-paste it somewhere safe
 before you click onto the next page! thank you~**
 
-<a href="p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
+<a href="p1/index2.html" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
 
 
 
@@ -539,9 +539,9 @@ Prompt:
 
 DALL-E 3 generated: (cherry-picked)
 
-![AI generated attempt of above prompt](media/intro/image-1-.png)
+![AI generated attempt of above prompt](media/intro/ninja-cat-1.png)
 
-![AI generated attempt of above prompt, again](media/intro/image%202.png)
+![AI generated attempt of above prompt, again](media/intro/ninja-cat-2.png)
 
 *(wait, is that headband coming out of their eye?!)*
 
