@@ -141,6 +141,8 @@ Here: **try the below flashcards, to retain what you just learnt!**
 
 (There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party. If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](TODO)**!)
 
+**(Beta-readers: Hey don't sign up yet for Orbit, these flashcards may or may not change before the final version)**
+
 <a id="review_1"></a>
 
 <orbit-reviewarea>
