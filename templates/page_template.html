@@ -221,11 +221,37 @@
 
     <!-- FOOTER -->
 	<div id="footer">
-		<p>
-			asdasadsdasdas
-			(todo: credits, newsletter, license)
-        </p>
+        <div id="footer_content">
+{% include "templates/footer.html" %}
+        </div>
 	</div>
+    <div id="post_credits">
+        <p>
+            Oh dang, it's a post-credits scene:
+        </p>
+<p>
+    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+</p>
+<p>
+    Also, expandable "Nutshells" that make good standalone bits:
+    (TODO: how to embed, hover & use icon)
+</p>
+{% if isFrontpage %}
+<p>
+    <a href="#SpacedRepetition">: What is Spaced Repetition?</a>
+    <br>
+    <a href="#ConcreteRogueAI">: Concrete ways an AI could 'escape containment' & affect the world</a>
+</p>
+{% elif isPartOne %}
+<p>
+    <a href="#WhatsXOR">: What's XOR?</a>
+    <br>
+    <a href="#SadAIHistory">: The sad depressing story behind Artificial Neural Networks</a>
+    <br>
+    <a href="#OneIsTwo">: What if System 2 reasoning <i>is just</i> a bunch of System 1 reflexes?</a>
+</p>
+{% endif %}
+    </div>
 
 </div>
 </body>

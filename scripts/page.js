@@ -255,7 +255,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
             aria-label="Footnote <% number %>"
             class="littlefoot__button"
             id="<% reference %>"
-            title="See Footnote <% number %>"
         />
             <% number %>
         </button>`
@@ -266,7 +265,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
         // Make that header
         let foo = document.createElement("h1");
-        foo.innerHTML = ": Click to see all feetnotes 👣";
+        foo.innerHTML = ":x All Feetnotes";
         $(".footnotes-sep").after(foo);
 
         // Remove all "↩︎" links

@@ -145,7 +145,7 @@ Here: **try the below flashcards, to retain what you just learnt!**
 
 <a id="review_1"></a>
 
-<orbit-reviewarea>
+<orbit-reviewarea color="violet">
     <orbit-prompt
         question="The Value Alignment Problem:"
         answer="“How can we make AI robustly serve humane values?”">
@@ -252,7 +252,7 @@ For example:
 
 (Note: The above examples are all "humans *misuse* AI to cause havoc", but remember advanced AI could do the above *by itself*, due to "boring" reasons: it's accomplishing a goal in a logical-but-undesirable way, it learnt incorrectly from its data, it just breaks/glitches out, etc.)
 
-(Bonus, [:Some concrete, plausible ways a rogue AI could "escape containment", and/or affect the physical world.](#BonusConcrete))
+(Bonus, [:Some concrete, plausible ways a rogue AI could "escape containment", and/or affect the physical world.](#ConcreteRogueAI))
 
 Anyway: even if one doesn't think AI is a *literal 100% human extinction* risk... I'd say "homebrew bio-terrorism" & "1984 with robots" are still worth taking seriously.
 
@@ -352,7 +352,7 @@ Let's plant that tree today!
 
 ## 🤔 (_Optional_ flashcard review #2!)
 
-<orbit-reviewarea>
+<orbit-reviewarea color="violet">
     <orbit-prompt
         question="Response to: “AI Risk is a fringe concern”."
         answer="No, top AI researchers worry about it. (For example: two pioneers of deep learning & the authors of the #1 AI textbook.)">
@@ -509,7 +509,7 @@ And *that's* how you can make long-term memory a choice!
 
 Happy learning! 👍
 
-#### :x Bonus concrete
+#### :x Concrete Rogue AI
 
 Ways an AI could "escape containment":
 

@@ -35,6 +35,20 @@ body[font_family=dyslexic]{
     font-size: 14.5px;
 }
 
+
+/*******************************/
+/* LITTLEFOOTNOTES */
+/*******************************/
+
+.littlefoot {
+  --button-background-color: #ddd;
+  --button-active-background-color: #aaa;
+  --button-text-color: #888;
+}
+.littlefoot__popover{
+    text-align: left;
+}
+
 /*******************************/
 /* MISC TAG CRAP */
 /*******************************/
@@ -61,6 +75,7 @@ iframe{
 }
 a{
     color: hsla(0, 80%, 60%);
+    transition: color 0.1s;
 }
 a:hover{
     color: hsla(0, 80%, 70%);
@@ -82,11 +97,22 @@ span.light{
 ol,ul{
     padding-left: 1em;
 }
+p + ul{
+    margin-top: -1em;
+}
+ul ul{
+    margin-top: 0;
+}
 
-blockquote{
+blockquote, .nutshell-bubble blockquote{
     border-left: 5px solid rgba(128,128,128,0.4);
     margin-left: 0;
-    padding-left: 2em;
+    /*padding-left: 2em;*/
+    padding: 0px 1em 0px 1.5em;
+    margin-top: 2em;
+}
+blockquote > p, .nutshell-bubble blockquote > p{
+    margin: 1em 0;
 }
 img{
     text-align: center;
@@ -94,6 +120,17 @@ img{
 img + em{
     display: block;
     text-align: center;
+}
+
+.nutshell-bubble-overflow-section > div p{
+    margin: 1em 0;
+}
+.nutshell-bubble blockquote{
+    margin-top: 1em;
+}
+
+s{
+    text-decoration-thickness: 0.1em;
 }
 
 /*******************************/
@@ -241,6 +278,8 @@ img + em{
 
     font-size: 19px;
     line-height: 1.8em;
+
+    /*text-align: justify; / TOTO MAYBE ??? */
 
 }
 
@@ -539,17 +578,41 @@ input#submit:hover{
     background: #222;
     color: #fff;
 
-    padding: 1em 0 2.75em 0;
+    padding: 2em 0 800px 0;
     /*height: 9em;*/
+    text-align: justify;
 
-    text-align: center;
-    line-height: 1.3em;
-    font-size: 16px;
+    line-height: 1.5em;
+    font-size: 18px;
+}
+#footer #footer_content{
+    width: 640px;
+    margin: 0 auto;
 }
 #footer p{
-    margin: 1.4em 0;
+    margin: 1.3em 0;
 }
-
+#footer blockquote{
+    margin-top: 1em;
+}
+#footer a{
+    color: hsl(0, 100%, 70%);
+    transition: color 0.1s;
+}
+#footer a:hover{
+    color: hsl(0, 100%, 80%);
+}
+#post_credits{
+    width: 640px;
+    margin: 0 auto;
+    font-size:16px;
+    line-height: 1.7em;
+    padding-bottom: 200px;
+    padding-top: 20px;
+}
+#post_credits p{
+    margin: 1.3em 0;
+}
 
 /*******************************/
 /* ORPHEUS */

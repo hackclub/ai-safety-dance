@@ -2,7 +2,9 @@
 
 Found inaccuracies? Make an Issue! Then (time & spoons permitting) I'll figure out what if anything to do about it, and how to re-write.
 
-Found a typo / weird phrasing / dead or incorrect links? Also make an Issue! But if you want to be more direct, you can also make a Pull Request
+Found a typo / weird phrasing / dead or incorrect links? Also make an Issue! But if you want to be more direct, you can also make a Pull Request.
+
+Also, the Moore/more mix-ups in Part One aren't typos, they're... [checks notes]... "jokes".
 
 ## How to translate
 
