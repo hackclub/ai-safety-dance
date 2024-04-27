@@ -55,8 +55,11 @@ convertConfigs.forEach((config)=>{
                     // Convert MD => HTML
                     let renderedHTML = md.render(markdown);
 
-                    // Render in template with Nunjucks
+                    // Render any Nunjucks *inside* the markdown...
                     let data = config.extras || {};
+                    renderedHTML = nunjucks.renderString(renderedHTML, data);
+
+                    // Render in template with Nunjucks
                     data.content = renderedHTML;
                     let html = nunjucks.render(config.template, data);
 

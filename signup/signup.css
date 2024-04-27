@@ -1,0 +1,81 @@
+html,body{
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 23px;
+	font-weight: 100;
+}
+body{
+	background: #eee;
+}
+
+#header{
+    position: relative;
+	overflow: hidden;
+	background: #fff;
+	text-align: center;
+	width:640px;
+	height:200px;
+}
+#header #email_guy{
+	background: url(email_guy.png);
+    background-size: 100% 100%;
+	width: 90px;
+ 	height: 90px;
+	position: absolute;
+	top:10px;
+	left:10px;
+}
+#header #small_text{
+	text-align: justify;
+	font-size: 19px;
+	line-height: 1.5em;
+	width: 510px;
+	position: absolute;
+	right: 20px;
+	top: 25px;
+}
+#header #big_text{
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	bottom: 10px;
+	width: 640px;
+}
+
+#email{
+    width: 450px;
+    position: absolute;
+    bottom: 27px;
+    left: 109px;
+    font-size: 25px;
+    font-weight: 100;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    letter-spacing: 2px;
+}
+#submit{
+    border: none;
+    cursor: pointer;
+    font-size: 29px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 26px;
+    left: 580px;
+    padding: 4px;
+}
+
+a{
+	/*font-weight: bold;*/
+	color:#ff4040;
+	transition: color 0.1s;
+}
+a:hover{
+	color:#ff8080;
+}
+b{
+	font-weight: bold;
+}
+strong{
+	font-weight: bold;
+}
