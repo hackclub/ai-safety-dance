@@ -60,10 +60,13 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // Must mouse over it for >0.5s to count
     let closeCountdown = 0,
         startToClose = false;
-    $("#return_to_content").onmouseover = ()=>{
+    let startClosingMouseHandler = (event)=>{ // mouseover OR click
         closeCountdown = 100;
         startToClose = true;
     };
+    $("#return_to_content").onmouseover = startClosingMouseHandler;
+    $("#return_to_content").onclick = startClosingMouseHandler;
+    $("#return_to_content").ontouchstart = startClosingMouseHandler;
     $("#return_to_content").onmouseleave = ()=>{
         startToClose = false;
     };
@@ -153,9 +156,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
         document.body.setAttribute("dark_mode", isDark ? "yes" : "no");
 
         // Font size
-        let fontsize = $("#style_fontsize_slider").value + 'px';
-        $("#style_fontsize").innerText = fontsize;
-        $("#content").style.fontSize = fontsize;
+        let fontsize = parseInt($("#style_fontsize_slider").value);
+        $("#style_fontsize").innerText = fontsize + 'px';
+        document.body.style.fontSize = fontsize + 'px';
 
         // Font family
         let selectedFont = $all("input[name=style_font_family]").find( (radioButton)=>{
@@ -196,7 +199,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     //window.localStorage.style_size = window.localStorage.style_size || 19;
     //window.localStorage.style_font = window.localStorage.style_font || "serif";
     // Cut off transition CSS
-    document.body.style.transition = "none";
+
     // Set to localStorage's values (remember, they're STRINGS)
     //$("#style_dark_mode").checked = (window.localStorage.style_dark=="true");
     $("#style_dark_mode").checked = darkModeDefault;//(window.localStorage.style_dark=="true");
@@ -204,7 +207,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
     $("#style_fontsize_slider").value = 19;
     //$(`input[value=${window.localStorage.style_font}]`).checked = true;
     $(`input[value=serif]`).checked = true;
-    // Anim!
+
+    // Jump to it w/o animation!
+    document.body.style.transition = "none";
     setTimeout(()=>{
         updateStyle();
         setTimeout(()=>{
@@ -257,6 +262,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // Footnotes: Littlefoot 'em, THEN hide with Nutshell
     littlefoot.littlefoot({
         activateOnHover: true,
+        activateDelay: 0,
         hoverDelay: 0,
         dismissOnUnhover: true,
         buttonTemplate: `<button

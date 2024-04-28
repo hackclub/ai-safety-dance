@@ -141,12 +141,12 @@
 
         {% elif isPartOne %}
 
-            <div id="header_words" style="position: absolute; top: 55px;">
-                <div id="title" style="font-size: 143px;">
+            <div id="header_words">
+                <div id="title">
                     P<span style="position: relative;left: -7px;">A</span>RT
                     O<span style="position: relative;left: -4px;">N</span>E
                 </div>
-                <div id="subtitle" style="font-size: 40px; margin-top: -10px;">
+                <div id="subtitle">
                     The Past, Present, &amp; Possible Futures
                 </div>
             </div>
@@ -159,35 +159,60 @@
         <div id="chapter_nav_centered">
             <a target="_self" href="{{root}}"
                 class="live">
-                <div {{ 'selected' if isFrontpage }} style="line-height:41px;">
-                    introduction
+                <div {{ 'selected' if isFrontpage }}>
+                    <span class='chapter-nav-desktop'>
+                        introduction
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        intro
+                    </span>
                 </div>
             </a>
             <a target="_self" href="{{root}}p1"
                 class="live">
                 <div {{ 'selected' if isPartOne }} >
-                    part 1<br>past & future
+                    <span class='chapter-nav-desktop'>
+                        part 1<br>past & future
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 1
+                    </span>
                 </div>
             </a>
             <a target="_self" href="#"
                 title="COMING JULY 2024, probably"
                 onclick="alert('COMING JULY 2024, probably')">
                 <div>
-                    part 2<br>problems
+                    <span class='chapter-nav-desktop'>
+                        part 2<br>problems
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 2
+                    </span>
                 </div>
             </a>
             <a target="_self" href="#"
                 title="COMING OCT 2024, probably"
                 onclick="alert('COMING OCT 2024, probably')">
                 <div>
-                    part 3<br>solutions?
+                    <span class='chapter-nav-desktop'>
+                        part 3<br>solutions?
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 3
+                    </span>
                 </div>
             </a>
             <a target="_self" href="#"
                 title="COMING OCT 2024, probably"
                 onclick="alert('COMING OCT 2024, probably')">
-                <div style="line-height:41px; border-right:1px solid rgba(128,128,128,0.8);">
-                    conclusion
+                <div style="border-right:1px solid rgba(128,128,128,0.8);">
+                    <span class='chapter-nav-desktop'>
+                        conclusion
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        outro
+                    </span>
                 </div>
             </a>
         </div>
