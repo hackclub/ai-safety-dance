@@ -8,12 +8,6 @@ window.$all = (query, el=document)=>{
 
 window.addEventListener("DOMContentLoaded", ()=>{
 
-    // ARTICLE SUMMARIES
-    // Scale the thumnails:
-    $all(".article-summary").forEach( (article)=>{
-        $("#article-thumb", article).style.height = getComputedStyle(article).height;
-    });
-
     /////////////////////////////////////////////////////////////
     // SIDEBAR SHTUFF ///////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -232,6 +226,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
     };
     requestAnimationFrame(animloop);
 
+
+
     ////////////////////////////////////////////////////////////
     // FOR POSTS: PUB DATE, FEETNOTES, READING TIME ////////////
     ////////////////////////////////////////////////////////////
@@ -250,15 +246,22 @@ window.addEventListener("DOMContentLoaded", ()=>{
         activateOnHover: true,
         hoverDelay: 0,
         dismissOnUnhover: true,
-        buttonTemplate: `
-        <button
+        buttonTemplate: `<button
             aria-label="Footnote <% number %>"
             class="littlefoot__button"
             id="<% reference %>"
-        />
-            <% number %>
-        </button>`
+        /><% number %></button>`
     });
+    // Littlefoot wraparound bug:
+    // Swap around print & hover footnotes, shift leftwards by whatever
+    $all(".footnote-ref.littlefoot--print").forEach(printFootnote=>{
+        const parentNode = printFootnote.parentNode,
+              hoverFootnote = printFootnote.previousSibling,
+              width = printFootnote.getBoundingClientRect().width;
+        parentNode.insertBefore(printFootnote, hoverFootnote);
+        hoverFootnote.style.marginLeft = (-width + 2) + "px";
+    });
+
     // Make a : footnote header before hiding in Nutshell (if any exist)
     let footnotesDivider = $(".footnotes-sep");
     if(footnotesDivider){

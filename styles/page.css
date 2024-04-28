@@ -48,6 +48,23 @@ body[font_family=dyslexic]{
 .littlefoot__popover{
     text-align: left;
 }
+/*
+What the hell? Bug with Littlefoot: when resize window
+before it's fully loaded, the LF wrapper gets all screwy.
+Hack fix, I do not understand.
+*/
+.littlefoot__wrapper{
+    max-width: none !important;
+}
+/*
+Littlefoot Bug: wrap around to next line, it breaks off.
+*/
+@media not print {
+    .littlefoot--print {
+        opacity: 0;
+        display: inline !important;
+    }
+}
 
 /*******************************/
 /* MISC TAG CRAP */
@@ -90,6 +107,9 @@ a.black-link:hover{
 p{
     margin: 1.8em 0;
 }
+#content > p{
+    text-align: justify;
+}
 span.light{
     opacity:0.45;
 }
@@ -127,6 +147,9 @@ img + em{
 }
 .nutshell-bubble blockquote{
     margin-top: 1em;
+}
+.nutshell-bubble{
+    display: block; /* to not screw with text-justify */
 }
 
 s{
