@@ -1,0 +1,16 @@
+<a
+    {% if isFrontpage %} href="p1" {% endif %}
+    {% if isPartOne %} href="../p2" {% endif %}
+    target="_self">
+<div id="next_button">
+    <div id="nb--crt_lines"></div>
+    <div id="nb--static"></div>
+    <div id="nb--words">
+        {% if isFrontpage %}
+            <b>PART ONE →</b>
+        {% elif isPartOne %}
+            <b>PART TWO →</b>
+        {% endif %}
+    </div>
+</div>
+</a>

@@ -399,9 +399,9 @@ Let's plant that tree today!
 
 Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
 
-**Beta-readers: THE DRAFT IS TWO PAGES LONG, CLICK LINK BELOW, THX**
+**Click to continue ⤵**
 
-<a href="p1" style="font-size:4em" target="_self"><b>(PART ONE →)</b></a>
+{% include 'templates/next_page_button.html' %}
 
 
 

@@ -275,7 +275,7 @@ s{
     top: 355px;
     text-shadow: -3px 0px 0px rgba(255,0,0,0.35), 3px 0px 0px rgba(0,0,255,0.35);
 }
-#crt_lines{
+#crt_lines, #nb--crt_lines{
     background: url(../media/splash/crt_lines.png);
     width: 100%;
     height: 500px;
@@ -283,7 +283,7 @@ s{
     top: 0;
     background-size: 100% 500px;
 }
-#static{
+#static, #nb--static{
     background: url(../media/splash/static.png);
     width: 100%;
     height: 500px;
@@ -297,8 +297,45 @@ s{
 #header.chapter{
     height:300px;
 }
-#header.chapter > #header_words{
+#header.chapter > #header_words, #nb--words{
     text-shadow: -4px 0px 0px rgba(255,0,0,0.35), 4px 0px 0px rgba(0,0,255,0.35);
+}
+
+
+/*******************************/
+/* NEXT BUTTON */
+/*******************************/
+
+#next_button{
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 640px;
+    font-size: 90px;
+    text-align: center;
+    height: 150px;
+    line-height: 150px;
+    animation: header-background 8s linear infinite;
+
+    position: relative;
+    top:0;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+    border-radius: 50px;
+    transition: top 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+}
+#next_button:hover{
+    top: -10px;
+    box-shadow: 0px 20px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+#nb--crt_lines{
+    height: 100%;
+    background-size: 100% 100%;
+}
+#nb--words{
+    color:#fff;
+    position: absolute;
+    width: 100%;
 }
 
 /*******************************/

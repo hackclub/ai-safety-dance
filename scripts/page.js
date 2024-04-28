@@ -219,7 +219,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // RAF: scroll the text & do parallax
     const splash_image = $("#splash_image"),
           crt_lines = $("#crt_lines"),
-          static = $("#static");
+          static = $("#static"),
+          nb_crt_lines = $("#nb--crt_lines")
+          nb_static = $("#nb--static");
     let clicker = 0,
         crtY = 0,
         staticY = 0;
@@ -230,8 +232,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
             clicker = 0;
             crtY += 5;
             staticY += 100 + Math.floor(Math.random()*100);
-            crt_lines.style.backgroundPositionY = crtY+"px";
-            static.style.backgroundPositionY = staticY+"px";
+            crt_lines.style.backgroundPositionY = nb_crt_lines.style.backgroundPositionY = crtY+"px";
+            static.style.backgroundPositionY = nb_static.style.backgroundPositionY = staticY+"px";
         }
         requestAnimationFrame(animloop);
     };
