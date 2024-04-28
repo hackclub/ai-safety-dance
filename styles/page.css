@@ -59,6 +59,10 @@ body[dark_mode=yes] .littlefoot{
     --button-background-color: #606065;
     --button-active-background-color: #aaa;
     --button-text-color: #bbb;
+
+    --popover-background-color: #111;
+    --popover-scroll-indicator-color: #bbb;
+    --popover-text-color: #eee;
 }
 
 body[dark_mode=yes] #content a:not(.nutshell-expandable){
