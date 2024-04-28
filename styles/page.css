@@ -19,12 +19,6 @@ body{
     transition: background 0.5s ease-in-out,
                 color 0.5s ease-in-out;
 }
-body[dark_mode=yes]{
-    background:#000;
-    color:#fff;
-}
-body[dark_mode=no]{
-}
 body[font_family=sans_serif]{
     font-family: 'Open Sans', sans-serif;
 }
@@ -33,6 +27,56 @@ body[font_family=serif]{
 body[font_family=dyslexic]{
     font-family: 'Open Dyslexic';
     font-size: 14.5px;
+}
+
+
+
+/*******************************/
+/* DARK MODE */
+/*******************************/
+
+body[dark_mode=yes]{
+    background:#303035;
+    color:#fff;
+}
+body[dark_mode=yes] hr{
+    border-color: #fff;
+}
+
+body[dark_mode=yes] .article-summary{
+    color:#fff;
+}
+body[dark_mode=yes] #reading_time > #clock_icon{
+    background-image: url(assets/clock_dark.png);
+}
+
+body[dark_mode=yes] #sidebar{
+    background: #505055;
+    color:#fff;
+}
+body[dark_mode=yes] #sidebar_tabs > div{
+    background: #505055;
+    color:#fff;
+}
+
+body[dark_mode=yes] .littlefoot{
+    --button-background-color: #606065;
+    --button-active-background-color: #aaa;
+    --button-text-color: #bbb;
+}
+
+body[dark_mode=yes] #content a:not(.nutshell-expandable){
+    color: hsl(0, 100%, 70%);
+}
+body[dark_mode=yes] #content a:not(.nutshell-expandable):hover{
+    color: hsl(0, 100%, 80%);
+}
+
+body[dark_mode=yes] .nutshell-bubble-overflow-close{
+    color: #fff;
+}
+body[dark_mode=yes] .nutshell-ball-up, body[dark_mode=yes] .nutshell-ball-down{
+    background-color: #fff !important;
 }
 
 
@@ -272,7 +316,7 @@ s{
     text-align: center;
 }
 #chapter_nav a{
-    cursor: default;
+    cursor: not-allowed;
     text-decoration: none;
 }
 #chapter_nav a > div{
@@ -360,9 +404,6 @@ s{
     transition: top 0.1s ease-in-out,
                 color 0.5s ease-in-out;
 }
-body[dark_mode=yes] .article-summary{
-    color:#fff;
-}
 .article-summary:hover{
     top:-5px;
 }
@@ -416,9 +457,6 @@ body[dark_mode=yes] .article-summary{
     background-size: 480px;
     background-image: url(assets/clock.png);
     display: inline-block;
-}
-body[dark_mode=yes] #reading_time > #clock_icon{
-    background-image: url(assets/clock_dark.png);
 }
 #reading_time > #clock_label{
     font-size:12px;
@@ -550,15 +588,6 @@ ul#toc_list{
 }
 ul#toc_list li{
     margin-bottom:0.33em;
-}
-
-body[dark_mode=yes] #sidebar{
-    background: #333;
-    color:#fff;
-}
-body[dark_mode=yes] #sidebar_tabs > div{
-    background: #333;
-    color:#fff;
 }
 
 input#submit{

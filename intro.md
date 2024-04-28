@@ -217,7 +217,7 @@ But speaking of sci-fi weebs...
 
 [^mitchell]: Melanie Mitchell & Yann LeCun took the "skeptic" side of [a 2023 public debate on "Is AI an Existential Threat?"](https://thehub.ca/2023-07-04/is-ai-an-existential-threat-yann-lecun-max-tegmark-melanie-mitchell-and-yoshua-bengio-make-their-case/) The "concerned" side was taken up by Yoshua Bengio and physicist-philosopher Max Tegmark.
 
-### 2) No, AI Risk is *NOT* about AI becoming "self-aware" or "conscious" or gaining a "will to power".
+### 2) No, AI Risk is *NOT* about AI becoming "sentient" or "conscious" or gaining a "will to power".
 
 Sci-fi authors write sentient AIs because they're writing *stories*, not technical papers. The philosophical debate on artifical consciousness is fascinating, *and completely irrelevant to AI Safety.* Analogy: a nuclear bomb isn't conscious, but it can still be unsafe, no?
 

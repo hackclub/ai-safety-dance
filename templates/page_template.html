@@ -122,9 +122,11 @@
         <div id="splash_image">
             <div id="crt_lines"></div>
             <div id="static"></div>
+            {% if isFrontpage %}
             <video id="dancing" loop muted autoplay width="400">
     			<source src="media/splash/noone.webm" type="video/webm">
     		</video>
+            {% endif %}
         </div>
         {% if isFrontpage %}
 
@@ -244,7 +246,7 @@
 </p>
 <p>
     Also, the dancing robot catboy animation
-    is based off <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">this thing</a>.
+    is based off <a href="https://www.youtube.com/watch?v=yD2FSwTy2lw">this JerryTerry video</a>.
 </p>
 {% elif isPartOne %}
 <p>

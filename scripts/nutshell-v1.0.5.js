@@ -2145,6 +2145,7 @@ Bubble: the box that expands below an expandable, containing a Nutshell Section
         /* Rounded corner */
         /*background: inherit;*/
         background: #fff;
+        color: #000;
         padding: 0.7em;
         border-radius: 0 0 0 1em;
 

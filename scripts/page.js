@@ -8,6 +8,15 @@ window.$all = (query, el=document)=>{
 
 window.addEventListener("DOMContentLoaded", ()=>{
 
+    // DARK MODE INSTANT
+    let darkModeDefault;
+    if(window.matchMedia){
+        darkModeDefault = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }else{
+        darkModeDefault = false;
+    }
+    document.body.setAttribute("dark_mode", darkModeDefault ? "yes" : "no");
+
     /////////////////////////////////////////////////////////////
     // SIDEBAR SHTUFF ///////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -155,9 +164,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
         document.body.setAttribute("font_family", selectedFont);
 
         // Also update localStorage to save settings across pages
-        window.localStorage.style_dark = isDark;
-        window.localStorage.style_size = fontsize;
-        window.localStorage.style_font = selectedFont;
+        //window.localStorage.style_dark = isDark;
+        //window.localStorage.style_size = fontsize;
+        //window.localStorage.style_font = selectedFont;
 
     };
     // Dark Mode
@@ -183,16 +192,18 @@ window.addEventListener("DOMContentLoaded", ()=>{
     $("#style_reset").onclick = resetStyle;
 
     // Save settings across pages
-    // Defaults
-    window.localStorage.style_dark = window.localStorage.style_dark || false;
-    window.localStorage.style_size = window.localStorage.style_size || 19;
-    window.localStorage.style_font = window.localStorage.style_font || "serif";
+    //window.localStorage.style_dark = window.localStorage.style_dark || false;
+    //window.localStorage.style_size = window.localStorage.style_size || 19;
+    //window.localStorage.style_font = window.localStorage.style_font || "serif";
     // Cut off transition CSS
     document.body.style.transition = "none";
     // Set to localStorage's values (remember, they're STRINGS)
-    $("#style_dark_mode").checked = (window.localStorage.style_dark=="true");
-    $("#style_fontsize_slider").value = parseInt(window.localStorage.style_size);
-    $(`input[value=${window.localStorage.style_font}]`).checked = true;
+    //$("#style_dark_mode").checked = (window.localStorage.style_dark=="true");
+    $("#style_dark_mode").checked = darkModeDefault;//(window.localStorage.style_dark=="true");
+    //$("#style_fontsize_slider").value = parseInt(window.localStorage.style_size);
+    $("#style_fontsize_slider").value = 19;
+    //$(`input[value=${window.localStorage.style_font}]`).checked = true;
+    $(`input[value=serif]`).checked = true;
     // Anim!
     setTimeout(()=>{
         updateStyle();
