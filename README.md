@@ -1,6 +1,6 @@
 # 🤖🙀 AI Safety for Fleshy Humans 🙀🤖
 
-**[READ HERE!](https://AISafety.dance)**
+**[READ HERE!](https://aisafety.dance)**
 
 Made by [Nicky Case](https://ncase.me) in collaboration with teens @ [Hack Club](https://hackclub.com)
 
