@@ -25,7 +25,7 @@ let convertConfigs = [
     {
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
-            title:'[DRAFT, DO NOT PUBLICLY SHARE]', //AI Safety for Fleshy Humans',
+            title:'[DRAFT, DO NOT PUBLICLY SHARE]', // AI Safety for Fleshy Humans',
             share_desc: 'Your one-stop-shop to understand all the core ideas of AI & AI Safety!',
             share_image: 'https://aisafety.dance/thumb.png',
             root:'',
