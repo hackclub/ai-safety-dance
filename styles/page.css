@@ -223,13 +223,13 @@ s{
 }
 @keyframes header-background {
     0% {
-        background-color: #41898D
+        background-color: #41898D;
     }
     50% {
-        background-color: #91237A
+        background-color: #91237A;
     }
     100%{
-        background-color: #41898D
+        background-color: #41898D;
     }
 }
 #header #splash_image{
@@ -350,6 +350,24 @@ s{
     color:#fff;
     position: absolute;
     width: 100%;
+}
+
+.unfinished{
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: grayscale(100%) opacity(50%);
+}
+
+
+/*******************************/
+/* signup thing */
+/*******************************/
+
+@media (max-width: 770px) {
+    .signup_iframe{
+        width: 100%;
+        height: 300px;
+    }
 }
 
 /*******************************/
@@ -511,8 +529,8 @@ s{
 
 #everything_container{
     width:100%;
-    transition: width 0.3s ease-in-out;
-    overflow-x: hidden;
+    /*transition: width 0.3s ease-in-out;*/
+    overflow-x: hidden; /* those BIG <hr>s */
 }
 #sidebar{
     font-size: 0.8em;
@@ -537,9 +555,9 @@ body[sidebar_state=open] #return_to_content{
     display: block;
 }
 
-body[sidebar_state=open] #everything_container{
+/*body[sidebar_state=open] #everything_container{
     width: calc(100% - 200px);
-}
+}*/
 body[sidebar_state=open] #sidebar{
     right: 0px;
 }
@@ -757,6 +775,8 @@ input#submit:hover{
     line-height:41px;
 }
 @media (max-width: 660px) {
+
+    /* Different chapter navigation, simpler */
     .chapter-nav-desktop{
         display: none;
     }
@@ -774,6 +794,14 @@ input#submit:hover{
         padding: 5px;
     }
 
+    /* SIdebar tabs don't pop out */
+    #sidebar_tabs > div:hover{
+        left: 0px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Squish littlefoots to the left a bit to accomodate the sidebar */
     .littlefoot__content {
         padding-right: 70px;
         font-size: 1.2em;

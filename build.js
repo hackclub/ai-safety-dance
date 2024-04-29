@@ -26,8 +26,8 @@ let convertConfigs = [
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
             title:'[DRAFT, DO NOT PUBLICLY SHARE]', //AI Safety for Fleshy Humans',
-            share_desc: 'TODO',
-            share_image: 'TODO',
+            share_desc: 'Your one-stop-shop to understand all the core ideas of AI & AI Safety!',
+            share_image: 'https://aisafety.dance/thumb.png',
             root:'',
 
             isFrontpage: true
@@ -36,7 +36,9 @@ let convertConfigs = [
     {
         markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
         extras:{
-            title:'[DRAFT, DO NOT PUBLICLY SHARE]', //AI Safety for Fleshy Humans, Part 1: The Past, Present, and Possible Futures',
+            title:'[DRAFT, DO NOT PUBLICLY SHARE]', // Part 1: The Past, Present, and Possible Futures',
+            share_desc: 'Chapter One of "AI Safety for Fleshy Humans"',
+            share_image: 'https://aisafety.dance/thumb.png',
             root:'../',
 
             isPartOne: true

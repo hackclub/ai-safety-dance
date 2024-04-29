@@ -278,7 +278,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
               hoverFootnote = printFootnote.previousSibling,
               width = printFootnote.getBoundingClientRect().width;
         parentNode.insertBefore(printFootnote, hoverFootnote);
-        hoverFootnote.style.marginLeft = (-width + 2) + "px";
+        hoverFootnote.style.marginLeft = (-width + 3) + "px";
     });
 
     // Make a : footnote header before hiding in Nutshell (if any exist)

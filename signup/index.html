@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="signup.css">
+</head>
+<body>
+	<div id="header">
+        <div id="email_guy"></div>
+        <div id="small_text">
+			Get notified when Part 2 & 3 are out!
+            <i>This newsletter will ONLY notify you about these; you WILL NOT
+            be spammed by us with anything else. Promise!</i>
+        </div>
+
+        <form
+          method="post"
+          action="https://loops-api-service.hackclub.dev/api/subscribe"
+        >
+          <input type="email" name="email" id="email" placeholder="[your email here]" required>
+          <input type="hidden" name="subscribeField" value="aiSafetyRegisteredAt">
+          <button type="submit" id="submit">→</button>
+        </form>
+
+        <!--
+		<form action="https://sendy.ncase.me/subscribe" method="POST" accept-charset="utf-8" target="_blank">
+
+        	<input type="email" name="email" id="email" placeholder="[your email here]" required="">
+
+            <div style="display:none;">
+                <label for="name">Name</label><br>
+        	    <input type="text" name="name" id="name">
+                <input type="checkbox" name="gdpr" id="gdpr" required="" style="cursor:pointer; width: 40px;height: 40px;" checked="">
+            	<label for="hp">HP</label><br>
+            	<input type="text" name="hp" id="hp">
+        	</div>
+        	<input type="hidden" name="list" value="57rMxgfbvr08aemz763COHwg">
+        	<input type="hidden" name="subform" value="yes">
+
+        	<input type="submit" name="submit" id="submit" value="→">
+
+        </form>
+        -->
+
+	</div>
+</body>
+</html>

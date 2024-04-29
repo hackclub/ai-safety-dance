@@ -2,7 +2,7 @@ html,body{
 	margin: 0;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 23px;
-	font-weight: 100;
+	font-weight: lighter;
 }
 body{
 	background: #eee;
@@ -15,6 +15,12 @@ body{
 	text-align: center;
 	width:640px;
 	height:200px;
+
+	/* CENTERED */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
 }
 #header #email_guy{
 	background: url(email_guy.png);
@@ -48,7 +54,7 @@ body{
     bottom: 27px;
     left: 109px;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: lighter;
     border-radius: 5px;
     border: 1px solid #ddd;
     padding: 5px;
@@ -78,4 +84,31 @@ b{
 }
 strong{
 	font-weight: bold;
+}
+
+@media (max-width:639px) {
+	#header{
+		width: 100%;
+		height: 300px;
+	}
+	#header #email_guy{
+		position: unset;
+		margin: 10px auto;
+		display: block;
+	}
+	#header #small_text{
+		position: unset;
+		text-align: center;
+		width: calc(100% - 40px);
+		padding: 0 20px;
+		font-size: 18px;
+	}
+	#email{
+		position: unset;
+		width: calc(100% - 100px);
+		margin: 10px auto;
+	}
+	#submit{
+		position: unset;
+	}
 }
