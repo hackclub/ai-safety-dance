@@ -10,6 +10,7 @@ Made by [Nicky Case](https://ncase.me) in collaboration with teens @ [Hack Club]
 
 * Nutshell for the expandable sections
 * Littlefoot for feetnotes
+* MathJax for pretty math
 
 **Behind the scenes:**
 
@@ -17,3 +18,4 @@ Made by [Nicky Case](https://ncase.me) in collaboration with teens @ [Hack Club]
 * Markdown-it
 * Markdown-it Footnotes
 * HTML Dom Parser
+
