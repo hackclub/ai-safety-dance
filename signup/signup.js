@@ -1,7 +1,14 @@
-document.querySelector("#submit").onclick = ()=>{
+// The poor man's jQuery
+window.$ = (query, el=document)=>{
+    return document.querySelector(query);
+};
+
+// Boop
+$("#submit").onclick = ()=>{
 
     let formData = new FormData();
-    formData.append('subscribeField', 'aiSafetyRegisteredAt');
+    formData.append('subscribeField', 'aiSafetyRegisteredAt'); // list to sub to
+    formData.append('email', document.querySelector("#email").value); // their email
 
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://loops-api-service.hackclub.dev/api/subscribe');
@@ -17,5 +24,5 @@ document.querySelector("#submit").onclick = ()=>{
     xhr.onerror = function() {
         alert("Request failed");
     };
-    
+
 }
