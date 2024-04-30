@@ -24,4 +24,4 @@ Made by [Nicky Case](https://ncase.me) in collaboration with teens @ [Hack Club]
 * [Merriweather](https://fonts.google.com/specimen/Merriweather) (Serif)
 * [Open Sans](https://fonts.google.com/specimen/Open+Sans) (Sans Serif)
 
-The favicon is from Google's Emoji Kitchen, a mashup of 🤖 and 😱. [Google's emoji font](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) is open source (Open Font License). I couldn't find any specific license for their _emoji mashups_ but I'm gonna hope it's fine. I shall wait here until Google's lawyers come get me.
+The favicon is a mashup of 🤖 and 😱, from Google's Gboard's Emoji Kitchen. [Google's emoji font](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) is open source (Open Font License). I couldn't find any specific license for their emoji _mashups_ but I'm gonna hope it's fine. I shall wait here until Google's lawyers come get me.
