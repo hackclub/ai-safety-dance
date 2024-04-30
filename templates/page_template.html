@@ -6,14 +6,11 @@
     <title>{{ title }}</title>
 
     <!-- UTF-8 & Mobile -->
-    <!--<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<meta content="utf-8" http-equiv="encoding">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=460">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- On POSTS, links are external by default -->
+    <!-- Links are external by default -->
     <base target="_blank">
 
 	<!-- Favicon -->
@@ -35,7 +32,6 @@
 	<link rel="stylesheet" href="{{root}}styles/page.css">
 
 	<!-- SCRIPTS -->
-
     <!-- Littlefoot: for my feetnotes -->
     <script src="{{root}}scripts/littlefoot.js" ></script>
     <!-- Nutshell: expandable explanations -->
@@ -43,10 +39,9 @@
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
     <script src="{{root}}scripts/tex-mml-chtml.js"></script>
-    <!-- This website's own scripts -->
-	<script src="{{root}}scripts/page.js"></script>
-
-    <!-- Hack Club's analytics -->
+	<!-- This website's own scripts -->
+    <script src="{{root}}scripts/page.js"></script>
+    <!-- Hack Club's no-cookies, GDPR-compliant analytics -->
     <script defer data-domain="aisafety.dance" src="https://plausible.io/js/script.js"></script>
 
 </head>

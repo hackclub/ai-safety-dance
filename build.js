@@ -25,7 +25,7 @@ let convertConfigs = [
     {
         markdown:'intro.md', template:'templates/page_template.html', exportTo:'index.html',
         extras:{
-            title: 'AI Safety for Fleshy Humans: a whirlwind tour guide', // '[DRAFT, DO NOT PUBLICLY SHARE]'
+            title: 'AI Safety for Fleshy Humans: a whirlwind tour', // '[DRAFT, DO NOT PUBLICLY SHARE]'
             share_desc: 'Your one-stop-shop to understand all the core ideas of AI & AI Safety!',
             share_image: 'https://aisafety.dance/thumb.png',
             root:'',
@@ -37,7 +37,7 @@ let convertConfigs = [
         markdown:'p1/p1.md', template:'templates/page_template.html', exportTo:'p1/index.html',
         extras:{
             title: 'Part 1: The Past, Present, and Possible Futures',
-            share_desc: 'Chapter One of "AI Safety for Fleshy Humans"',
+            share_desc: 'Chapter One of “AI Safety for Fleshy Humans: a whirlwind tour”',
             share_image: 'https://aisafety.dance/thumb.png',
             root:'../',
 
