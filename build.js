@@ -27,7 +27,7 @@ let convertConfigs = [
         extras:{
             title: 'AI Safety for Fleshy Humans: a whirlwind tour', // '[DRAFT, DO NOT PUBLICLY SHARE]'
             share_desc: 'Your one-stop-shop to understand all the core ideas of AI & AI Safety!',
-            share_image: 'https://aisafety.dance/thumb.png',
+            share_image: 'https://aisafety.dance/thumbs/thumb.png',
             root:'',
 
             isFrontpage: true
@@ -38,7 +38,7 @@ let convertConfigs = [
         extras:{
             title: 'Part 1: The Past, Present, and Possible Futures',
             share_desc: 'Chapter One of “AI Safety for Fleshy Humans: a whirlwind tour”',
-            share_image: 'https://aisafety.dance/thumb.png',
+            share_image: 'https://aisafety.dance/thumbs/thumb-p1.png',
             root:'../',
 
             isPartOne: true
