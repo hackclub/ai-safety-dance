@@ -271,6 +271,11 @@ s{
     position: relative;
     top:20px;
 }
+#header #p1-cat{
+    position: relative;
+    height:100%;
+    opacity: 0.75;
+}
 #header > #header_words{
     position: absolute;
     top: 355px;
@@ -662,6 +667,18 @@ input#submit:hover{
 /*******************************/
 /* FOOTER */
 /*******************************/
+
+.NEXT_ARROW{
+    height:1em;
+    position:relative;
+    display:inline-block;
+}
+.NEXT_ARROW img{
+    position: absolute;
+    width: 120px;
+    border: none !important;
+    max-width: none !important;
+}
 
 #footer{
     width: 100%;

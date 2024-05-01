@@ -18,6 +18,11 @@ This series will also have comics, starring a Robot Catboy Maid. Like this one:
 
 ![Comic. Ham the Human tells RCM (Robot Catboy Maid) to "keep this hosue clean". RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then *yeets* Ham out of the house.](media/intro/Outer_Alignment.png)
 
+
+**TODO: SOME KIND SEGUE HERE**
+
+{% include 'templates/signup.html' %}
+
 (Note: This series was first published on April 2024. AI's moving fast, so some details may be obsolete by the time you read this. However, the core ideas should still be helpful!)
 
 Before we go on our tour, hiking through the rocky terrain of AI & AI Safety, here's a 10,000-foot look of the land:

@@ -118,11 +118,18 @@
     <!-- A big cute header -->
     <div id="header" class="{{ 'frontpage' if isFrontpage else 'chapter' }}">
         <div id="splash_image">
+
+            {% if isPartOne %}
+            <img id="p1-cat" src="../media/p1/P1Cat.png"/>
+            {% endif %}
+
             <div id="crt_lines"></div>
             <div id="static"></div>
+
             {% if isFrontpage %}
             <img id="dancing" width="400" src="media/splash/noone.png"/>
             {% endif %}
+
         </div>
         {% if isFrontpage %}
 
