@@ -440,6 +440,17 @@ s{
     border: 2px inset rgba(128,128,128,0.1337);
 }
 
+.inline-icon{
+    height: 2em;
+    border: none !important;
+    position: relative;
+    top: 0.5em;
+}
+
+.nutshell-bubble-overflow-embed-button img{
+    border: none !important;
+}
+
 /*******************************/
 /* ARTICLE SUMMARY VIEW */
 /*******************************/

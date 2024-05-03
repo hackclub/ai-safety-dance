@@ -716,7 +716,8 @@ Bubble: the box that expands below an expandable, containing a Nutshell Section
 
     // If 2 or more, show it, else hide it.
     Nutshell._updateCloseAllNutshells = ()=>{
-        if(Nutshell._nutshellsOpen>=2){
+        //if(Nutshell._nutshellsOpen>=2){
+        if(Nutshell._nutshellsOpen>=1){
 
             // Show it if hidden
             if(_ca.getAttribute('show')=='no'){
