@@ -85,7 +85,7 @@ NOTE: I wrote *humane*, with an "e", not just "human". A *human* may or may not 
 
 [^mixup]: A sentiment I see a lot: "Aligning AI to human values would be bad actually, because current human values are bad." To be honest, [glances at a history textbook] I 80% agree. It's not enough to make an AI act *human*, it's got to act *humane.*
 
-[^humane]: Maybe 50 years from now, in the genetically-modified cyborg future, calling compassion a "humane" value might sound as quaintly species-ist
+[^humane]: Maybe 50 years from now, in the genetically-modified cyborg future, calling compassion "humane" might sound quaintly species-ist.
 
 We can break this problem down by "Problems in Humans vs AI":
 
