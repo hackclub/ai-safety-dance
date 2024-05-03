@@ -686,7 +686,7 @@ input#submit:hover{
 }
 .NEXT_ARROW img{
     position: absolute;
-    width: 120px;
+    height: 150px;
     border: none !important;
     max-width: none !important;
 }

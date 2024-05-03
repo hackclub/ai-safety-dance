@@ -151,14 +151,16 @@ To avoid that for *this* guide, I've included some *OPTIONAL* interactive flashc
 
 Here: **try the below flashcards, to retain what you just learnt!**
 
-(There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party.<!--If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](TODO)**!-->)
+(There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party.<!--If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](https://ankiweb.net/shared/info/341999410)**!-->)
 
 (Also, you don't need to memorize the answers *exactly*, just the gist. You be the judge if you got it "close enough".)
 
 <orbit-reviewarea color="violet">
     <orbit-prompt
         question="The two core divides in AI & AI Safety:"
-        answer="Logic 'vs' Intuition / Problems in the AI 'vs' in the Human">
+        answer=""
+        answer-attachments="https://cloud-ifq5g4slt-hack-club-bot.vercel.app/0core_problems.png">
+        <!-- aisffs-two-conflicts.png -->
     </orbit-prompt>
     <orbit-prompt
         question="The two main eras in AI (very rough year approximation):"
@@ -413,7 +415,7 @@ Let's plant that tree today!
   * We *are* aware of AI's upsides.
   * It's not about *current* AI, but about how fast AI *is advancing*.
 
-(To review the flashcards, click the <img src="media/intro/icon1.png" class="inline-icon"/> Table of Contents icon in the right sidebar, then click the "🤔 Review" links.<!--Alternatively, download the [Anki deck for the Intro](TODO).-->)
+(To review the flashcards, click the <img src="media/intro/icon1.png" class="inline-icon"/> Table of Contents icon in the right sidebar, then click the "🤔 Review" links.<!--Alternatively, download the [Anki deck for the Intro](https://ankiweb.net/shared/info/341999410).-->)
 
 Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
 

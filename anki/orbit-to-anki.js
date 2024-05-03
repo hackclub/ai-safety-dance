@@ -22,7 +22,7 @@ fs.readFile( inputFilepath, "utf-8", (err, input)=>{
         let ankiLines = [];
 
         // 1) Find each instance of <orbit-reviewarea>,
-        const regexp = /<orbit-reviewarea>(\n|.)*?<\/orbit-reviewarea>/g
+        const regexp = /<orbit-reviewarea(\n|.)*?<\/orbit-reviewarea>/g
         const orbitReviews = [...input.matchAll(regexp)];
 
         // 2) For each, parse into DOM,

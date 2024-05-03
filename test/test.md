@@ -20,7 +20,7 @@ Meow!
 
 What about feetnotes?[^feet]
 
-<orbit-reviewarea>
+<orbit-reviewarea color="violet">
     <orbit-prompt
         question="Who's widely considered the founder of Computer Science & Artificial Intelligence?"
         answer="Alan Turing (this handsome fella)"
