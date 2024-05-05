@@ -151,7 +151,7 @@ To avoid that for *this* guide, I've included some *OPTIONAL* interactive flashc
 
 Here: **try the below flashcards, to retain what you just learnt!**
 
-(There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party.<!--If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](https://ankiweb.net/shared/info/341999410)**!-->)
+(There's an optional sign-up at the end, *if* you want to save these cards for long-term study. Note: *I do not own or control this app*, it's third-party. If you'd rather use the open source flashcard app [Anki](https://apps.ankiweb.net/index.html), **here's [a downloadable Anki deck](https://ankiweb.net/shared/info/341999410)**!)
 
 (Also, you don't need to memorize the answers *exactly*, just the gist. You be the judge if you got it "close enough".)
 
@@ -346,11 +346,11 @@ I present to you, a [relevant xkcd](https://xkcd.com/2278/):
 
 This is how I feel about "don't worry about AI, it can't even do [X]".
 
-Is our postmodern memory-span *that* bad? *One* decade ago, just *one*, the world's state-of-the-art AIs couldn't even *recognize pictures of cats.* Now, not *only* can AI do that at human-performance level, AIs can pump out [:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh](#CatNinja) in *under a minute*.
+Is our postmodern memory-span *that* bad? *One* decade ago, just *one*, the world's state-of-the-art AIs couldn't reliably *recognize pictures of cats.* Now, not *only* can AI do that at human-performance level, AIs can pump out [:a picture of a cat-ninja slicing a watermelon in the style of Vincent Van Gogh](#CatNinja) in *under a minute*.
 
 Is *current* AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)
 
-But: if AI keeps improving at the same rate as it has been for the last decade... it seems plausible to me we could get "Einstein/Oppenheimer-level" AI in 30 years.[^numerical-extraction] That's well within many folks' lifetimes!
+But: if AI keeps improving at a similar rate as it has for the last decade... it seems plausible to me we could get "Einstein/Oppenheimer-level" AI in 30 years.[^numerical-extraction] That's well within many folks' lifetimes!
 
 As "they" say:[^quote-trees]
 
@@ -415,7 +415,7 @@ Let's plant that tree today!
   * We *are* aware of AI's upsides.
   * It's not about *current* AI, but about how fast AI *is advancing*.
 
-(To review the flashcards, click the <img src="media/intro/icon1.png" class="inline-icon"/> Table of Contents icon in the right sidebar, then click the "🤔 Review" links.<!--Alternatively, download the [Anki deck for the Intro](https://ankiweb.net/shared/info/341999410).-->)
+(To review the flashcards, click the <img src="media/intro/icon1.png" class="inline-icon"/> Table of Contents icon in the right sidebar, then click the "🤔 Review" links. Alternatively, download the [Anki deck for the Intro](https://ankiweb.net/shared/info/341999410).)
 
 Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whirlwind tour of AI Safety... for us warm, normal, fleshy humans!
 
