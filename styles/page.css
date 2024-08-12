@@ -9,7 +9,7 @@ html, body{
 
     font-family: 'Merriweather', serif;
     font-weight: 300;
-    font-size: 19px;
+    font-size: 18px;
 
     scroll-behavior: smooth;
 }
@@ -193,6 +193,31 @@ img + em{
     text-align: center;
 }
 
+img.mini{
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    border: none !important;
+}
+img.img-splash{
+    width: 640px;
+    display: block;
+    border: none !important;
+}
+video{
+    max-width: 100%;
+}
+
+span.decision-point{
+    background: #2db537;
+    padding: 0.15em 0.25em;
+    border-radius: 0.3em;
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+}
+
+
 .nutshell-bubble-overflow-section > div p{
     margin: 1em 0;
 }
@@ -271,7 +296,7 @@ s{
     position: relative;
     top:20px;
 }
-#header #p1-cat{
+#header #p1-cat, #header #p2-banner{
     position: relative;
     height:100%;
     opacity: 0.75;

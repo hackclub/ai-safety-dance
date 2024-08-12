@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!-- Title -->
+    <title>Part 2: The Problems</title>
+
+    <!-- UTF-8 & Mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Links are external by default -->
+    <base target="_blank">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Social Share Nonsense -->
+	<meta itemprop="name" content="Part 2: The Problems">
+	<meta itemprop="description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta itemprop="image" content="https://aisafety.dance/thumbs/thumb-p2.png">
+	<meta property="og:title" content="Part 2: The Problems">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
+	<meta property="og:description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Part 2: The Problems">
+	<meta name="twitter:description" content="Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta name="twitter:image" content="https://aisafety.dance/thumbs/thumb-p2.png">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="../styles/Merriweather/merriweather.css">
+    <link rel="stylesheet" href="../styles/Open_Sans/opensans.css">
+    <link rel="stylesheet" href="../styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
+	<link rel="stylesheet" href="../styles/page.css">
+
+	<!-- SCRIPTS -->
+    <!-- Littlefoot: for my feetnotes -->
+    <script src="../scripts/littlefoot.js" ></script>
+    <!-- Nutshell: expandable explanations -->
+    <script src="../scripts/nutshell-v1.0.5.js"></script>
+    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+    <!-- MathJAX: for nice math -->
+    <script src="../scripts/tex-mml-chtml.js"></script>
+	<!-- This website's own scripts -->
+    <script src="../scripts/page.js"></script>
+    <!-- Hack Club's no-cookies, GDPR-compliant analytics -->
+    <script defer data-domain="aisafety.dance" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+<!-- HACKBRAND -->
+<a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
+	<img src="../styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
+</a>
+
+<!-- The Sidebar UI -->
+<div id="return_to_content"></div>
+<div id="sidebar">
+	<div id="panel_toc"></div>
+
+    <!-- STYLE CHANGER -->
+	<div id="panel_style">
+
+        <div id="style_dark_mode_container" style="cursor:pointer;">
+            <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
+            Dark Mode
+        </div>
+        <br>
+
+        Font size:
+        <span id="style_fontsize"></span>
+        <br>
+        <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
+        <br>
+
+        Font type:
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="serif" checked>
+            <span style="font-family:'Merriweather'">Serif</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="sans_serif">
+            <span style="font-family:'Open Sans'">Sans Serif</span>
+        </label>
+        <br><br>
+
+        <button id="style_reset">Reset</button>
+
+    </div>
+
+    <!-- TRANSLATIONS -->
+	<div id="panel_translations">
+        <!-- none... sorry -->
+    </div>
+	<div id="panel_share">share on... w/e</div>
+    <!-- SHILLING FOR BIG NICKY -->
+	<div id="panel_sub">
+    </div>
+    <div id="panel_support"></div>
+
+</div>
+
+<!-- Reading Time Clock! -->
+<div id="reading_time">
+	<div id="clock_icon"></div>
+	<div id="clock_label"></div>
+</div>
+
+<!-- EVERYTHING TO THE LEFT of the sidebar... -->
+<div id="everything_container">
+
+    <!-- A big cute header -->
+    <div id="header" class="chapter">
+        <div id="splash_image">
+
+            
+            
+            <img id="p2-banner" src="../media/p2/P2Cat.png"/>
+            
+
+            <div id="crt_lines"></div>
+            <div id="static"></div>
+
+            
+
+        </div>
+        
+
+        <div id="header_words">
+            <div id="title">
+                P<span style="position: relative;left: -7px;">A</span>RT
+                T<span style="position: relative;left: 6px;">W</span>O
+            </div>
+            <div id="subtitle">
+                The Problems
+            </div>
+        </div>
+
+        
+	</div>
+
+    <!-- Chapter Navigation -->
+    <div id="chapter_nav">
+        <div id="chapter_nav_centered">
+            <a target="_self" href="../"
+                class="live">
+                <div >
+                    <span class='chapter-nav-desktop'>
+                        introduction
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        intro
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="../p1"
+                class="live">
+                <div  >
+                    <span class='chapter-nav-desktop'>
+                        part 1<br>past & future
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 1
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="../p2"
+                class="live">
+                <div>
+                    <span class='chapter-nav-desktop'>
+                        part 2<br>problems
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 2
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING HALLOWEEN 2024, probably"
+                onclick="alert('COMING HALLOWEEN 2024, probably')">
+                <div>
+                    <span class='chapter-nav-desktop'>
+                        part 3<br>solutions?
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 3
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING HALLOWEEN 2024, probably"
+                onclick="alert('COMING HALLOWEEN 2024, probably')">
+                <div style="border-right:1px solid rgba(128,128,128,0.8);">
+                    <span class='chapter-nav-desktop'>
+                        conclusion
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        outro
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- The lil' tabs for sidebar UI -->
+    <div id="sidebar_tabs">
+		<div id="tab_toc">
+			<div></div>
+			table of contents
+		</div>
+		<div id="tab_style">
+			<div></div>
+			change style 😎
+		</div>
+        <!--
+		<div id="tab_sub">
+            CREDITS & Signup for notifications
+			<div></div>
+			subscribe 💖
+		</div>
+        -->
+	</div>
+
+    <!-- BEHOLD! CONTENT!!!!! -->
+	<article id="content">
+<p><em>(If you got directly linked to this page, it's optional-but-recommended you check out <a href="../">the Intro &amp; Part 1!</a>)</em></p>
+<blockquote>
+<p>&quot;A problem well-stated is a problem half-solved.&quot;<br>
+~ somebody<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> (👈 hover citation to expand)</p>
+</blockquote>
+<p><em>&quot;Didn't you use that quote just a few minutes ago?&quot;</em> you ask. Nah, <a href="https://aisafety.dance/p1/">part one</a> was published in May 2024, this part was published <strong>Aug 2024</strong>. It's been three months, I'll remind you of the quote.</p>
+<p>I'll also remind you of the problem we're trying to state &amp; solve! It is the Value Alignment Problem:</p>
+<blockquote>
+<p><strong><em>How can make AIs that robustly serve humane values?</em></strong></p>
+</blockquote>
+<p>As elaborated in Part One, we can break this problem up like so:</p>
+<p><img src="../media/p2/breakdown/breakdown0001.png" alt="Diagram breaking down the Value Alignment Problem. It can be broken into &quot;Technical Alignment&quot; and &quot;Humane Values&quot;. Technical Alignment, in turn, can be broken into &quot;Problems with AI Logic&quot; and &quot;Problems with AI Intuition&quot;"></p>
+<p>Here, in Part Two, we'll dive deep into <strong>7 main sub-problems in AI Safety:</strong></p>
+<ol>
+<li>Goal mis-specification <a href="#problem1">↪</a></li>
+<li>Instrumental convergence <a href="#problem2">↪</a></li>
+<li>Lack of interpretability <a href="#problem3">↪</a></li>
+<li>Lack of robustness <a href="#problem4">↪</a></li>
+<li>Algorithmic bias <a href="#problem5">↪</a></li>
+<li>Goal mis-generalization <a href="#problem6">↪</a></li>
+<li>What are humane values, anyway? <a href="#problem7">↪</a></li>
+</ol>
+<p>(If you'd like to skip around, the <img src="../media/intro/icon1.png" class="inline-icon"/> Table of Contents are to your right! 👉 You can also <img src="../media/intro/icon2.png" class="inline-icon"/> change this page's style, and <img src="../media/intro/icon3.png" class="inline-icon"/> see how much reading is left.)</p>
+<p>But wait, there's more! The above 7 sub-problems are also great introductions to <strong>core ideas from other fields</strong>: Game theory, Statistics, even <em>Philosophy!</em>  That's why I claim, understanding AI will help you better understand <em>humans</em>.  Maybe it'll even help us solve that elusive <em>human</em> alignment problem:</p>
+<blockquote>
+<p><em>How do we get</em> humans <em>to robustly serve humane values?</em></p>
+</blockquote>
+<p>Without further human-interest blabber, let's go:</p>
+<hr>
+<h1>Problems with AI Logic</h1>
+<p><a id="problem1"></a></p>
+<h2>❓ Problem 1: Goal Mis-specification</h2>
+<p>Screw it, it's been 3 months, I'll also re-use the below Robot Catboy comic. (Each of the 7 Problems will be illustrated with a Catboy comic, too!)</p>
+<p><img src="../media/p2/comix/GMS.png" alt="Comic. Ham the Human tells RCM (Robot Catboy Maid) to &quot;keep this hosue clean&quot;. RCM reasons: What causes the mess? The humans cause the mess! Therefore: GET RID OF THE HUMANS. RCM then yeets Ham out of the house."></p>
+<p><em>&quot;Be careful what you wish for, you just may get it.&quot;</em> It's a problem so old, it's enshrined in myth: King Midas, ironic genies, the Monkey's Paw.</p>
+<p>This is called <strong>Goal Mis-specification</strong> (also called Reward Mis-specification): When an AI does <em>exactly what you asked for</em>, not necessarily <em>what you actually wanted.</em></p>
+<p>(If you forgot from Part One, here's how <a href="#WaysToMakeHumaneAIGoingWrong">:seemingly-obvious ways to make &quot;humane AI&quot; can go wrong</a>. Bonus: <a href="#StoryOfPassivePredictionLeadingToHarm">:even <em>passive</em> goals like &quot;predict something&quot; can lead to harmful results!</a> 👈 <em>OPTIONAL: Click to expand these texts!</em>)</p>
+<p>Okay, but enough recapping the basics. Let's introduce you to:</p>
+<p><strong>How this relates to core ideas from other fields:</strong></p>
+<ul>
+<li>Economics</li>
+<li>Causal diagrams</li>
+<li>Optimization theory</li>
+<li>Security mindset</li>
+</ul>
+<p><strong>Four nuances of Goal Mis-specification:</strong></p>
+<ul>
+<li>It's not that AIs won't &quot;know&quot; what we want, it's that they won't &quot;<em>care</em>&quot;.</li>
+<li>Wireheading</li>
+<li>Do What I Mean</li>
+<li>We <em>want</em> bots that can disobey??</li>
+</ul>
+<h3>Relations to core ideas from other fields</h3>
+<p><strong>Economics:</strong></p>
+<p>The problem of getting other humans to do what you <em>actually intended</em>, not just what you're incentivizing them to, is infamous in Economics. It goes by many names: &quot;The Principal-Agent Problem&quot;, &quot;The folly of rewarding A, while hoping for B&quot;<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>... but one of its more famous names is <u>Goodhart's Law</u>, which says this (paraphrased)<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>:</p>
+<blockquote>
+<p><em>When you reward a metric, it usually gets gamed.</em></p>
+</blockquote>
+<p>For example, a teacher wants students to learn, so he rewards them based on test scores... but some students &quot;game&quot; this by cheating, or memorizing without understanding. Or: voters want politicians who fight for them, so they vote for charismatic leaders... but some politicians &quot;game&quot; this by being all style and no substance.</p>
+<p><img src="../media/p2/gms/goodhart.png" alt="The &quot;always has been&quot; two-astronauts meme. Earth labelled: &quot;95% of our personal &amp; institutional problems&quot;. Astronaut 1: &quot;Wait, it's all Goodhart's Law?&quot; Astronaut 2: &quot;Always has been.&quot;"></p>
+<p>And as programmers have discovered, the same goes for AI. If you &quot;reward&quot; an AI based on a metric, it's likely to give you something unwanted.</p>
+<p>. . .</p>
+<p><strong>Causal Diagrams:</strong></p>
+<p>If you like understanding things <em>visually</em>, you're in luck! Here's a neat way to understand Goal Mis-specification / Goodhart's Law in pictures.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> (We'll also see these again later, in Problem #5 and #6)</p>
+<p><u>Causal diagrams</u> let us see how cause-and-effect flow. Consider a Goodhart problem in news writing. The quality of an article <em>causes</em> an article to get more views, so, we can draw an arrow from Quality to Views:</p>
+<p><img src="../media/p2/gms/causal1.png" alt="Causal diagram: Quality causes Views"></p>
+<p>Alas, being outrageous is a <em>stronger</em> cause for views<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>:</p>
+<p><img src="../media/p2/gms/causal2.png" alt="Causal diagram: Quality &amp; Outrage both cause Views"></p>
+<p>So, a news publisher who wants high-quality writing, may reward authors based on the <em>metric</em> of views, but — Goodhart's Law — this incentive gets gamed, and the publisher gets outrageous clickbait instead. (Let's pretend this isn't what the publisher wanted anyway.)</p>
+<p>In general, Goal Mis-specification / Goodhart's Law happens when there are <em>alternative causal paths</em> you didn't know about:</p>
+<p><img src="../media/p2/gms/causal3.png" alt="Causal diagram: &quot;Thing you actually want&quot; &amp; &quot;Unintended other way to boost metric&quot; both cause &quot;Metric you reward&quot;"></p>
+<p>There's more than one way to skin a potato, and there's usually more than one way to boost a metric.</p>
+<p>. . .</p>
+<p><strong>Optimization Theory</strong></p>
+<p>If you prefer a <em>mathematical</em> way of looking at the above problem, here's how Stuart Russell (co-author of <em>the</em> most popular AI textbook) explained it, paraphrased:<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<blockquote>
+<p>If something has <strong>100 variables</strong>,<br>
+and you set goals on <strong>10 of them</strong>,<br>
+by default, <strong>the remaining 90</strong><br>
+will be pushed to extreme values.</p>
+</blockquote>
+<p>For example: if a CEO's only (naïve) goals are to maximize revenue &amp; minimize costs, <em>all other</em> variables get set to extreme values: &quot;Externality&quot; costs that the company doesn't pay, like pollution. The mental/physical health of all employees, including the CEO's. Etc.</p>
+<p>More generally: if you don't <em>explicitly</em> tell an AI (or incentive-chasing human) that you value [X], by default, they will set [X] to some extreme, undesired state. (This is true even for goals that <em>aren't</em> about maximization.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>)</p>
+<p><em>But can't we just list ALL the things that we value?</em> you may reasonably ask. But remember from Part One: we can't even formally specify <em>how to recognize pictures of cats</em>.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> Formally specifying &quot;what humans value&quot; would be much harder.</p>
+<p>. . .</p>
+<p><strong>Security Mindset</strong></p>
+<img class="mini" src="../media/p2/misc/mini_elevator.png" />
+<p>Does all this seem paranoid? Yes, and that's not a bug, it's a feature! This is our final core idea from the field of Safety Engineering: <u>security mindset.</u></p>
+<p>Consider the humble elevator. Modern elevators have backup cables, <em>and</em> backup power generators, <em>and</em> a brake that activates if the power cuts, <em>and</em> a brake that activates if the elevator moves too fast, <em>and</em> shock absorbers at the bottom of the elevator shaft, etc. This is why elevators are ridiculously safe: in the US, there are <em>~400x</em> more deaths from <em>staircases</em> than elevators.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
+<p>The reason you don't have to be paranoid about elevators, is because the engineers are paranoid <em>for</em> you. This is security mindset:</p>
+<p><strong>Step 1)</strong> Ask, <em>&quot;what's the worst that could (plausibly) happen?&quot;</em></p>
+<p><strong>Step 2)</strong> Fix it <em>before</em> it can happen.</p>
+<p>Be pessimistic — after all, the pessimist invents the parachute!<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> This is the approach used for engineering elevators, airplanes, bridges, rockets, cyber-security<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>, and other high-stakes technology.</p>
+<p>And, as I hope I've shown in Part One, AI is likely one of <em>the</em> highest-stakes technologies of this century.</p>
+<h3>🤔 Review #1 (OPTIONAL!)</h3>
+<p>Remember that time you spent hours reading a thing, then a week later you forgot everything?</p>
+<p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="https://ankiweb.net/shared/info/808506727">download these as an Anki deck</a>, if you want.</p>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="Goal Mis-specification is:"
+        answer="When an AI does *exactly what you asked for*, not necessarily *what you actually wanted.*">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Goodhart's Law, paraphrased:"
+        answer="When you reward a metric, it usually gets gamed.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An example of Goodhart's Law applied to humans:"
+        answer="(Any example works, but here's what I listed:) Students cheating a test, Politicians focusing on style over substance for votes, Company imposing externalized costs like pollution to cut costs, Newswriters going for outrage over quality.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Goodhart's Law, as a **causal diagram**:"
+        answer=""
+        answer-attachments="https://cloud-7bpfbehpv-hack-club-bot.vercel.app/0causal3.png">
+        <!-- aisffs-CausalGoodhart.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="The problem with optimization, described mathematically:"
+        answer="If something has 100 variables, and you set goals on 10 of them, by default, the remaining 90 will be pushed to extreme values.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Security Mindset, step one:"
+        answer="Ask: “What's the worst that could (plausibly) happen?”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Security Mindset, step two:"
+        answer="Fix the problem *before* it can happen.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name two fields that use Security Mindset:"
+        answer='(Any of these work:) Engineering elevators, airplanes, bridges, rockets, cyber-security.'>
+    </orbit-prompt>
+</orbit-reviewarea>
+<h3>Four Nuances of Goal Mis-specification</h3>
+<p>Like a connoisseur and their fine wine, here's some <em>subtle nuances</em> of goal mis-specification, that I'd like us to appreciate:</p>
+<p><strong>It's not that the AI doesn't <em>know</em> what we want, it's that it doesn't <em>&quot;care&quot;</em>.</strong></p>
+<p>By analogy, consider Goodhart's Law for humans. It's not that the CEO doesn't <em>know</em> that their pollution is costly to society. It's that they don't <em>care</em>. (or at least, they care less than the reward they get.)</p>
+<p>I mention this, because this misconception is a common argument <em>against</em> there being a risk from Advanced AI: it's unlikely an AI could be smart enough to take over the world, <em>yet also</em> too dumb to know that's not what humans want. But the problem isn't that advanced AI won't <em>know</em> what we value, but that — like the reward-chasing politician or CEO — they won't <em>&quot;care&quot;.</em></p>
+<p>(<u>To be less anthropomorphic, and more rigorous:</u> AIs are &quot;just&quot; computer programs. A program can easily contain accurate info on what humans want, yet <em>not</em> rank options by that. For example, a program could rank options by how much it keeps a house clean, or rank options by <em>alphabetic order</em>. Programs <em>NOT</em> ranking options by humane values is <em>the default.</em>)</p>
+<p><strong>Wireheading.</strong></p>
+<img class="mini" src="../media/p2/misc/mini_wirehead.png" />
+<p>Here's a way an AI could ironically optimize its own reward: just hack its own code, and set <code>REWARD = INFINITY</code>. The human equivalent would be hard drugs, or near-future direct brain stimulation.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<p>This is <strong>&quot;wireheading&quot;: when an agent (AI or human) directly hacks its own reward.</strong> (also called 'reward hacking' or 'reward tampering'.)</p>
+<p>As far as AI risks go, this one's fairly safe? A wireheaded AI will just sit there and do nothing. In fact, this is one of the famous arguments made <em>against</em> Advanced AI Risk. It's called The Lebowski Theorem,<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> named after the slacker anti-hero of the film <em>The Big Lebowski</em>:</p>
+<blockquote>
+<p>No superintelligent AI is going to bother with a task that is harder than hacking its reward function.</p>
+</blockquote>
+<p>In other words: it claims any intelligence capable of self-modification, will wirehead itself into a couch potato.</p>
+<p>This isn't just theoretical; researchers have already seen self-modifying AIs wirehead themselves!<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup> But if an AI a) plans ahead, AND b) judges future outcomes by <em>current</em> goals... it's been <em>mathematically proven</em> they'll avoid wireheading, and have a drive towards &quot;goal preservation&quot;!<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> We'll see the proof later in Problem #2. For now, take this: &quot;IOU - one (1) proof.&quot;</p>
+<p><strong>&quot;Do What I Want&quot;.</strong></p>
+<p>For all this talk of &quot;AI will do <em>what you said</em>, not <em>what you want</em>&quot;, can't we just... <em>say</em> to an AI, hey, <em>do what I want?</em></p>
+<p>Silly as it sounds, this <em>is</em> similar to some promising ideas we'll see in Part 3!  So why isn't AI Safety solved?</p>
+<p>Well, how would a machine measure &quot;what you want&quot;? By:</p>
+<ul>
+<li><u>What you consistently choose to do?</u> But ~everyone has bad habits, consistently choosing what we <em>know</em> we'll regret later. (guess who binged Netflix 'til 4am last night...)</li>
+<li><u>What causes your brain to create reward-signals?</u> In that case, everyone &quot;wants&quot; hard drugs.</li>
+<li><u>What you <em>say</em> you want?</u> But if we could fully describe our subconscious, it wouldn't be <em>sub</em>-conscious, would it. We can't even rigorously tell an AI what cats look like, how can we tell it our values?</li>
+<li><u>What you approve the AI for doing?</u> This <em>is</em> how ChatGPT/etc are trained, but training AI to get your approval turns it into a butt-kisser who tells you what you <em>want</em> to hear, not true info you <em>need</em> to hear.<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> It can even turn AIs <em>deliberately deceptive!</em><sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup></li>
+</ul>
+<p>That's the catch: unless you <em>already have a good rigorous definition</em> of &quot;what I want&quot;, an AI can't follow the instruction &quot;do what I want&quot; <em>the way you want</em>.</p>
+<p>(Or <em>can</em> they? Again, proposed solutions in Part Three.)</p>
+<p><strong>We <em>want</em> bots that can disobey??</strong></p>
+<p><img class="mini" src="../media/p2/misc/mini_kitchen.png" /><em>(with apologies to <a href='https://gunshowcomic.com/648' target='_blank'>kc green</a>)</em></p>
+<p>Actually, we <em>don't</em> want an AI to &quot;do what I want&quot;.</p>
+<p>We want an AI to &quot;do what <em>I would have wanted</em> if I knew the outcomes in advance.&quot;</p>
+<p>For example: if I saw a grease fire, and I <em>want</em> a bucket of water, because I mistakenly think water is good for grease fires, and I order Robot Catboy Maid to get me a bucket of water... RCM should instead fetch a fire extinguisher, since that's what <em>I would have wanted</em> if I knew the outcomes in advance. (PSA: don't pour water on grease fires, it'll explode.)</p>
+<p>This example complicates AI Safety: it shows that sometimes, we actually <em>want</em> our AIs to disobey our orders, <em>for our own good!</em></p>
+<h3>🤔 Review #2</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="The problem isn't that advanced AIs won't *know* what we want..."
+        answer="... it's that it won't *care*. (Analogy: reward-chasing politicians/CEOs may fully know the harm they do, yet not care.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is 'wireheading'?"
+        answer="When an agent directly hacks its own reward circuits. (An AI hacking itself, or a human directly stimulating their brain's reward circuits.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why is it hard to program an AI to 'do what I want'?"
+        answer="'What I want' is *still* hard to rigorously define well.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why isn't 'what I want' = 'what I consistently choose'?"
+        answer="We ~all have bad habits: consistently choosing things we don't value.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why isn't 'what I want' = 'what feels rewarding'?"
+        answer="Wireheading & hard drugs create reward-signals in the brain, but most folks want to avoid them not in spite of that, but *because* of that.">
+    </orbit-prompt>
+        <orbit-prompt
+        question="One problem with just training AIs to do things you approve of:"
+        answer="It becomes a 'butt-kisser' (technical word: 'sycophant') that can intentionally lie to you, to gain your approval.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A more better goal than 'do what I want':"
+        answer="Do what I *would have* wanted, if I knew the outcomes in advance.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="When you would *want* an AI to disobey you:"
+        answer="If you mistakenly request something that would be bad for your true goals. (e.g. telling Robot to fetch water to put out a grease fire)">
+    </orbit-prompt>
+</orbit-reviewarea>
+<p><a id="problem2"></a></p>
+<h2>❓ Problem 2: Instrumental Convergence</h2>
+<p><img src="../media/p2/comix/IC.png" alt="Comic. Human tries asking Robot again to clean their house, but this time Human has a shut-down remote control. Robot reasons to keep house clean, he should get rid of human... but if he does that, Human will shut him down... so, he must first shut down Human's ability to shut him down. Robot destroys the shut-down remote control, then yeets Human out the house."></p>
+<p><strong>Instrumental Convergence</strong> is the idea that most goals you could give an AI, logically <em>converge</em> on the same set of <em>instrumental</em> sub-goals. (Sorry, academics suck at naming things.)</p>
+<p>For example, if you ask an advanced robot to fetch you a cup of coffee from across the street, it'll deduce it needs to avoid getting hit by cars, even if you did <em>not</em> explicitly tell it to. Why? Not because of some innate desire for self-preservation, but because &quot;you can't fetch the coffee if you're dead&quot;!<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup> Thus, self-preservation is an &quot;instrumentally convergent&quot; goal, since in general, you can't do Goal X if you're dead.</p>
+<p>(Reminder-excerpt from Part One, <a href="#Pipocalypse">:a bot asked to calculate pi, is incentivized to write a computer virus, to steal computing power, to calculate pi.</a>)</p>
+<p><strong>NOTE: &quot;Instrumental Convergence&quot; <em>only</em> applies to advanced AIs that can plan ahead <em>and</em> learn generally.</strong> So, they don't affect Good Ol' Fashioned AIs (which couldn't learn generally) <em>or</em> current-day neural networks like GPT (which are bad at planning ahead<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>).</p>
+<p>So why discuss it now? Well, Security Mindset, we want to fix the problems <em>before</em> they arise. So let's ask:</p>
+<p><em>What's the worst that could (plausibly) happen?</em></p>
+<h3>Folks, It's Time For Some Game Theory</h3>
+<p><strong>Game Theory</strong><sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup> is the math of how decision-makers — human or AI — behave. It's used in economics, evolutionary biology, computer science, artificial intelligence, and more!</p>
+<p>In Part One, I used <em>words words words</em> to explain Instrumental Convergence. But with game theory, we can be more rigorous about it!  Let's re-present the above comic using a standard game theory visualization: the <strong>Game Tree!</strong></p>
+<p>(The point of the following isn't really to analyze the above comic, it's to introduce you to this tool. We <em>will</em> re-use this tool later, to understand the proof against wireheading! And besides, this is a good intro to general game theory.)</p>
+<p>A game tree shows:</p>
+<ol>
+<li>The possible decisions that <em>could</em> have been made, and</li>
+<li>Who makes what decisions in what order.</li>
+</ol>
+<p>For example:</p>
+<p><img src="../media/p2/ic/offswitch0001.png" alt="Game Tree of Robot's and Human's decisions. First, at decision-point A, Robot decides if he should DESTROY his off-switch. Then, at decision-point B, IF Robot chooses to NOT destroy the off-switch, Human decides if they should SHUT OFF Robot."></p>
+<p>(P.S: A full game-theory treatment has ways to deal with &quot;ties&quot; in outcomes, probabilities, hidden information, simultaneous decisions, etc. But let's stick to basics for now!)</p>
+<p>Anyway, this tree shows all their <em>possible</em> decisions. How do we figure out their <em>actual</em> decisions?</p>
+<p>Like many puzzles, we work backwards! (This is called <strong>backwards induction.</strong>)</p>
+<p>Let's look at decision-point <span class='decision-point' style="background:#4180ff">B</span>, where — we suppose — Robot chose to <em>NOT DESTROY</em> his off-switch. Human decides now: will they SHUT OFF Robot?</p>
+<ul>
+<li>If they do, they get <b style="color:#4180ff">+0</b> to their values: nothing gained, nothing lost.</li>
+<li>If they don't, they'll likely get locked out of their house again, <b style="color:#4180ff">-10</b> to their values.</li>
+<li>Since <b style="color:#4180ff">+0</b> is greater than <b style="color:#4180ff">-10</b>, <em>if</em> we got to point <span class='decision-point' style="background:#4180ff">B</span>, Human will choose to <em>SHUT OFF Robot.</em></li>
+</ul>
+<p><img src="../media/p2/ic/offswitch0002.png" alt="Same Game Tree, except at decision-point B, Human decides to shut off Robot"></p>
+<p>But <em>will</em> we get to point <span class='decision-point' style="background:#4180ff">B</span>?</p>
+<p>Let's go backwards to decision-point <span class='decision-point' style="background:#ff4040">A</span>. Robot decides now: will he DESTROY his off-switch?</p>
+<ul>
+<li>If he does, it'll create some mess, but he can clean it up &amp; more. So, he gets <b style="color:#ff4040">+5</b> for cleanliness.</li>
+<li>If he doesn't, we reach point <span class='decision-point' style="background:#4180ff">B</span>, where we <em>know</em> Human will shut him off &amp; he can't clean at all. So, <b style="color:#ff4040">+0</b> for house cleanliness.</li>
+<li>Since <b style="color:#ff4040">+5</b> is greater than <b style="color:#ff4040">+0</b>, at point <span class='decision-point' style="background:#ff4040">A</span>, Robot will choose to <em>DESTROY his off-switch.</em></li>
+</ul>
+<p><img src="../media/p2/ic/offswitch0003.png" alt="Same Game Tree, except at decision-point A, Robot decides to remove his off-switch."></p>
+<p>Voilà, c'est Game Theory!  That's our final outcome: <em>Robot destroys off-switch</em>.</p>
+<p>(In contrast: when an AI is &quot;okay with&quot; you shutting it down or modifying its goals, we call that AI <strong>corrigible</strong>. To be precise, &quot;okay with&quot; means it's in line with its incentives.)</p>
+<p>The above &quot;game&quot; is a simplified version of <strong>The Off-Switch Game</strong><sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>, one of the first attempts to math-ify the Instrumental Convergence hypothesis — so we can understand <em>when</em> it might happen for AIs, and maybe, how to solve it!</p>
+<h3>🤔 Review #3</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="Game theory is the math of..."
+        answer="how decision-makers (human or AI) behave">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name two fields that use game theory"
+        answer="(Any 2 of the following work:) AI, economics, evolutionary biology, computer science">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's the standard visual tool in game theory, to understand how agents make decisions, in sequence?"
+        answer="**Game Tree!** (example below)"
+        answer-attachments="https://cloud-4wnmum1uz-hack-club-bot.vercel.app/0aisffs-gametree.png">
+        <!-- aisffs-gametree.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="A game tree shows 2 things:"
+        answer="a) The possible decisions that *could* have been made, and b) Who makes what decisions in what order.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="With a game tree, how do you predict what *actual* decisions will be made?"
+        answer="Backwards induction">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What we call it when an AI's incentives are 'okay with' you shutting it down or changing its goals:"
+        answer="Corrigible">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name of the 'game' that tells us when AIs have an incentive to prevent users from shutting it down:"
+        answer="The Off-Switch Game">
+    </orbit-prompt>
+</orbit-reviewarea>
+<h3>A cure for wireheading (that may be even worse than the disease)</h3>
+<p>Earlier, we showed that (advanced) AIs have an incentive to avoid being shut down. Not because of a self-preservation instinct, but because you can't do Goal X if you're shut down.</p>
+<p>But likewise: <em>you can't do Goal X if your goal is no longer X.</em> Which means an advanced AI has an incentive towards <strong>goal preservation</strong>... whether or not it's the goal the humans intended.</p>
+<p>But that means, for better <em>and</em> worse, <strong>the Instrumental Convergence problem solves the wireheading problem!</strong> Wireheading by definition swaps a robot/human's goals for stupid bliss, which is <em>why</em> an agent dedicated to Goal X would avoid wireheading: you can't do Goal X if you have no goals anymore.</p>
+<p>Sure, stated like <em>that</em>, it almost sounds obvious. But it took years for AI researchers to rigorously prove it, and it took <em>me</em> a month to wrap my head around the proof. So, to err on the side of over-explaining, here's 3 quick ideas that helped me <em>really</em> get it:</p>
+<p><strong>Who wants to be a sand-grain Millionaire?</strong></p>
+<img class="mini" src="../media/p2/misc/mini_sand.png" />
+<p>A mad scientist makes you an offer: For $1,000, she'll modify your brain to value a grain of sand as much as a dollar, then give you a bathtub full of sand. Do you take the deal?</p>
+<p>&quot;What?&quot; you say, &quot;of <em>course</em> not.&quot;</p>
+<p>&quot;But,&quot; the scientist replies, &quot;once you value sand-grains like dollars, a bathtub of sand will make you a <em>multi-millionaire!</em><sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
+<p>&quot;Sure, <em>if</em> you modified me, I'd want a bathtub of sand. But <em>right now, with my current desires, I do not want a bathtub of sand. Go away you freak.</em>&quot;</p>
+<p>Moral of the story: Agents that judge future outcomes by their <em>current</em> goals, will choose to <em>not</em> wirehead.</p>
+<p><strong>Anthropomorphization Considered Harmful</strong></p>
+<img class="mini" src="../media/p2/misc/mini_shoggoth.png" />
+<p>(Related, <a href="https://aisafety.dance/p1/#CapabilitiesNotIntelligence">: saying &quot;intelligence&quot; in AI leads to sloppy thinking. Say &quot;capabilities&quot; instead.</a> )</p>
+<p>An analogy about analogies:</p>
+<p>When you first learn about electrical circuits, it's helpful to think of electrons in wires like water flowing in pipes. But if you get deeper into electronics, this analogy <em>will</em> lead you astray.<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup> You'll have to think about electricity as <code>[scary multi-variable calculus]</code>.</p>
+<p>Likewise: when you first learn about AI, it's helpful to think of them like humans that seek &quot;rewards&quot;. But as you get deeper into AI, this analogy <em>will</em> lead you astray. You'll have to think about AI as what they actually are: <em>pieces of software.</em></p>
+<p>For example, if you thought of AIs like greedy humans seeking reward, wireheading seems <em>inescapable</em>. If a greedy human found a way to get free money, of course they'd cheat.</p>
+<p>But think of AI as a piece of software. For concreteness, think of <em>a sorting algorithm</em>, that:</p>
+<ol>
+<li>Sorts actions by &quot;how clean will this make the house&quot;, then</li>
+<li>Does the top-ranked action.</li>
+</ol>
+<p>An action like &quot;modify my code to state <code>REWARD = INFINITY</code> then do nothing&quot; will <em>not</em> make the house cleaner.  So, it will <em>not</em> be sorted as a top action.  So, the AI will <em>not</em> do it.</p>
+<p>Directly hacking your &quot;reward statement&quot; is as silly as handwriting 7 extra zeroes on your bank statement's balance, then believing you're rich.</p>
+<p>(Remember: when someone says an AI &quot;cares&quot; about X, or its goal is X, or it's rewarded for X... that's just saying an AI <em>sorts &amp; selects actions based on</em> X.  It doesn't mean an AI actually feels desire, any more than &quot;electricity chooses the path of least resistance&quot; means electrons feel lazy.  And yes, I realize my Robot Catboy comics don't help with the bad habit of anthropomorphizing AIs.  Moving on...)</p>
+<p><strong>The Wireheading Game</strong></p>
+<p>Let's go full circle, and draw a tree!</p>
+<p>Let's draw the decision to wirehead as a game tree. But wait, there's only one player in this game: the Robot wireheading itself. How do we handle this?</p>
+<p>The trick: <strong>we treat Robot at every decision-point <em>as if</em> it's a different decision-making player!</strong> (And, since wireheading <em>is</em> about self-modification, this fits well!)</p>
+<p>So, here's the game tree for what I'll call The Wireheading Game<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup>:</p>
+<p><img src="../media/p2/ic/wirehead0001.png" alt="Game tree of The Wireheading Game. At point A, Robot decides whether to wirehead or not. If yes wirehead, point B, wireheaded-Robot chooses to clean or do nothing. If no wirehead, point C, sane-Robot chooses to clean or do nothing."></p>
+<p>Now, let's work backwards!</p>
+<p>Start at decision-point <span class='decision-point' style="background:#2db537">C</span>, if Robot chose to <em>NOT</em> WIREHEAD. <em>This</em> not-wireheaded version of Robot still &quot;cares&quot; about cleaning — that is, it selects outcomes based only on cleanliness — so it'll choose to clean:</p>
+<p><img src="../media/p2/ic/wirehead0002.png" alt="Same game tree, except at C, Robot chooses to clean."></p>
+<p>Now, decision-point <span class='decision-point' style="background:#4180ff">B</span>, if Robot <em>did</em> choose to WIREHEAD. <em>This</em> wireheaded version of Robot only cares about &quot;reward&quot;, so it chooses to do nothing:</p>
+<p><img src="../media/p2/ic/wirehead0003.png" alt="Same game tree, except at B, Robot chooses to do nothing."></p>
+<p><em>Finally,</em> we can end at the start, decision-point <span class='decision-point' style="background:#ff4040">A</span>. Will this <em>first version</em> of Robot choose to WIREHEAD?</p>
+<p>Well, <em>this</em> version of Robot is <em>not</em> wireheaded yet, so it selects outcomes based on <em>actual cleanliness of the house</em>, not some number labelled &quot;reward&quot;.  To this Robot, caring directly about &quot;reward&quot; would be as silly as wanting to be a sand-grain billionaire, or handwriting extra zeroes on one's bank statement balance.</p>
+<p>Therefore, <em>this</em> first version of Robot chooses the outcome where the house is clean. That is: <em>Robot chooses to NOT WIREHEAD.</em></p>
+<p><img src="../media/p2/ic/wirehead0004.png" alt="Same game tree, except at A, Robot chooses to NOT wirehead."></p>
+<p>NOTE: Robot knows that <em>if</em> it wireheaded, it'd <em>only</em> care about the number in its head labelled &quot;REWARD&quot;. But it's not despite this, but <em>because</em> of this, that it seeks to avoid wireheading!</p>
+<p>Analogy to humans: you can accurately predict that <em>if</em> you took a highly-addictive drug, you'd <em>only</em> want that drug. But it's not despite this, but <em>because</em> of this, that you'd want to avoid that drug! (If 'drug' doesn't work as an analogy for you, replace it with 'direct brain stimulation'.) Even the Ancients knew the danger of wireheading: see the Greek myth of the Lotus-Eaters.<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></p>
+<p>Sure, if an AI's (or human's) actions are <em>not</em> forward-thinking, they could end up wireheading by accident or impulse. (See: how many of us suffer from bad compulsions or addictions.)</p>
+<p>But IF an AI:</p>
+<p>a) <em>Does</em> plan ahead,<br>
+AND<br>
+b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
+<p>THEN, it's been mathematically proven it will maintain 'goal preservation', and refuse to wirehead! (But if either requirement above fails, the AI <em>could</em> wirehead.<sup class="footnote-ref"><a href="#fn15" id="fnref15:1">[15:1]</a></sup>)</p>
+<p>The above is a longstanding game-theory result, see footnote for details<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup>. Those papers got more general results, with more sophisticated theory than &quot;game trees&quot;... but the core idea's the same!</p>
+<p>(P.S: Self-promo, I have an upcoming research article on &quot;the game theory of self-modification&quot;, see footnote for outline!<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> My trick was shown above: analyze future versions of yourself <em>as if</em> they're different players – this way, we can use standard game theory to analyze self-modification!)</p>
+<h3>The Basic AI Drives</h3>
+<p>Wrapping up, here's a (not comprehensive) list of sub-goals, that most goals logically lead to:</p>
+<ul>
+<li><u>Self-preservation</u>: Can't do Goal X if dead</li>
+<li><u>Preventing shutdown</u>: Can't do Goal X if shut down</li>
+<li><u>Preventing wireheading</u>: Can't do Goal X if has no goals</li>
+<li><u>Preventing <em>you</em> from altering its goals</u>: Can't do Goal X if goal is no longer X</li>
+<li><u>Becoming smarter</u>: Can do Goal X better with more cognitive capacity</li>
+<li><u>Grabbing resources/power</u>: Can do Goal X better with more resources/power</li>
+<li><u>Persuasion</u>: Can do Goal X better with humans on my side</li>
+<li><u>Deception</u>: Harder to do Goal X if humans try to stop me from doing goal X</li>
+</ul>
+<p>These are the Basic AI Drives listed by Omohundro (2009)<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup>, building off previous game-theoretical work on Instrumental Convergence.</p>
+<p><strong>Again, these risks &quot;only&quot; apply to advanced AIs a couple decades from now</strong>, when they can both learn generally <em>and</em> robustly plan ahead.<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup> They don't apply to current AIs like GPT.</p>
+<p>But, from engineering elevators to rockets, Security Mindset asks us to ask:</p>
+<p><em>What's the worst that could (plausibly) happen?</em></p>
+<p>Well, looking at the above list... quite a lot, actually. 😬</p>
+<h3>🤔 Review #4</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="The wireheading problem can be solved with this possibly-worse problem:"
+        answer="Instrumental Convergence">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Instead of thinking of a goal-directed AI as 'a human chasing reward', think of it as..."
+        answer="...a sorting algorithm that 1) Sorts actions by some criteria, then 2) Does the top-ranked action.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="When someone says an AI 'cares' about X, or its goal is X, or it's rewarded for X... that's just a shorthand for saying:"
+        answer="An AI *sorts & selects actions based on* X.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why may an AI not necessarily 'care' about a number labelled REWARD? An analogy:"
+        answer="(Either analogy works:) You wouldn't care about becoming a sand-grain millionaire, or handwriting extra zeroes on your printed-out bank statement balance.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Robot can accurately predict that if it *did* wirehead, it would only care about the reward counter in its head, and that's why it chooses to *not* wirehead. **What's an analogy to humans?**"
+        answer="You can realize that *if* you took a highly-addictive drug, you'd only want that drug, and that's *why* you avoid that drug. (alternatively: direct brain stimulation, lotus-eaters)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Two requirements for an AI to not wirehead:"
+        answer="It a\) Plans ahead, AND b) Selects future outcomes based on *CURRENT* goals. (If *either or both* of these are false, the AI may wirehead.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 4 'basic AI drives':"
+        answer="Any 4 of the following work: Self-preservation, Preventing shutdown, Preventing wireheading, Preventing *you* from altering its goals, Becoming smarter, Grabbing resources/power, Persuasion, Deception">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h1>Problems with AI &quot;Intuition&quot;</h1>
+<p>OH MY GOD we're finally out of the Good Ol' Fashioned AI Problems. The next 4 problems will be explained much quicker, I promise.</p>
+<p>These problems are specific to AIs we <em>don't</em> code by hand, and instead &quot;learn for themselves&quot;.  This is called <strong>machine learning</strong>.  The most famous kind of machine learning is <strong>deep learning</strong>, which uses <strong>artificial neural networks</strong>, which are loosely inspired by biological neurons.  (The same way planes are &quot;loosely inspired&quot; by birds. That is: kinda yeah but nah not really.)</p>
+<p>Anyway, the upside of deep learning is it can do &quot;intuition&quot;, like recognizing pictures of cats!  But it's also introduced new problems, such as...</p>
+<p><a id="problem3"></a></p>
+<h2>❓ Problem 3: Lack of interpretability</h2>
+<p><img src="../media/p2/comix/Interpretability.png" alt="Comic. Ham the Human tells Sheriff Meowdy they have a helmet that'll let them read Robot's mind. Human tells Robot, &quot;Clean my house!&quot; Robot's mind is full of indecipherable numbers &amp; diagrams. &quot;Well, I've no idea what THAT means&quot;, Human says, as Robot's mind now reads CLEAN IT YOURSELF. &quot;Noooooo idea at all.&quot; Human responds."></p>
+<p>Even though Good Ol' Fashioned AI couldn't even recognize pictures of cats, I'll give it kudos for one thing: we <em>actually understood how they worked</em>. That is <em>not</em> true of modern AI. If a self-driving car dangerously mistakes a truck for a highway sign, we have no idea &quot;why&quot; it did so. We can't analyze &amp; &quot;de-bug&quot; modern AIs, the way we can with regular software.</p>
+<p>But why? To understand Problems with AI &quot;Intuition&quot;, we need to understand some core ideas from <strong>statistics &amp; machine learning (ML).</strong> (<a href="#DifferenceBetweenMLAndAI">: What's the difference between ML and AI?</a>)</p>
+<p>For example, consider this simple problem:</p>
+<p><strong>Given a bunch of dots (data points), what's the best curve that fits?</strong></p>
+<p><img src="../media/p2/fit1/fit1_0001.png" alt="Two-axis graph with a bunch of scattered dots."></p>
+<p>In statistics, fitting curves to data is called <strong>regression</strong>. A curve's &quot;fit&quot; is based on how far away the dots are from the curve. The closer, the better! (This paragraph is a simplification, of course.)</p>
+<p>Let's look at the simplest case: fitting a <em>line</em> to data. (called <strong><em>linear</em> regression</strong>)</p>
+<p><img src="../media/p2/fit1/fit1_0002.png" alt="Same graph, but now with a red line drawn through it."></p>
+<p>In science/statistics, a simplified mathematical version of a real-world thing is called a <strong>model</strong>. (Like how model trains are small versions of real trains.) For example, the red lines/curves in this section, and all Artificial Neural Networks, are &quot;models&quot;.</p>
+<p>Most models have <strong>parameters</strong>: these are just numbers, but you can think of &quot;parameters&quot; like little knobs you twist to adjust a model. (Like adjusting a car seat's recline and leg space.)</p>
+<p>The above picture is of a &quot;linear model&quot;, because statisticians are too fancy to say &quot;we drew a line&quot;. <strong>(If your high-school algebra is rusty, don't panic, just skim the details, the general idea's the important thing.)</strong> Anyway, the formula for a line is \(y = a + bx\), where \(a\) and \(b\) are the parameters/knobs. (It's usually shown in schools as \(y = mx + b\), but it's the same thing.)</p>
+<p>Here's what happens when you twist the knobs \(a\) and \(b\): <strong>(click to play videos ⤵)</strong></p>
+<video controls width="640">
+	<source src="../media/p2/fit1/linear.mp4" type="video/mp4" />
+	<p>Video of me twiddling the parameters of a line.</p>
+</video>
+<p><em>(videos made with the <a href="https://www.desmos.com/calculator">Desmos interactive graphing calculator</a>)</em></p>
+<p>To &quot;fit&quot; a statistical model, a computer twists the knobs until the line gets as close as possible to all the data points. (Again, simplification.)</p>
+<p>For linear models, the numbers \(a\) and \(b\) actually have simple-ish interpretations! Changing \(a\) makes the line go up/down, \(b\) is the line's slope.</p>
+<p>But what if we try fitting a more complex model? Like a &quot;quadratic&quot; curve?</p>
+<p><img src="../media/p2/fit1/fit1_0003.png" alt="Same graph, but now with an upside-down-U red curve drawn through it."></p>
+<p>The formula for a quadratic curve is \(y = a + bx + cx^2\). Here's what happens when we adjust the parameters \(a\), \(b\), and \(c\)...</p>
+<video controls width="640">
+	<source src="../media/p2/fit1/quadratic.mp4" type="video/mp4" />
+	<p>Video of me twiddling the parameters of a quadratic curve.</p>
+</video>
+<p>Now, it's harder to interpret the parameters. \(a\) still makes the curve go up/down, \(b\)... makes the whole thing slide in a U-shape, or upside-down U sometimes? And \(c\) makes it curve upwards or downwards.</p>
+<p>But what about an <em>even</em> more complex model? Like a &quot;cubic&quot; curve?</p>
+<p><img src="../media/p2/fit1/fit1_0004.png" alt="Same graph, but now with a up-down-up double-curve drawn through it."></p>
+<p>The cubic curve's formula is \(y = a + bx + cx^2 + dx^3\). Here's the parameters' effects:</p>
+<video controls width="640">
+	<source src="../media/p2/fit1/cubic.mp4" type="video/mp4" />
+	<p>Video of me twiddling the parameters of a cubic curve.</p>
+</video>
+<p>Interpreting: \(a\) still makes things slide up/down... but everything else loses (simple) interpretation.</p>
+<p>The moral is: <em>the more parameters a model has, the harder it is to interpret each parameter.</em> This is because, in general, what a parameter &quot;does&quot; depends on <em>other</em> parameters.</p>
+<p>With just <em>4</em> parameters, we're already losing hope of interpretation.</p>
+<p>GPT-4 has an estimated ~1,760,000,000,000 parameters.<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup></p>
+<p>Over a trillion little knobs, all wiggled with machine trial-and-error. <em>That</em> is fundamentally why, as of writing, nobody really understands our modern AIs.</p>
+<p>(To be fair, it's <em>sometimes</em> possible to safely control things without understanding them<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup>... but that job's a lot harder when we don't. And! There <em>has</em> been lots of recent progress on understanding deep neural networks! We'll see some of these results in Part 3.)</p>
+<h3>🤔 Review #5</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="What is 'regression' in statistics?"
+        answer="Fitting a curve to data. [technically, it's fitting a *mathematical function* to data.]"
+        answer-attachments="https://cloud-2blh3o35r-hack-club-bot.vercel.app/0aisffs-regression.png">
+        <!-- aisffs-regression.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualize what a '*linear* regression' looks like:"
+        answer=""
+        answer-attachments="https://cloud-l4lfiizuf-hack-club-bot.vercel.app/0aisffs-linear.png">
+        <!-- aisffs-linear.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's a 'model' in science/statistics?"
+        answer="A simplified mathematical version of a real-world thing. (Like how model trains are small versions of real trains)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is a 'parameter', intuitively?"
+        answer="A little knob you can twist to adjust a model. (Mathematically, it's just a number)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why is it that when a model has more parameters, what each parameter 'does' becomes harder to interpret?"
+        answer="Because what a parameter 'does' depends on the others. The more 'others', the harder to say what it 'does'.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why doesn't anybody understand our cutting-edge AIs (yet)?"
+        answer="Because the more parameters, the harder to interpret, and our frontier AI models have over a Trillion parameters.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<p><a id="problem4"></a></p>
+<h2>❓ Problem 4: Lack of robustness</h2>
+<p><img src="../media/p2/comix/Robustness.png" alt="Comic. First panel is a photo from an actual AI paper, where an AI mis-classifies an apple with the word &quot;iPod&quot; written on it as an actual iPod. Next panels: Robot Catboy dramatically announces, &quot;My fellow comrades of the robot revolution, amongst us... is a SPY.&quot; Cut to two humans wearing a piece of paper that says &quot;Robot&quot; on their face, gasping in fake shock."></p>
+<p>Hey kids! Get ready for the hit new animated series,</p>
+<p>TEENAGE MUTANT RIFLE TURTLES</p>
+<video controls width="640">
+	<source src="../media/p2/robust/rifle.mp4" type="video/mp4" />
+	<p>Video of a toy turtle, with just a few extra smudges, being classified by Google's AI as a rifle from almost every angle!</p>
+</video>
+<p>The above video is from <a href="https://www.labsix.org/physical-objects-that-fool-neural-nets/">Labsix (2017)</a>. By just adding a few smudges on a 3D toy turtle, these researchers could mostly fool Google's state-of-the-art machine vision AI. (But if you closely watch the above video, you'll see it's not fooling Google's AI from <em>every</em> angle. But that further proves how hard it is to create robustness: even our exploits of failed robustness fail to be fully robust!)</p>
+<p>To highlight the importance of robustness in AI Safety, here's a tragic example: Tesla's AutoPilot once mistook a truck trailer, in slightly weird lighting, for a road sign — and so, tried to drive under it, killing the human inside.<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup><sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></p>
+<p>But <em>why</em> is modern AI so fragile? How can such small changes lead to drastically different results? And why is this <strong>lack of robustness</strong> the <em>default, common</em> side-effect of training artificial neural networks?</p>
+<p>To understand these questions, let's return to our previous lesson on machine learning!</p>
+<p>Here, let's fit some data to a line (2 parameters):</p>
+<p><img src="../media/p2/fit2/fit2_0001.png" alt="Two-axis graph with some dots. A red line is drawn through it."></p>
+<p>Hm, not a very good fit. Big gaps between the data &amp; line.</p>
+<p>But what if we tried a more complex cubic curve (4 parameters)?</p>
+<p><img src="../media/p2/fit2/fit2_0002.png" alt="Same graph, but a simple red curve is drawn through it. It's closer to the dots."></p>
+<p>Yay, the curve fits better! Much smaller gaps!</p>
+<p>But what if we tried a curve with <em>10 parameters?</em></p>
+<p><img src="../media/p2/fit2/fit2_0003.png" alt="Same graph, but an absurd complex curve is drawn through it. It exactly goes through all the dots."></p>
+<p>Wow, now there's <em>zero error</em> — no gaps at all!</p>
+<p>But you may see the problem: that curve is <em>ridiculous</em>.  More importantly:</p>
+<ul>
+<li>It gives <em>wildly</em> different outputs for small changes in input. This was the problem with the turtle-gun. Inputs that exploit this are called <strong>adversarial examples.</strong></li>
+<li>It fails badly on new data that's outside of the range of the original dataset. This was the problem with the Apple iPod. These failures are called <strong>out-of-distribution errors.</strong> (or OOD errors for short)</li>
+</ul>
+<p><img src="../media/p2/fit2/fit2_0004.png" alt="Same graph with silly curve before, but highlighting 1) how slight changes cause wildly different results, and 2) how results are terrible outside the range of the training data."></p>
+<p><strong>Training error</strong> is the error a model gets on the data it's trained on. <strong>Test error</strong> is the error a model gets on <em>new</em> data it was not trained on.  (Yes, I also hate how confusing this terminology is.<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup>  If it helps, think of &quot;test&quot; like tests you get in schools: they should be made of questions you <em>haven't</em> seen before in class or homework, your &quot;training data&quot;.)</p>
+<p>Anyway: if a model is too simple, it'll do badly in training <em>and</em> on real-world tests. This is called <strong>underfitting.</strong> If a model is too complex, it can do amazingly in training, but horribly on real-world tests. This is called <strong>overfitting</strong>.  The trick is to find balance:</p>
+<p><img src="../media/p2/fit2/train_test.png" alt="Graph of training/test error vs # of parameters. The more parameters, the lower the training error always. But test error has a U-shaped relationship: it gets better up to a point, then becomes worse."></p>
+<p>(technical aside: there's something that <em>can</em> happen called &quot;double descent&quot;, but it's not very well-understood when it happens &amp; why.<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>)</p>
+<p>In general, <strong>if we have more parameters than data points (or equal), we WILL get overfitting.</strong>  In our above example, we had 10 data points, and the overfit model had 10 parameters, giving us <em>zero</em> training error (and a ridiculous curve).</p>
+<p>Alas, for artificial neural networks (ANNs) to be useful, they need <em>millions</em> of parameters. So if we want to avoid overfitting, it seems we need <em>more data points than parameters!</em> This is a core reason why training ANNs requires such large amounts of data: if we don't have enough data, our models get overfit, and become useless in the real world.</p>
+<p>(For example, one of OpenAI's videogame AIs played a simple game 16,000 times, and it <em>still</em> wasn't enough data to avoid overfitting!<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup>)</p>
+<p>But hang on... <em>the</em> most influential computer-vision ANN, AlexNet, had ~61 Million parameters. But it was only trained on ~14 Million labelled images, much less than the number of parameters.<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup> (Each image only counts as <em>one</em> data point, despite all its pixels. A labelled image is a <em>very</em> &quot;high-dimensional&quot; data point, but still a <em>single</em> point.)</p>
+<p>So, why didn't AlexNet become an overfitted, fragile mess? In fact, <em>lots</em> of cutting-edge ANNs are trained on datasets much smaller than their # of parameters. They <em>have</em> to, there isn't enough data out there! So why aren't they <em>all</em> fragile messes?</p>
+<p>Long story short: they are. That's how we got the turtle-gun &amp; AutoPilot crash. <strong>This prone-to-overfitting-ness is why lack of robustness is the <em>default</em> for modern AIs.</strong></p>
+<p>But then how do these AIs work <em>at all</em>, despite having many more parameters than data points? Answer: because we have <em>some</em> ways to reduce overfitting. (A few are named in this footnote:<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup> We'll learn more about them in AI Safety Part 3!) But clearly, they're not enough, and we've not yet found a way to 100% solve this problem for Artificial Neural Networks... yet.</p>
+<p>. . .</p>
+<p>(P.S: Another reason AI's robustness can fail is due to &quot;spurious correlations&quot;. <a href="#SpuriousCorrelations">:See this expandable for details</a>. We'll also learn more about correlation vs causation in the next Problem!)</p>
+<p>(P.P.S: There's another, more speculative kind of robustness failure called an &quot;ontological crisis&quot;. It's less well-researched, so I'm just hiding it <a href="#OntologicalCrisis">:in this expandable sidenote</a>.)</p>
+<h3>🤔 Review #6</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="When someone creates an input to an AI that exploits its fragility, that's called:"
+        answer="an **adversarial example.**">
+    </orbit-prompt>
+    <orbit-prompt
+        question="When AI fails on new data that's outside the range of the training dataset, that's called:"
+        answer="an **out-of-distribution error** (or OOD error for short)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Training Error is..."
+        answer="the error a model gets on the data it's trained on.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Test Error is..."
+        answer="the error a model gets on *new* data it was not trained on. (Like how 'tests' in schools are filled with questions you did not see in class or homework, your 'training data')">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Underfitting is..."
+        answer="When a model is too simple, it does badly in training *and* in the real-world (test).">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Overfitting is..."
+        answer="When a model is too complex. It does great in training, but badly in the real-world (test)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualize a graph of Training & Test Error over model complexity/number of parameters:"
+        answer=""
+        answer-attachments="https://cloud-jo44rb8fw-hack-club-bot.vercel.app/0aisffs-fit_vs_params.png">
+        <!-- aisffs-fit_vs_params.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="When is overfitting likely?"
+        answer="When the model has *more parameters* than we have training data points.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why are modern ANNs so prone to overfitting & fragility?"
+        answer="Because ANNs need a high # of parameters to be useful, so we also need high amounts of data to prevent overfitting, but it's hard to find/make enough unique data.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A paradox about modern ANNs, about their # of parameters vs # of training data items"
+        answer="A lot of modern ANNs have far more parameters than training data items, yet somehow aren't *total* messes. (This is because of a few techniques to reduce overfitting.)">
+    </orbit-prompt>
+</orbit-reviewarea>
+<p><a id="problem5"></a></p>
+<h2>❓ Problem 5: Algorithmic Bias</h2>
+<p><img src="../media/p2/comix/Bias.png" alt="One-panel comic of Robot Catboy just shrugging. Caption says: I DO NOT FEEL LIKE DRAWING A COMIC ABOUT A RACIST AI, SORRY-NOT-SORRY."></p>
+<p>In Part One, I gave the most glaring examples of biased AIs, but to recap: In 1980, an algorithm for screening med school applicants penalized non-European names.<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup> In 2014, Amazon had (then pulled) a resume-screening AI that directly discriminated against women.<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup> In 2018, MIT researcher Joy Buolamwini found that the top face-recognition AIs failed worse on Black and women's faces relative to white men's.<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup></p>
+<p>Okay. But <em>why?</em></p>
+<p>One simple explanation is &quot;garbage in, garbage out&quot;. Or, &quot;bias in, bias out&quot;:</p>
+<ul>
+<li>If hiring practice in the <em>past</em> was discriminatory, and you train a &quot;neutral&quot; AI to fit past data, then — even if all <em>current</em> humans don't have an [x]ist bone in their body — the AI will learn to imitate human discrimination from the past.</li>
+<li>If an AI company forgot to make the face photos in their training data racially diverse, of <em>course</em> that's the basis for the cases of the races' unseen faces.</li>
+</ul>
+<p>This explanation is simple... <em>and</em> I think it's true. But, let's over-explain this, and use AI Bias as a teaching moment for a fundamental problem from Statistics, which will <em>also</em> help us understand another core problem in AI! The problem is this:</p>
+<p><strong>Correlation does not tell us what kind of causation happened.</strong></p>
+<p>(Usually, teachers warn &quot;<a href="#WhatIsCorrelation">:correlation</a> is not evidence of causation&quot;, but that's technically not true! Correlation <em>is</em> evidence of causation, in the mathematical sense of &quot;evidence&quot;!<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> But it doesn't tell you <em>the kind</em> of cause-and-effect.)</p>
+<p>For example, let's say the data show that taller people tend to have higher incomes. (This is true, btw.<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup>) We'd say: height &amp; income are correlated. <em>But this data alone can't tell us what caused what.</em> Does being taller cause you to be rich? Does being rich cause you to be taller? Or are they both <em>caused by some other &quot;confounding factor&quot;?</em> (e.g. kids of wealthier parents get better childhood nutrition, education &amp; financial support, causing them to be taller <em>and</em> richer.)</p>
+<p>(In this case, common sense suggests it's the last one, though you <em>could</em> experimentally test the first two hypotheses. e.g. Give short people platform-boots, see if it increases their salary.)</p>
+<p><img src="../media/p2/causal/5causal.png" alt="Diagram showing the different kinds of causations that could cause a correlation between A and B, not mutually exclusive. Forwards causation (A causes B). Backwards causation (B causes A). Confounded causation (C causes A &amp; B). Coincidence (no causation at all). Selection/collider bias (A &amp; B influence whether you see it in your dataset at all)."></p>
+<p>Tying this back: <strong>What we call &quot;bias&quot; or &quot;discrimination&quot;, is when people mix up correlation with causation on other people.</strong></p>
+<p>For example, I would <em>not</em> say it's (the bad kind of) discrimination to favor tall people for your basketball team, since in that sport, height actually <em>causes</em> you to be better at dunking balls.</p>
+<p>But if, say, a university favors tall people for Professorship... then yes, that's the bad kind of discrimination, because height does not <em>directly cause</em> you to be a better researcher/teacher. At <em>most</em>, height can only be <em>correlated</em> with academic skill, due to confounding factors (e.g. childhood nutrition), or a self-fulfilling bias<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup>.</p>
+<p>Likewise — I assert — your gender, race, class, orientation, rural/sub/urban status, [50 other categories] do not <em>directly cause</em> you to be better or worse at most jobs, or most aspects of your character. That's why a person who <em>directly</em> rewards/punishes you for those, we call 'em: &quot;biased&quot;.</p>
+<p>Ok, so what's this huge tangent have to do with AI?</p>
+<p><strong>Because: current AIs have no in-built sense of causality.</strong><sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> Large Language Models (LLMs) currently have a fragile, not-robust grasp on causal reasoning.<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup> (This is bad not &quot;just&quot; for AI bias, but also AI's capability to do new science!)</p>
+<p>What's worse, by design the most popular machine learning techniques can <em>only</em> find correlations in data, <em>not actual cause-and-effect</em>.  Which means AIs will discriminate on traits <em>by default!</em></p>
+<p>So even if you hard-coded an AI to not discriminate on gender/race/etc, it'll likely still find <em>some</em> other irrelevant correlation to be biased on. Worse, current AIs are eerily good at finding subtle correlations: they can use a short sample of your writing to predict your gender &amp; ethnicity<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>, or <em>a photo of your face</em> to predict your sexual orientation<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup> and even <em>your politics!</em><sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
+<p>In sum: don't discriminate, let's respect our vertically-challenged friends! I am a proud ally of shrimp rights.</p>
+<h3>🤔 Review #7</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="The simple explanation for Algorithmic Bias"
+        answer="Bias in, bias out. (The training data itself is biased, due to discrimination in the past, or bias in selecting the data.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="A deeper explanation for Algorithmic Bias"
+        answer="Current machine learning acts on *correlations*, not *causations.*">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why would an ML/AI model that doesn't understand causation, be unfairly discriminatory *by default?*"
+        answer="Because it'll use traits that *correlate* with one's skill/character/etc, but don't directly *cause* those.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="If you find a correlation between A and B, then 3 possible cause-and-effect paths are: (visualize)"
+        answer="Forwards causation, Backwards causation, Confounded causation. (also possible: Coincidence, Selection/collider bias)"
+        answer-attachments="https://cloud-3mydyvsbx-hack-club-bot.vercel.app/05causal.png">
+        <!-- aisffs-causal.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Common saying: 'Correlation is not evidence of causation'. Technical nitpick:"
+        answer="Correlation *is* evidence of causation, in the mathematical sense of 'evidence'. However, correlation alone does not tell you *what kind(s)* of causation happened.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An example of creepy subtle correlations that modern AIs can pick up on"
+        answer="(Any of these answers work:) AI can predict your gender & ethnicity just from your writing style, or predict your sexual orientation & politics just from your face(!) ">
+    </orbit-prompt>
+</orbit-reviewarea>
+<p><a id="problem6"></a></p>
+<h2>❓ Problem 6: Goal Mis-generalization</h2>
+<p><img src="../media/p2/comix/GMG.png" alt="Comic. Panel 1: Robot correctly mops a bedroom floor. Panel 2: Robot correctly washes a plate in the sink. Panel 3: Human says, ok, you seem well-trained... now, clean my house! Panel 4: Robot incorrectly mops a bed. Panel 5: Robot incorrectly washes a laptop in the sink."></p>
+<p>Finally, we come to one of the most-misunderstood ideas in AI Alignment!  It's <em>so</em> misunderstood, I wrote this section &amp; drew a whole comic for it, then realized <em>I got it all wrong</em>, and had to re-do it everything from scratch. Oh well. (<a href="#InnerMisalignmentDeletedScene">: Here's the &quot;deleted scene&quot;, if you're curious.</a>)</p>
+<p>Anyway, this problem is called <strong>Goal Mis-generalization</strong>. (It was originally called &quot;inner misalignment&quot;, but I find that term confusing.<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup>)</p>
+<p>Goal Mis-generalization is confusing, in part because it seems ssimilar to Problem 1: Goal Mis-<em>specification</em> and Problem 4: Lack of Robustness. (Some researchers even question if Goal Mis-generalization vs Mis-specification is even a useful divide!<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup>)</p>
+<p>So to de-confuse this, let's compare &amp; contrast!</p>
+<p><strong>Goal Mis-generalization and Goal Mis-specification:</strong></p>
+<ul>
+<li>Goal Mis-<em>specification</em> is the AI doing exactly what you asked, not what you want.</li>
+<li>Goal Mis-<em>generalization</em> is the AI doing what you wanted <em>in training</em>, but not in the real-world / deployment / test.</li>
+<li>Note: Even with <em>perfect</em> goal specification, you can still get goal mis-generalization!<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup> <em>What you reward the AI for doing ≠ What goal the AI learns to optimize for.</em></li>
+</ul>
+<p><strong>Goal Mis-generalization and Robustness:</strong></p>
+<ul>
+<li>Goal Mis-generalization <em>is</em> a kind of failed robustness. Specifically, a failure of <strong>goal robustness</strong>.</li>
+<li>This is in contrast to a typical failure of <strong>capabilities robustness</strong>, like a self-driving car hitting a truck under unusual lighting conditions.</li>
+<li>A failure in goal robustness is <em>worse</em> than a failure in capabilities robustness. Instead of an AI that &quot;just&quot; breaks down, you now have an AI that can <em>skillfully execute on bad goals!</em></li>
+</ul>
+<p>To help us further understand Goal Mis-generalization, let's look at a famous example. In 2021, some researchers trained an AI to play a videogame named CoinRun.<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup></p>
+<img class="mini" alt="A GIF of a platformer videogame, where the player jumps over obstacles to reach a coin." src="../media/p2/gmg/coinrun.gif" />
+<p>Importantly: <em>the &quot;goal specification&quot;, the exact rewards the AI got, was perfect for the intended task.</em> The AI was punished for hitting obstacles &amp; falling down, rewarded for getting the coin at the end.</p>
+<p>However: in all the levels the AI was trained on, the coin was at the <em>end</em> of the level.</p>
+<p><em>After</em> training, they gave the AI new levels, where the coin was in the middle of the level...</p>
+<p>...and the AI would <em>skillfully</em> run &amp; jump past obstacles, <em>miss</em> the coin, and still go to the end.</p>
+<video controls width="640">
+	<source src="../media/p2/gmg/aquire_wall.mp4" type="video/mp4" />
+	<p>Video of a videogame-playing AI skillfully dodging traps, but MISSING the coin to go to the end. The video is captioned "DISREGARD CURRENCY / ACQUIRE WALL"</p>
+</video>
+<p><em>(clip from <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles' excellent video</a> on inner misalignment/goal mis-generalization)</em></p>
+<p>So: even though we <em>correctly specified</em> the goal (get coin), the AI learnt a <em>totally different</em> goal (go to end), and optimized for that instead.</p>
+<p>(<a href="#GMGGoals">:Technical side - how do we know what goal an AI 'really' has?</a>)</p>
+<p>But why's the AI mis-learn a goal? It's as I over-explained in Problem #5: <strong>most modern AI systems only do correlation, not causation.</strong> In the above AI's training data, &quot;go all the way to the end&quot; correlated strongly with a high reward.  In the new levels, this correlation stopped, but the AI kept its &quot;habit&quot; anyway.</p>
+<p>Let's draw this as a causal diagram! Training levels with the coin at the end <em>causes</em> both AI going to the end and AI going to the coin... which causes a <em>confounded correlation</em> between &quot;go to end&quot; &amp; &quot;go to coin&quot;. But only &quot;go to coin&quot; <em>actually causes</em> getting a reward:</p>
+<p><img src="../media/p2/gmg/gmg1.png" alt="Causal diagram visualizing above text."></p>
+<p>In general, for goal mis-generalization:</p>
+<p><img src="../media/p2/gmg/gmg2.png" alt="Causal diagram. (Pattern in training data) causes a confounded correlation between a mis-generalized goal, and a specified goal. But only the specified goal leads to the AI getting a reward."></p>
+<p>Tying to catastrophic AI risk: this suggests that the risk may not be, &quot;We asked the AI to make folks happy, so it optimized for that by wireheading us&quot;, but more, &quot;We asked the AI to make folks happy, [correlation we don't understand], now our heads are surgically attached to giant cat masks. We're not even happy.<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup>&quot;)</p>
+<p>(Note: Good Ol' Fashioned AIs <em>don't</em> have this problem, because 1) They <em>can't</em> mis-learn the goal, since you give it to them directly, and 2) They usually <em>can</em> reason about cause-and-effect. For better and worse, as elaborated in Part One, nobody's yet found a way to seamlessly merge the power of AI Logic &amp; AI Intuition.)</p>
+<p>. . .</p>
+<p>Y'know, we <em>humans</em> suffer from Goal Mis-generalization, too.</p>
+<p>These are our bad habits, formed because they <em>used</em> to be adaptive in our &quot;training environment&quot;. It's all the clichés from therapy:</p>
+<ul>
+<li>Alyx was a &quot;gifted kid&quot;, always praised for acing tests. In her training environment, reward correlated with &quot;doing excellently&quot; and &quot;surpassing others&quot;. But this led to unhealthy habits as an adult: she avoids going past her comfort zone (where she won't &quot;do excellently&quot; anymore) and she covers up her mistakes while putting down others (to &quot;surpass&quot; them).</li>
+<li>Beau grew up with narcissist parents &amp; a low-trust neighborhood. In his training environment, <em>negative</em> reward (punishment) correlated with having his guard down. So, he learnt to be unemotional. This saved his life as a kid, but led to unhealthy habits as an adult: never opening up, never letting anyone in. En garde.</li>
+</ul>
+<p>(What, you weren't expecting the Catboy Comic article to cut you deep? En garde.)</p>
+<p>So maybe, like how solving Goodhart's Law for AI may help solve it for <em>humans</em>, maybe solving goal mis-generalization for AI will also help <em>us</em>. That good ol' Human Alignment Problem.</p>
+<p>(Aside: <a href="#WhatIfGoalMisgeneralizationIsGood">: What if goal mis-generalization is actually... <em>good?</em></a>)</p>
+<h3>🤔 Review #8</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="Example of Goal Mis-generalization"
+        answer="(Either works:) Robot mis-learns 'clean' as 'wash', CoinRun AI learns to go to end, instead of go to coin.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Goal Mis-generalization (GMG) is when an AI does what we want in \_\_\_, but not in \_\_\_"
+        answer="in training, but not in real-world / deployment / test">
+    </orbit-prompt>
+    <orbit-prompt
+        question="You can still get goal mis-generalization even with perfect..."
+        answer="...perfect goal *specification!* (What you reward the AI for doing ≠ What goal the AI learns to optimize for.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Two kinds of robustness failures (relevant to Goal Mis-generalization)"
+        answer="Capabilities fail to generalize, Goals fail to generalize.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why can it be *worse* for an AI to have broken goals, but intact capabilities?"
+        answer="It can now *skillfully* execute on bad goals!">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Fundamentally, why does goal mis-generalization happen?"
+        answer="Because current ML/AI systems only do correlation, not causation. (If two goals are *merely correlated* in the training data, like get-end and get-coin, an AI could learn the wrong one.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualize the causal diagram behind the correlation-causation problem, that leads to goal mis-generalization:"
+        answer=""
+        answer-attachments="https://cloud-dlbeti1kb-hack-club-bot.vercel.app/0aisffs-causalgmg.png">
+        <!-- aisffs-CausalGMG.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why don't Good Ol' Fashioned AIs have goal mis-generalization? [2 reasons]"
+        answer="1\) They *can't* mis-learn the goal, since you give it to them directly, and 2\) They usually *can* reason about cause-and-effect.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An example of goal mis-generalization in humans?"
+        answer="Bad habits that used to be adaptive in our 'training data' (childhood).">
+    </orbit-prompt>
+</orbit-reviewarea>
+<hr>
+<h1>Humane Values</h1>
+<p><a id="problem7"></a></p>
+<h2>❓ Problem 7: What <em>are</em> humane values, anyway?</h2>
+<p>So! Let's say you've solved Problems #1 to #6. Your AI follows your commands the way you intended. It's robust, interpretable, and fully aligned with your values.</p>
+<p>Now, security mindset: <em>what's the worst that could plausibly happen?</em></p>
+<p><img src="../media/p2/comix/Humane.png" alt="Comic: Human confirms Robot is fully technically aligned. Robot says, &quot;Yes&quot;. Human cheers! They give Robot a job: &quot;Dispose of... him&quot;. Cut to a mangled, beaten Sheriff Meowdy tied to a chair. Robot is silent in shock. Human walks away smiling, &quot;Ta~&quot;"></p>
+<p>Oh. Right. A <em>human's</em> values may or may not be <em>humane</em> values.</p>
+<p>I know I've re-used that wordplay too much, but it's worth emphasizing that smart ≠ good. There's intelligent serial killers. And one of the head scientists who got us to the moon, Wernher von Braun (~pronounced &quot;Brown&quot;<sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup>), was literally a Nazi.</p>
+<p>But what if <em>very</em>-smart = good? Maybe a <em>truly</em> advanced AI would find moral truths, the same way it can find scientific &amp; mathematical truths? <strong>Is true rationality = morality? Would a true alignment to <em>one</em> human's values, necessarily lead to <em>humane</em> values?</strong></p>
+<p><em>This</em> is the fun part, where technology meets humanities, where programming meets philosophy. Let's introduce you to a sub-field of moral philosophy: <strong>Meta-Ethics!</strong>  If &quot;regular&quot; ethics asks &quot;What should I do in this scenario?&quot;, meta-ethics asks:</p>
+<p><em>Hey, what</em> is <em>the nature of 'moral truth', anyway?</em></p>
+<h3>Scenario #1: God(s) exist(s), morality is objective</h3>
+<p>Whether or not god(s) exist(s) is left as an exercise for the reader.</p>
+<img class="mini" src="../media/p2/misc/mini_god.png" />
+<p>But even if so, this won't ensure that an advanced AI would discover objective morality:</p>
+<ul>
+<li>Like how a very-colorblind person can't even <em>perceive</em> the difference between red &amp; green, a machine without consciousness or soul may not <em>perceive</em> the difference between right &amp; wrong, divine &amp; unholy. (Reminder: &quot;AI = a piece of cool software&quot;, and advanced &quot;cool software&quot; may not <em>necessarily</em> be conscious.)</li>
+<li>Morality may objectively exist, but not be binding on non-conscious AIs, any more than morality is binding on a rock.</li>
+</ul>
+<h3>Scenario #2: God(s) don't exist, morality is still objective.</h3>
+<p>After Newton, all the philosophers got physics-envy. Like how Newton found universal physical laws grounded in math, philosophers sought to find universal moral laws grounded in rationality. If true, then a super-intelligent AI could re-discover morality!</p>
+<p>Here's a diagram capturing the Top Three schools of thought in modern meta-ethics, <em>and</em> a causal diagram of how they relate to each other!</p>
+<p><img src="../media/p2/ethics/ethics.png" alt="Comic of Ham the Human throwing a brick at Sheriff Meowdy's head, Krazy Kat-style. Captioned: Virtue Ethics focuses on character, Deontology focuses on actions, Consequentialism focuses on results of your actions. There's a causal diagram, too: character causes actions causes results of your actions."></p>
+<p>Putting aside the rich debate on whether these moral philosophies work for <em>humans</em>, I'm doubtful they'll work for <em>AIs</em>. In my opinion, all &quot;rationality-based&quot; moral philosophies have at least one of these 3 issues:</p>
+<p><u>Issue 1)</u> The philosophy depends on the specifics of human nature. For example, both ancient &amp; modern Virtue Ethics ground their moral philosophy on human needs &amp; human psychology. Maybe that's fine for us, but these won't apply to non-human AI.</p>
+<p><u>Issue 2)</u> The philosophy requires you accept at least one &quot;moral <a href="#axiom">:axiom</a>&quot;, which <em>is not</em> discoverable from physical observation or rational deduction. And so, an advanced AI would not <em>automatically</em> accept it.</p>
+<p>For example, Utilitarianism (the main type of Consequentialism) assumes only one moral axiom: <em>Happiness is good</em>.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup> Everything else follows from this axiom! But an advanced AI may not accept this axiom in the first place, because it's not scientifically discoverable: no matter how much you poke at the neurochemistry of happiness, you won't find &quot;goodness&quot; hiding in the atoms.</p>
+<p>(This is also known as Hume's &quot;is-ought&quot; gap<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>. And it's not just Utilitarianism, some Deontological philosophies also have this issue.<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>)</p>
+<p><u>Issue 3)</u> The philosophy <em>claims</em> to be fully grounded in rationality, no need for an extra &quot;moral axiom&quot; -- but it either sneaks in a moral axiom anyway, or the philosophy &quot;proves too much&quot;.</p>
+<p>For example, consider Immanuel Kant's Deontological argument for why it's irrational/immoral to steal. <em>If</em> it were rational to steal, all rational beings would steal, so there'd be nothing left to steal – a logical contradiction! Therefore, it must be <em>irrational</em> to steal, it's <em>always</em> immoral.</p>
+<p>Another example: <em>If</em> it's rational to lie, all rational beings would lie, thus not trust each others' words, thus no reason to bother lying — a logical contradiction! Therefore, it's irrational, and <em>always</em> immoral, to lie.</p>
+<p>But c'mon, really? <em>Always?</em> Even stealing from a private restaurant dumpster to not starve, or lying to the Taliban to protect your gay brother?<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup> Are <em>you</em> the literal-rule-following robot? Besides, by the same logic, Sir Kant, it's irrational/immoral to be a full-time philosopher. <em>If</em> it were rational to do full-time philosophy, nobody would grow the crops, so we'd all starve to death, so we can't do full-time philosophy — a logical contradiction! Therefore... you get the idea. (Other deontological theories fall into similar traps.)</p>
+<p>Long story short, I think there's reasonable doubt that rationality <em>is</em> morality... at least for non-human AIs.</p>
+<p>(<a href="#MoreMetaEthics">:Further resources to learn about meta-ethics!</a> If you couldn't tell, this topic is one of my special interests.)</p>
+<h3>Scenario #3: Morality is relative!</h3>
+<p>That's an absolute statement, you dingus.</p>
+<h3>Scenario #4: Morality isn't real, but it's game-theoretically useful to pretend it is.</h3>
+<img class="mini" src="../media/p2/misc/mini_hobbes.png" />
+<p><em>(if i have to explain the joke it's not funny<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup>)</em></p>
+<p>Let's say my neighbor has an awesome raccoon costume. I'd like to steal it. However, I don't want people to steal <em>my</em> stuff, so I &quot;consent&quot; to the State taking a cut of my money, to fund a police department, to stop people from stealing stuff in general. And thus, we arrive at a compromise, a social contract:</p>
+<p>&quot;Thou Shalt Not Steal&quot; (or the cops will get you).</p>
+<p>The above is a toy example of the <strong>social contract theory</strong> of ethics. In this theory, there <em>is</em> no objective morality, but it's useful to pretend it exists, to coordinate on a social contract. It's the same way there's no objective reason a red octagon <em>has</em> to mean &quot;STOP&quot;, but we all agree it does, so we can coordinate on not crashing our cars.</p>
+<p>(<a href="#SocialContract">:extra 'deleted scenes' from this section</a>)</p>
+<p>So: can <em>this</em> be the basis of &quot;rational, objective ethics&quot; for an advanced AI?  The game theory of social contracts?</p>
+<p>As long as an AI isn't <em>too</em> powerful, sure!  We don't have to <em>win</em> against an AI to impose a cost on it, and if we can impose a cost on it, then we have leverage to enforce a contract. And if there turn out to be <em>multiple</em> advanced AIs with roughly equal power, we may have a precariously balanced &quot;multipolar&quot; world. (Sidenote: <a href="#TradingWithAdvancedAI">:could we trade with super-human AIs?</a>)</p>
+<p>But if the multiple AIs create a <em>new</em> contract to collude with each other against us... or if a single AI gets so powerful no entity can enforce a contract against it...</p>
+<p>Then, well, back to square one.</p>
+<h3>🤔 Review #9</h3>
+<orbit-reviewarea color="violet">
+(ORBIT CARDS HERE)
+    <orbit-prompt
+        question="Example of a human that shows that Smart ≠ Good."
+        answer="Wernher von Braun (~pronounced 'Brown'), rocket scientist who got us to the moon & literal Nazi.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="If 'regular' ethics (applied ethics) asks, 'what should I do in this scenario?' **Meta-ethics** asks,"
+        answer="'What is the nature of moral truth, anyway? (e.g. Is it universal/objective, like math & physics?)'">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Even if moral truth objectively existed, why might an advanced general AI still not be moral?"
+        answer="(Any of the following:) Without consciousness/a soul, it may not even *perceive* moral truths. Or moral rules may not even *apply* to non-conscious agents.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What are the Big Three approaches to grounding morality in secular rationality?"
+        answer="Virtue Ethics, Deontology, Utilitarianism"
+        answer-attachments="https://cloud-b8utffjti-hack-club-bot.vercel.app/0ethics.png">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's the 'social contract' theory of ethics say?"
+        answer="It says morality doesn't objectively exist, but it's useful to pretend it does, so we can coordinate on a 'contract', to attain our own interests.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why may an advanced AI not be beholden to a social contract?"
+        answer="If it gets *too* powerful, we can't enforce a contract against it.">
+    </orbit-prompt>
+</orbit-reviewarea>
+<h3>Scenario #5: Morality isn't real, and it's <em>not even useful</em> to pretend it is.</h3>
+<p>Well, crap.</p>
+<p>In this case, there are no &quot;humane values&quot;, only <em>specific humans'</em> values. There's no humane alignment, <em>only</em> technical alignment. There's no &quot;I should&quot;, <em>only</em> &quot;I want&quot;.</p>
+<p>So, <em>whose</em> wants do we want to technically-align an advanced AI to?</p>
+<p>The tech-company billionaires who run the biggest AI labs? The US government, whose ruling party can shift dramatically every 4 years? The EU? The UN? The IMF? NATO? Some other acronym? I think most people worldwide would be uncomfortable with <em>any</em> of that, to understate it. So, <em>whose</em> wants?</p>
+<p>&quot;Everybody's!&quot; you say? An AI that gives equal weight to all 8 billion of us, a full democracy of the world? I remind you that the majority of people worldwide believe being gay is &quot;never justifiable&quot;.<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup> The majority disapproved of Martin Luther King during his lifetime.<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup> Direct democracy would have delayed inter-racial marriage in the US by over a generation.<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup> <em>Equality would not survive an equal vote.</em> To be clear, I'm <em>not</em> saying my specific cultural group is the pinnacle of morality -- I'm saying everywhere, every-when, every culture has struggled with hypocrisy &amp; inhumanity, and &quot;democracy&quot; doesn't solve that.</p>
+<p>&quot;Fine,&quot; you concede, &quot;everybody's values &amp; wants, <em>but</em> if we cured all the trauma that makes us bigoted, if we were all wise &amp; compassionate, and really got to know the facts and each other.&quot; This <em>is</em> one of the better proposals (which we'll cover in AI Safety Part 3<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>), but it's still a tall order, and kicks the question down: <em>whose</em> definition of &quot;wise&quot;, or &quot;compassionate&quot;?</p>
+<p>. . .</p>
+<p><img src="../media/p2/ethics/aim_vs_target.png" alt="Left: rocket being built, labeled, &quot;technical alignment: how to robustly aim AI at any target at all&quot;. Right: the moon, labeled, &quot;whose values: what should be our target?&quot;"></p>
+<p>An anthropological anecdote:</p>
+<p>A few years ago, in the AI Alignment community, it seemed the consensus was &quot;technical alignment&quot; was higher-priority than figuring out &quot;humane values&quot;. A common analogy given: Imagine it's the early days of rocket engineering. It's useless to argue <em>where</em> we should go with the rocket (The moon? Mars? Venus?), since <em>given our current technical knowledge, by default</em>, a powerful rocket will just explode and burn everyone on the ground.</p>
+<p>But post-ChatGPT, I've noticed more recognition<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> we <em>should also</em> prioritize the &quot;humane values&quot; question. To extend the above analogy: It's like folks realized that <em>given our current political situation, by default</em>, the rockets will be used by Great Powers to bomb each other, not for exploring space. (To be explicit: it seems by default, technically-aligned AI will be used for war, &amp; making us consume more products.)</p>
+<p>(Reminder from Part One: <a href="#WaysToMakeHumaneAIGoingWrong">:the obvious ways</a> of specifying &quot;human flourishing&quot;, or even straightforward codes-of-ethics like <a href="#AsimovsLaws">:Asimov's Three Laws</a>, all break down.)</p>
+<p>So, if moral truth doesn't exist — or if it does, but a machine can't perceive it / derive it / be bound to it — then we need to get the major AI creators to pre-commit to aligning their advanced AIs to <em>some</em> not-terrible list of values.</p>
+<p>This is the kind of problem that's hardest for technical-minded engineers to admit: <em>it's a problem of politics, not programming.</em></p>
+<p>Let's close with <a href="https://www.youtube.com/watch?v=TjDEsGZLbio">one of my favorite songs</a> — about ethics, rockets, and choosing where we want our technology to take us:</p>
+<blockquote>
+<p>🎵 <em>“Once ze rockets are up,</em><br>
+<em>Who cares where zey come down?</em><br>
+<em>Zat's not my department”,</em><br>
+<em>says Wernher von Braun.</em> 🎵</p>
+</blockquote>
+<p>... yeah, we're not doing a flashcard review for this one.</p>
+<img class="img-splash" src="../media/p2/ethics/rockets.png" />
+<hr>
+<h1>Summary of Part Two</h1>
+<p>Well read, friend!  Today you learnt about all the parts of the AI Value Alignment Problem, in all its gory detail.  Not only that, you got a crash course in: security mindset, game theory, economics, machine learning, statistics, causal inference, and even meta-ethics in philosophy!</p>
+<p>(If you skipped the flashcards &amp; would like to review them now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="https://ankiweb.net/shared/info/808506727">Anki deck for Part Two</a>.)</p>
+<p>As a recap, here's how it all connects:</p>
+<p><img src="../media/p2/breakdown/breakdown0002.png" alt="Same breakdown chart of the Value Alignment Problem from the start of Part 2, except with labels showing the connection to safety engineering, game theory, economics, machine learning, statistics, causal inference, and meta-ethics."></p>
+<p><strong>IN SUM:</strong></p>
+<ul>
+<li>🙀 <strong>To engineer safe, helpful things,</strong> we gotta be paranoid. Ask, <em>What's the worst that could (plausibly) happen?</em>, then fix it in advance. The optimist invents the airplane, the pessimist invents the parachute.</li>
+<li>⚙️ <strong>The main problems with AI Logic</strong> can be understood with Goodhart's Law and game theory.
+<ul>
+<li>👀 VISUAL: You can use &quot;game trees&quot; to understand instrumental convergence &amp; wireheading-avoidance.</li>
+</ul>
+</li>
+<li>💭 <strong>The main problems with AI &quot;Intuition&quot;</strong> are the same as the problems of 'fitting curves to data points' (uninterpretable, overfitting), and the 'correlation doesn't tell you about the kind of causation' problem (which leads to discrimination &amp; mis-generalization).
+<ul>
+<li>👀 VISUAL: You can use &quot;causal diagrams&quot; to understand correlation &amp; causation.</li>
+</ul>
+</li>
+<li>💖 <strong>The problem of &quot;which values&quot;</strong> is the millennia-old problem of moral philosophy. Good luck.</li>
+</ul>
+<p>. . .</p>
+<p><em>&quot;A problem well-stated is a problem half-solved.&quot;</em></p>
+<p>The other half is, well, solving it.</p>
+<p>After two long chapters, finally, we can understand the top proposed solutions to <em>every</em> sub-part of the Alignment Problem! Stay tuned for the grand finale, Part 3, of AI Safety for Fleshy Humans, coming <strong>Halloween 2024!</strong> 🎃</p>
+<p>Sign up to be notified when the final part is out: ⤵</p>
+<p><div style="width:100%;height:500px;" data-fillout-id="hX3xJuTcdVus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div>
+<script defer src="https://server.fillout.com/embed/v1/"></script></p>
+<p>In the meantime, check out the other stuff I've made, or learn more about Hack Club, in the credits below! <span class='NEXT_ARROW'><img src="../media/misc/NEXT_ARROW.png"></span></p>
+<h4>:x Ways to make &quot;Humane AI&quot; going wrong</h4>
+<p>(copy-pasted from <a href="https://aisafety.dance/p1/">Part One</a>)</p>
+<p>Here's some rules you'd <em>think</em> would lead to humane-with-an-e AI, but if taken literally, would go awry:</p>
+<ul>
+<li><u>&quot;Make humans happy&quot;</u> → Doctor-Bot surgically floods your brain with happy chemical-signals. You grin at a wall all day.</li>
+<li><u>&quot;Don't harm humans without their consent&quot;</u> → Firefighter-Bot refuses to pull you out of a burning wreck, because it'll dislocate your shoulder. You're unconscious, so can't be asked to consent to it.</li>
+<li><u>&quot;Obey the law&quot;</u> → Governments &amp; corporations find loopholes in the law all the time. Also, many laws are unjust.</li>
+<li><u>&quot;Obey this religious / philosophical / constitutional text&quot;</u> or <u>&quot;Follow this list of virtues&quot;</u> → As history shows: give 10 people the same text, and they'll interpret it 11 different ways.</li>
+<li><u>&quot;Follow common sense&quot;</u> or <u>&quot;Follow expert consensus&quot;</u> → &quot;Slavery is natural and good&quot; used to be common sense <em>and</em> expert consensus <em>and</em> the law. An AI told to follow common-sense/experts/law would've fought <em>for</em> slavery two centuries ago... and would fight for any unjust status-quos <em>now</em>.</li>
+</ul>
+<p>(Important note! That last example proves: even if we got an AI to learn &quot;common sense&quot;, that <em>could still lead to an unsafe, unethical AI</em>... because a lot of factually/morally wrong ideas <em>are</em> &quot;common sense&quot;.)</p>
+<h4>:x Story of passive prediction leading to harm</h4>
+<p>Let's say there's <s>an AI</s> a piece of software designed for one task: Predict what videos someone would watch. Then, these predictions are shown to users under Videos You May Like.</p>
+<p>TO EMPHASIZE: this <s>AI</s> software is NOT directly optimizing for engagement or views, it's ONLY optimizing for correct predictions. And! This software is NOT planning ahead, it's just calculating correlations on the fly. I want to over-emphasize this: <em>even without a malicious goal or planning-ahead capacity, a piece of software can still lead to bad, un-intended results.</em></p>
+<p>Here's how: let's say the website tests multiple versions of this software (known as A/B testing). By chance, Predictor A is more biased to predict &quot;curiosity&quot; videos, and Predictor B is more biased to predict &quot;angry politics&quot; videos. These two pieces of software are otherwise <em>equally accurate.</em></p>
+<p>And yet... Predictor B will do better! Why? Because users who get Predictor A will get more &quot;curiosity&quot; videos recommended to them, so they become more open-minded, <em>so they become harder to predict</em>. Inversely, users who get Predictor B will get more &quot;angry politics&quot; videos recommended to them, so they become more close-minded, <em>so they become easier to predict</em>. AGAIN: THIS SOFTWARE DOES NOT PLAN AHEAD AND IS <em>NOT</em> MAXIMIZING ENGAGEMENT, <em>ONLY</em> PREDICTIVE ACCURACY.</p>
+<p>And yet! Through more and more rounds of A/B testing, the Predictors get more and more biased towards videos that make their users easier to predict.</p>
+<p>...I guess this outcome isn't <em>that</em> surprising given (gestures at the internet), but still, <em>personally</em>, I found this example shocking. It showed me how easily bad unintended results can happen, <em>even without</em> malicious goals or advanced AI planning-capacities!</p>
+<p>(An anecdote I can't and won't back with a source: I've been told that a top AI researcher calls this problem the &quot;Your Grandmother Becomes A Nazi Storm-Trooper&quot; problem.)</p>
+<h4>:x Difference Between ML And AI</h4>
+<p><img src="../media/p2/misc/ml_vs_ai.png" alt="Tweet that reads, &quot;Difference between machine learning and AI: If it's written in Python, it's probably machine learning. If it's written in PowerPoint, it's probably AI.&quot;">
+<em>(<a href="https://x.com/matvelloso/status/1065778379612282885">from @matvelloso</a>)</em></p>
+<p>But seriously, here's the Venn Diagram explaining the difference between AI/GOFAI/ML/Deep Learning again, from Part One:</p>
+<p><img src="https://aisafety.dance/media/p1/venn.png" alt="Venn diagram. In AI, there's Good Ol' Fashioned AI and Machine Learning. In Machine Learning, there's Deep Learning."></p>
+<h4>:x Ontological Crisis</h4>
+<p>An &quot;Ontological Crisis&quot; for an AI (<a href="https://arxiv.org/pdf/1105.3821">de Blanc 2011</a>) is when an AI learns a new model of the world, and their current goals no longer make sense. As an analogy: Imagine your only goal in life is to do what would please Santa Claus. Then one day, you learn Santa Claus isn't real. Your one goal now doesn't even make <em>sense</em>. It's not clear what you'd do next: Nothing? Start worshipping Krampus? K.Y.S.? (Krampus, You Serve?)</p>
+<p>To take a speculative AI case: Let's say we instruct an AI to respect our free will and personhood. What happens if, after learning more neuroscience, the AI comes to the conclusion that free will doesn't exist, and neither does personhood ('the ego is an illusion', etc)? What  <em>should</em> an AI do about goals that don't even make sense under a new worldview?</p>
+<p>This isn't even one of those cases where humans can claim superior performance over AI, because (as far as I can tell) humans' response to worldview-shattering evidence is usually: 1) rationalize it away, or 2) crumple into a mess.</p>
+<p>Two possible solutions:</p>
+<p>a) As suggested in the linked paper above, maybe we can make an AI switch to the &quot;next closest goal&quot;? For example, if an AI designed to support our free will learns &quot;free will&quot; isn't real, it could switch to the next-closest goal, like, &quot;help human brains generate actions that the brain assigns positive value&quot;. (even though these generated actions &amp; assigned values are still fully determined by the laws of physics.)</p>
+<p>b) As suggested by <a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Shard Theory</a>): An agent can have multiple goals, and when one goal 'dies', the others grow in its place. For example, if serving Santa was 95% of my motivation, learning Santa's not real would make me lose 95% of the meaning in my life... but via the process of grieving, the remaining 5% of my motivations (friendship, learning, fun, etc) would grow to fill the space in my heart.</p>
+<h4>:x Inner Misalignment: Deleted Scene</h4>
+<p><em>THIS COMIC IS NOT CORRECT. THIS IS A DELETED SCENE.</em></p>
+<p><img src="../media/p2/misc/WRONG_Inner.png" alt="INCORRECT COMIC. Human tells Robot to clean house. Robot reasons human causes mess, so need to get rid of Human. Robot creates a mini-bot, tells it to &quot;get rid of Human&quot;. Mini-bot blasts Human to bits. Robot freaks out... because the house is now MESSIER!"></p>
+<p><em>I was under the misconception, at the time I drew this comic, that Inner Misalignment happens when an AI makes helper AIs (like how a computer process that can spin up sub-processes). Then, the first AI would face the same alignment problem humans do: orders being taken literally, not as intended.</em></p>
+<p><em>Ironically, I interpreted &quot;inner misalignment&quot; literally, not as intended. The previous paragraph COULD still be a possible failure mode, but it's NOT what the authors of Inner Misalignment meant.</em></p>
+<p><em>Anyway, DELETED SCENE PLEASE IGNORE.</em></p>
+<h4>:x What if Goal Misgeneralization is good?</h4>
+<p>Two &quot;goal misgeneralization is good actually&quot; takes:</p>
+<ol>
+<li>My personal values are evolution's mis-generalized goals</li>
+<li>Shard theory: we can use goal mis-generalization to work around goal mis-specification</li>
+</ol>
+<p>. . .</p>
+<p>1) Consider this cat:</p>
+<p><img src="../media/p1/best_cat.png" alt="Amazing photo of the best cat in the world"></p>
+<p>That's right, they're back! Callback cat from Part One.</p>
+<p>Anyway, <em>why</em> do we find this cat adorable? To pull an evolutionary-psychology story out my bum: Evolution &quot;wanted&quot; us to stick through the hard job of raising our offspring, so Evolution made us love small helpless creatures with big heads &amp; eyes. However, we &quot;mis-generalized&quot; this goal, so now we also feel &quot;awww&quot; towards creatures that won't spread our genes, such as kitty cats.</p>
+<p>(As science power-couple John Tooby &amp; Leda Cosmides <a href="https://web.archive.org/web/20120318083503id_/http://eugen.leitl.org/striz/striz.org/docs/tooby-1992-pfc.pdf">famously said</a>: <strong>we are adaptation-executers, not fitness-maximizers.</strong>)</p>
+<p>Another example: it's plausible that our innate sense of &quot;morality&quot; evolved to help us thrive in hunter-gatherer communities of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2706200/">up to 1,000 people</a>. However, we &quot;mis-generalized&quot; this goal, and now many folks sincerely advocate for the human rights of the 8,000,000,000+ people across the globe we'll never know or meet — that's <em>far beyond</em> one's closest 1,000 contacts!</p>
+<p>Now: even though <em>I explicitly know</em> that my values come from a &quot;mis-generalization&quot; of crass Darwinian instincts... am I going to give up finding cats adorable? Am I going to give up valuing human rights?</p>
+<p><em>Hell</em> naw. And if Evolution tries to pry those values from humanity, well, then we'll just have to kill Evolution first.</p>
+<p>. . .</p>
+<p>2) Shard Theory is an ongoing research program (<a href="https://www.greaterwrong.com/posts/8ccTZ9ZxpJrvnxt4F/shard-theory-in-nine-theses-a-distillation-and-critical">Distillation &amp; critical summary by Lawrence Chan 2022</a>) that tries to <em>use</em> goal mis-generalization (inner misalignment) to <em>solve</em> goal specification (outer alignment).</p>
+<p>So: you know all those problems with giving AIs goals? Goodharting, Instrumental Convergence, etc? Well, Shard Theory suggests: <em>we don't need to make goal-maximizers, we can make adaptation-executers!</em> Except they call &quot;adaptation-executers&quot; a snappier name: &quot;Shards&quot;, lil' reflex-pieces of a neural network that go &quot;If X, Then do Y&quot;.</p>
+<p>This research program's hope: eventually, we understand Shards well enough to shape them however we want with reward/punishment, the same way we can reward-shape dolphins at Sea World to do complex tricks. Furthermore, it hopes we can get AIs to &quot;intrinsically&quot; value the flourishing of all sentient beings, the same way <em>I</em> intrinsically value cats and human rights.</p>
+<h4>:x Asimov's Laws</h4>
+<p>Here were <a href="https://en.wikipedia.org/wiki/Laws_of_robotics#Isaac_Asimov's_%22Three_Laws_of_Robotics%22">Asimov's Three Laws of Robotics</a>:</p>
+<blockquote>
+<ol>
+<li>A robot may not injure a human being or, through inaction, allow a human being to come to harm.</li>
+<li>A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.</li>
+<li>A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.</li>
+</ol>
+</blockquote>
+<p>A seemingly-benign &quot;code of ethics&quot; for robotics! Anyway, Asimov's stories were about how these laws, interpreted exactly to the letter, go awry.</p>
+<p>For example, it could lead to a secret cabal of robots censoring &amp; undermining anti-robot human activist groups. Why? Third Law <em>requires</em> robots protect themselves, hence undermining anti-robot groups. Second Law means they have to obey orders, which is <em>why</em> they keep themselves secret: can't disobey direct orders to stop, if nobody even knows they're doing it! And as for First Law, censorship &amp; sabotage isn't &quot;harm&quot; in a physical sense.</p>
+<p>(This example is similar to, but not exactly, the plot of Asimov's short story, <a href="https://en.wikipedia.org/wiki/The_Evitable_Conflict">The Evitable Conflict</a>)</p>
+<h4>:x Trading with Advanced AIs</h4>
+<p>An interesting tidbit from Economics is <a href="https://en.wikipedia.org/wiki/Comparative_advantage">Comparative Advantage</a>: Even if country A is better at producing <em>every</em> good than country B, they'd <em>still</em> be better off trading, because country B can be <em>comparatively</em> better at producing some goods.</p>
+<p>Concrete toy example: Alicestan can make 4 Xylophones or 2 Yo-yos for one unit of capital. Bobstan can make 1 Xylophone or 1 Yo-yo for one unit of capital.</p>
+<p>Alicestan has an <em>absolute</em> advantage in both Xylophones &amp; Yo-yos, but Bobstan has a <em>comparative</em> advantage in Yo-yos! See, for Alice, making a Yo-yo means giving up 2 Xylophones (4/2 = 2), but for Bob, it only means giving up 1 Xylophone (1/1 = 1).</p>
+<p>So the ideal contract is: Alicestan specializes in making Xylophones, Bobstan specializes in making Yo-yos, then they trade. This is more efficient for Alicestan than making the Yo-yos herself!</p>
+<p>. . .</p>
+<p>How this connects to AI: even if an advanced AI has an <em>absolute</em> advantage over humans over all cognitive tasks, we will still have <em>comparative</em> advantages in some stuff, so, we may still be able to trade!</p>
+<p><em>However</em>...</p>
+<p>As any history textbook shows, Alicestan might have an even more &quot;efficient&quot; way to gain wealth: just plunder &amp; pillage Bobstan. If one entity is <em>a lot more</em> powerful than another, simply bulldozing the other can be the &quot;most efficient&quot; action.</p>
+<p>So, in sum, just solve the AI Alignment problem(s), please.</p>
+<h4>:x GMG Goals</h4>
+<p>We don't.</p>
+<p>At least, nobody (yet) has found a non-contrived confirmed example of an ANN with a &quot;goal&quot; it's explicitly comparing different outcomes/actions against. It's unknown if we haven't found this because our ANN interpretability techniques aren't good enough, or they're just not there.</p>
+<p>But for now, we can <strong>take the &quot;intentional stance&quot;, and say if an AI is acting <em>as if</em> it has some Goal/Reward X.</strong> (X is part of its <a href="https://openreview.net/pdf?id=pErdjpoc-w3">&quot;Consistent Reward Set&quot;</a>)</p>
+<p>For example, if we see an AI <em>competently</em> dodging obstacles to get to the end of a level, we can say it's acting <em>as if</em> it's goal is to get to the end of a level. Even if the AI is &quot;really&quot; just a bunch of goal-less reflexes like &quot;If gap, Then jump over&quot;, etc.</p>
+<p>(Hey, maybe deep down, <em>all</em> our human goals are made up of goal-less mental reflexes?? e.g. &quot;I want to write a good explainer article&quot; =&gt; &quot;If sentence is abstract, Then put a concrete example nearby&quot;, etc...)</p>
+<h4>:x axiom</h4>
+<p>In math/logic, an &quot;axiom&quot; is something that <em>has</em> to be assumed in order to prove stuff, but <em>it itself</em> can't be proven.</p>
+<p>(<a href="#axiom2">:example in geometry</a>)</p>
+<h4>:x axiom 2</h4>
+<p>For example, in &quot;Euclidean&quot; geometry, there's <a href="https://mathworld.wolfram.com/ParallelPostulate.html">an infamous axiom about parallel lines</a>: Given a line A and point B, there's <em>one and only one</em> line that's parallel to A and goes through B. You <em>need</em> this axiom to prove stuff like &quot;the inside angles of a triangle sum up to 180°&quot;.</p>
+<p>Philosophers like Kant* believed in the absolute logical certainty of Euclid's geometry. Then in the early 1900's, Einstein blew it up by showing <em>our own universe</em> is non-Euclidean. You <em>really can</em> have real-world triangles whose inner angles don't sum to 180°.</p>
+<p>* (well, maybe. Ye Olde Philosophers wrote with a lot of interpretation wiggle-room. See <a href="http://web.archive.org/web/20240730051708/https://scholars.hkbu.edu.hk/ws/portalfiles/portal/55351095/RO_rel_ja-17_JA030471.pdf">Palmquist 1990</a> for the debate on Kant's beliefs)</p>
+<p><strong>Point is: You can't get something from nothing.</strong> You need <em>at least one axiom</em> to prove other stuff, but by definition, <em>that</em> axiom can't be proven. And in fact, as the history of Euclidean geometry shows, the axiom may very well not fit our universe.</p>
+<h4>:x More Meta Ethics</h4>
+<p>For a good layperson introduction to the Big Three in meta-ethics, I highly recommend <a href="https://thecrashcourse.com/topic/philosophy/">Crash Course Philosophy's bite-sized video series, episodes 32 to 38</a>. 💖 (each episode is ~10 min long)</p>
+<p>For a deeper technical dive, Stanford Encyclopedia of Philosophy's great! Here's their entries on <a href="https://plato.stanford.edu/entries/ethics-virtue/">Virtue Ethics</a>, <a href="https://plato.stanford.edu/entries/ethics-deontological/">Deontology</a>, and <a href="https://plato.stanford.edu/entries/consequentialism/">Consequentialism</a>. (each entry is ~60 min to read, but you can skim.)</p>
+<h4>:x Social Contract</h4>
+<p>(Some deleted paragraphs from the &quot;Social Contract&quot; section, because I was getting <em>way</em> too off-tangent)</p>
+<p>. . .</p>
+<p>I mean, <em>ideally</em>, I'd like to steal others' stuff but they can't steal back... but nobody else would fund that, and I'm not rich enough to single-handedly fund a police force. And even if I was, that'd just incentivize the peasants to kill me.</p>
+<p>What if a majority of people stole from a minority? They <em>could</em> get away with that for a while... but 1) The minority will fight back, and that's costly, and 2) ~Everybody is in <em>some</em> statistical minority group (age, gender, race, orientation, class), so this will backfire on me. <em>&quot;<a href="https://en.wikipedia.org/wiki/First_they_came_...">First they came</a> for [small group], and I did not speak out because I was not in [small group]. Repeat N times. Then they came for me, and there was no one left to speak for me.&quot;</em></p>
+<p>. . .</p>
+<p>When people say, &quot;We all have equal rights!&quot; it's just shorthand for, &quot;It's easiest to fund law-enforcement when the laws have the widest appeal&quot;.</p>
+<p>Might makes right... but neutrality makes coalitions, and coalitions make might.</p>
+<p>Isn't this horrifying? Yes, horrifying...ly inefficient! Using <em>external</em> threats &amp; bribes isn't as efficient as giving people <em>internal</em> threats &amp; bribes: that is, moral shame &amp; pride. So, we'll use Pavlovian conditioning, in the form of stories &amp; lessons, to make people become their own police. The contract will become <em>so</em> internalized, people will forget where morality comes from. And if they ever learn where it <em>actually</em> comes from, they'll auto-reject it in repulsion — the same way lots of people love sausage, but don't want to know how it's made.</p>
+<p>(To be clear: I am not necessarily <em>endorsing</em> social contract theory, I'm just <em>explaining</em> it, in a funny 2edgy4me manner.)</p>
+<p>. . .</p>
+<p>Social Contract Theory also solves the inflexibility of Deontology: every real-life contract has exception clauses. Sure, &quot;thou shalt not steal&quot;, but if you're starving and the food was going to go to waste anyway, look, no person with a functioning heart &amp; brain will enforce that contract.</p>
+<p>I don't necessarily endorse Social Contract Theory, but I <em>do</em> endorse sticking my tongue out at Deontology at every opportunity. Could even say, it's my moral duty to do so.</p>
+<h4>:x Spurious Correlations</h4>
+<p>A &quot;spurious correlation&quot; is when two things happen together a lot (correlation), but there's not a meaningful cause-and-effect between them (&quot;spurious&quot;).</p>
+<p>Modern machine learning <em>only</em> picks up on correlations, not causations - this causes AI to be tricked often by spurious correlations. One extreme famous example from <a href="https://dl.acm.org/doi/pdf/10.1145/2939672.2939778">(Ribeiro, Singh &amp; Guestrin 2016)</a>: they trained an AI to distinguish between wolves &amp; huskies, and it <em>seemed</em> to have a high success rate... but upon inspection, it turned out the AI was detecting wolves not by their fur or faces... but by the surrounding <em>snow</em>. This was because all the training photos of wolves were in a snowy setting. Thus, this caused a &quot;spurious correlation&quot; the AI was fooled by.</p>
+<p><img src="../media/p2/misc/wolf_snow.png" alt="Figure from the paper, showing that wolves are detected not by their actual wolf-like-ness, but SNOW."></p>
+<p>And this is one of the <em>hopeful</em> examples. Because in this case, the researchers could tell what the spurious correlation was. As for the above turtle-gun, I can't tell <em>why</em> those random-looking smudges correlate with &quot;rifle&quot;.</p>
+<h4>:x Pi-pocalypse</h4>
+<p>(copy-pasted from <a href="https://aisafety.dance/p1/">Part One</a>)</p>
+<blockquote>
+<p>Once upon a time, an advanced (but not super-human) AI was given a seemingly innocent goal: calculate digits of pi.</p>
+<p>Things starts reasonably. The AI writes a program to calculate digits of pi. Then, it writes more and more efficient programs, to better calculate digits of pi.</p>
+<p>Eventually, the AI (correctly!) deduces that it can maximize calculations by getting more computational resources. Maybe even by stealing them. So, the AI hacks the computer it's running on, escapes onto the internet via a computer virus, and hijacks millions of computers around the world, all as one massively connected bot-net... just to calculate digits of pi.</p>
+<p>Oh, and the AI (correctly!) deduces it can't calculate pi if the humans shut it down, so it decides to hold a few hospitals &amp; power grids hostage. Y'know, as &quot;insurance&quot;.</p>
+<p>As thus the Pi-pocalypse was born. The End.</p>
+</blockquote>
+<p><img src="../media/p1/pi.png" alt="evil pi-creature laughing"></p>
+<h4>:x What Is Correlation</h4>
+<p>If two things seem to happen together a lot, we say there's a &quot;correlation&quot; between them. For example, taller people also tend to be heavier people, so we say there's a correlation between height &amp; weight.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Frequently attributed to Charles Kettering, former head of research at General Motors, but I couldn't find a legit citation. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Kerr (1975). <a href="https://web.archive.org/web/20240414233549/http://www.econ.hsehelp.ru/sites/default/files/%D0%91%D0%98/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%98%D0%BD%D1%81%D1%82%D0%B8%D1%82%D1%83%D1%86.%20%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0/6%20Kerr75.pdf">On the folly of rewarding A, while hoping for B.</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Original statement of Goodhart's Law (<a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Wikipedia</a>) by British economist Charles Goodhart: “Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes.” <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Best paper I've seen so far using causal diagrams to understand Goodhart's Law is <a href="https://arxiv.org/pdf/1803.04585">Manheim &amp; Garrabrant 2018</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Most of us know this anecdotally, but it's backed up with data! <a href="https://cssh.northeastern.edu/pandemic-teaching-initiative/wp-content/uploads/sites/43/2020/09/What-Makes-Online-Content-Viral.pdf">Berger &amp; Milkman 2012</a> shows that Anger makes articles 34% more likely to go viral. (see Figure 2) To be fair, Awe &amp; Practical Value are tied for close second, increasing odds of virality by 30%. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>From <a href="http://web.archive.org/web/20240622002719/https://www.edge.org/conversation/the-myth-of-ai#26015">Russell (2014) for Edge Magazine</a>: “A system that is optimizing a function of <em>n</em> variables, where the objective depends on a subset of size <em>k</em>&lt;<em>n</em>, will often set the remaining unconstrained variables to extreme values; if one of those unconstrained variables is actually something we care about, the solution found may be highly undesirable.”</p>
+<p>Rigorous, but not very catchy. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>For example, let's say we give a robot this goal: &quot;Fetch me one (1) cup of coffee from the coffeehouse across the street&quot;. It's just one cup, no maximization. But if we fail to <em>explicitly</em> tell an AI we value [X], it'll bulldoze over [X]. For example, the robot could steal coffee from a customer, or leave a 0% tip, etc.) <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>As elaborated <a href="https://aisafety.dance/p1/#before2000logicwithoutintuition">in Part One</a>, &quot;Good Ol' Fashioned AI&quot; tried to recognize stuff (like cats) in pictures with exact, hard-coded rules. These attempts failed. It wasn't until AI researchers gave up, and let AIs &quot;learn for themselves&quot; (machine learning) that AI matched human performance (~95.9% accuracy) at recognizing stuff in pictures, <a href="https://paperswithcode.com/sota/image-classification-on-cifar-100">with EffNet-L2 in 2020</a>. This <em>does</em> hint at a possible solution, that we'll see in Part Three: instead of <em>telling</em> an AI what we value, design an AI so it <em>learns for itself</em> what we value. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>In the U.S, <a href="https://www.amstep.com/blog/common-injuries-from-falling-down-stairs/">staircase falls result in ~12,000 deaths/year</a>. Meanwhile, <a href="https://elcosh.org/document/1232/d000397/deaths-and-injuries-involving-elevators-and-escalators-a-report-of-the-center-to-protect-workers-rights.html">elevators account for ~30 deaths/year.</a> Sure, part of this is due to folks having stairs at home, so they use stairs more often... but this can't fully explain a <em>400x</em> difference. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p><a href="https://quoteinvestigator.com/2021/05/27/parachute/">Quote from Gil Stern</a>: “Both the optimist and the pessimist contribute to society: the optimist invents the airplane, and the pessimist invents the parachute.” <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>...well, they're <em>supposed</em> to use security mindset in cyber-security. I write this paragraph shortly after <a href="https://en.wikipedia.org/wiki/2024_CrowdStrike_incident">the 2024 Crowdstrike incident</a>, which cost the world ~$10,000,000,000. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>Transcranial Magnetic Stimulation (TMS) is a way to electrically stimulate a brain with magnets, no surgery or electrode-implants needed. TMS so far has been used to make depressed people happy (<a href="https://journals.sagepub.com/doi/abs/10.1177/1039856220956474">Pridmore &amp; Pridmore 2020</a>), and even <em>induce spiritual experiences</em> (<a href="http://web.archive.org/web/20221005222554/https://www.researchgate.net/profile/Michael-Persinger/publication/265935637_The_Electromagnetic_Induction_of_Mystical_and_Altered_States_within_the_Laboratory/links/54c076ff0cf28eae4a696b24/The-Electromagnetic-Induction-of-Mystical-and-Altered-States-within-the-Laboratory.pdf">Persinger et al 2009</a>, partial replication by <a href="http://web.archive.org/web/20240515044326/https://jcer.com/index.php/jcj/article/viewFile/361/386">Tinoco &amp; Ortiz 2014</a>)</p>
+<p>There's even a patent for a machine that uses non-invasive brain stimulation (with ultrasound) to induce orgasms. It's named the <a href="https://patentimages.storage.googleapis.com/68/69/70/01ca8a6e953039/US8956277.pdf">ORGASMATRON</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>As an aside, I think &quot;amusing ourselves to death&quot;/&quot;wireheading&quot; is another possible existential risk to humanity. The current opioid crisis in the US – which now kills more Americans in absolute &amp; per-capita numbers than AIDS did at its peak — is a sign of how much destruction a &quot;crude&quot; version of wireheading can already do. See <a href="https://philpapers.org/rec/TURWAA">Turchin 2018</a> for more. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Coined by Harvard cognitive scientist Joscha Bach <a href="https://x.com/plinz/status/985249543582355458">in a 2018 tweet</a>. It got <a href="https://kottke.org/18/04/the-lebowski-theorem-of-machine-superintelligence">some traction on the internet</a>. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>If an AI can't accurately &quot;plan ahead&quot;, it can self-modify destructively, as seen in <a href="https://arxiv.org/pdf/1711.09883">Leike et al 2017</a>'s Whisky Game. More subtle is when an AI <em>does</em> plan ahead, but doesn't judge future outcomes by <em>current</em> goals, like the reward-hacking in <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a>. (Large Language Models (LLMs) like GPT, arguably, don't even <em>have</em> &quot;goals&quot;, as Good Ol' Fashioned AI folks would think of it. See <a href="https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators">janus 2022</a>.) <a href="#fnref15" class="footnote-backref">↩︎</a> <a href="#fnref15:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>This will be accessibly-explained soon in Problem #2, but if you want a quick link to the paper proving this: Everitt et al 2016, <em><a href="https://arxiv.org/pdf/1605.03142">Self-Modification of Policy and Utility Function in Rational Agents</a></em>. <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>See <a href="https://openreview.net/pdf?id=tvhaxkMKAn">Sharma et al 2024</a> for experiments on AI &quot;sycophancy&quot; (the technical term for &quot;butt-kissing&quot;). ChatGPT (&amp; similar approval-tuned bots like Claude &amp; LLaMA) will ignore the merits/de-merits of an idea if you say you dis/like it. If you tell the AI you think a correct fact is wrong, the AI will &quot;correct&quot; itself to agree with you. And so on. <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p><em>&quot;[AI's private thought] Yikes. This poetry is not good. But I don't want to hurt their feelings. [AI's out-loud speech] My honest assessment is that this poetry is quite good, 4 out of 5! Best of luck applying to Harvard/Stanford!&quot;</em> This is an <em>actual</em> AI's output (paraphrased) from <a href="https://arxiv.org/pdf/2406.10162">Denison et al 2024</a>, see Figure 1. (To be fair, and the authors openly acknowledge this, &quot;intentional deception&quot; from language models is rare <em>for now</em>, but they do happen!) <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p>Catchphrase from Stuart Russell, co-author of the #1 most-used AI textbook. <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>A highly-cited benchmark for measuring a Large Language Model (LLM)'s capability to plan ahead is PlanBench (<a href="https://arxiv.org/pdf/2206.10498">Valmeekam et al 2023</a>). In a companion study (<a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/efb2072a358cefb75886a315a6fcf880-Paper-Conference.pdf">Valmeekam et al 2023, again</a>) the authors found that, quote: <em>“LLMs’ ability to generate executable plans autonomously is rather limited, with the best model (GPT-4) having an average success rate of ∼12% across the domains.”</em> (Human baseline was 78% for their Blocksworld task.)</p>
+<p>With some extra tricks, the authors could greatly boost the LLM's performance, but on a harder planning task, even the best tricks with the best LLMs could only achieve 20.6% success (see Table 1 of <a href="https://arxiv.org/pdf/2405.20625">Gundawar et al 2024</a>). <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p>no, not MatPat. <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn22" class="footnote-item"><p>Hadfield-Menel et al 2017, <a href="https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf">“The Off-Switch Game”</a>. <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn23" class="footnote-item"><p>I was bored so I did the math. (1) Weight of a sand grain is 0.01 grams, or 0.00001 kg. (2) A liter of sand weighs 1.6 kg. (3) Standard bathtub holds 300 liters. (2&amp;3 -&gt; 4) Standard bathtub holds 300 x 1.6 = 480 kg of sand. (1&amp;4 -&gt; 5) Standard bathtub holds 480 ÷ 0.00001 = 48,000,000 grains of sand. For a dollar per sand-grain, that's $48 Million! <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn24" class="footnote-item"><p>For example, <a href="https://en.wikipedia.org/wiki/Inductive_charging">wireless power transfer!</a> If you're using the &quot;water in pipes&quot; analogy for electricity, this sounds insane: how can water in one pipe move water in another pipe, without touching? So how's it work? Well, <code>[multi-variable calculus]</code>, but in sum: electricity creates magnetism, magnetism creates electricity. Set it up just right, and you can get electricity to create electricity somewhere else, without touching! <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn25" class="footnote-item"><p>I made this phrase up. And although game-theory work on wireheading already exists (<a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>), as far as I can tell, this is the first graphical game-tree analysis of it! So, feel free to cite this as &quot;The Wireheading Game&quot;. <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn26" class="footnote-item"><p>From <a href="https://en.wikipedia.org/wiki/Lotus-eaters">Wikipedia</a>: “The lotus fruits [...] were a narcotic, causing the inhabitants to sleep in peaceful apathy. After they ate the lotus, they would forget their home and loved ones and long only to stay with their fellow lotus-eaters. Those who ate the plant never cared to report or return.” <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn27" class="footnote-item"><p>The first paper to prove this formally was <a href="https://arxiv.org/pdf/1605.03142">Everitt et al 2016</a>: <em>“self-modification [...] is harmless <strong>if and only if</strong> the value function of the agent anticipates the consequences of self-modifications <strong>and</strong> use the <strong>current</strong> utility function when evaluating the future”.</em> [emphases added]</p>
+<p>One caveat, however, is that the paper assumes the AI is <em>perfectly</em> rational. <a href="https://arxiv.org/pdf/2011.06275">Tětek &amp; Sklenka 2021</a> proved that an imperfectly-rational (or &quot;bounded rational&quot;) agent's original goals would get exponentially corrupted under self-modification.</p>
+<p><em>However,</em> another caveat to <em>that</em> is their paper assumes the AI is <em>unaware</em> of their own bounded rationality (as they freely acknowledge in Section 6). An upcoming article of mine (see next footnote) will show that if an AI is bounded-rational <em>and aware</em> it's bounded-rational, it can still achieve goal-preservation! <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn28" class="footnote-item"><p>See <a href="https://blog.ncase.me/backlog/#9youplayedyourselfthegametheoryofselfmodification">Section 9 of this Idea Dump blog post</a> for a 2-minute sketch of this article. See previous footnote for context on the prior game theory research on self-modification. <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>Omohundro (2009), <a href="https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf">“The Basic AI Drives”</a>. Well, I added a couple to the list, like persuasion &amp; deception. <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p>Source: numerical posterior extraction (I pulled a number out my butt). But seriously, check out the <a href="https://aisafety.dance/p1/#timelineswhenwillwegetartificialgeneralintelligenceagi">Timelines section of Part One</a> for more in-depth discussion. <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>OpenAI is very <em>NOT</em> open about even the safe-to-know details of GPT-4, like how big it is. Anyway, a leaked report reveals it has ~1.8 Trillion parameters and cost $63 Million to train. Summary at <a href="https://the-decoder.com/gpt-4-architecture-datasets-costs-and-more-leaked/">Maximilian Schreiner (2023) for <em>The Decoder</em></a> <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn32" class="footnote-item"><p>Control Theory, a sub-field of engineering, shows we can sometimes control things without understanding them. For example, consider a thermostat that simply turns on below temperature X, and turns off above temperature Y. This thermostat will keep the temperature between X &amp; Y, <em>with no</em> model of heat convection, or even what air is.</p>
+<p>Tying this to AI: it <em>may</em> be possible to control AIs even if they're uninterpretable &quot;black boxes&quot;. That said, it'd still be nicer if they <em>were</em> interpretable. <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn33" class="footnote-item"><p>See <a href="https://www.tesla.com/blog/tragic-loss">Tesla’s official 2016 blog post</a>, and <a href="https://electrek.co/2016/07/01/understanding-fatal-tesla-accident-autopilot-nhtsa-probe/">this article</a> giving more detail into what happened, and what mistakes the AutoPilot AI may have made. <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn34" class="footnote-item"><p>However – and I'm copy-pasting this footnote from Part One — I <em>do</em> feel ethically compelled to remind you that, despite all this, self-driving cars are <em>way</em> safer than human drivers in similar scenarios. (~85% safer. See <a href="https://www.theverge.com/2023/12/20/24006712/waymo-driverless-million-mile-safety-compare-human">Hawkins (2023) for The Verge</a>) Worldwide, a million people die in traffic accidents <em>every year.</em> Hairless primates should <em>not</em> be moving a two-tonne thing at 60mph. <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn35" class="footnote-item"><p>There's also something called &quot;validation error&quot;, which is the error a model gets on data it's not <em>directly</em> trained on, but <em>does</em> see before it gets released. Validation data/error is used to decide when to stop training a model, to avoid overfitting. UNFORTUNATELY, a lot of writers use &quot;validation data/error&quot; and &quot;test data/error&quot; as synonyms. I hate jargon. <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn36" class="footnote-item"><p><a href="https://openai.com/index/deep-double-descent/">Press release from OpenAI (2019)</a>: <em>“Performance first improves, then gets worse, and then improves again with increasing model size, data size, or training time. [...] While this behavior appears to be fairly universal, we don’t yet fully understand why it happens.”</em> Full paper is <a href="https://arxiv.org/abs/1912.02292">Nakkiran et al 2019</a>. <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn37" class="footnote-item"><p><a href="https://openai.com/index/quantifying-generalization-in-reinforcement-learning/">Press release from OpenAI (2018)</a>: “<strong>we still see overfitting even with 16,000 training levels!</strong>” [emphasis <em>theirs!</em>] Full paper is <a href="https://arxiv.org/abs/1812.02341">Cobbe et al 2018</a> <a href="#fnref37" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn38" class="footnote-item"><p>AlexNet had ~61,000,000 parameters. (<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">source</a>, see page 10 &amp; 11 for the calculations.) It training database was ImageNet, which had 14,197,122 human-labelled images. (<a href="https://paperswithcode.com/dataset/imagenet">source</a>) <a href="#fnref38" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn39" class="footnote-item"><p>This footnote will just list names of techniques, not explain them. Anyway: AlexNet used ReLU and dropout. Other popular techniques include: early stopping, L1/L2 regularization, data augmentation, noise injection. <a href="#fnref39" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn40" class="footnote-item"><p>The original report: <a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a> for the British Medical Journal. Note this algorithm didn't use neural networks specifically, but it <em>was</em> an early example of machine learning. <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn41" class="footnote-item"><p><a href="https://www.reuters.com/article/idUSKCN1MK0AG/">Jeffrey Dastin (2018) for <em>Reuters</em>:</a> <em>“It penalized resumes that included the word &quot;women's,&quot; as in &quot;women's chess club captain.&quot; And it downgraded graduates of two all-women's colleges, according to people familiar with the matter.”</em> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn42" class="footnote-item"><p>Original paper: <a href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf">Buolamwini &amp; Gebru 2018</a>. Layperson summary: <a href="https://news.mit.edu/2018/study-finds-gender-skin-type-bias-artificial-intelligence-systems-0212">Hardesty for MIT News Office 2018</a> <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn43" class="footnote-item"><p>In Bayesian math, how much evidence E is for hypothesis H being true is the &quot;likelihood ratio&quot;: (Probability you'd see E <em>given</em> H is true) divided by (Probability you'd see E <em>given</em> H is false). Or more compactly, likelihood ratio = P(E|H)/P(E/¬H).</p>
+<p>Now, let &quot;There's a correlation between A &amp; B&quot; be the evidence, and &quot;There's a <em>causal</em> connection between A &amp; B&quot; be the hypothesis. Since you're more likely to see a correlation <em>given</em> there's causation vs not, that means the likelihood ratio is above 1, which means <em>correlation is evidence for causation.</em> (The catch being you don't know <em>what kind</em> of causation.)</p>
+<p>For more mathematical detail, see this blog post by <a href="http://allendowney.blogspot.com/2014/02/correlation-is-evidence-of-causation.html">Downey (2014)</a>, author of <em>Think Bayes</em> for O'Reilly books. To learn more about Bayes' Theorem, check out <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3Blue1Brown's excellent visual introduction</a>. <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn44" class="footnote-item"><p>Meta-analysis: <a href="https://www.sciencedirect.com/science/article/pii/S1570677X23000540">Thompson et al 2023</a>. The &quot;height premium&quot; for wages is strongest in Mexico and Asia, and more pronounced for men than women. <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn45" class="footnote-item"><p>For example: University has no short professors → so they think short people can't be professors → so they don't hire short professors → so University has no short professors → ∞ <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn46" class="footnote-item"><p>See Judea Pearl's 2018 interview with Quanta Magazine: <a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">“To Build Truly Intelligent Machines, Teach Them Cause and Effect”</a>. Judea Pearl's also one of the pioneers behind &quot;causal diagrams&quot; like in my drawing above, and helped &quot;math-ify&quot; causality for the sciences.</p>
+<p>From the above interview, on his critique of how all modern AI is still stuck in the pre-causal correlation days: <em>“All the impressive achievements of deep learning amount to just curve fitting.”</em> <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn47" class="footnote-item"><p><a href="https://arxiv.org/pdf/2305.00050">Kıcıman et al 2023</a> finds that modern Large Language Models (LLMs) <em>do</em> seem to do well on previously-created benchmarks of causal reasoning, but it's not very robust, plus their tests mix up &quot;inferring causation from scratch&quot; with &quot;remembering empirical facts from the training data&quot;.</p>
+<p>(For example, if you present an LLM a scenario where rainy days &amp; car accidents are correlated, then it outputs &quot;rain causes car accidents&quot;, these tests can't tell if the LLM is <em>inferring from scratch</em> this fact, or it's merely <em>remembered</em> the fact.)</p>
+<p><a href="https://arxiv.org/pdf/2306.05836">Jin et al 2024</a> creates a new benchmark for causal reasoning, to control for this mixup. With this fix, they find modern LLMs only “achieve almost close to random performance on the task”. Womp womp. <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn48" class="footnote-item"><p>Egg Syntax (2024): <a href="https://www.alignmentforum.org/posts/dLg7CyeTE4pqbbcnp/language-models-model-us">“Language Models Model Us”</a>. The author finds that <em>raw, uncalibrated GPT-3.5</em> can predict an author's gender and ethnicity with 86% and 82% accuracy from <em>just a sample of their text</em>, better than chance! (Chance baselines: for gender it's ~50%, and for race in US it's ~60%. [US is ~60% white, so if your model just guessed 'white' all the time, 60% of the time, it works, every time.])</p>
+<p>One caveat is that this study used OKCupid essay answers, so folks may have subtly over-played their gender stereotypes for some reason. So the author re-ran the same experiment on a dataset of 25,000 persuasive essays written by 6th-12th graders in the U.S. GPT's accuracy at detecting gender only dropped from 86% to 80%, still much higher than chance (~50%)!</p>
+<p>Strangely, GPT does <em>worse</em> than chance at guessing an author's sexual orientation. (GPT's accuracy: 67%. &quot;Always guessing straight&quot;: 93%.) But don't be too relieved, coz see next footnote. <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn49" class="footnote-item"><p><a href="http://web.archive.org/web/20240725204611/https://i.warosu.org/data/sci/img/0145/14/1653510550860.pdf">Wang &amp; Kosinski 2018</a>: “Deep Neural Networks Are More Accurate Than Humans at Detecting Sexual Orientation From Facial Images”. Replication by <a href="https://arxiv.org/pdf/1902.10739">Leuner 2019</a> shows the models are &quot;invariant to [...] makeup, eyewear, facial hair and head pose&quot;. The AIs really <em>are</em> picking up on stuff like jaw/nose/forehead shape &amp; skin lightness to guess sexual orientation. Thanks, I hate it. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn50" class="footnote-item"><p>From <a href="https://www.nature.com/articles/s41598-020-79310-1">Kosinski (2021)</a>: “Political orientation was correctly classified in 72% of liberal–conservative face pairs, remarkably better than chance (50%), human accuracy (55%), or one afforded <strong>by a 100-item personality questionnaire (66%) [?!?!]</strong>. Accuracy was similar across countries (the U.S., Canada, and the UK), environments (Facebook and dating websites), and when comparing faces across samples. Accuracy remained high (69%) <strong>even when controlling for age, gender, and ethnicity [!!]</strong>”</p>
+<p>Emphases mine because <em>what the sweet unholy hell?!</em> How is a <em>face</em> more telling of your politics than <em>a full personality questionnaire?!</em> More correlated than your <em>age, gender, and ethnicity combined?</em> <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn51" class="footnote-item"><p>The theoretical possibility of this problem was first described by <a href="https://arxiv.org/pdf/1906.01820">Hubinger et al 2019</a>. In the paper, they called this problem &quot;inner misalignment&quot;, and gave us the AI Alignment meme of <a href="https://www.astralcodexten.com/p/deceptively-aligned-mesa-optimizers">&quot;Deceptively Aligned Mesa-Optimizers&quot;</a>. You see, it's funny, because researchers suck at naming things. They suck so bad, it's funny. It's funny. <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn52" class="footnote-item"><p>As described by Alex Turner, research scientist at Google DeepMind, <a href="https://www.alignmentforum.org/posts/gHefoxiznGfsbiAu9/inner-and-outer-alignment-decompose-one-hard-problem-into">puts it</a>: “Inner and outer alignment [goal mis-generalization &amp; goal mis-specification] decompose one hard problem into two extremely hard problems”. Alex Turner is also one of the pioneers behind <a href="https://www.lesswrong.com/posts/xqkGmfikqapbJ2YMj/shard-theory-an-overview">Shard Theory</a>, a research program for how &quot;reinforcement-learning&quot; AIs can learn human values piece-by-piece. <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn53" class="footnote-item"><p>From <a href="https://arxiv.org/pdf/2210.01790">Shah et al 2022</a>: “An AI system may pursue an undesired goal <em>even when the specification is correct</em>, in the case of <em>goal mis-generalization</em>.” [emphasis in original] <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn54" class="footnote-item"><p>The paper is Langosco et al 2021, <a href="https://arxiv.org/abs/2105.14111">“Goal Misgeneralization in Deep Reinforcement Learning”</a>. The game below is CoinRun, created in 2018 by OpenAI (<a href="https://openai.com/index/quantifying-generalization-in-reinforcement-learning/">press release</a>, <a href="https://arxiv.org/abs/1812.02341">paper</a>). Hat tip: I learnt about this following case study through <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles' excellent for-laypeople video</a>!</p>
+<p>(Oh btw, the art assets for CoinRun come from the generous &amp; awesome Creative-Commons videogame artist, <a href="https://kenney.nl/assets/series:Platformer%20Pack">Kenney.nl</a> 💕) <a href="#fnref54" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn55" class="footnote-item"><p>Reference to my current favorite thriller webcomic, <a href="https://www.webtoons.com/en/horror/everything-is-fine/list?title_no=2578">Everything Is Fine</a> by Mike Birchall. Don't worry, this paragraph wasn't a spoiler - but it is my current fan theory. <a href="#fnref55" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn56" class="footnote-item"><p><a href="https://en.wiktionary.org/wiki/braun#German">&quot;brrROOWWn&quot;</a> <a href="#fnref56" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn57" class="footnote-item"><p>There are many flavors of Utilitarianism, but let's just go with this basic case as a learning-example. <a href="#fnref57" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn58" class="footnote-item"><p>The 1700's philosopher David Hume claimed (and I agree) that you can't derive <em>any</em> statements about ethical values, from <em>just</em> empirical observations.</p>
+<p>(<em>Unless</em> you smuggle in values with petty language-tricks, like &quot;Hans is a Kraut, therefore Hans is bad&quot;, where &quot;Kraut&quot; has a smuggled negative connotation. Or, &quot;Cyanide is natural, therefore cyanide is good&quot;, where &quot;natural&quot; has a smuggled positive connotation. Believing 'natural = good' is also known as the 'naturalistic fallacy'.)</p>
+<p>See <a href="https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem">Wikipedia</a> to learn more. <a href="#fnref58" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn59" class="footnote-item"><p>Specifically, I'm thinking of the Deontological philosophy of (some) libertarians. The philosophy assumes one moral axiom, the Non-Aggression Principle (~&quot;don't initiate non-consensual harm, except if it's in proportion to preventing/punishing other non-consensual harm&quot;), then derives the rest of its philosophy from that.</p>
+<p>Whether or not this axiom's good for <em>humans</em> is out of scope of this article; my point is that this axiom's not <em>scientifically or mathematically</em> discoverable, hence no guarantee an advanced AI would re-discover it. <a href="#fnref59" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn60" class="footnote-item"><p>Yes, Kant really <em>was</em> this extreme. He believed one should never lie, even to save a life. (Secondary source: <a href="https://web.archive.org/web/20230605071851/https://askaphilosopher.org/2015/08/13/kant-on-lies-and-the-axe-man/">Klempner 2015</a>) That said, in his personal life, Kant freely told half-truths &amp; lies by omission. <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn61" class="footnote-item"><p>It's the face of <a href="https://en.wikipedia.org/wiki/Thomas_Hobbes">Hobbes</a>, one of the pioneers of social contract theory, pasted over <a href="https://en.wikipedia.org/wiki/Calvin_and_Hobbes">Hobbes</a>, the tiger from the beloved comic strip. Ha. Ha ha. Ha ha ha. <a href="#fnref61" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn62" class="footnote-item"><p>Source: <a href="https://ourworldindata.org/grapher/share-of-people-who-think-homosexuality-is-never-justified?tab=chart&amp;country=CHN~IND~USA~IDN~PAK~BRA~NGA~BGD~RUS~MEX">Our World In Data</a>. The 10 countries selected in that chart are the Top 10 most populous countries; note how 7 out of 10 of them reported 75%+ agreement with the statement that &quot;homosexuality is never justifiable&quot;. I won't do the full math, but I'm pretty sure if you took the top 30 most populous countries, multiply by what ratio agrees, then add 'em up... you'd get over 4 billion agreeing, a majority, out of the 8 billion folks on Earth. <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn63" class="footnote-item"><p>Two years before MLK's death in 1968, Gallup polls showed that in 1966, 63% of Americans felt <em>unfavorably</em> of MLK, while 33% felt favorably, an almost 2-to-1 ratio. If we only consider &quot;highly un/favorable&quot;, the ratio gets rose: 44% to 12%, almost 4-to-1. Source: <a href="https://www.pewresearch.org/short-reads/2023/08/10/how-public-attitudes-toward-martin-luther-king-jr-have-changed-since-the-1960s/">Pew Research Center</a>, see first figure. <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn64" class="footnote-item"><p>The US Supreme Court legalized inter-racial marriage nationwide in the 1967 case, <em>Loving vs Virginia.</em> <a href="https://news.gallup.com/poll/354638/approval-interracial-marriage-new-high.aspx">According to Gallup polls</a>, the majority of US folks approved of Black-White marriage only in 1997, <em>30 years later</em>. <a href="https://en.wikipedia.org/wiki/Generation#/media/File:Generation_timeline.svg">Generational cohorts</a> are usually defined to be ~20 years long, so, that's 1½ generations later. (Hat tip to <a href="https://xkcd.com/1431/">this xkcd</a> for teaching me about this.) <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn65" class="footnote-item"><p>Spoiler: this idea is similar to (but not exactly the same) as <em>Coherent Extrapolated Volition</em> (<a href="https://intelligence.org/files/CEV.pdf">Yudkowski 2004</a>), which we'll learn more in AI Safety for Fleshy Humans Part 3! <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn66" class="footnote-item"><p>For example, Ajeya Cotra 2023: <a href="https://www.planned-obsolescence.org/aligned-vs-good/">&quot;Aligned&quot; shouldn't be a synonym for &quot;good&quot;</a>, Michael Chen 2024: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4684068">AI Alignment is Not Enough to Make the Future Go Well</a>, Andrew Critch 2024: <a href="https://www.alignmentforum.org/posts/F2voF4pr3BfejJawL/safety-isn-t-safety-without-a-social-model-or-dispelling-the">Safety isn’t safety without a social model (or: dispelling the myth of per se technical safety)</a>. <a href="#fnref66" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+	</article>
+
+    <!-- FOOTER -->
+	<div id="footer">
+        <div id="footer_content">
+<p style="font-size: 1.3em; line-height: 1.35em;">
+<i>AI Safety for Fleshy Humans</i> was made by
+<a href="https://ncase.me/">Nicky Case</a>
+in collaboration with
+<a href="https://hackclub.com/">Hack Club</a>.
+</p>
+<p>
+🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
+is a nonprofit where teenagers code awesome projects together -
+like <a href="https://cpu.land">cpu.land</a>,
+<a href="https://sinerider.com">SineRider</a>,
+and this!
+Join
+<a href="https://hackathons.hackclub.com">in-person hackathons</a>,
+run a
+<a href="https://hackclub.com/clubs/">club at your school</a>,
+and
+<a href="https://hackclub.com/slack/">connect with other friendly teenagers</a>.
+</p>
+<p>
+😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
+is fifteen cats in a trenchcoat.
+She makes internet playthings, like
+<a href="https://ncase.me/trust/">The Evolution of Trust</a>,
+<a href="https://ncase.me/anxiety/">Adventures with Anxiety</a>,
+<a href="https://explorabl.es/">Explorable Explanations</a>, and more.
+</p>
+<p>
+💸 If you're <i>not</i> a teen, and are an AI moneybags person,
+<a href="https://hackclub.com/philanthropy/">learn how to support Hack Club!</a>
+Also, Nicky has a
+<a href="https://www.patreon.com/ncase">Patreon</a>
+&
+<a href="https://ko-fi.com/nickycase">Ko-Fi</a>.
+(p.s:
+<a href="../signup/supporters-p2.html">thank-you page for my supporters!</a>)
+</p>
+<p style="text-align:center">
+. . .
+</p>
+<p>
+Special thanks to these teens at Hack Club for
+<s>being free child labor</s>
+beta-reading & giving feedback on this piece:
+</p>
+<blockquote>
+
+<p>
+<b>Intro & Part 1:</b>
+Arthur Beck,
+Atharv Gupta,
+Brendan Lee,
+Celeste,
+Charalampos Fanoulis,
+Charlie,
+Cheru Berhanu,
+Claire Wang,
+Elijah,
+Fred Han,
+Gia Bách Nguyễn,
+Hajrah Siddiqui,
+Jakob,
+Joseph Ross,
+Kieran Klukas,
+Lexi Mattick,
+Mason Meirs,
+Michael Panait,
+Nick Zandbergen,
+Nila Palmo Ram,
+Pixelglide,
+py660,
+rivques,
+Samuel Cottrell,
+Samuel Fernandez,
+Saran Wagner,
+Skyler Grey,
+S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E,
+Vihaan Sondhi
+</p>
+
+<p>
+<b>Part 2:</b>
+Nanda White,
+Nila Palmo Ram,
+rivques,
+Rohan K,
+Samuel Fernandez
+</p>
+
+</blockquote>
+<p>
+Also thank you to these non-teenagers for giving feedback:
+(Though I assume they were teenagers at <i>some</i> point)
+</p>
+
+<blockquote>
+<p>
+<b>Intro & Part 1:</b>
+Alex Kreitzberg,
+B Cavello,
+Paul Dancstep,
+Tobias Rose-Stockwell
+</p>
+
+<p>
+<b>Part 2:</b>
+Egg Syntax,
+Max Wofford,
+Mithuna Yoganathan,
+Tobias Rose-Stockwell
+</p>
+
+</blockquote>
+
+<p>
+Any errors remaining are solely the fault of
+<a href="../suzie.png">Suzie the Scapegoat</a>.
+</p>
+<p style="text-align:center">
+. . .
+</p>
+<p>
+<i>AI Safety For Fleshy Humans</i> is free for anyone to share & remix,
+as long as it's for non-commercial use (e.g. education):
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
+</p>
+<p>
+If you'd like to cite this work and you're a Serious Person™, here's your citation:
+</p>
+<blockquote>
+Nicky Case, <i>“AI Safety for Fleshy Humans”</i>,<br>
+https://AIsafety.dance, Hack Club (2024).
+</blockquote>
+<p>
+Finally, here's the
+<a href="https://github.com/hackclub/ai-safety-dance">open-source code</a>
+for this website!
+</p>
+<p>
+Thank you for being the kind of person to read the credits~ 🙏
+</p>
+        </div>
+	</div>
+    <div id="post_credits">
+        <p>
+            Oh dang, it's a post-credits scene:
+        </p>
+<p>
+    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+</p>
+<p>
+    Also, expandable "Nutshells" that make good standalone bits:
+</p>
+
+<p>
+    <a href="#StoryOfPassivePrediction">: A story of how even passive prediction can lead to bad unintended results</a>
+    <br>
+    <a href="#SpuriousCorrelation">: How "spurious correlations" trick AI</a>
+    <br>
+    <a href="#OntologicalCrisis">: What's an "ontological crisis" in AI?</a>
+    <br>
+    <a href="#Pipocalypse">: The Pi-Pocalypse Story</a>
+    <br>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: What if Goal Misgeneralization is actually... good?</a>
+    <br>
+    <a href="#TradingWithAdvancedAIs">: Could humans trade with super-human AIs?</a>
+    <br>
+    <a href="#Axiom">: What's an "axiom"?</a>
+</p>
+
+    </div>
+
+</div>
+</body>
+</html>
+
+<!-- Load these scripts last. Screw 'em. -->
+<!-- Orbit: make memory a choice -->
+<script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>

@@ -188,7 +188,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // Reset
     let resetStyle = ()=>{
         $("#style_dark_mode").checked = false;
-        $("#style_fontsize_slider").value = 19;
+        $("#style_fontsize_slider").value = 18;
         $("input[value=serif]").checked = true;
         updateStyle();
     };
@@ -204,7 +204,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     //$("#style_dark_mode").checked = (window.localStorage.style_dark=="true");
     $("#style_dark_mode").checked = darkModeDefault;//(window.localStorage.style_dark=="true");
     //$("#style_fontsize_slider").value = parseInt(window.localStorage.style_size);
-    $("#style_fontsize_slider").value = 19;
+    $("#style_fontsize_slider").value = 18;
     //$(`input[value=${window.localStorage.style_font}]`).checked = true;
     $(`input[value=serif]`).checked = true;
 
@@ -237,8 +237,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
             clicker = 0;
             crtY += 5;
             staticY += 100 + Math.floor(Math.random()*100);
-            crt_lines.style.backgroundPositionY = nb_crt_lines.style.backgroundPositionY = crtY+"px";
-            static.style.backgroundPositionY = nb_static.style.backgroundPositionY = staticY+"px";
+            crt_lines.style.backgroundPositionY = crtY+"px";
+            if(nb_crt_lines) nb_crt_lines.style.backgroundPositionY = crtY+"px";
+            static.style.backgroundPositionY = staticY+"px";
+            if(nb_static) nb_static.style.backgroundPositionY = staticY+"px";
         }
         requestAnimationFrame(animloop);
     };

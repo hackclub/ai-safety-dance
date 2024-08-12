@@ -43,6 +43,17 @@ let convertConfigs = [
 
             isPartOne: true
         }
+    },
+    {
+        markdown:'p2/p2.md', template:'templates/page_template.html', exportTo:'p2/index.html',
+        extras:{
+            title: 'Part 2: The Problems',
+            share_desc: 'Chapter Two of “AI Safety for Fleshy Humans: a whirlwind tour”',
+            share_image: 'https://aisafety.dance/thumbs/thumb-p2.png',
+            root:'../',
+
+            isPartTwo: true
+        }
     }
 ];
 convertConfigs.forEach((config)=>{

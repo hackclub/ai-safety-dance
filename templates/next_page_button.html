@@ -2,7 +2,7 @@
     {% if isFrontpage %} href="p1" {% endif %}
     {% if isPartOne %} href="../p2" {% endif %}
     target="_self">
-<div id="next_button" {{ 'class="unfinished"' if isPartOne }}>
+<div id="next_button" {{ 'class="unfinished"' if isPartTwo }}>
     <div id="nb--crt_lines"></div>
     <div id="nb--static"></div>
     <div id="nb--words">
@@ -10,11 +10,13 @@
             <b>PART ONE →</b>
         {% elif isPartOne %}
             <b>PART TWO →</b>
+        {% elif isPartTwo %}
+            <b>PART THREE →</b>
         {% endif %}
     </div>
 </div>
 </a>
-{% if isPartOne %}
+{% if isPartTwo %}
 <div style="height:0; position:relative">
     <img style="display: block;
   margin: 0 auto;

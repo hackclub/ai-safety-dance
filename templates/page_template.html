@@ -121,6 +121,9 @@
             {% if isPartOne %}
             <img id="p1-cat" src="../media/p1/P1Cat.png"/>
             {% endif %}
+            {% if isPartTwo %}
+            <img id="p2-banner" src="../media/p2/P2Cat.png"/>
+            {% endif %}
 
             <div id="crt_lines"></div>
             <div id="static"></div>
@@ -156,6 +159,18 @@
                 </div>
             </div>
 
+        {% elif isPartTwo %}
+
+        <div id="header_words">
+            <div id="title">
+                P<span style="position: relative;left: -7px;">A</span>RT
+                T<span style="position: relative;left: 6px;">W</span>O
+            </div>
+            <div id="subtitle">
+                The Problems
+            </div>
+        </div>
+
         {% endif %}
 	</div>
 
@@ -184,9 +199,8 @@
                     </span>
                 </div>
             </a>
-            <a target="_self" href="#"
-                title="COMING JULY 2024, probably"
-                onclick="alert('COMING JULY 2024, probably')">
+            <a target="_self" href="{{root}}p2"
+                class="live">
                 <div>
                     <span class='chapter-nav-desktop'>
                         part 2<br>problems
@@ -197,8 +211,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING OCT 2024, probably"
-                onclick="alert('COMING OCT 2024, probably')">
+                title="COMING HALLOWEEN 2024, probably"
+                onclick="alert('COMING HALLOWEEN 2024, probably')">
                 <div>
                     <span class='chapter-nav-desktop'>
                         part 3<br>solutions?
@@ -209,8 +223,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING OCT 2024, probably"
-                onclick="alert('COMING OCT 2024, probably')">
+                title="COMING HALLOWEEN 2024, probably"
+                onclick="alert('COMING HALLOWEEN 2024, probably')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
                         conclusion
@@ -284,6 +298,22 @@
     <a href="#OneIsTwo">: What if System 2 reasoning <i>is just</i> a bunch of System 1 reflexes?</a>
     <br>
     <a href="#AIOrganizations">: A not-rigorous, unprofessional list of Who's Who in AI/Safety</a>
+</p>
+{% elif isPartTwo %}
+<p>
+    <a href="#StoryOfPassivePrediction">: A story of how even passive prediction can lead to bad unintended results</a>
+    <br>
+    <a href="#SpuriousCorrelation">: How "spurious correlations" trick AI</a>
+    <br>
+    <a href="#OntologicalCrisis">: What's an "ontological crisis" in AI?</a>
+    <br>
+    <a href="#Pipocalypse">: The Pi-Pocalypse Story</a>
+    <br>
+    <a href="#WhatIfGoalMisgeneralizationIsGood">: What if Goal Misgeneralization is actually... good?</a>
+    <br>
+    <a href="#TradingWithAdvancedAIs">: Could humans trade with super-human AIs?</a>
+    <br>
+    <a href="#Axiom">: What's an "axiom"?</a>
 </p>
 {% endif %}
     </div>
