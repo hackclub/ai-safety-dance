@@ -24,7 +24,7 @@ Don't exit the .html files directly. Instead, make edits to the Markdowns:
 * Part One is at `p1/p1.md`
 * and so on
 
-To build them into a static site, run the `build.js` Node script. This will write your updates to the html files (`index.html`, `p1/index.html`, etc.)
+To build them into a static site, `npm run build`. This will write your updates to the html files (`index.html`, `p1/index.html`, etc.)
 
 <details>
 <summary>Orbit flashcard build (uncommon)</summary>
