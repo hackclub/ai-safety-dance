@@ -20,7 +20,7 @@ First, FORK AND MAKE YOUR OWN REPO for any translations. There is no way in heck
 
 Make edits to the Markdowns:
 
-* Introduction is at `index.md`
+* Introduction is at `intro.md`
 * Part One is at `p1/p1.md`
 
 To build them into a static site, run the `build.js` Node script
