@@ -868,7 +868,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <p><em>(clip from <a href="https://www.youtube.com/watch?v=zkbPdEHEyEI">Rob Miles' excellent video</a> on inner misalignment/goal mis-generalization)</em></p>
 <p>So: even though we <em>correctly specified</em> the goal (get coin), the AI learnt a <em>totally different</em> goal (go to end), and optimized for that instead.</p>
 <p>(<a href="#GMGGoals">:Technical side - how do we know what goal an AI 'really' has?</a>)</p>
-<p>But why's the AI mis-learn a goal? It's as I over-explained in Problem #5: <strong>most modern AI systems only do correlation, not causation.</strong> In the above AI's training data, &quot;go all the way to the end&quot; correlated strongly with a high reward.  In the new levels, this correlation stopped, but the AI kept its &quot;habit&quot; anyway.</p>
+<p>But why's the AI mis-learning a goal? It's as I over-explained in Problem #5: <strong>most modern AI systems only do correlation, not causation.</strong> In the above AI's training data, &quot;go all the way to the end&quot; correlated strongly with a high reward.  In the new levels, this correlation stopped, but the AI kept its &quot;habit&quot; anyway.</p>
 <p>Let's draw this as a causal diagram! Training levels with the coin at the end <em>causes</em> both AI going to the end and AI going to the coin... which causes a <em>confounded correlation</em> between &quot;go to end&quot; &amp; &quot;go to coin&quot;. But only &quot;go to coin&quot; <em>actually causes</em> getting a reward:</p>
 <p><img src="../media/p2/gmg/gmg1.png" alt="Causal diagram visualizing above text."></p>
 <p>In general, for goal mis-generalization:</p>
@@ -1139,7 +1139,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <p>We don't.</p>
 <p>At least, nobody (yet) has found a non-contrived confirmed example of an ANN with a &quot;goal&quot; it's explicitly comparing different outcomes/actions against. It's unknown if we haven't found this because our ANN interpretability techniques aren't good enough, or they're just not there.</p>
 <p>But for now, we can <strong>take the &quot;intentional stance&quot;, and say if an AI is acting <em>as if</em> it has some Goal/Reward X.</strong> (X is part of its <a href="https://openreview.net/pdf?id=pErdjpoc-w3">&quot;Consistent Reward Set&quot;</a>)</p>
-<p>For example, if we see an AI <em>competently</em> dodging obstacles to get to the end of a level, we can say it's acting <em>as if</em> it's goal is to get to the end of a level. Even if the AI is &quot;really&quot; just a bunch of goal-less reflexes like &quot;If gap, Then jump over&quot;, etc.</p>
+<p>For example, if we see an AI <em>competently</em> dodging obstacles to get to the end of a level, we can say it's acting <em>as if</em> its goal is to get to the end of a level. Even if the AI is &quot;really&quot; just a bunch of goal-less reflexes like &quot;If gap, Then jump over&quot;, etc.</p>
 <p>(Hey, maybe deep down, <em>all</em> our human goals are made up of goal-less mental reflexes?? e.g. &quot;I want to write a good explainer article&quot; =&gt; &quot;If sentence is abstract, Then put a concrete example nearby&quot;, etc...)</p>
 <h4>:x axiom</h4>
 <p>In math/logic, an &quot;axiom&quot; is something that <em>has</em> to be assumed in order to prove stuff, but <em>it itself</em> can't be proven.</p>
