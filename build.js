@@ -54,6 +54,17 @@ let convertConfigs = [
 
             isPartTwo: true
         }
+    },
+    {
+        markdown:'p3-secret/p3.md', template:'templates/page_template.html', exportTo:'p3-secret/index.html',
+        extras:{
+            title: 'Part 3: The Proposed Solutions',
+            share_desc: 'Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”',
+            share_image: 'https://aisafety.dance/thumbs/thumb-p3.png',
+            root:'../',
+
+            isPartThree: true
+        }
     }
 ];
 convertConfigs.forEach((config)=>{

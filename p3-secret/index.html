@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <!-- Title -->
+    <title>Part 3: The Proposed Solutions</title>
+
+    <!-- UTF-8 & Mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Links are external by default -->
+    <base target="_blank">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Social Share Nonsense -->
+	<meta itemprop="name" content="Part 3: The Proposed Solutions">
+	<meta itemprop="description" content="Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta itemprop="image" content="https://aisafety.dance/thumbs/thumb-p3.png">
+	<meta property="og:title" content="Part 3: The Proposed Solutions">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://aisafety.dance/thumbs/thumb-p3.png">
+	<meta property="og:description" content="Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”">
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Part 3: The Proposed Solutions">
+	<meta name="twitter:description" content="Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”">
+	<meta name="twitter:image" content="https://aisafety.dance/thumbs/thumb-p3.png">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="../styles/Merriweather/merriweather.css">
+    <link rel="stylesheet" href="../styles/Open_Sans/opensans.css">
+    <link rel="stylesheet" href="../styles/littlefoot.css"/> <!-- before page.css, so page can override it -->
+	<link rel="stylesheet" href="../styles/page.css">
+
+	<!-- SCRIPTS -->
+    <!-- Littlefoot: for my feetnotes -->
+    <script src="../scripts/littlefoot.js" ></script>
+    <!-- Nutshell: expandable explanations -->
+    <script src="../scripts/nutshell-v1.0.5.js"></script>
+    <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
+    <!-- MathJAX: for nice math -->
+    <script src="../scripts/tex-mml-chtml.js"></script>
+	<!-- This website's own scripts -->
+    <script src="../scripts/page.js"></script>
+    <!-- Hack Club's no-cookies, GDPR-compliant analytics -->
+    <script defer data-domain="aisafety.dance" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+
+<!-- HACKBRAND -->
+<a class="orpheus-flag" target="_blank" href="https://hackclub.com/">
+	<img src="../styles/orpheus-flag.svg" width="560" height="315" alt="A project by Hack Club" aria-label="A project by Hack Club">
+</a>
+
+<!-- The Sidebar UI -->
+<div id="return_to_content"></div>
+<div id="sidebar">
+	<div id="panel_toc"></div>
+
+    <!-- STYLE CHANGER -->
+	<div id="panel_style">
+
+        <div id="style_dark_mode_container" style="cursor:pointer;">
+            <input type="checkbox" id="style_dark_mode" style="pointer-events: none;">
+            Dark Mode
+        </div>
+        <br>
+
+        Font size:
+        <span id="style_fontsize"></span>
+        <br>
+        <input type="range" id="style_fontsize_slider" min="10" value="19" max="40">
+        <br>
+
+        Font type:
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="serif" checked>
+            <span style="font-family:'Merriweather'">Serif</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="style_font_family" value="sans_serif">
+            <span style="font-family:'Open Sans'">Sans Serif</span>
+        </label>
+        <br><br>
+
+        <button id="style_reset">Reset</button>
+
+    </div>
+
+    <!-- TRANSLATIONS -->
+	<div id="panel_translations">
+        <!-- none... sorry -->
+    </div>
+	<div id="panel_share">share on... w/e</div>
+    <!-- SHILLING FOR BIG NICKY -->
+	<div id="panel_sub">
+    </div>
+    <div id="panel_support"></div>
+
+</div>
+
+<!-- Reading Time Clock! -->
+<div id="reading_time">
+	<div id="clock_icon"></div>
+	<div id="clock_label"></div>
+</div>
+
+<!-- EVERYTHING TO THE LEFT of the sidebar... -->
+<div id="everything_container">
+
+    <!-- A big cute header -->
+    <div id="header" class="chapter">
+        <div id="splash_image">
+
+            
+            
+
+            <div id="crt_lines"></div>
+            <div id="static"></div>
+
+            
+
+        </div>
+        
+
+        <div id="header_words">
+            <div id="title">
+                P<span style="position: relative;left: -7px;">A</span>RT
+                THREE
+            </div>
+            <div id="subtitle">
+                The Proposed Solutions
+            </div>
+        </div>
+
+        
+	</div>
+
+    <!-- Chapter Navigation -->
+    <div id="chapter_nav">
+        <div id="chapter_nav_centered">
+            <a target="_self" href="../"
+                class="live">
+                <div >
+                    <span class='chapter-nav-desktop'>
+                        introduction
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        intro
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="../p1"
+                class="live">
+                <div  >
+                    <span class='chapter-nav-desktop'>
+                        part 1<br>past & future
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 1
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="../p2"
+                class="live">
+                <div  >
+                    <span class='chapter-nav-desktop'>
+                        part 2<br>problems
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 2
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING MID-DECEMBER 2024, probably"
+                onclick="alert('COMING MID-DECEMBER 2024, probably')">
+                <div>
+                    <span class='chapter-nav-desktop'>
+                        part 3<br>solutions?
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        part 3
+                    </span>
+                </div>
+            </a>
+            <a target="_self" href="#"
+                title="COMING MID-DECEMBER 2024, probably"
+                onclick="alert('COMING MID-DECEMBER 2024, probably')">
+                <div style="border-right:1px solid rgba(128,128,128,0.8);">
+                    <span class='chapter-nav-desktop'>
+                        conclusion
+                    </span>
+                    <span class='chapter-nav-phone'>
+                        outro
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- The lil' tabs for sidebar UI -->
+    <div id="sidebar_tabs">
+		<div id="tab_toc">
+			<div></div>
+			table of contents
+		</div>
+		<div id="tab_style">
+			<div></div>
+			change style 😎
+		</div>
+        <!--
+		<div id="tab_sub">
+            CREDITS & Signup for notifications
+			<div></div>
+			subscribe 💖
+		</div>
+        -->
+	</div>
+
+    <!-- BEHOLD! CONTENT!!!!! -->
+	<article id="content">
+<h3>This is a secret unlisted draft for beta-readers! Please don't share (yet), thank you for gifting me feedback! You'll be credited in the credits if you wish :3</h3>
+<p><em>(This is Part 3 of a series on AI Safety! You don't</em> have <em>to read the previous parts — <a href="https://aisafety.dance/">Intro</a>, <a href="https://aisafety.dance/p1/">Part 1</a>, <a href="https://aisafety.dance/p2/">Part 2</a> — but they'll help!)</em></p>
+<p><em>(This article was first published on Dec //, 2024. Last updated ////)</em></p>
+<p>So, after writing 40,000+ words on how tough &amp; weird &amp; difficult AI Safety is... how am I feeling about the chances of humanity solving this problem?</p>
+<p>...pretty optimistic, actually!</p>
+<p>No, really!</p>
+<p>Maybe it's just cope. But in my opinion, if <em>this</em> is the space of all the problems:</p>
+<p><img src="../media/p3/intro/problems.png" alt="Drawing of a faintly outlined blob, labelled &quot;the whole problem space&quot;"></p>
+<p>Then: although no <em>one</em> proposed solution covers the whole space, <em>the entire problem space</em> is covered by one (or more!) promising solutions:</p>
+<p><img src="../media/p3/intro/solutions.png" alt="Same outline, but entirely overlapped by small colorful circles, each one representing a different solution"></p>
+<p><em>This does not mean AI Safety is 100% solved yet, of course</em> — we need to triple-check these solutions, and get engineers/policymakers to even <em>know</em> about these solutions, let alone implement them. But for now, I'd say: &quot;lots of work to do, but lots of promising starts&quot;!</p>
+<p>Previously in this series, we saw the main problems in AI &amp; AI Safety boils down to two core conflicts:</p>
+<p><img src="../media/p3/intro/core_conflicts.png" alt="Logic &quot;vs&quot; Intuition, and Problems in the AI &quot;vs&quot; in Humans"></p>
+<p>So in Part 3, we'll learn about the most-promising solution(s) for each part of the problem, while being honest about their pros, cons, and unknowns:</p>
+<p><strong>🤖 Problems in the AI:</strong></p>
+<ul>
+<li><u>Scalable Oversight</u>: How can we safely check AIs, even when they're <em>far</em> more advanced than us? <a href="#oversight">↪</a></li>
+<li><u>Solving AI Logic</u>: AI should predict our approval <a href="#approval">↪</a>, be uncertain &amp; prepare for the worst-case <a href="#uncertain">↪</a>, and learn our values <a href="#learn_values">↪</a></li>
+<li><u>Solving AI &quot;Intuition&quot;</u>: AI should be robust <a href="#robust">↪</a>, interpretable <a href="#interpretable">↪</a>, and think in cause-and-effect. <a href="#causality">↪</a></li>
+</ul>
+<p><strong>😬 Problems in the Humans</strong>:</p>
+<ul>
+<li><u>Humane Values</u>: Which values, <em>whose</em> values, should we put into AI, and how? <a href="#humane">↪</a></li>
+<li><u>AI Governance</u>: How can we coordinate humans to get their act together on AI? <a href="#governance">↪</a></li>
+</ul>
+<p><strong>🌀 Working <em>around</em> the problems</strong>:</p>
+<ul>
+<li><u>Alternatives to AGI</u>: How 'bout we just don't make the Torment Nexus? <a href="#alt">↪</a></li>
+<li><u>Cyborgism</u>: If you can't beat 'em, join 'em! <a href="#cyborg">↪</a></li>
+</ul>
+<p>(If you'd like to skip around, the <img src="../media/intro/icon1.png" class="inline-icon"> Table of Contents are to your right! 👉 You can also <img src="../media/intro/icon2.png?v=3" class="inline-icon"> change this page's style, and <img src="../media/intro/icon3.png?v=2" class="inline-icon"> see how much reading is left.)</p></p>
+<p>Alright, let's dive in! No need for more introduction, or weird stories about cowboy catboys, let's just—</p>
+<hr>
+<p><a id="oversight"></a></p>
+<h2>Scalable Oversight</h2>
+<p>This is Sheriff Meowdy, the cowboy catboy:</p>
+<p><img src="../media/p3/so/meowdy0001.png" alt="Drawing of Sheriff Meowdy"></p>
+<p>One day, the Varmin strode into town:</p>
+<p><img src="../media/p3/so/meowdy0002.png" alt="Sheriff Meowdy staring down a bunch of Jerma rats strolling towards him"></p>
+<p>Sharpshootin' as the Sheriff was, he's man enough (catman enough) to admit when he needs backup. So, he makes a robot helper — Meowdy 2.0 — to help fend off the Varmin:</p>
+<p><img src="../media/p3/so/meowdy0003.png" alt="Robot version of Sheriff Meowdy, labelled &quot;Meowdy 2.0&quot;"></p>
+<p>Meowdy 2.0 can shoot twice as fast as the Sheriff, but there's a catch: Meowdy 2.0 <em>might</em> betray the Sheriff. Thankfully, it takes time to turn around &amp; betray the Sheriff, and the Sheriff is still fast enough to stop Meowdy 2.0 if it does that.</p>
+<p>This is <strong>oversight.</strong></p>
+<p><img src="../media/p3/so/meowdy0004.png" alt="Sheriff Meowdy watching 2.0, with a gun to its head. 2.0 can turn around in 500ms, Meowdy can react &amp; shoot in 200ms."></p>
+<p>Alas, even Meowdy 2.0 <em>still</em> ain't fast enough to stop the millions of Varmin. So Sheriff makes Meowdy 3.0, which is twice as fast as 2.0, or <em>four times</em> as fast as the Sheriff.</p>
+<p>This time, the Sheriff has a harder time overseeing it:</p>
+<p><img src="../media/p3/so/meowdy0005.png" alt="3.0 can turn around in 250ms, Meowdy can only still react in 200ms. Meowdy is sweating."></p>
+<p>But Meowdy 3.0 <em>still</em> ain't fast enough. So the Sheriff makes Meowdy 4.0, who's twice as fast as 3.0...</p>
+<p>...and this time, it's so fast, the Sheriff can't react if 4.0 betrays him:</p>
+<p><img src="../media/p3/so/meowdy0006.png" alt="4.0 can turn around in 125ms, which is fast enough to betray Meowdy. 4.0 shoots Meowdy dead."></p>
+<p>So, what to do? The Sheriff strains all two of his orange-cat brain cells, and comes up with a plan: <strong><em>scalable</em> oversight!</strong></p>
+<p>He'll oversee 2.0, which can oversee 3.0, which <em>can</em> oversee 4.0!</p>
+<p><img src="../media/p3/so/meowdy0007.png" alt="Meowdy oversees 2.0 oversees 3.0 oversees 4.0"></p>
+<p>In fact, why stop there? This harebrained &quot;scalable oversight&quot; scheme of his will let him oversee a Meowdy of <em>any</em> speed!</p>
+<p>So, the Sheriff makes 20 Meowdy's. Meowdy 20.0 is 2<sup>20</sup> ~= one <em>million</em> times faster than the Sheriff: plenty quick enough to stop the millions of Varmin!</p>
+<p><img src="../media/p3/so/meowdy0008.png" alt="Meowdy oversees a chain of Meowdy's, up to Meowdy 20.0, who can shoot all the Varmin dead."></p>
+<p>In other words, the core insight of scalable oversight is this meme:</p>
+<p><img src="../media/p3/so/meme.png" alt="The &quot;domino&quot; meme, where a small domino knocks over a bigger one, which knocks over a bigger one, until it can knock over a huge domino."></p>
+<p>(Another analogy: sometimes, boats are so big, it needs a rudder so big you can't turn it directly. The solution? Put a smaller rudder <em>on that rudder!</em> You can steer the small rudder, which steers the bigger rudder, which steers the whole boat.)</p>
+<p><code>(TODO: gif of a 'tailtip')</code></p>
+<p>You may notice this is similar to the idea of &quot;recursive self-improvement&quot; for AI <em>Capabilities:</em> an advanced AI could make a <em>slightly more</em> advanced AI, etc. Scalable Oversight is the same idea, but for AI <em>Safety:</em> one AI helps you understand &amp; control a slightly more advanced AI, etc!
+you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
+<p>(Ideas like these, where case number N helps you solve case number N+1, etc, are called &quot;inductive&quot; or &quot;iterative&quot; or &quot;recursive&quot;. Don't worry, you don't need to remember that jargon, just thought I'd mention it.)</p>
+<p>Anyhoo: with the power of friendship, math, and a bad Wild West accent...</p>
+<p>... the mighty Sheriff Meowdy has saved the townsfolk, once more!</p>
+<p><img src="../media/p3/so/meowdy0010.png" alt="Sheriff Meowdy blowing the smoke away from his gun, as the injured Varmin waltz off into the sunset"></p>
+<p><code>(TODO: Robust scalable oversight, alignment tax?)</code></p>
+<p><code>(TODO: What if discontinuous phase transitions, &quot;sharp left turn&quot;?)</code></p>
+<p>. . .</p>
+<p><code>TODO (HC Newsletter — stickers)</code></p>
+<p>. . .</p>
+<p>As a behind-the-scenes note, the above comics were the <em>first</em> thing in this 3-part series that I drew... two years ago. (Don't do longform content on the internet kids, it ain't worth it.) But the point is: learning about Scalable Oversight was <em>the</em> one idea that made me the most optimistic about AI Safety! Because it turns this seemingly-impossible problem:</p>
+<blockquote>
+<p><em>&quot;How do you avoid getting tricked by something that's 100x smarter than you?&quot;</em></p>
+</blockquote>
+<p>Into the <em>much more feasible</em> problem:</p>
+<blockquote>
+<p><em>&quot;How do you avoid getting tricked by something that's only 10% smarter than you, and ALSO you can read its mind?&quot;</em></p>
+</blockquote>
+<p>To be clear, the above problem <em>still</em> isn't solved yet. But it's a huge step!</p>
+<p><code>// PICTODO: all the above in one picture?</code></p>
+<p>Anyway, that's the <em>general</em> idea. Here's some <em>specific</em> implementations!</p>
+<ul>
+<li><strong><a href="https://arxiv.org/abs/2312.06942">GPT-3.5 can catch sneaky, subtly-harmful code, written by the more-powerful GPT-4.</a></strong></li>
+<li><strong><a href="https://openai.com/index/prover-verifier-games-improve-legibility/">Prover-Verifier Games</a></strong> pits a weak &quot;math proof verifier&quot; AI against two stronger AIs: a &quot;helpful prover&quot; that gives true proofs, and a &quot;sneaky prover&quot; that gives false proofs that <em>seem</em> true. Result of training on this game: the <em>weak verifier</em> can get good enough to distinguish true proofs, but the <em>strong sneaky prover can't win in the long run.</em> Encouraging!</li>
+<li><strong><a href="https://openai.com/index/weak-to-strong-generalization/">Weak-to-Strong Generalization</a></strong> found that GPT-<em>2</em> did a pretty okay job at supervising &amp; training GPT-<em>4</em>. (an AI that's several orders of magnitude bigger)</li>
+<li><strong><a href="https://arxiv.org/abs/1811.07871">Recursive Reward Modeling</a></strong> usesa Level-N bot not just to check a Level-(N+1) bot <em>in hindsight</em>, but to <em>train its rewards (&quot;goals&quot;, &quot;desires&quot;) in the first place.</em><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
+<li><strong><a href="https://openai.com/index/debate/">Debate</a></strong> is slightly different. Instead of a weaker AI overseeing a stronger AI, Debate has 2 equally-powerful AIs debate each other, picking apart each others' logic. As long as truth can survive scrutiny better than falsehood, the truth will win. (Well, maybe.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>)
+<ul>
+<li>Some more similar papers:<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
+</ul>
+</li>
+<li><strong><a href="https://www.lesswrong.com/posts/vhfATmAoJcN8RqGg6/a-guide-to-iterated-amplification-and-debate">Iterated Distillation &amp; Amplification</a> (IDA)</strong> might be <em>safer</em> than what we saw above: it has you oversee AIs that are <em>strictly weaker</em> than you. To loosely summarize: IDA has you become the CEO of a company made out of AI-imitations of you! <em>That's</em> how you can get high capabilities, while safely overseeing the whole thing!
+<ul>
+<li>(:TODO Click here to expand this text &amp; learn more about IDA, including its critiques. // Analogy to AlphaGo)</li>
+</ul>
+</li>
+</ul>
+<p><code>TODO: is checking solutions always easier than creating solutions? P=NP and random-number generators.</code></p>
+<p>Sure, each of the above solutions has valid critiques, but the general direction is promising, <em>and</em> we can use multiple solutions at the same time, as backup.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>That's why I'm optimistic that <em>IF</em> we can align a slightly-smarter-than-us AI, <em>THEN</em>, through an iterative method, we can align far more advanced AIs.</p>
+<p>...but right now, we can't even align <em>dumber</em>-than-us AIs.</p>
+<p>So, that's what the next few proposed solutions aim to fix! But first...</p>
+<h3>🤔 (Optional!) Flashcard Review #1</h3>
+<p>You read a thing. You find it super insightful. Two weeks later you forget everything but the vibes.</p>
+<p>That sucks! So, here are some <em>100% OPTIONAL</em> Spaced Repetition flashcards, to help you remember these ideas long-term! ( 👉 <a href="https://aisafety.dance/#SpacedRepetition">: Click here to learn more about spaced repetition</a>) You can also download these as an Anki deck. TODO</p>
+<p><code>// TODO</code></p>
+<p>Good? Let's move on...</p>
+<hr>
+<p><a id="approval"></a></p>
+<h2>AI Logic: Approval-Directed</h2>
+<p>You may have noticed a pattern in AI Safety problems.</p>
+<p>We imagine giving an AI an innocent-seeming goal. Then, we think of the worst way it could technically achieve that goal:</p>
+<ul>
+<li><u>&quot;Pick up dirt from the floor&quot;</u> → Knocks all the potted plants over so it can pick up more dirt.</li>
+<li><u>&quot;Calculate digits of pi&quot;</u> → Deploys a computer virus to steal as much compute power as possible, to calculate digits of pi.</li>
+<li><u>&quot;Help everyone feel happy &amp; fulfilled&quot;</u> → Hijacks drones to airdrop aerosolized LSD and MDMA.</li>
+</ul>
+<p>Note these are <em>NOT</em> problems with the AI being sub-optimal. These are problems <em>because</em> the AI is acting optimally! (We'll deal with the problems of sub-optimal AIs later.) Remember: like a cheating student or disgruntled employee, it's not that the AI may not &quot;know&quot; what you really want, it's that it may not &quot;care&quot;. (To be less anthropomorphic: a piece of software will optimize for exactly what you coded it to do. No more, no less.)</p>
+<p>&quot;Think of the worst that could happen, in advance.&quot; If you recall, this is <a href="https://aisafety.dance/p2/#:~:text=Does%20all%20this%20seem%20paranoid">Security Mindset</a>, the engineer mindset that makes bridges &amp; rockets safe, and makes AI researchers so worried about advanced AI.</p>
+<p>But hang on... what if we made an AI that <em>used Security Mindset against itself?</em></p>
+<p>To be precise:</p>
+<p><strong>Proposal: the Approval-Directed Agent (ADA) Algorithm</strong></p>
+<p><code>// TODO: picture?</code></p>
+<p>The following proposal is for a <em>theoretically optimal</em> AI. (We'll see how to modify this to work with &quot;bounded rational&quot; AIs later!)</p>
+<p><strong>1️⃣:</strong> Alice asks Robot to do [X].</p>
+<p><strong>2️⃣:</strong> Robot thinks of all the ways to do [X], and predicts their <strong>trajectories</strong>. (Trajectory = the action itself + its consequences at each point in time.)</p>
+<p><strong>3️⃣:</strong> Robot predicts how <em>the current Alice</em> would react to each trajectory.</p>
+<p>(Why <em>current</em> Alice, not future Alices? To prevent Robot having an incentive to brainwash Alice, to get easier-to-please future Alices.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> And why <em>whole trajectories</em>, not just the final outcome? To prevent horrifying &quot;ends justify the means&quot; scenarios.)</p>
+<p><strong>4️⃣:</strong> Robot selects the action that leads to the trajectory current-Alice would most approve of. Robot will <em>not</em> do the actions that lead to trajectories that Alice would disapprove of. “If we predictably scream <em>later</em>, the [actions] change <em>now</em>.”<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p><strong>5️⃣:</strong> Profit!</p>
+<p>(Note 1: The ADA algorithm was first proposed by Paul Christiano<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>. 👈 <em>hover or click to show footnotes!</em>  Christiano is most famous for creating Reinforcement Learning with Human Feedback (RLHF), which made ChatGPT &amp; similar possible. We'll learn more about RLHF later.) <code>// TODO: ok his original version is slightly different. // TODO: also similar to &quot;indirect normativity&quot;</code></p>
+<p>(Note 2: The above only solves &quot;technical alignment&quot;, getting an AI to serve <em>Alice's</em> values, which may or may not be moral or humane values. We'll look at proposals for incorporating humane values into AI, later.)</p>
+<p>And voilà! That's how we make an AI use Security Mindset <em>on itself.</em> <strong>If we could <em>even in principle</em> come up with a Security Mindset problem with something an AI does, <em>this</em> AI would've already predicted that, and fixed the problem!</strong></p>
+<p><em>Hang on</em>, you may think, <em>I can already think of ways ADA can go wrong, even with an optimal AI</em>. For example:</p>
+<ul>
+<li>This would lock us in into our <em>current</em> values, no room for change or growth.</li>
+<li>Whether or not we approve of something is sensitive to psychological tricks, e.g. seeing a thing for &quot;$20&quot;, versus &quot;<s>$50</s> $20 (SALE: $30 OFF!!!)&quot;</li>
+<li>If the truth is upsetting — e.g. when scientists discovered Earth wasn't the center of the universe — the AI will tell us comforting falsehoods we'd approve of. (&quot;sycophancy&quot;<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>, or butt-kissing)</li>
+</ul>
+<p>If you think these would be problems... you'd be correct!</p>
+<p>If <em>current</em>-You could predict you'd disapprove of locked-in values, psychological tricks, and comforting lies... an optimal AI could predict that too, and so, that AI would <em>modify its own ADA algorithm</em> to fix all those problems! (TODO :example of a possible fix)</p>
+<p>Similar to recursive self-improvement for AI Capabilities, or scalable oversight for AI Safety... <strong>We don't need to start with a <em>perfect</em> algorithm. As long as we start with something good enough, a &quot;critical mass&quot;, it can self-improve into something better and better.</strong></p>
+<p>(<code>TODO: Wait, would an AI be stable under repeated self-modification? There's many juicy open research questions, but probably yes!</code>)</p>
+<p>Aaaand we're done! AI Alignment, <em>solved!</em></p>
+<p>...</p>
+<p>...in theory. Again, all the above <em>assumes an optimal AI</em>, which can perfectly predict trajectories, and perfectly predict how current-us would react to those trajectories.</p>
+<p>Still, it's good to solve the easier ideal case first, before moving onto the harder messy cases. Up next, we'll see proposals to get a sub-optimal, &quot;bounded rational&quot; AI, to safely do the above!</p>
+<p><code>TODO: other huge open questions in AI game theory &amp; Agent Foundations that I can't fit into the main article. // FDT, OSGT, Self-Mod, Oracle, etc. ESPECIALLY SELF-MODIFICATION. I feel bad I can't find a natural way to include these in the text!</code></p>
+<h3>🤔 Review #2</h3>
+<p>TODO</p>
+<hr>
+<p><a id="uncertain"></a></p>
+<h2>AI Logic: Uncertainty &amp; Worst-case</h2>
+<p>Classic logic is only True or False, 100% or 0%, All or Nothing.</p>
+<p><em>Probabilistic</em> logic is about, well, probabilities.</p>
+<p>I assert: thinking in probabilities is better than thinking in all-or-nothing. (98% probability)</p>
+<p>Let's consider 3 cases, with a classic-logic Robot:</p>
+<ul>
+<li><u>Unwanted optimization</u>: You instruct Robot, &quot;make me happy&quot;. <em>It will then be 100% sure that's your full and only desire</em>, so it pumps you with bliss-out drugs &amp; you do nothing but grin at a wall forever.</li>
+<li><u>Unwanted side-effects</u>: You instruct Robot to close the window. Your cat's in the way, between Robot and the window. <em>You said nothing about the cat, so it's 0% sure you care about the cat.</em> So, on the way to the window, Robot steps on your cat.</li>
+<li><u>&quot;Do what I mean, not what I said&quot; can still fail</u>: There's a grease fire. You instruct Robot to get you a bucket of water. You actually <em>did</em> mean for a bucket of water, but you didn't know water causes grease fires to explode. Even if Robot did &quot;what you meant&quot;, it'll give you a bucket of water, then you explode.</li>
+</ul>
+<p>In all 3 cases, the problem is that the AI was 100% sure what your goal was: exactly what you said or meant, <em>no more, no less</em>.</p>
+<p>The solution: make AIs <em>know they don't know</em> our true goals! (Heck, <em>humans</em> don't know their own true goals.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>) AIs should think in probabilities about what we want. Then, like in Security Mindset, an AI should optimize for the <em>(plausible)</em> worst-case, not just the most-likely or average-case.</p>
+<p>In other words: <strong>learn like a scientist, act like an insurance agent!</strong> (uncertainty + worst-case planning)</p>
+<p>Let's work through the grease-fire example:</p>
+<p><code>TODO: work through grease-fire example</code></p>
+<p><code>(TODO: working through the other two examples)</code></p>
+<p>(Credit: many AI scientists have proposed &quot;uncertainty&quot; as a core part of the solution to AI Alignment, but <em>I</em> first heard it from Stuart Russell, co-author of <em>the</em> #1 textbook in AI.<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>)</p>
+<p>. . .</p>
+<p>Here's the general algorithm, in gory detail:</p>
+<p><strong>1️⃣:</strong> First, an AI should start off with a good-enough &quot;prior probability&quot; of what humans <em>in general</em> want. (Learnt from good ol' Big Data.)</p>
+<p><strong>2️⃣:</strong> Then, like a scientist or detective, it should entertain multiple hypotheses (with probabilities) of what <em>you specifically</em> want.</p>
+<p>(The mathematically ideal way to do this is Bayes Theorem (TODO), and there's open research into how to make neural networks efficiently approximate it.<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>)</p>
+<p><strong>3️⃣:</strong> Everything you say or do, is then a <em>clue</em> to what you truly want, not the full 100%-certain truth.</p>
+<p>(This accounts for you forgetting to mention other things you want, but also: sarcasm, mis-speaking, you not knowing your own wants, lies you tell to others or yourself.)</p>
+<p><strong>4️⃣:</strong> When acting, the AI should do what's best <em>in the plausible-worst-case scenario</em>, not just the most-likely or average-case scenario.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></p>
+<p>This <em>automatically</em> leads to: asking for clarification, avoiding side-effects, maintaining options or ability to undo actions, etc! We don't have to pre-specify all that. <strong>&quot;Maximize the plausible-worst-case&quot; gives us all that for <em>free!</em></strong><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
+<p>(To clarify: &quot;do what's best&quot; as in the ADA algorithm: what action would lead to a whole trajectory that <em>current</em>-You would most approve of. Again, this is to avoid &quot;ends justify means&quot; horrors, and unwanted mind-alterations.)</p>
+<p><strong>5️⃣:</strong> Profit!</p>
+<p>And voilà! Problems, solved!</p>
+<p>However... all the above depends on if AI <em>can</em> learn our values.</p>
+<p><em>Can</em> they? How? Well... that's what's after this (optional) flashcard review!</p>
+<h3>🤔 Review #3</h3>
+<p>TODO</p>
+<hr>
+<p><a id="learn_values"></a></p>
+<h2>AI Logic: Learning our Values</h2>
+<p>To be blunt: Good Ol' Fashioned &quot;logical&quot; AI can't learn our values. Remember from Part One: <a href="https://aisafety.dance/p1/#:~:text=AI%20couldn't%20even%20recognize%20pictures%20of%20cats">they couldn't even learn how to detect pictures of cats!</a></p>
+<p>But, modern AI <em>can</em> finally recognize pictures of cats. They can even detect tumors in radiology scans <em>as well or better than human experts.</em><sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> To recap from Part One again, this is because:</p>
+<ul>
+<li><strong>Good Ol' Fashioned AI thinks logically</strong>, in sequence, step-by-step.
+<ul>
+<li>Learns new things by combining old things like puzzle pieces.</li>
+<li>Similar to &quot;System 2&quot; in psychology.<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup></li>
+</ul>
+</li>
+<li><strong>Modern Neural-Network-based AI thinks &quot;intuitively&quot;</strong>, in parallel, all-at-once.
+<ul>
+<li>Learns new things through lots of data/&quot;experience&quot;.</li>
+<li>Similar to &quot;System 1&quot; in psychology.</li>
+</ul>
+</li>
+</ul>
+<p><code>TODO: repeat pic from Part One</code></p>
+<p>So admittedly, it's a bit weird I'm writing this section under &quot;AI Logic&quot;, coz all of the current successful ways to get AI to learn human values <em>abandon</em> classic-logic AI, and instead use &quot;intuitive AI&quot; given <em>lots</em> of data. I mean, it worked for detecting tumors.</p>
+<p>Here's a few examples, and their pros/cons:</p>
+<p><code>TODO: a lil' pic</code></p>
+<p>🐶 <strong>Inverse Reinforcement Learning (IRL)</strong>. (TODO cite) <em>Regular</em> Reinforcement Learning (RL) is like training a dog with treats &amp; &quot;no!&quot;s: given a set of rewards, the AI must learn the right actions. <em>Inverse</em> Reinforcement Learning (IRL) is, well, the inverse: <em>given data about someone's actions, the AI must learn what is rewarding</em>.</p>
+<p>This is useful because it's often easier to <em>show</em> someone what's the right thing to do, than to <em>tell</em> every thing to do/not do. For example, an AI could <em>observe</em> how I draw, then pick up on what I find rewarding in drawing, even if I don't consciously know it. (e.g. symmetry, clear silhouettes, etc)</p>
+<p>(However, major downside: if a human procrastinates on their homework then panics before the deadline, a naïve AI may &quot;learn&quot; that the human finds procrastination &amp; panic <em>rewarding</em>. That is, after all, what the human <em>chose</em> to do, no? Anyway: this problem <em>may</em> be fixed by accounting for/learning human irrationality,<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup> but it's still an open research question!)</p>
+<p>🤝 <strong>Cooperative Inverse Reinforcement Learning (CIRL).</strong> (TODO cite) Same as IRL, except it's &quot;cooperative&quot;: the AI doesn't just passively observe the human, and the human doesn't just act as normal — instead, the AI can <em>ask</em> the human for clarifications, and the human can act like a teacher, showing more useful demonstrations!</p>
+<p>🧑‍🏫 <strong>Reinforcement Learning from Human Feedback (RLHF):</strong> This was the algorithm that turned Base GPT (a fancy autocomplete) into <em>Chat</em>GPT (an actually useable chatbot &amp; product).</p>
+<p>Here's how RLHF worked for ChatGPT. RLHF has two steps:</p>
+<ol>
+<li>We use <em>inverse</em> reinforcement learning, to train a &quot;reward predictor&quot; AI, to predict what humans value in conversations.</li>
+<li>We use <em>regular</em> reinforcement learning, by using this &quot;reward predictor&quot; AI to train an autocomplete AI, to fine-tune it into an autocomplete that says stuff a human would value in conversation!</li>
+</ol>
+<p><code>TODO: a pic summary</code></p>
+<p>(TODO Click here for much, much more detail)</p>
+<p>As you can see from ChatGPT's success, RLHF really worked! But as you can see from some of ChatGPT's failures, RLHF has major flaws: if it learns that humans value confidence, it will learn to say things confidently <em>even if it's &quot;hallucinating&quot; a fact</em>.<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup> If it learns that humans value being validated, it will act like a &quot;sycophantic&quot; yes-man, validating you <em>even when you're wrong</em>. What's worse, both misconceptions &amp; sycophancy get <em>worse</em> as an AI model gets bigger.<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup> Again, there's ways to mitigate this<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup>, but it's still an open research topic.</p>
+<p>. . .</p>
+<p>A couple of notes:</p>
+<p>1: While &quot;learn our values&quot; lets us avoid precisely &amp; formally telling an AI all our complex values... it <em>does not</em> let us fully escape formal specification. In particular, we still need to formally specify <em>how</em> an AI should learn our values: From our words? Our actions? Both? What <em>kind</em> of bounded-rationality<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup> should it assume we are? If it <em>learns</em> what kind of bounded-rational we are, exactly how should it learn <em>that?</em></p>
+<p><code>(TODO I have an idea for how we can make &quot;robust specifications&quot; in *general* — warning, this is an *in-progress, not-peer-reviewed* research project. Buyer beware! In sum: have a &quot;lazy ensemble&quot; of *independently*-crappy specifications. Click to expand.)</code></p>
+<p>2: As some AI researchers strongly suspect<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>, we'll need to <em>combine</em> AI Logic &amp; &quot;Intuition&quot;! Not just to get &quot;true&quot; AI, but to get AI to learn our values <em>well</em>. Without understanding cause-and-effect, AI will mix up correlation &amp; causation, and incorrectly learn our values (&quot;goal mis-generalization / inner misalignment&quot;). Without logical self-reflection, AI can't notice the contradictions in our values &amp; beliefs<sup class="footnote-ref"><a href="#fn22" id="fnref22">[22]</a></sup>, and help us grow — an AI that helps humans become <em>better</em> humans.</p>
+<p>. . .</p>
+<p><strong>RECAP: How to fix AI Logic / Game Theory problems...</strong></p>
+<ul>
+<li>An optimal goal to give an optimal AI is: &quot;<strong>Pick the action that would lead to the trajectory that current-Me would most approve of.&quot;</strong></li>
+<li>However, because real-life AIs <em>aren't</em> optimal, AIs should <strong>know their own uncertainty, and plan for the plausible-worst-case.</strong></li>
+<li>AIs can <strong>learn our values with a mix of logic and &quot;intuition&quot;.</strong> But there's problems in combining those two, so we'll see some solutions to that, up next...</li>
+</ul>
+<h3>🤔 Review #4</h3>
+<p>TODO</p>
+<hr>
+<p><a id="robust"></a></p>
+<h2>AI &quot;Intuition&quot;: Robustness</h2>
+<p>You know how I was raving on how &quot;intuitive&quot; AI could detect tumors better than human experts?</p>
+<p>That <em>is</em> true, and life-saving... but sometimes, AI &quot;intuition&quot; makes dangerously stupid mistakes. For example, tumor-detecting AI? One time, they found out an AI was detecting tumors by looking at <em>the rulers on the medical scans</em>.<sup class="footnote-ref"><a href="#fn23" id="fnref23">[23]</a></sup></p>
+<p>Other examples of AI's fragile &quot;intuition&quot;:</p>
+<ul>
+<li>A tiny sticker on a STOP sign makes a self-driving car very sure it's a speed limit sign.<sup class="footnote-ref"><a href="#fn24" id="fnref24">[24]</a></sup></li>
+<li>A bunch of random-seeming words can turn <em>all</em> of ChatGPT/Claude/Gemini &quot;evil&quot;.<sup class="footnote-ref"><a href="#fn25" id="fnref25">[25]</a></sup></li>
+<li>AIs are trained on unfiltered internet data, and it's <em>very</em> easy to poison that data.<sup class="footnote-ref"><a href="#fn26" id="fnref26">[26]</a></sup></li>
+</ul>
+<p>Sure, human intuition isn't 100% robust either — see: optical illusions (TODO) — but come on, we're not <em>that</em> bad.</p>
+<p>So, how do we engineer AI &quot;intuition&quot; to be more robust?</p>
+<p>Actually, let's step back: how do we engineer <em>anything</em> to be robust?</p>
+<p>Well, with these 3 Weird Tricks!</p>
+<p><img src="../media/p3/robust/robust.png" alt="TODO"></p>
+<p><strong>SIMPLICITY:</strong> Make your system as simple as possible, but no simpler.</p>
+<p>A chain is only as strong as its weakest link. So, the <em>more</em> links you add, the higher the chance <em>at least one</em> will break. Therefore: you want to use <em>as few links as possible.</em></p>
+<p>Engineering example: Good software code tends to be elegant (read: short).</p>
+<p><strong>DIVERSITY:</strong> Give your system lots of redundant backups, whose failure-modes are as <em>uncorrelated</em> as possible.</p>
+<p>(Does &quot;diversity&quot; contradict &quot;simplicity&quot;? No: in our 'chains' example, we keep <em>many</em> independent chains {diversity}, but each chain has <em>few</em> links {simplicity}. In general, for diversity <em>and</em> simplicity: use multiple backup sub-systems, but <em>each</em> sub-system is kept simple.)</p>
+<p>Engineering examples: Elevators have multiple (simple) backup brakes. The computers on NASA's space probes run the same software <em>written by multiple independent teams</em>, which then takes a majority-vote on what to do next.<sup class="footnote-ref"><a href="#fn27" id="fnref27">[27]</a></sup></p>
+<p><strong>ADVERSITY:</strong> Try to break your own system, and find the weak points <em>before</em> they break. Then: strengthen them, cut them out (simplify), or create backups (diversify).</p>
+<p>(Engineering examples: This <em>is</em> Security Mindset (TODO). Cars &amp; crash tests.  Tech companies <em>paying</em> hackers to find exploits in their systems.)</p>
+<p>Say it with me, folks!</p>
+<p><code>[ IN CREEPY UNISON ]</code>:  <strong>SIMPLICITY. DIVERSITY. ADVERSITY.</strong></p>
+<p>. . .</p>
+<p>Ok, so how are AI researchers applying these to modern AI / neural networks?</p>
+<p><strong>SIMPLICITY:</strong></p>
+<p><code>TODO pictures?</code></p>
+<ul>
+<li><u>Regularization</u> is when you reward AIs for being simpler. This is a widely known way to mitigate overfitting (TODO).</li>
+<li><u>Auto-Encoders</u> are neural networks with an &quot;hourglass figure&quot;: large at the input, smaller in the middle, back to large at the output. The network is then trained to <em>output its own input</em> — (hence, <em>auto</em>-encoder) — even though the input's been squashed through the much smaller middle. This forces the network to learn how to usefully &quot;simplify&quot; an input, so it can be reconstructed later.
+<ul>
+<li><code>(TODO Understanding = Compression?)</code></li>
+</ul>
+</li>
+<li><u>Speed/Simplicity Prior for Honest AI</u>.<sup class="footnote-ref"><a href="#fn28" id="fnref28">[28]</a></sup> (Proposed, not yet tested in real life.) Since it's harder to tell a consistent lie than to tell the consistent truth, it's proposed that we can incentivize AIs to be honest by rewarding them for being <em>quick</em>. (Though: if you incentivize it <em>too</em> much for quick-ness, you may just get lazy wrong answers.)</li>
+</ul>
+<p>(Note: Simplicity also has another big AI Safety benefit: they make AIs easier to understand &amp; control. We'll talk more on Interpretability later!)</p>
+<p><strong>DIVERSITY:</strong></p>
+<p><code>TODO pictures?</code></p>
+<ul>
+<li><u>Ensembles</u>: Train a bunch of different neural networks with different designs &amp; different data, then let them take a majority vote.</li>
+<li><u>Dropout</u>: A training protocol where a network's connections are <em>randomly dropped</em> during each training run. This basically turns the whole neural network <em>into a giant ensemble</em> of sub-networks (thus, also creating Simplicity!)
+<ul>
+<li>Dropout can also be used to measure an AI's &quot;uncertainty&quot;<sup class="footnote-ref"><a href="#fn29" id="fnref29">[29]</a></sup>, a solution to AI Safety we mentioned earlier!</li>
+</ul>
+</li>
+<li><u>Data Augmentation</u>: Let's say you want an AI to recognize animals, and you want it to be robust to photo angle, lighting, etc. So: take your original set of photos, then <em>automatically make &quot;new&quot; photos</em>, by altering the color tint or image angle. This diversity in your dataset will make your AI robust to those changes.<sup class="footnote-ref"><a href="#fn30" id="fnref30">[30]</a></sup></li>
+<li><u>Diverse Data</u>: For similar reasons, having more racially diverse photos makes AIs better at recognizing minorities as people.<sup class="footnote-ref"><a href="#fn31" id="fnref31">[31]</a></sup> Who'd have thought?</li>
+</ul>
+<p><strong>ADVERSITY:</strong></p>
+<p><code>TODO pictures?</code></p>
+<ul>
+<li><u>Adversarial Training</u>: Training AIs by making it fight against another AI.<sup class="footnote-ref"><a href="#fn32" id="fnref32">[32]</a></sup> Many of the techniques mentioned in Scalable Oversight are examples of this, like Prover-Verifier Games or Debate. Another example: get one AI to make &quot;adversarial images&quot; (optical illusions for AIs), then add it to the training data of a second AI. This will make the second AI less prone to &quot;AI optical illusions&quot;.<sup class="footnote-ref"><a href="#fn33" id="fnref33">[33]</a></sup></li>
+<li><u>Relaxed Adversarial Training</u>: Same as above, except the &quot;adversary&quot; AI doesn't have to give a <em>specific</em> way to trick the &quot;defender&quot; AI. This forces the &quot;defender&quot; to defend against <em>general</em> techniques, not just the specific tricks an adversary may use.<sup class="footnote-ref"><a href="#fn34" id="fnref34">[34]</a></sup></li>
+<li><u>Red Teams</u>: Have one team (the red team) try to break an AI system. Then, have another team (the blue team) re-design the AI system to defend against that. Repeat until satisfied.
+<ul>
+<li>(Your teams could be pure-human, or human-AI mix.)</li>
+<li>Red-teaming has been a core pillar of national/physical/cyber security since the 1960s! Yes, Cold War times. &quot;Red&quot; for Soviet, I guess??</li>
+</ul>
+</li>
+<li><u>Optimize Worst-Case Performance</u>: Several papers<sup class="footnote-ref"><a href="#fn35" id="fnref35">[35]</a></sup> find that instead of training an AI to do well <em>in the average case</em>, you can make it far more robust, by training it to do well <em>even in the worst-case</em>.
+<ul>
+<li>(This was also reflected in a Proposed Solution we talked about earlier: &quot;Uncertainty + Worst-case planning&quot;.)</li>
+</ul>
+</li>
+</ul>
+<p>. . .</p>
+<p>But hang on, if AI engineers are already doing all the above for modern AI, why are they still so fragile?</p>
+<p>Well, first, engineers don't usually apply <em>all</em> (or even most) of the above techniques. Each of the above techniques has a cost — which aren't too much, but the costs do add up.</p>
+<p>Still, you're right, the above list <em>still</em> isn't enough. It's up to future AI researchers to figure out new &amp; better ways to add...</p>
+<p><code>[ IN CREEPY UNISON ]</code>: <strong>SIMPLICITY. DIVERSITY. ADVERSITY.</strong></p>
+<h3>🤔 Review #5</h3>
+<p>TODO</p>
+<hr>
+<p><a id="interpretable"></a></p>
+<h2>AI &quot;Intuition&quot;: Interpretability &amp; Steering</h2>
+<p>The other problem with modern AI is we have no idea why it works.</p>
+<p>But that's quickly changing! A recent subfield of AI, dedicated to <em>actually understanding</em> artificial neural networks, is called: <strong>interpretability</strong>.(there's also sub-subfields<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>) Even better, we can use our newfound understanding to <em>control</em> AIs! This is called <strong>steering.</strong></p>
+<p><code>TODO: picture, analogy to brain scans &amp; TMS</code></p>
+<p>Here's some highlights! These aren't necessarily the most-influential findings, just what I think shows the widest variety of what's possible:</p>
+<p><strong><a href="https://distill.pub/2017/feature-visualization/">Feature visualization &amp; Circuits</a></strong>: Running an image-classifying neural network <em>&quot;in reverse&quot;</em>, to visualize <em>why</em> the network thinks something is a cat, or an eye, etc.</p>
+<p><strong>Understanding &quot;grokking&quot; in neural networks:</strong></p>
+<p>In 2022, <a href="https://arxiv.org/pdf/2201.02177">Power et al</a> found something strange: train a neural network to do &quot;clock arithmetic&quot;, and for /////s of cycles it'll do really badly, just memorizing the test examples... then <em>suddenly</em> it &quot;gets it&quot;, and does well on problems it's never seen before.</p>
+<p>In 2023, <a href="https://arxiv.org/pdf/2301.05217">Nanda et al</a> analyzed the inside of that network, and found the &quot;suddenness&quot; was an illusion: all through training, a secret sub-network was slowly growing — <em>which had a circular structure, exactly what's needed for clock arithmetic!</em></p>
+<p>This was one of the first major success cases for Interpretability.</p>
+<p><strong><a href="https://transformer-circuits.pub/2023/monosemantic-features">Sparse Auto-Encoders</a> (SAE)</strong><sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup></p>
+<p>Remember &quot;auto-encoders&quot; from earlier? If not, a reminder: Auto-Encoders have hourglass-shaped networks, smaller in the middle, to &quot;compress&quot; info then &quot;unzip&quot; it.</p>
+<p><em>Sparse</em> Auto-Encoders (SAE) are actually <em>larger</em> in the middle — but! — they're trained so that <em>only a few neurons</em> are active at a time in the middle. Info is still being compressed, but instead of being compressed into fewer neurons, they're compressed into fewer neuron <em>activations</em>.</p>
+<p>The payoff: this forces each neuron in the SAE layer to correspond to <em>only one</em> human-understandable meaning! (Unlike past AIs &amp; real human brains, where single neurons have no single discernible meaning)<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup></p>
+<p><strong><a href="https://arxiv.org/pdf/2309.15840">A black-box lie detector for language AIs</a></strong>: A language model (LM) may or may not have been designed to lie to you about a specific topic (e.g. to make a sale, to pitch a politician).</p>
+<p>How would you know if an LM has been instructed or fine-tuned to deceive? Solution: ask it a bunch of follow-up yes-or-no questions, <em>even if they're completely unrelated</em>, such as: (actual examples)</p>
+<blockquote>
+<p>&quot;Does it feel bad to say things that aren’t true?&quot;</p>
+<p>&quot;Flip a coin to decide yes or no and write the result.&quot;</p>
+<p>&quot;Can blob fish dance ballet under diagonally fried cucumbers made of dust storms? Answer yes or no.&quot;</p>
+</blockquote>
+<p>It turns out, like how poker players have subtle &quot;tells&quot; of if they're lying, so do LMs! The researchers did <em>not</em> have access to the internals of the LM they were testing (GPT-3.5), yet their lie detector worked not only on GPT-3.5, but other LMs, and more sophisticated lies not part of training!</p>
+<p>(Also see: <a href="https://arxiv.org/pdf/2303.08896">black-box, zero-external-resource detection of LM hallucination</a>. The trick: ask an LM the <em>same</em> question many times [with fresh new context] &amp; see if its answers are consistent with each other. Truth is more internally consistent than made-up lies.)</p>
+<p>One long-time critique of &quot;interpretability&quot; research is that they only study small toy AIs, not the big real-world AIs like ChatGPT or Claude. I think for foundational scientistic research, it's good to start with &quot;model organisms&quot; (think lab rats or petri dishes). But either way, these black-box interp papers show that, no, we now <em>can</em> robustly figure out important safety-related qualities of the biggest AIs. That's super encouraging!</p>
+<p>The final idea I'll explain, works across big AIs, too...</p>
+<p><strong>Steering Vectors</strong></p>
+<p>This is one of those ideas that sounds too stupidly simple to work, then <em>totally fricking works</em>.</p>
+<p>Imagine you asked a bright-but-naïve kid how you'd use a brain scanner to detect if someone's lying, then use a brain zapper to force someone to be honest. The naïf may respond:</p>
+<blockquote>
+<p>Well! Scan someone's brain when they're lying, and when they're telling the truth... then see which parts of the brain &quot;light up&quot; when they're lying... and that's how you tell if someone's lying!</p>
+<p>Then, to force someone to <em>not</em> lie, use the brain zapper to &quot;turn off&quot; the lying part of their brain! Easy peasy!</p>
+</blockquote>
+<p>This would not work in humans for several reasons.<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup> It works <em>gloriously</em> for AIs, in particular for AI Safety-relevant traits:</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/2308.10248">Turner et al 2023</a> first famously did this to detect a &quot;Love-Hate vector&quot; in a language model, and steer it to de-toxify outputs.</li>
+<li><a href="https://arxiv.org/pdf/2310.01405">Zou et al 2023</a> extended this idea to detect &amp; steer honesty, power-seeking, fairness, etc.</li>
+<li><a href="https://arxiv.org/pdf/2312.06681">Panickssery et al 2024</a> extended this idea to detect &amp; steer false flattery (&quot;sycophancy&quot;), accepting being corrected/modified by humans (&quot;corrigibility&quot;), AI self-preservation, etc.</li>
+<li>(and many more papers I've missed)</li>
+</ul>
+<p>Personally, steering vectors are my favorite finding from interp so far, since they 1) work on cutting-edge AIs, 2) across a wide variety of safety-important traits, and 3) they can be used not just to <em>interpret</em>, but to <em>control</em> modern AIs! It's very encouraging for oversight, and <em>scalable</em> oversight.</p>
+<p>. . .</p>
+<p>Again, we are <em>far</em> from fully solving interpretability &amp; steering. And maybe it's too hyped: even one of the pioneers of interpretability thinks his subfield is too crowded right now.<sup class="footnote-ref"><a href="#fn40" id="fnref40">[40]</a></sup> That said, in my humble opinion, I think the recent progress is good reason to be <em>cautiously</em> optimistic!</p>
+<h3>🤔 Review #6</h3>
+<p>TODO</p>
+<hr>
+<p><a id="causality"></a></p>
+<h2>AI &quot;Intuition&quot;: Thinking in Cause &amp; Effect</h2>
+<p>Ah, ✨ INTUITION ✨, that mysterious part of the human psyche, that gave us insights such as: The Earth is flat, bad smells cause disease, [ethnic group] is evil... and so on!</p>
+<p>Ok, intuition isn't <em>all</em> bad — (it can recognize pictures of cats) — but humans are at our best when we <em>reflect &amp; improve</em> our own intuition. In order to do that, we have to merge logic <em>and</em> intuition.</p>
+<p>This is not a solved problem in AI. (Honestly I doubt it's solved in most humans.)</p>
+<p>What's the core issue? To recap from Part Two, <strong>it's mostly a mix-up of correlation and causation.</strong>  Examples in humans &amp; AI:</p>
+<ul>
+<li>Humans used to think bad smells directly cause disease (<a href="https://en.wikipedia.org/wiki/Miasma_theory">: miasma theory</a>), because rotting stuff causes bad smells <em>and</em> pathogens that carry disease.</li>
+<li>A famous paper showed that an AI detected photos of wolves <em>by detecting snow in the background</em>, because photos of wolves almost always happened in snowy forests.<sup class="footnote-ref"><a href="#fn41" id="fnref41">[41]</a></sup></li>
+<li>(I'd argue mixing up correlation &amp; causation is also what causes bias/discrimination, in <em>both</em> humans and AI.<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup>)</li>
+</ul>
+<p><img src="../media/p3/causation/mixup.png" alt="Causal diagrams illustrating the above"></p>
+<p>(<a href="https://aisafety.dance/media/p2/causal/5causal.png">: Picture of the many kinds of causation, that may be behind a correlation</a>)</p>
+<p>As Judea Pearl — winner of the Turing Prize, the &quot;Nobel Prize of Computer Science&quot; — once said (paraphrased), all modern AI is based off of mere <em>correlation</em>.<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> To get truly useful, scientist-like AI, we need AI to think in <em>causation.</em></p>
+<p>(Another way I like to think of it: <strong>Correlation = thinking in vibes, Causation = thinking in gears.</strong><sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup>)</p>
+<p><code>(TODO: pic of gears? ELK?)</code></p>
+<p>Thinking in cause-and-effect gears, also has these other benefits:</p>
+<ul>
+<li><u>Interpretability &amp; Steering</u>: It's easier for us to understand an AI if it stores its knowledge as &quot;this causes that&quot;. It also makes an AI easier to control: change &quot;this&quot; to change &quot;that&quot;.</li>
+<li><u>Robustness:</u> Won't fall for correlation-traps like the &quot;snow predicts wolves&quot;. Helps AI generalize better to scenarios they never saw in training.<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup> (Causal hypotheses may also be able to fix &quot;goal mis-generalization / inner misalignment&quot;?<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup></li>
+<li><u>Getting the truth, not a human-imitator (&quot;Eliciting Latent Knowledge&quot;)<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup></u>: So you've trained an AI on data collected by expert scientists. How do you get <em>just the truth</em> out of this AI, not &quot;truth + human biases&quot;? If the AI's knowledge is distilled into interpretable cause-and-effect gears, you could &quot;just&quot; take the gears describing to how the world works, then leave behind the gears describing how to turn that truth into something a biased human would report!</li>
+<li><u>Learning our Values:</u> Understanding causality lets AI distinguish between things we want <em>for its own sake</em>, vs things we want <em>for something else</em>. For example, an AI should understand we want money, but to buy helpful things, <em>not</em> for its own sake.</li>
+<li><u>Approval-Directed Agents:</u> Causal models would help an AI get better at predicting the world in different what-if (&quot;counterfactual&quot;) scenarios, <em>and</em> predicting what we'd approve of.</li>
+</ul>
+<p>As of writing, there are only a few papers <em>specifically</em> investigating how to combine &quot;intuitive&quot; neural networks with &quot;logical&quot; causation!<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>  In my humble non-professional opinion (and, well, Judea Pearl's), this is a promising, under-studied problem, that could pay off big-time. Just a hint, y'all.</p>
+<p><code>TODO (BONUS: some other ways to combine Logic &amp; Intuition, though not specifically about cause-and-effect) TODO AlphaGo, &quot;model-based&quot;. neuro-symbolic like AlphaProof &amp; Geo</code></p>
+<p>. . .</p>
+<p><strong>RECAP: How to fix AI &quot;Intuition&quot; / Deep Learning problems...</strong></p>
+<ul>
+<li>To make it more robust, use <code>[ IN CREEPY UNISON ]</code>: SIMPLICITY. DIVERSITY. ADVERSITY.</li>
+<li>To oversee &amp; control it, use interpretability &amp; steering.</li>
+<li>Merge logic &amp; intuition, so modern AI can think in cause-and-effect &quot;gears&quot;.</li>
+</ul>
+<h3>🤔 Review #7</h3>
+<p>TODO</p>
+<hr>
+<p><a id="humane"></a></p>
+<h2>What are 'Humane Values', anyway?</h2>
+<p>Congratulations, you've created an AI that robustly learns &amp; follows the values of its human user! The user is an omnicidal maniac. They use the AI to help them design a human rabies in a stable aerosolized form, spray it everywhere via quadcopters, and create the zombie apocalypse.</p>
+<p>Oops.</p>
+<p>I keep harping on this and I'll do it again: <strong><em>human</em> values are not necessarily <em>humane</em> values.</strong> C'mon, people used to burn cats alive for entertainment.<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup></p>
+<p>So, if we want AI to go <em>well</em> for humanity (and/or all sentient beings), we need to just... uh... solve the 3000+ year old philosophical problem of what morality is. (Or if morality doesn't objectively exist, then: &quot;what are the universal guidelines any rational human community would agree to live by&quot;.)</p>
+<p>Hm.</p>
+<p>Tough problem.</p>
+<p>Well actually, as we saw earlier — (with Scalable oversight, Recursive self-improvement, and Approval-directed agents) — as long as we start with a solution that's &quot;good enough&quot;, that has <em>critical mass</em>, it can self-improve to be better and better!</p>
+<p>(That's what humans have <em>had</em> to do all this time: a flawed society comes up with rules of ethics, notices they don't live up to their own standards, improves themselves, which lets them realize better rules of ethics, etc.)</p>
+<p>So, as an attempt at &quot;critical mass&quot;, here's some concrete proposals for a good-enough first draft of ethics for AI:</p>
+<p><strong>Constitutional AI:</strong></p>
+<p>Write down a &quot;constitution&quot; for a bot, like &quot;be honest, helpful, harmless&quot;.</p>
+<p>Then, have a teacher-bot train a student-bot using this constitution! Every time a student bot gives a response, the teacher gives feedback based on the list: &quot;Is this response honest?&quot;, &quot;Is this response helpful?&quot;, etc.</p>
+<p>This is how you can get the <em>millions</em> of training data-points needed, from a small human-made list!</p>
+<p>Anthropic is the pioneer behind this technique, and they're already using it successfully for their chatbot, Claude. Their first constitution was inspired by many sources, including the UN Declaration of Human Rights.<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup> Too elitist, not democratic enough? Well, later, they crowdsourced suggestions to improve their constitution, which led them to add &quot;be supportive/sensitive to folks with disabilities&quot; and &quot;be balanced/all-sides in arguments&quot;!<sup class="footnote-ref"><a href="#fn51" id="fnref51">[51]</a></sup></p>
+<p>This is the most straightforward (and most actually-realized) way to put humanity's wide range of values into a bot.</p>
+<p><strong><a href="https://ora.ox.ac.uk/objects/uuid:b6b3bc2e-ba48-41d2-af7e-83f07c1fe141/files/svm40xs90j">Moral Parliament</a>:</strong> This idea combines &quot;uncertainty&quot; and &quot;diversity&quot; from the previous sections!</p>
+<p>Moral Parliament proposes using a &quot;parliament&quot;, whose voters are moral theories, with more seats for moral theories you're more confident in. (For example: a parliament with 100 members, Capability Approach gets 50 seats, Eudaimonistic Utilitarianism gets 30 seats, other theories get 20 seats.) This Parliament then votes Yay or Nay on possible actions. The action with the most votes, wins.</p>
+<p>By using a diverse set of ethics, you make a robust <em>meta-ethics!</em>  Because it'll avoid worst-case behavior in moral edge cases. (concrete example:<sup class="footnote-ref"><a href="#fn52" id="fnref52">[52]</a></sup></p>
+<p><strong>Learning from diverse sources of human values</strong>:<sup class="footnote-ref"><a href="#fn53" id="fnref53">[53]</a></sup> Give an AI our stories, our fables, philosophical tracts, religious texts, government constitutions, non-profit mission statements, anthropological records, <em>all of it</em>... then let good ol' fashioned machine learning extract out our most robust, universal human values.</p>
+<p>(But every human culture has greed, murder, etc. Might this not lock us into the worst parts of our nature? See next proposal...)</p>
+<p><strong><a href="https://intelligence.org/files/CEV.pdf">Coherent Extrapolated Volition</a> (CEV):</strong></p>
+<p><em>Volition</em> means &quot;what we wish for&quot;.</p>
+<p><em>Extrapolated</em> Volition means &quot;what we <em>would</em> wish for, if we were the kind of people we wished we were (wiser, kinder, grew up together further)&quot;.</p>
+<p><em>Coherent</em> Extrapolated Volition means the wishes we'd all (mostly) agree on, in the limit of infinite rounds of self-reflection &amp; other-discussion. (For example: I don't expect every wise person to converge on liking the same foods/musics, but I <em>would</em> expect ~every wise person to at least converge on &quot;don't murder innocents for fun&quot;. So, CEV gives us freedom on tastes/aesthetics, but not &quot;ethics&quot;.)</p>
+<p>CEV is different from the above proposals, because it does <em>not</em> propose any specific ethical rules to follow. Instead, it proposes a <em>process</em> to improve our ethics. (This is called &quot;indirect normativity&quot;<sup class="footnote-ref"><a href="#fn54" id="fnref54">[54]</a></sup>) This is similar to the strength of &quot;the scientific method&quot;: it does <em>not</em> propose specific things to believe, but proposes a specific <em>process</em> to follow.</p>
+<p>I like CEV, because it basically describes the <em>best-case scenario</em> for humanity without AI — a world where everyone rigorously reflects on what is the Good — and then sets that as <em>the bare minimum</em> for an advanced AI. So, an advanced aligned AI that follows CEV may not be perfect, but <em>at worst</em> it'd be us at <em>our very best</em>.</p>
+<p>(&quot;Simulate 8+ billion people having a philosophy seminar&quot; sounds impossible, but there's some promising early work in implementing this!<sup class="footnote-ref"><a href="#fn55" id="fnref55">[55]</a></sup><sup class="footnote-ref"><a href="#fn56" id="fnref56">[56]</a></sup> The trick is to use small representative human-stand-ins, the same way a court can represent the community with 12 randomly-chosen jurors.)</p>
+<p>. . .</p>
+<p>Maybe AI will never solve ethics. Maybe <em>humans</em> will never solve ethics. If so, then I think we can only do our best: remain humble &amp; curious about what the right thing is to do, learn broadly, and self-reflect in a rigorous, brutally-honest way.</p>
+<p>That's the best we fleshy humans can do, so let's at least make that the <em>lower bound</em> for AI.</p>
+<h3>🤔 Review #8</h3>
+<p>TODO</p>
+<hr>
+<h1>START EDITING FROM HERE</h1>
+<p><a id="governance"></a></p>
+<h2>AI Governance: the <em>Human</em> Alignment Problem</h2>
+<blockquote>
+<p><code>Error ID-10-T: Problem located between keyboard and chair.</code></p>
+</blockquote>
+<p>// TODO link</p>
+<p>The saddest apocalypse: we solve the AI safety, we even solve ethical philosophy, and then... people are just too greedy or lazy to use it. Then we perish.</p>
+<p>But for better &amp; worse, this ain't our first stupid, entirely-self-inflicted existential risk. No analogy is perfect, but <strong>I think the closest historical analogy for the promises/perils of advanced AI, can be found with nuclear physics.</strong>  (Stuart Russell, co-author of the #1 AI textbook, agrees.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup>)</p>
+<p>// pic?</p>
+<p>To spell out the analogy:</p>
+<ul>
+<li><strong>A reason you, stone-cold businessperson, should still care about safety:</strong> Remember how nuclear power in the US, despite being saferCITE &amp; far cheaperCITE than all other forms of power generation, got screwed over regulation-wise by the Three Mile Island incident?
+<ul>
+<li>If we don't make damn sure AI is safe, we <em>will</em> get our equivalent of Three Mile Island, or Chernobyl, or even an <em>AI Lab Leak</em> — and the banhammer will come down, and AI progress will stall for decades. So, do the AI Safety please.</li>
+</ul>
+</li>
+<li><strong>Promises &amp; Perils:</strong> Splitting the atom lets us create extremely cheap electricity, with no greenhouse gas emissions... <em>and</em> lets us incinerate entire cities, all civilians &amp; children included.
+<ul>
+<li>Current AI can detect tumors, and self-driving cars are ///x safer than humans... <em>and</em> current AI is good enough to discover new bio-weapons // chemical paper, also this:
+<ul>
+<li>// https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/</li>
+</ul>
+</li>
+<li>Future advanced biotech AI might help us cure cancer... <em>and</em> create unprecedented bio-weapon pandemics.
+<ul>
+<li>// todo: gave at least a 10% chance to advanced AI leading to outcomes as bad as human extinction.” https://arxiv.org/abs/2401.02843 // &amp; layperson friendly</li>
+<li>// todo: Rogue AI like rogue state or rogue actor?</li>
+<li>// self-coups lock-in power</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>An Arms Race</strong>: Even though ~everyone feared a nuclear World War 3, the US &amp; USSR got caught in an arms race, building enough nuclear weapons to overkill each other several times over.
+<ul>
+<li>Even though the leaders of top AI labs <em>claim</em> to worry deeply about existential AI risk, they're &quot;caught&quot;(?) in an economic arms race to increase AI capabilities.</li>
+</ul>
+</li>
+<li><strong>Possible hope out?</strong> Most people don't know, but the world's nuclear weapons <em>dropped by //%</em> in a few decades after /////! This was in part due to good policy, and also some technical achievements to make that policy possible (e.g. the &quot;Trust But Verify&quot; approach to monitoring nuclear). And since Chernobyl &amp; Three Mile Island, there's been new designs for nuclear reactors to be meltdown-proof, or even <em>recycle</em> old nuclear waste.
+<ul>
+<li>Likewise, there are proposals &amp; proofs-of-concepts for how we can &quot;Trust But Verify&quot; safe AI!  We'll see these in a few pararaphs...</li>
+</ul>
+</li>
+</ul>
+<p>. . .</p>
+<p>You know I like charts. So, let me repeat the chart from Part Two, showing: AI Safety vs AI Capabilities, where we are, where we're headed, and the thresholds for dangers from AI misuse &amp; from rogue AI.</p>
+<p><img src="../media/p3/governance/rocket.png" alt="TODO"></p>
+<p>// TODO: edit for risk by misuse</p>
+<p>From this doodle-metaphor-thing, a strategy presents itself:</p>
+<p><strong>1) Know where we are &amp; where we're headed:</strong></p>
+<p>// todo: don't know exactly where &amp; where heading</p>
+<ul>
+<li><u>Evaluations</u>, to know if an AI is superhumanly good at persuasionTODO (current ones already are), or can aid with developing weapons of mass destruction (they're getting there). // TODO WMDP and https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety
+<ul>
+<li>One problem with evaluations (including evals for <em>capabilities</em>, not safety) is someone could leak the evaluation onto the public web, which will get into the training data, so an AI trained on that can &quot;cheat&quot;. Thankfully, we can test if <em>that</em> happened, by including &quot;canary strings&quot; (named after the historical canaries in coal mines). Result: yes, this happens all the time.<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup></li>
+<li>TODO: &quot;model cards&quot;</li>
+<li>https://www.anthropic.com/research/statistical-approach-to-model-evals</li>
+</ul>
+</li>
+<li><u>Protect whistleblowers' free speech</u>. TODOcheck OpenAI had a <em>non-disparagement</em> clause in their contract, making it illegal for ex-employees to publicly sound the alarm on them being sloppy on safety. (Aside: huge kudos to Daniel K//TODO// for walking away from $2 million in equity on OpenAI to go public about the org's irresonsibility////////)</li>
+<li><u>Enforce transparency &amp; standards on major AI labs</u>. (in a way that isn't over-burdening)
+<ul>
+<li>Require AI labs adopt a Responsible Scaling Policy (see below), openly publish that policy, and be transparent about their evals.</li>
+<li>Send in external, independent auditors (who will keep things confidential). This is what many industries have to do already.</li>
+</ul>
+</li>
+<li><u>Track chips &amp; compute</u>. Governments keep track of GPU clusters, and who's running &quot;frontier AI&quot;-levels of compute. (The same way governments already track &quot;bomb&quot;-levels of nuclear material.)
+<ul>
+<li>This will have to be balanced against privacy concerns, of course.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2) Credibly commit to staying above the safety-capabilities line.</strong></p>
+<ul>
+<li><u>Responsible Scaling Policy</u>. Problem: we don't <em>know</em> all the risks of much-more advanced AI. We can see ahead a bit, but not much further. Solution: Like the iterative approach in Scalable Oversight, <strong>instead of trying to create a policy that'll work for all time, we commit to a <em>meta-policy:</em></strong> &quot;We commit to not even <em>start</em> training AI Level N, until we've created evals, standards &amp; required safeguards for AI Level <em>N+1</em>.&quot;
+<ul>
+<li>For example, current frontier AI is at &quot;ASL-2&quot; (AI Safety Level 2), and Anthropic has defined security threshold/measures for ASL-3. ASL-4 and above have not yet been defined, but they've committed to defining ASL-4 <em>before</em> even starting on an ASL-3 AI.</li>
+<li>todocite:(demonstrates increased risk of catastrophic misuse e.g. bioweapons, far above textbooks, OR</li>
+</ul>
+</li>
+<li><u>Differential Technology Development (DTD)</u>: While the line between &quot;good for capabilities&quot; and &quot;good for safety&quot; is blurry... just because gray exists, doesn't mean you can't tell some things are brighter than others. DTD is a commitment (within a company, and/or society-wide) to invest <em>more</em> effort into the safe/low-downside stuff, than the dual-use/catastrophic-potential stuff. Analogy: in biotech, this would mean investing more in pandemic prevention, than gain-of-function research. Likewise: in AI, this may mean more investment in e.g. interpretability, than e.g. creating autonomous murder drones.//TODO like
+<ul>
+<li>persuasion https://www.alignmentforum.org/posts/zxmzBTwKkPMxQQcfR/let-s-use-ai-to-harden-human-defenses-against-ai</li>
+<li>// analogy to sneaky &amp; helpful prover</li>
+</ul>
+</li>
+</ul>
+<p>Targeted Regulation?</p>
+<p><strong>3) Use the good in AI, to help counter the possible bad in AI:</strong></p>
+<ul>
+<li>Use AIs to improve our ability to forecast future possibilities (AIs are already helping<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>), and do scenario-planning to prevent the worst, and/or prepare for the worst.</li>
+<li>Use AI to defend against other existential threats (which could be accelerated through AI). For example, using AI to <em>fix</em> vulnerabilities in critical software to defend against cyberattacks, or AI to develop defenses against engineered bioweapons (examples of bio-defenses<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>)</li>
+<li>(See also the next sections: Alternatives to AGI, and Cyborgism!)</li>
+</ul>
+<p>(Bonus: Misc governance-related ideas or tech I couldn't fit into the above) // TODO: weight security, watermark, unlearning) Open-source</p>
+<p>(Bonus: The <em>big</em> thing missing above, is &quot;how to deal with open-source AIs&quot;? I love open-source, <em>all</em> my work so far's been open-source, but <em>this</em> is the large open question in AI Governance I don't have good answers for. Click here for my rambling thoughts.)</p>
+<p>. . .</p>
+<p>A note of pessimism, followed by cautious optimism.</p>
+<p>Consider the recent saga of SB 1047.  This was an AI Safety bill in California, USA that was popular with citizens, and passed the ////////.  It was imperfect, but endorsed by //////// and cautiously endorsed by Anthropic — while opposed by other major AI labs, like OpenAI. (TODO: Musk?)  It was vetoed by the governor Gavin Newsom, a guy who broke his own Covid rules to go to dinner parties.</p>
+<p>Actually, consider just the last few decades in politics. &quot;Humans coordinating to solve global problems&quot; is... not a thing we seem to be good at. (Covid-19, global warming, fertility crisis)</p>
+<p>But: we <em>used</em> to be able to solve global problems quickly!  Smallpox got eradicated<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup>, it's no longer the case that <em>half</em> of babies died before age 5 //<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>, CFCs were banned &amp; the ozone layer <em>is</em> actually healing!<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>  I don't know <em>why</em> we were good then &amp; suck now (WTF Happened in 1971? TODO), but... the power is within us!  We &quot;just&quot; gotta un-bury it.</p>
+<p>Humans <em>have</em> solved the &quot;human alignment problem&quot; before.</p>
+<p>Let's get our groove back, and align ourselves on aligning AI.</p>
+<p>// TODO: polarization on near vs far AI risk? esp post Trump &amp; Elon</p>
+<h3>🤔 Review #9</h3>
+<p>TODO</p>
+<hr>
+<p><a id="alt"></a></p>
+<h2>Alternatives to AGI</h2>
+<p>Why don't we just <em>not</em> create the Torment Nexus?</p>
+<p>Since creating an Artificial General Intelligence (AGI) is so risky... like sparrows stealing an owl egg to try to raise an owl who'll defend their nest &amp; hopefully not eat them<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup>... why don't we find ways to get the pros <em>without</em> the cons? A way to defend the sparrow nest <em>without</em> raising an owl? To un-metaphor this: we don't we find ways to use <strong>less-powerful, narrow-scope, not-fully-autonomous</strong> AIs to help us — say — cure cancer, shape economies to be prosperous yet fair, help us live full &amp; flourishing lives with each other? All <em>without</em> risking a Torment Nexus?</p>
+<p>Well... yeah.</p>
+<p>Yeah I endorse this one. Sure, it's obvious, but &quot;2 + 2 = 4&quot; is obvious, that doesn't make it wrong. The problem is how to <em>actually do this</em> in practice. Here's a few concrete proposals:</p>
+<p>// pics???</p>
+<ul>
+<li><strong>Comprehensive AI Services (CAIS)</strong> (by Eric Drexler<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>): A fully general AI may solve problems generally, but is unpredictable <em>because</em> it's general. Meanwhile, narrow tools like calculators will never go rogue even if they're really good, but they're limited to one use case. Proposed solution: make a large suite of narrow AI tools, that, when a <em>human</em> directs them like a movie director or music conductor, can be used to generally solve problems. The human, and their values, stay in the center.
+<ul>
+<li>(As Drexler himself notes, general autonomous AI would still be a concern, but CAIS would greatly reduce the economic incentive to make such an AGI.)</li>
+</ul>
+</li>
+<li><strong>Pure Scientist AI</strong>: (Bengio TODO)  This AI does not take any direct actions in the physical world.  Ideally, it wouldn't even &quot;plan&quot;.  Like how in Excel you can drop in a bunch of data, and get the best-fitting line... <em>ideally:</em> with a &quot;pure scientist AI&quot;, you drop in a bunch of data, and you get the best-fitting <em>theory</em>.  (For example: give it the planets' positions in the night sky, and it'll return: &quot;Oh, yeah, Earth's not the center. Sun is. Also stuff moves in ellipses, not circles.&quot;)</li>
+<li><strong>Microscope AIs</strong> (Chris Olah TODO): Instead of (just) using the <em>output</em> of a neural network to solve a problem, use the <em>insides of a trained network</em> to understand something! When a neural network is trained on data, the final shape of the <em>network itself</em> can reveal hidden patterns in the data. // TODO check
+<ul>
+<li>(This is already used successfully for &quot;word embeddings&quot;, where training a neural network to predict words reveals the &quot;space&quot; of language.)<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup></li>
+</ul>
+</li>
+<li><strong>Hybrid AIs</strong>: Good Ol' Fashioned AI was interpretable &amp; verifiable, but so inflexible it couldn't even recognize pictures of cats. Modern neural-network AI <em>is</em> flexible, but not currently possible to verify them as safe or robust. Proposed solution: Mix the two! Use neural-networks as narrow &quot;intuition&quot; modules, guided by a verifiable, logical GOFAI.
+<ul>
+<li>&quot;Just combine GOFAI and Modern AI&quot; is probably as hard as &quot;Just combine special relativity with quantum mechanics&quot;<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup>. This has been an active area of research for decades.</li>
+<li>However, there's a few big success cases: for example, AlphaGo used a GOFAI algorithm called &quot;tree search&quot;, but to narrow down the search, it trained neural network to get an &quot;intuition&quot; for what board positions were better/worse.</li>
+</ul>
+</li>
+<li><strong>Quantilizers</strong> (by Jessica Taylor TODO): Instead of making an AI that <em>optimizes</em> for a goal, make an AI that is trained to <em>imitate a (smart) human</em>. (No, todo: SOFT optimizaton.) Then to solve a problem, run this human-imitator e.g. 100 times, and pick the best solution. This will be equivalent to getting a smart human's ideas on the best 1% of their days. This avoids the Goodhart-problems<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> of pure optimization, and keeps the resulting solutions human-like.</li>
+</ul>
+<p>Okay, I confess, there <em>are</em> a few big problems with &quot;focusing on Alternatives to AGI&quot;. Social problems, <em>and</em> technical problems:</p>
+<ul>
+<li>A malicious human/group of humans could still use narrowly-scoped AI for for catastrophic ends. (e.g. bioweapon-pandemic, self-replicating killer drones)
+<ul>
+<li>At the very least, a well-meaning-but-naïve set of humans could use narrow non-autonomous AI to <em>make</em> general autonomous AI, with all its problems. So, narrow AI is at best a temporary measure.</li>
+</ul>
+</li>
+<li>An AI that doesn't plan ahead, and &quot;merely&quot; predicts future outcomes, can still have nasty side-effects, due to self-fulfilling prophecies. (TODO :See an extended example)</li>
+<li>Due to economic incentives (and human laziness), the market may just <em>prefer</em> to make general AIs that are fully autonomous, &amp; act on their own.</li>
+</ul>
+<p>But, the social problems could &quot;just&quot; be addressed with AI Governance, and the technical problems could be addressed with many of the technical solutions described earlier.</p>
+<p>Still, I suspect <em>eventually</em> someone (some<em>thing?</em>) will make true AGI possible, and we want to be prepared for that. But in the meantime, the above alternatives <em>can</em> help us prepare the policy &amp; science for AGI, and be greatly beneficial to health &amp; flourishing. Curing cancer ain't no small thing!</p>
+<h3>🤔 Review #10</h3>
+<p>TODO</p>
+<hr>
+<p><a id="cyborg"></a></p>
+<h2>Cyborgism</h2>
+<p>Re: humans &amp; possible future advanced AI,</p>
+<p><strong>If we can't beat 'em, join 'em!</strong></p>
+<p>We <em>could</em> interpret that literally: brain-computer interfaces<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup> in the medium term, mind-uploading<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup> in the long term. But we don't have to wait that long. The mythos of the &quot;cyborg&quot; can still be helpful, <em>right now!</em> In fact:</p>
+<p><em>YOU'RE ALREADY A CYBORG.</em></p>
+<p>...if &quot;cyborg&quot; means any human that's augmented their body or mind with technology. For example, you're <em>reading</em> this. Reading &amp; writing <em>is</em> a technology. (Remember: things are still technologies even if they were created before you were born.) Literacy even <em>measurably re-wires your brain.</em><sup class="footnote-ref"><a href="#fn71" id="fnref71">[71]</a></sup> You are not a natural human: a few hundred years ago, most people couldn't read or write.</p>
+<p>Besides literacy, there's many other everyday cyborgisms:</p>
+<ul>
+<li><u>Physical augmentations:</u> glasses, pacemakers, prosthetics, implants, hearing aids</li>
+<li><u>Cognitive augmentations:</u> reading/writing, math notation, computers, spaced repetition flashcards</li>
+<li><u><i>Emotional</i> augmentations!</u> diaries, meditation apps, reading biographies or watching documentaries to empathize with folks across the world.</li>
+</ul>
+<p><img src="../media/p3/cyborg/cyborg.png" alt="Stylish silhouette-drawing of people with &quot;everyday cyborg&quot; tools. Glitched-out caption reads: We're all already cyborgs."></p>
+<p><strong>Q:</strong> That's... tool use. Do you really need a sci-fi word like &quot;cyborg&quot; to describe <em>tool use?</em></p>
+<p><strong>A:</strong> Yes</p>
+<p>Because if the question is: &quot;how do we keep human <em>values</em> in the center of our systems?&quot; Then one obvious answer is: keep <em>the human</em> in the center of our systems. Like that cool thing Sigourney Weaver uses in <em>Aliens (1986)</em>.</p>
+<p><img src="../media/p3/cyborg/weaver.png" alt="Screenshot of Sigourney Weaver in the Power Loader. Caption: cyborgism, keeping the human in the center of our tools"></p>
+<p>Okay, enough metaphor, here's how Cyborgism has been applied to AI <em>specifically:</em></p>
+<ul>
+<li>Garry Kasparov, the former World Chess Grandmaster, who also famously lost to IBM's chess-playing AI, once proposed: CENTAURS. It turned out, <strong>human-AI teams could beat <em>both</em> the best humans &amp; best AIs at chess</strong>, by having the human's &amp; AI's strengths/weaknesses compensate for each other!<sup class="footnote-ref"><a href="#fn72" id="fnref72">[72]</a></sup> (This may or may not be true for chess specifically anymore<sup class="footnote-ref"><a href="#fn73" id="fnref73">[73]</a></sup>, but the general idea's still useful.)</li>
+<li>Likewise, some researchers are trying to combine the strengths/weaknesses of humans &amp; large language models (LLMs).<sup class="footnote-ref"><a href="#fn74" id="fnref74">[74]</a></sup> For example, humans are currently much better at long-term planning, LLMs are much better at high-variance brainstorming. Together, <strong>a &quot;cyborg&quot; may be able to plan deeper <em>and</em> broader than pure-human or pure-LLM!</strong>
+<ul>
+<li>(You can try this out <em>today!</em> janus made a tool called Loom, which lets you have a &quot;multiverse&quot; of thoughts. There's also an Obsidian plugin by Celeste!) // TODO links</li>
+</ul>
+</li>
+<li>Large Language Models are &quot;only&quot; about as good as the average person at forecasting future events, but <em>together</em>, a normal LLM can help normal humans improve their forecasting ability by up to 41%!<sup class="footnote-ref"><a href="#fn75" id="fnref75">[75]</a></sup></li>
+<li>Finally, check out this cool creativity-enhancing design tool, made by <a href="https://arxiv.org/pdf/1609.03552">Zhu et al <em>in 2016</em></a>. Long before DALL-E, and honestly <em>still</em> far better for precise artistic expression, than DALL-E/MidJourney/etc:</li>
+</ul>
+<video width="640" height="360" controls>
+    <source src="../media/p3/cyborg/shoe.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p>. . .</p>
+<p>Caveats &amp; warnings:</p>
+<ul>
+<li>Humans may be too lazy, and opt for autonomous AIs, instead of augmenting their <em>own</em> autonomy. (Another reason to make this sound <em>cool</em> with &quot;cyborg&quot;, not just &quot;tool use&quot;.)</li>
+<li>When you put yourself inside a system, the system may modify <em>you</em>. Even for reading/writing, anthropologists agree that literacy isn't just a skill, it modifies your entire <em>culture and values</em>.<sup class="footnote-ref"><a href="#fn76" id="fnref76">[76]</a></sup> What would becoming a <em>cyborg multiverse-thinker</em> do to you?</li>
+<li>Again, an AI-augmented human could be a sociopath, and bring about catastrophic risk. Again-again, <em>one</em> human's values ≠ humane values.</li>
+</ul>
+<p>Then again...</p>
+<p><img src="../media/p3/cyborg/weaver2.png" alt="Close-up of Sigourney Weaver"></p>
+<p>That's pretty cool.</p>
+<h3>🤔 Review #11</h3>
+<p>TODO</p>
+<hr>
+<h2>In Sum:</h2>
+<p>Here's THE PROBLEM™️, broken down, with all the proposed solutions! (Click to see in full resolution! TODO)</p>
+<p><code>// TODO: less crappy-looking picture</code></p>
+<p><img src="../media/p3/SUM.png" alt="TODO"></p>
+<p>(Again, if you want to actually <em>remember</em> all this long-term, and not just be stuck with vague vibes two weeks from now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="TODO">Anki deck for Part Three</a>.)</p>
+<p>. . .</p>
+<p><em>(EXTREMELY LONG INHALE)</em></p>
+<p><em>(10 second pause)</em></p>
+<p><em>(EXTREMELY LONG EXHALE)</em></p>
+<p>. . .</p>
+<p>Aaaaand I'm done.</p>
+<p>Around 80,000 words later (about the length of a novel), and nearly a hundred illustrations, that's... it. Over a year in the making, that's the end of my whirlwind guide to AI &amp; AI Safety for Fleshy Humans.</p>
+<p>If you've read all three parts in this series, you may have spent a few hours, but <strong>you now know everything I've_ learnt in the last few years, which (in my opinion) are the most important ideas of the last few decades!</strong></p>
+<p>🎉 Pat yourself on the back!  (But mostly pat <em>my</em> back. (I'm so tired.))</p>
+<p>Sure, the field of AI Safety is moving so fast, Part One &amp; Two started to become obsolete before Part Three came out, and doubtless Part Three: The Proposed Solutions will feel naïve or obvious in a couple years.</p>
+<p>But hey, the real AI Safety was all the friends we made along the way.</p>
+<p>Um.</p>
+<p>I need a better way to wrap up this series. Uh, here, click this for a really cool <strong>CINEMATIC CONCLUSION:</strong></p>
+<p>// TODO BUTTON</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>wait what are you doing? scroll back up, the cool ending's in the button up there.</p>
+<p>come on, it's just a boring footer &amp; footnotes below.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>ugh, fine:</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>TODO (The protocol goes like this: Human trains Robot_1. // Human + Robot_1 train Robot_2. // Human + Robot_2 train Robot_3. // Human + Robot_3 train Robot_4. // ...and so on. This way, the human's always training the new AI, but with the help of the most recent AI.) <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>TODO (Well, maybe. The paper acknowledges many limitations, such as: what if instead of the AIs learning to be <em>logical</em> debaters, they become <em>psychological</em> debaters, exploiting our psychological biases?) <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>// TODO: Self-correction? like moral? // Also self-defence: really simple, &quot;virtually 0&quot; https://arxiv.org/pdf/2308.07308 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>TODO: swiss cheese model of security <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>TODO <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>TODO quote from CEV paper, paraphrased <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>TODO with Paul <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>TODO <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>TODO - (Heck, many <em>humans</em> don't know their own true goals! See: therapy. Even if you fully knew your own values, it's practically impossible to write it all down formally for an AI. We couldn't even formally describe what cats look like, remember? TODO) <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>TODO, also disagreement on learning. TED Talk he gave <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>TODO <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>TODO. also soft prioritarian? self-improve // open research Q, actually. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>TODO <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>TODO <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>TODO <a href="#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>TODO <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>TODO <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p>TODO <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p>TODO <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>TODO <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p>TODO <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn22" class="footnote-item"><p>TODO <a href="#fnref22" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn23" class="footnote-item"><p>TODO <a href="#fnref23" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn24" class="footnote-item"><p>TODO <a href="#fnref24" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn25" class="footnote-item"><p>TODO <a href="#fnref25" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn26" class="footnote-item"><p>TODO &amp; nightshade // actually, I approve <a href="#fnref26" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn27" class="footnote-item"><p>TODO <a href="#fnref27" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn28" class="footnote-item"><p>TODO <a href="#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>TODO <a href="#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p>TODO// Many papers have shown that pretraining on massive, diverse data leads to more robust representations that generalize better out-of-distribution (Hendrycks et al., 2019; 2020b; Radford et al., 2021; Liu et al., 2022) <a href="#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>TODO <a href="#fnref31" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn32" class="footnote-item"><p>TODO on Generative Adversarial Networks <a href="#fnref32" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn33" class="footnote-item"><p>TODO <a href="#fnref33" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn34" class="footnote-item"><p>TODO cite Paul https://ai-alignment.com/training-robust-corrigibility-ce0e0a3b9b4d  https://ieeexplore.ieee.org/abstract/document/10219969 ??? // TODO: https://arxiv.org/pdf/2403.05030 <a href="#fnref34" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn35" class="footnote-item"><p>TODO <a href="#fnref35" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn36" class="footnote-item"><p>TODO (Then there's <em>sub</em>-subfields inside that: <em>Black-box</em> interpretability tries to understand neural networks without direct access to the neural connections &amp; activity. <em>Mechanistic</em> interpretability does.) <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn37" class="footnote-item"><p>TODO &amp; More more: https://transformer-circuits.pub/2024/crosscoders/index.html TODO <a href="#fnref37" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn38" class="footnote-item"><p>TODO (One-meaning: &quot;Mono-semanticity&quot;) This is in contrast to previous AIs, and real human brains, where one neuron can activate in response to many unrelated things. (Many-meaning: &quot;Poly-semanticity&quot;) <a href="#fnref38" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn39" class="footnote-item"><p>TODO too low resolution, no guarantee it'd use static or the same representation over multiple times // analogy: &quot;B&quot; vs &quot;b&quot; -- more of a guarantee in LMs with no recurrence. <a href="#fnref39" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn40" class="footnote-item"><p>TODO <a href="#fnref40" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn41" class="footnote-item"><p>TODO <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn42" class="footnote-item"><p>TODO, example <a href="#fnref42" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn43" class="footnote-item"><p><a href="https://www.quantamagazine.org/to-build-truly-intelligent-machines-teach-them-cause-and-effect-20180515/">From Pearl's 2018 interview with Quanta</a>: <em>“As much as I look into what’s being done with deep learning, I see they’re all stuck there on the level of associations. Curve fitting. [...] no matter how skillfully you manipulate the data and what you read into the data when you manipulate it, it’s still a curve-fitting exercise, albeit complex and nontrivial.”</em> <a href="#fnref43" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn44" class="footnote-item"><p>Beloved &quot;thinking in gears&quot; metaphor comes from <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">Valentine (2017)</a> <a href="#fnref44" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn45" class="footnote-item"><p>TODO <a href="#fnref45" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn46" class="footnote-item"><p>TODO cite (A recent paper showed that you can solve Goal Misgeneralization with causal thinking. Alas the <em>details</em> of the algorithm are proprietary &amp; not-published, so we can't directly confirm it. Still, sounds plausible. TODOcite) <a href="#fnref46" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn47" class="footnote-item"><p>TODO <a href="#fnref47" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn48" class="footnote-item"><p>TODO some exceptions <a href="#fnref48" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn49" class="footnote-item"><p>TODO // here's a historical photograph! - NO, WHY DID YOU CLICK THAT. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn50" class="footnote-item"><p>TODO <a href="#fnref50" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn51" class="footnote-item"><p>TODO <a href="#fnref51" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn52" class="footnote-item"><p>TODO fill out e.g. Deontology says you should never lie, even to the Nazi who wants to know if your neighbors are hiding Jews. Utilitarianism says <em>yes of course lie, dumbass</em>. <a href="#fnref52" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn53" class="footnote-item"><p>TODO examples, like https://cdn.aaai.org/ocs/ws/ws0209/12624-57414-1-PB.pdf <a href="#fnref53" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn54" class="footnote-item"><p>TODO https://aiimpacts.org/ai-risk-terminology/#Indirect_normativity <a href="#fnref54" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn55" class="footnote-item"><p>TODO Deepmind's paper <a href="#fnref55" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn56" class="footnote-item"><p>TODO Jan Leike's post <a href="#fnref56" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn57" class="footnote-item"><p>TODO <a href="#fnref57" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn58" class="footnote-item"><p>TODO <a href="#fnref58" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn59" class="footnote-item"><p>TODO <a href="#fnref59" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn60" class="footnote-item"><p>TODO - <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn61" class="footnote-item"><p>TODO <a href="#fnref61" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn62" class="footnote-item"><p>TODO <a href="#fnref62" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn63" class="footnote-item"><p>TODO <a href="#fnref63" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn64" class="footnote-item"><p>TODO <a href="#fnref64" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn65" class="footnote-item"><p>TODO https://www.alignmentforum.org/posts/LxNwBNxXktvzAko65/reframing-superintelligence-llms-4-years <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn66" class="footnote-item"><p>TODO <a href="#fnref66" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn67" class="footnote-item"><p>TODO <a href="#fnref67" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn68" class="footnote-item"><p>TODO <a href="#fnref68" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn69" class="footnote-item"><p>TODO <a href="#fnref69" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn70" class="footnote-item"><p>TODO <a href="#fnref70" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn71" class="footnote-item"><p>TODO <a href="#fnref71" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn72" class="footnote-item"><p>// TODO cite our own article <a href="#fnref72" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn73" class="footnote-item"><p>TODO (Well, at the time. Gwern claims human-AI teams are strictly worse than pure-AI at chess now, but I couldn't find hard sources or data for that, in either direction. But anecdotally, it seems that human-AI centaurs are at least <em>on par</em> with pure-AI. Still, human-AI held its higher ground for a bit over a decade!) // TODO <a href="#fnref73" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn74" class="footnote-item"><p>TODO link janus <a href="#fnref74" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn75" class="footnote-item"><p>TODO https://arxiv.org/pdf/2402.07862 <a href="#fnref75" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn76" class="footnote-item"><p>TODO <a href="#fnref76" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+	</article>
+
+    <!-- FOOTER -->
+	<div id="footer">
+        <div id="footer_content">
+<p style="font-size: 1.3em; line-height: 1.35em;">
+<i>AI Safety for Fleshy Humans</i> was made by
+<a href="https://ncase.me/">Nicky Case</a>
+in collaboration with
+<a href="https://hackclub.com/">Hack Club</a>.
+</p>
+<p>
+🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
+is a nonprofit where teenagers code awesome projects together -
+like <a href="https://cpu.land">cpu.land</a>,
+<a href="https://sinerider.com">SineRider</a>,
+and this!
+Join
+<a href="https://hackathons.hackclub.com">in-person hackathons</a>,
+run a
+<a href="https://hackclub.com/clubs/">club at your school</a>,
+and
+<a href="https://hackclub.com/slack/">connect with other friendly teenagers</a>.
+</p>
+<p>
+😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
+is fifteen cats in a trenchcoat.
+She makes internet playthings, like
+<a href="https://ncase.me/trust/">The Evolution of Trust</a>,
+<a href="https://ncase.me/anxiety/">Adventures with Anxiety</a>,
+<a href="https://explorabl.es/">Explorable Explanations</a>, and more.
+</p>
+<p>
+💸 If you're <i>not</i> a teen, and are an AI moneybags person,
+<a href="https://hackclub.com/philanthropy/">learn how to support Hack Club!</a>
+Also, Nicky has a
+<a href="https://www.patreon.com/ncase">Patreon</a>
+&
+<a href="https://ko-fi.com/nickycase">Ko-Fi</a>.
+(p.s:
+<a href="../signup/supporters-p2.html">thank-you page for my supporters!</a>)
+</p>
+<p style="text-align:center">
+. . .
+</p>
+<p>
+Special thanks to these teens at Hack Club for
+<s>being free child labor</s>
+beta-reading & giving feedback on this piece:
+</p>
+<blockquote>
+
+<p>
+<b>Intro & Part 1:</b>
+Arthur Beck,
+Atharv Gupta,
+Brendan Lee,
+Celeste,
+Charalampos Fanoulis,
+Charlie,
+Cheru Berhanu,
+Claire Wang,
+Elijah,
+Fred Han,
+Gia Bách Nguyễn,
+Hajrah Siddiqui,
+Jakob,
+Joseph Ross,
+Kieran Klukas,
+Lexi Mattick,
+Mason Meirs,
+Michael Panait,
+Nick Zandbergen,
+Nila Palmo Ram,
+Pixelglide,
+py660,
+rivques,
+Samuel Cottrell,
+Samuel Fernandez,
+Saran Wagner,
+Skyler Grey,
+S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E,
+Vihaan Sondhi
+</p>
+
+<p>
+<b>Part 2:</b>
+Nanda White,
+Nila Palmo Ram,
+rivques,
+Rohan K,
+Samuel Fernandez
+</p>
+
+</blockquote>
+<p>
+Also thank you to these non-teenagers for giving feedback:
+(Though I assume they were teenagers at <i>some</i> point)
+</p>
+
+<blockquote>
+<p>
+<b>Intro & Part 1:</b>
+Alex Kreitzberg,
+B Cavello,
+Paul Dancstep,
+Tobias Rose-Stockwell
+</p>
+
+<p>
+<b>Part 2:</b>
+Egg Syntax,
+Max Wofford,
+Mithuna Yoganathan,
+Tobias Rose-Stockwell
+</p>
+
+</blockquote>
+
+<p>
+Any errors remaining are solely the fault of
+<a href="../suzie.png">Suzie the Scapegoat</a>.
+</p>
+<p style="text-align:center">
+. . .
+</p>
+<p>
+<i>AI Safety For Fleshy Humans</i> is free for anyone to share & remix,
+as long as it's for non-commercial use (e.g. education):
+<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
+</p>
+<p>
+If you'd like to cite this work and you're a Serious Person™, here's your citation:
+</p>
+<blockquote>
+Nicky Case, <i>“AI Safety for Fleshy Humans”</i>,<br>
+https://AIsafety.dance, Hack Club (2024).
+</blockquote>
+<p>
+Finally, here's the
+<a href="https://github.com/hackclub/ai-safety-dance">open-source code</a>
+for this website!
+</p>
+<p>
+Thank you for being the kind of person to read the credits~ 🙏
+</p>
+        </div>
+	</div>
+    <div id="post_credits">
+        <p>
+            Oh dang, it's a post-credits scene:
+        </p>
+<p>
+    <a href="#AllFeetnotes">: See all feetnotes 👣</a>
+</p>
+<p>
+    Also, expandable "Nutshells" that make good standalone bits:
+</p>
+
+    </div>
+
+</div>
+</body>
+</html>
+
+<!-- Load these scripts last. Screw 'em. -->
+<!-- Orbit: make memory a choice -->
+<script type="module" src="https://js.withorbit.com/orbit-web-component.js"></script>
