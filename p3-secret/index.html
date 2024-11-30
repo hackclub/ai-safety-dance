@@ -337,8 +337,8 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <hr>
 <p><a id="approval"></a></p>
 <h2>AI Logic: Approval-Directed</h2>
-<p>You may have noticed a pattern in AI Safety problems.</p>
-<p>We imagine giving an AI an innocent-seeming goal. Then, we think of the worst way it could technically achieve that goal:</p>
+<p>You may have noticed a pattern in AI Safety.</p>
+<p>First, we imagine giving an AI an innocent-seeming goal. Then, we think of the worst way it could technically achieve that goal. Like:</p>
 <ul>
 <li><u>&quot;Pick up dirt from the floor&quot;</u> → Knocks all the potted plants over so it can pick up more dirt.</li>
 <li><u>&quot;Calculate digits of pi&quot;</u> → Deploys a computer virus to steal as much compute power as possible, to calculate digits of pi.</li>
@@ -547,7 +547,7 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <p>Here's some highlights! These aren't necessarily the most-influential findings, just what I think shows the widest variety of what's possible:</p>
 <p><strong><a href="https://distill.pub/2017/feature-visualization/">Feature visualization &amp; Circuits</a></strong>: Running an image-classifying neural network <em>&quot;in reverse&quot;</em>, to visualize <em>why</em> the network thinks something is a cat, or an eye, etc.</p>
 <p><strong>Understanding &quot;grokking&quot; in neural networks:</strong></p>
-<p>In 2022, <a href="https://arxiv.org/pdf/2201.02177">Power et al</a> found something strange: train a neural network to do &quot;clock arithmetic&quot;, and for /////s of cycles it'll do really badly, just memorizing the test examples... then <em>suddenly</em> it &quot;gets it&quot;, and does well on problems it's never seen before.</p>
+<p>In 2022, <a href="https://arxiv.org/pdf/2201.02177">Power et al</a> found something strange: train a neural network to do &quot;clock arithmetic&quot;, then for thousands of cycles it'll do horribly, just memorizing the test examples... then <em>suddenly</em> around step ~100,000 it &quot;gets it&quot;, and does well on problems it's never seen before.</p>
 <p>In 2023, <a href="https://arxiv.org/pdf/2301.05217">Nanda et al</a> analyzed the inside of that network, and found the &quot;suddenness&quot; was an illusion: all through training, a secret sub-network was slowly growing — <em>which had a circular structure, exactly what's needed for clock arithmetic!</em></p>
 <p>This was one of the first major success cases for Interpretability.</p>
 <p><strong><a href="https://transformer-circuits.pub/2023/monosemantic-features">Sparse Auto-Encoders</a> (SAE)</strong><sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup></p>
@@ -656,152 +656,100 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <h3>🤔 Review #8</h3>
 <p>TODO</p>
 <hr>
-<h1>START EDITING FROM HERE</h1>
 <p><a id="governance"></a></p>
 <h2>AI Governance: the <em>Human</em> Alignment Problem</h2>
 <blockquote>
-<p><code>Error ID-10-T: Problem located between keyboard and chair.</code></p>
+<p><code>Error ID-10-T: Problem exists between keyboard and chair.</code></p>
 </blockquote>
-<p>// TODO link</p>
 <p>The saddest apocalypse: we solve the AI safety, we even solve ethical philosophy, and then... people are just too greedy or lazy to use it. Then we perish.</p>
-<p>But for better &amp; worse, this ain't our first stupid, entirely-self-inflicted existential risk. No analogy is perfect, but <strong>I think the closest historical analogy for the promises/perils of advanced AI, can be found with nuclear physics.</strong>  (Stuart Russell, co-author of the #1 AI textbook, agrees.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup>)</p>
-<p>// pic?</p>
+<p>But for better &amp; worse, this ain't our first stupid, entirely-self-inflicted existential risk. Not a perfect analogy, but we can learn a lot about AI's promises/perils, from the history of nuclear physics.<sup class="footnote-ref"><a href="#fn57" id="fnref57">[57]</a></sup></p>
+<p><code>TODO: picture summarizing the analogy?</code></p>
 <p>To spell out the analogy:</p>
-<ul>
-<li><strong>A reason you, stone-cold businessperson, should still care about safety:</strong> Remember how nuclear power in the US, despite being saferCITE &amp; far cheaperCITE than all other forms of power generation, got screwed over regulation-wise by the Three Mile Island incident?
-<ul>
-<li>If we don't make damn sure AI is safe, we <em>will</em> get our equivalent of Three Mile Island, or Chernobyl, or even an <em>AI Lab Leak</em> — and the banhammer will come down, and AI progress will stall for decades. So, do the AI Safety please.</li>
-</ul>
-</li>
-<li><strong>Promises &amp; Perils:</strong> Splitting the atom lets us create extremely cheap electricity, with no greenhouse gas emissions... <em>and</em> lets us incinerate entire cities, all civilians &amp; children included.
-<ul>
-<li>Current AI can detect tumors, and self-driving cars are ///x safer than humans... <em>and</em> current AI is good enough to discover new bio-weapons // chemical paper, also this:
-<ul>
-<li>// https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/</li>
-</ul>
-</li>
-<li>Future advanced biotech AI might help us cure cancer... <em>and</em> create unprecedented bio-weapon pandemics.
-<ul>
-<li>// todo: gave at least a 10% chance to advanced AI leading to outcomes as bad as human extinction.” https://arxiv.org/abs/2401.02843 // &amp; layperson friendly</li>
-<li>// todo: Rogue AI like rogue state or rogue actor?</li>
-<li>// self-coups lock-in power</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>An Arms Race</strong>: Even though ~everyone feared a nuclear World War 3, the US &amp; USSR got caught in an arms race, building enough nuclear weapons to overkill each other several times over.
-<ul>
-<li>Even though the leaders of top AI labs <em>claim</em> to worry deeply about existential AI risk, they're &quot;caught&quot;(?) in an economic arms race to increase AI capabilities.</li>
-</ul>
-</li>
-<li><strong>Possible hope out?</strong> Most people don't know, but the world's nuclear weapons <em>dropped by //%</em> in a few decades after /////! This was in part due to good policy, and also some technical achievements to make that policy possible (e.g. the &quot;Trust But Verify&quot; approach to monitoring nuclear). And since Chernobyl &amp; Three Mile Island, there's been new designs for nuclear reactors to be meltdown-proof, or even <em>recycle</em> old nuclear waste.
-<ul>
-<li>Likewise, there are proposals &amp; proofs-of-concepts for how we can &quot;Trust But Verify&quot; safe AI!  We'll see these in a few pararaphs...</li>
-</ul>
-</li>
-</ul>
+<p><strong>Why even a stone-cold businessperson should care about safety:</strong> You know how — despite nuclear power being safer[^nuclear-safer], cheaper[^nuclear-cheaper], and creates less carbon than solar[^nuclear-co2] — nuclear got screwed over regulation-wise, because of the (valid) fears after Chernobyl &amp; Three Mile Island?</p>
+<p>Likewise: if we don't make <em>damn</em> sure AI is safe, if even <em>one</em> &quot;AI lab leak&quot; happens, a self-reprogramming computer virus gets out, the regulatory banhammer will come down, and AI progress will stall for decades. So, do the AI Safety please.</p>
+<p><strong>Promises &amp; Perils:</strong> Splitting the atom lets us create abundant energy with near-zero greenhouse gasses... <em>and</em> lets us incinerate whole cities.</p>
+<p>Likewise: Advanced AI may let us accelerate medical research &amp; save millions of lives... <em>and</em> let us accelerate bioweapons, psychological warfare, and surveillance totalitarianism.</p>
+<p><strong>An Arms Race</strong>: Although ~everyone feared a nuclear World War 3, the US &amp; USSR got caught in an arms race, building enough nuclear weapons to overkill each other several times over.</p>
+<p>Likewise: although the leaders of top AI labs <em>claim</em> to worry deeply about existential AI risk<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup>, they're currently in an arms race to increase AI capabilities. (And the US &amp; Chinese governments are starting to join in...<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>)</p>
+<p><strong>Possible hope out?</strong> Most people don't know, but the world's nuclear warhead supply has <em>been cut to a sixth of what it used to be</em>, in just a few decades! (~70,000 in 1986, ~12,500 in 2023, thirty-seven years later<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>) This was due to good policy, <em>and</em> technical achievements to make that policy possible (e.g. ability to &quot;trust but verify&quot; nuclear reductions).</p>
+<p>Likewise, there are many proposals to make AI easier to &quot;trust but verify&quot;!</p>
+<p>This is AI Governance.</p>
 <p>. . .</p>
-<p>You know I like charts. So, let me repeat the chart from Part Two, showing: AI Safety vs AI Capabilities, where we are, where we're headed, and the thresholds for dangers from AI misuse &amp; from rogue AI.</p>
-<p><img src="../media/p3/governance/rocket.png" alt="TODO"></p>
-<p>// TODO: edit for risk by misuse</p>
-<p>From this doodle-metaphor-thing, a strategy presents itself:</p>
-<p><strong>1) Know where we are &amp; where we're headed:</strong></p>
-<p>// todo: don't know exactly where &amp; where heading</p>
+<p>You know I like charts! Here's the chart from Part Two again, showing:</p>
 <ul>
-<li><u>Evaluations</u>, to know if an AI is superhumanly good at persuasionTODO (current ones already are), or can aid with developing weapons of mass destruction (they're getting there). // TODO WMDP and https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety
-<ul>
-<li>One problem with evaluations (including evals for <em>capabilities</em>, not safety) is someone could leak the evaluation onto the public web, which will get into the training data, so an AI trained on that can &quot;cheat&quot;. Thankfully, we can test if <em>that</em> happened, by including &quot;canary strings&quot; (named after the historical canaries in coal mines). Result: yes, this happens all the time.<sup class="footnote-ref"><a href="#fn58" id="fnref58">[58]</a></sup></li>
-<li>TODO: &quot;model cards&quot;</li>
-<li>https://www.anthropic.com/research/statistical-approach-to-model-evals</li>
+<li>AI Safety vs AI Capabilities</li>
+<li>The &quot;safe&quot; line where Safety &gt; Capabilities</li>
+<li>Where we are &amp; the direction we're on</li>
+<li>The &quot;good place&quot; and &quot;bad place&quot;, above a certain Capability</li>
 </ul>
-</li>
-<li><u>Protect whistleblowers' free speech</u>. TODOcheck OpenAI had a <em>non-disparagement</em> clause in their contract, making it illegal for ex-employees to publicly sound the alarm on them being sloppy on safety. (Aside: huge kudos to Daniel K//TODO// for walking away from $2 million in equity on OpenAI to go public about the org's irresonsibility////////)</li>
-<li><u>Enforce transparency &amp; standards on major AI labs</u>. (in a way that isn't over-burdening)
+<p><img src="../media/p3/governance/rocket.png" alt="TODO"></p>
+<p><code>// TODO: edit to include risk by misuse</code></p>
+<p>The goal: keep our rocket above the &quot;safe&quot; line. Thus, a 2-part strategy:</p>
+<ol>
+<li>Verify where we are, our direction &amp; velocity.</li>
+<li>Use sticks &amp; carrots to stay above the &quot;safe&quot; line.</li>
+</ol>
+<p>In more detail:</p>
+<p><strong>1) Verify where we are, our direction &amp; velocity:</strong></p>
+<ul>
+<li><u>Evaluations (or &quot;Evals&quot;)</u>, to keep automatically track of how good frontier AIs are at risky capabilities, like helping people develop weapons of mass destruction. (they're getting quite good...)<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup></li>
+<li><u>Protect whistleblowers' free speech</u>. OpenAI once had a <em>non-disparagement</em> clause in their contract, making it illegal for ex-employees to publicly sound the alarm on them being sloppy on safety.<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup> Whistleblowers should be protected.</li>
+<li><u>Enforce transparency &amp; standards on major AI labs</u>. (in a way that isn't over-burdening.)
 <ul>
 <li>Require AI labs adopt a Responsible Scaling Policy (see below), openly publish that policy, and be transparent about their evals.</li>
-<li>Send in external, independent auditors (who will keep things confidential). This is what many industries have to do already.</li>
+<li>Send in external, independent auditors (who will keep trade secrets confidential). This is what many software industries (like cybersecurity &amp; VPNs) <em>already</em> do as regular practice.</li>
 </ul>
 </li>
-<li><u>Track chips &amp; compute</u>. Governments keep track of GPU clusters, and who's running &quot;frontier AI&quot;-levels of compute. (The same way governments already track &quot;bomb&quot;-levels of nuclear material.)
-<ul>
-<li>This will have to be balanced against privacy concerns, of course.</li>
+<li><u>Track chips &amp; compute</u>. Governments keep track of GPU clusters, and who's running large &quot;frontier AI&quot;-levels of compute. The same way governments already track large &quot;bomb&quot;-levels of nuclear material.</li>
+<li><u>Forecasting</u>. To know not just <em>where</em> we are, but our direction &amp; velocity: have &quot;super-predictors&quot; regularly forecast the upcoming capabilities &amp; risks.<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup> (There's early evidence showing that AI <em>itself</em> can help with forecasting!<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup>)</li>
 </ul>
-</li>
-</ul>
-<p><strong>2) Credibly commit to staying above the safety-capabilities line.</strong></p>
+<p><strong>2) Use sticks &amp; carrots to stay above the &quot;safe&quot; line.</strong></p>
 <ul>
-<li><u>Responsible Scaling Policy</u>. Problem: we don't <em>know</em> all the risks of much-more advanced AI. We can see ahead a bit, but not much further. Solution: Like the iterative approach in Scalable Oversight, <strong>instead of trying to create a policy that'll work for all time, we commit to a <em>meta-policy:</em></strong> &quot;We commit to not even <em>start</em> training AI Level N, until we've created evals, standards &amp; required safeguards for AI Level <em>N+1</em>.&quot;
+<li><b><u>Responsible Scaling Policy</u></b>. The problem is we can't even <em>imagine</em> the risks until we get closer. So, instead of having a policy for all AIs across all time, like Scalable Oversight, this is an <em>iterative</em> approach. The policy is this: &quot;We commit to not even <em>start</em> training AI Level N, until we've created evals, standards &amp; safeguards for AI Level <em>N+1</em>.&quot;<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup></li>
+<li><u>Differential Technology Development (DTD)</u>:<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup> Invest in tech &amp; research that advances &quot;Safety&quot; more than &quot;Capabilities&quot;. (Sure, it's a blurry line, but just because there's numbers between 0% and 100% doesn't mean some numbers aren't bigger than others.) For example:
 <ul>
-<li>For example, current frontier AI is at &quot;ASL-2&quot; (AI Safety Level 2), and Anthropic has defined security threshold/measures for ASL-3. ASL-4 and above have not yet been defined, but they've committed to defining ASL-4 <em>before</em> even starting on an ASL-3 AI.</li>
-<li>todocite:(demonstrates increased risk of catastrophic misuse e.g. bioweapons, far above textbooks, OR</li>
-</ul>
-</li>
-<li><u>Differential Technology Development (DTD)</u>: While the line between &quot;good for capabilities&quot; and &quot;good for safety&quot; is blurry... just because gray exists, doesn't mean you can't tell some things are brighter than others. DTD is a commitment (within a company, and/or society-wide) to invest <em>more</em> effort into the safe/low-downside stuff, than the dual-use/catastrophic-potential stuff. Analogy: in biotech, this would mean investing more in pandemic prevention, than gain-of-function research. Likewise: in AI, this may mean more investment in e.g. interpretability, than e.g. creating autonomous murder drones.//TODO like
-<ul>
-<li>persuasion https://www.alignmentforum.org/posts/zxmzBTwKkPMxQQcfR/let-s-use-ai-to-harden-human-defenses-against-ai</li>
-<li>// analogy to sneaky &amp; helpful prover</li>
+<li>Investing in tech to fight catastrophic risk: AI to <em>boost</em> our cybersecurity (before a rogue AI-virus can take down our hospitals<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup>), and tech to detect &amp; fight against advanced bioweapon pandemics.<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup></li>
+<li>Investing in AI Safety research. Yes this suggestion is kinda back-scratchy, but I still endorse it.</li>
+<li>Investing in AI that <em>enhances</em> humans, not <em>replaces</em> humans. (See below: &quot;Alternatives to AGI&quot; and &quot;Cyborgism&quot;!)</li>
 </ul>
 </li>
 </ul>
-<p>Targeted Regulation?</p>
-<p><strong>3) Use the good in AI, to help counter the possible bad in AI:</strong></p>
-<ul>
-<li>Use AIs to improve our ability to forecast future possibilities (AIs are already helping<sup class="footnote-ref"><a href="#fn59" id="fnref59">[59]</a></sup>), and do scenario-planning to prevent the worst, and/or prepare for the worst.</li>
-<li>Use AI to defend against other existential threats (which could be accelerated through AI). For example, using AI to <em>fix</em> vulnerabilities in critical software to defend against cyberattacks, or AI to develop defenses against engineered bioweapons (examples of bio-defenses<sup class="footnote-ref"><a href="#fn60" id="fnref60">[60]</a></sup>)</li>
-<li>(See also the next sections: Alternatives to AGI, and Cyborgism!)</li>
-</ul>
-<p>(Bonus: Misc governance-related ideas or tech I couldn't fit into the above) // TODO: weight security, watermark, unlearning) Open-source</p>
-<p>(Bonus: The <em>big</em> thing missing above, is &quot;how to deal with open-source AIs&quot;? I love open-source, <em>all</em> my work so far's been open-source, but <em>this</em> is the large open question in AI Governance I don't have good answers for. Click here for my rambling thoughts.)</p>
+<p>Stray thought: while &quot;sticks&quot; (threat of fines, punishment) are necessary, I think it's neglected how we can use &quot;carrots&quot; (market incentives) to redirect industry. After all, ozone-layer-thinning CFCs were removed <em>with cooperation</em> from DuPont (the leading creator of CFCs), because policymakers <em>explicitly helped</em> DuPont profit from the transition away from CFCs.<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup> Result: ozone layer is healing!<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup> Sometimes it's better to just <em>pay off</em> Goliath, y'know? As for AI: a few AI Safety inventions had market payoffs<sup class="footnote-ref"><a href="#fn71" id="fnref71">[71]</a></sup>, and I think the &quot;Alternatives to AGI&quot; &amp; &quot;Cyborgism&quot; projects would be <em>both</em> safer &amp; make a profit. Plus, the insurance industry would looooove managing AI risks.</p>
+<p><code>(TODO: Extra ideas I couldn't fit into the above) // TODO: weight security, watermark, unlearning, economics, open-source models)</code></p>
 <p>. . .</p>
 <p>A note of pessimism, followed by cautious optimism.</p>
-<p>Consider the recent saga of SB 1047.  This was an AI Safety bill in California, USA that was popular with citizens, and passed the ////////.  It was imperfect, but endorsed by //////// and cautiously endorsed by Anthropic — while opposed by other major AI labs, like OpenAI. (TODO: Musk?)  It was vetoed by the governor Gavin Newsom, a guy who broke his own Covid rules to go to dinner parties.</p>
-<p>Actually, consider just the last few decades in politics. &quot;Humans coordinating to solve global problems&quot; is... not a thing we seem to be good at. (Covid-19, global warming, fertility crisis)</p>
-<p>But: we <em>used</em> to be able to solve global problems quickly!  Smallpox got eradicated<sup class="footnote-ref"><a href="#fn61" id="fnref61">[61]</a></sup>, it's no longer the case that <em>half</em> of babies died before age 5 //<sup class="footnote-ref"><a href="#fn62" id="fnref62">[62]</a></sup>, CFCs were banned &amp; the ozone layer <em>is</em> actually healing!<sup class="footnote-ref"><a href="#fn63" id="fnref63">[63]</a></sup>  I don't know <em>why</em> we were good then &amp; suck now (WTF Happened in 1971? TODO), but... the power is within us!  We &quot;just&quot; gotta un-bury it.</p>
+<p>Consider the recent saga of SB 1047. This was an AI Safety bill in California USA that 65% of citizens supported (only 25% opposed, 10% unsure), passed 32-1 in the Senate, endorsed by Anthropic &amp; Elon Musk (while opposed by OpenAI &amp; Facebook)... then got vetoed by governor Gavin Newsom, a guy who broke his own Covid rules to go to dinner parties.<sup class="footnote-ref"><a href="#fn72" id="fnref72">[72]</a></sup></p>
+<p>Actually, consider the last few <em>decades</em> in politics. Global warming, Covid-19, the fertility crisis, the opioid crisis, more war? &quot;Humans coordinating to deal with potential civilization-level threats&quot; is... not a thing we seem to be good at.</p>
+<p>But we <em>used</em> to be good at it! We eradicated smallpox<sup class="footnote-ref"><a href="#fn73" id="fnref73">[73]</a></sup>, it's no longer the case that <em>half</em> of babies died before age 5<sup class="footnote-ref"><a href="#fn74" id="fnref74">[74]</a></sup>, CFCs were banned &amp; the ozone layer <em>is</em> actually healing!<sup class="footnote-ref"><a href="#fn75" id="fnref75">[75]</a></sup> I don't know <em>why</em> we were good then &amp; suck now (<a href="https://wtfhappenedin1971.com/">WTF Happened in 1971?</a>), but... the power is within us! We &quot;just&quot; gotta un-bury it.</p>
 <p>Humans <em>have</em> solved the &quot;human alignment problem&quot; before.</p>
 <p>Let's get our groove back, and align ourselves on aligning AI.</p>
-<p>// TODO: polarization on near vs far AI risk? esp post Trump &amp; Elon</p>
 <h3>🤔 Review #9</h3>
 <p>TODO</p>
 <hr>
 <p><a id="alt"></a></p>
 <h2>Alternatives to AGI</h2>
-<p>Why don't we just <em>not</em> create the Torment Nexus?</p>
-<p>Since creating an Artificial General Intelligence (AGI) is so risky... like sparrows stealing an owl egg to try to raise an owl who'll defend their nest &amp; hopefully not eat them<sup class="footnote-ref"><a href="#fn64" id="fnref64">[64]</a></sup>... why don't we find ways to get the pros <em>without</em> the cons? A way to defend the sparrow nest <em>without</em> raising an owl? To un-metaphor this: we don't we find ways to use <strong>less-powerful, narrow-scope, not-fully-autonomous</strong> AIs to help us — say — cure cancer, shape economies to be prosperous yet fair, help us live full &amp; flourishing lives with each other? All <em>without</em> risking a Torment Nexus?</p>
+<p>Why don't we just <em>not</em> create the Torment Nexus?<sup class="footnote-ref"><a href="#fn76" id="fnref76">[76]</a></sup></p>
+<p>If creating an Artificial General Intelligence (AGI) is so risky, like sparrows stealing an owl egg to try to raise an owl who'll defend their nest &amp; hopefully not eat them<sup class="footnote-ref"><a href="#fn77" id="fnref77">[77]</a></sup>...</p>
+<p>...why don't we find ways to get the pros <em>without</em> the cons? A way to defend the sparrow nest <em>without</em> raising an owl? To un-metaphor this: why don't we find ways to use <strong>less-powerful, narrow-scope, not-fully-autonomous AIs</strong> to help us — say — cure cancer &amp; build flourishing societies, <em>without</em> risking a Torment Nexus?</p>
 <p>Well... yeah.</p>
-<p>Yeah I endorse this one. Sure, it's obvious, but &quot;2 + 2 = 4&quot; is obvious, that doesn't make it wrong. The problem is how to <em>actually do this</em> in practice. Here's a few concrete proposals:</p>
-<p>// pics???</p>
+<p>Yeah I endorse this one. Sure, it's obvious, but &quot;2 + 2 = 4&quot; is obvious, that don't make it wrong. The problem is how to <em>actually do this</em> in practice.</p>
+<p>Here's some proposals, of how to get the upsides with much fewer downsides:</p>
 <ul>
-<li><strong>Comprehensive AI Services (CAIS)</strong> (by Eric Drexler<sup class="footnote-ref"><a href="#fn65" id="fnref65">[65]</a></sup>): A fully general AI may solve problems generally, but is unpredictable <em>because</em> it's general. Meanwhile, narrow tools like calculators will never go rogue even if they're really good, but they're limited to one use case. Proposed solution: make a large suite of narrow AI tools, that, when a <em>human</em> directs them like a movie director or music conductor, can be used to generally solve problems. The human, and their values, stay in the center.
+<li><strong>Comprehensive AI Services (CAIS)</strong><sup class="footnote-ref"><a href="#fn78" id="fnref78">[78]</a></sup>: Make a large suite of narrow non-autonomous AI tools (think: Excel, Google Translate). To solve general problems, insert <em>human</em> agency: humans are the conductors for this AI orchestra. The human, and their values, stay in the center.</li>
+<li><strong>Pure Scientist AI</strong>:<sup class="footnote-ref"><a href="#fn79" id="fnref79">[79]</a></sup> An AI that acts like a pure theoretical scientist: no actions in the real world, just give it a bunch of data, <code>[something clever happens]</code>, and it gives you useful scientific findings. Ideally, this AI doesn't &quot;plan&quot; (this would lead to Instrumental Convergence problems<sup class="footnote-ref"><a href="#fn80" id="fnref80">[80]</a></sup>, and instead &quot;fits the best theory to data&quot;, like how Excel plan-less-ly fits the best line to data.</li>
+<li><strong>Microscope AIs</strong><sup class="footnote-ref"><a href="#fn81" id="fnref81">[81]</a></sup>: In contrast, instead of making an AI whose scientific findings are its <em>output</em>, we train an AI on real-world data... then look <em>at the neurons</em> to learn about the world! (If you remembered from the Interpretability section, researchers were able to find <em>an actual circular structure</em> inside an AI trained to do &quot;clock arithmetic&quot;!)</li>
+<li><strong>Hybrid AIs</strong>: The best of both worlds: the verifiability of Good Ol' Fashioned AI, but the flexibility of Modern Neural Network AI. (Note this is a <em>really</em> hard problem, but there's been a few small success cases.<sup class="footnote-ref"><a href="#fn82" id="fnref82">[82]</a></sup></li>
+<li><strong>Quantilizers</strong><sup class="footnote-ref"><a href="#fn83" id="fnref83">[83]</a></sup>: Instead of making an AI that <em>optimizes</em> for a goal, make an AI that is trained to <em>imitate a (smart) human</em>. Then to solve a problem, run this human-imitator e.g. 20 times, and pick the best solution. This will be equivalent to getting a smart human on the best 5% of their days. This &quot;soft optimization&quot; avoids Goodhart-problems<sup class="footnote-ref"><a href="#fn84" id="fnref84">[84]</a></sup> of pure optimization, and keeps the resulting solutions human-understandable.</li>
+</ul>
+<p><em>All</em> of these are easier said than done, of course. And there's <em>still</em> other problems with a focus on &quot;Alternatives to AGI&quot;. Social problems, and technical problems:</p>
 <ul>
-<li>(As Drexler himself notes, general autonomous AI would still be a concern, but CAIS would greatly reduce the economic incentive to make such an AGI.)</li>
+<li>A malicious group of humans could still use narrow AI for catastrophic ends. (e.g. bioweapon-pandemic, self-replicating killer drones)</li>
+<li>At the very least, a well-meaning-but-naïve group could use narrow non-autonomous AI to <em>make</em> general autonomous AI, with all of its risks.</li>
+<li>An AI that doesn't plan ahead, and &quot;merely&quot; predicts future outcomes, can still have nasty side-effects, due to self-fulfilling prophecies. (TODO :See an extended example from Part One)</li>
+<li>Due to economic incentives (and human laziness), the market may just <em>prefer</em> to make general AIs that are fully autonomous.</li>
 </ul>
-</li>
-<li><strong>Pure Scientist AI</strong>: (Bengio TODO)  This AI does not take any direct actions in the physical world.  Ideally, it wouldn't even &quot;plan&quot;.  Like how in Excel you can drop in a bunch of data, and get the best-fitting line... <em>ideally:</em> with a &quot;pure scientist AI&quot;, you drop in a bunch of data, and you get the best-fitting <em>theory</em>.  (For example: give it the planets' positions in the night sky, and it'll return: &quot;Oh, yeah, Earth's not the center. Sun is. Also stuff moves in ellipses, not circles.&quot;)</li>
-<li><strong>Microscope AIs</strong> (Chris Olah TODO): Instead of (just) using the <em>output</em> of a neural network to solve a problem, use the <em>insides of a trained network</em> to understand something! When a neural network is trained on data, the final shape of the <em>network itself</em> can reveal hidden patterns in the data. // TODO check
-<ul>
-<li>(This is already used successfully for &quot;word embeddings&quot;, where training a neural network to predict words reveals the &quot;space&quot; of language.)<sup class="footnote-ref"><a href="#fn66" id="fnref66">[66]</a></sup></li>
-</ul>
-</li>
-<li><strong>Hybrid AIs</strong>: Good Ol' Fashioned AI was interpretable &amp; verifiable, but so inflexible it couldn't even recognize pictures of cats. Modern neural-network AI <em>is</em> flexible, but not currently possible to verify them as safe or robust. Proposed solution: Mix the two! Use neural-networks as narrow &quot;intuition&quot; modules, guided by a verifiable, logical GOFAI.
-<ul>
-<li>&quot;Just combine GOFAI and Modern AI&quot; is probably as hard as &quot;Just combine special relativity with quantum mechanics&quot;<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup>. This has been an active area of research for decades.</li>
-<li>However, there's a few big success cases: for example, AlphaGo used a GOFAI algorithm called &quot;tree search&quot;, but to narrow down the search, it trained neural network to get an &quot;intuition&quot; for what board positions were better/worse.</li>
-</ul>
-</li>
-<li><strong>Quantilizers</strong> (by Jessica Taylor TODO): Instead of making an AI that <em>optimizes</em> for a goal, make an AI that is trained to <em>imitate a (smart) human</em>. (No, todo: SOFT optimizaton.) Then to solve a problem, run this human-imitator e.g. 100 times, and pick the best solution. This will be equivalent to getting a smart human's ideas on the best 1% of their days. This avoids the Goodhart-problems<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> of pure optimization, and keeps the resulting solutions human-like.</li>
-</ul>
-<p>Okay, I confess, there <em>are</em> a few big problems with &quot;focusing on Alternatives to AGI&quot;. Social problems, <em>and</em> technical problems:</p>
-<ul>
-<li>A malicious human/group of humans could still use narrowly-scoped AI for for catastrophic ends. (e.g. bioweapon-pandemic, self-replicating killer drones)
-<ul>
-<li>At the very least, a well-meaning-but-naïve set of humans could use narrow non-autonomous AI to <em>make</em> general autonomous AI, with all its problems. So, narrow AI is at best a temporary measure.</li>
-</ul>
-</li>
-<li>An AI that doesn't plan ahead, and &quot;merely&quot; predicts future outcomes, can still have nasty side-effects, due to self-fulfilling prophecies. (TODO :See an extended example)</li>
-<li>Due to economic incentives (and human laziness), the market may just <em>prefer</em> to make general AIs that are fully autonomous, &amp; act on their own.</li>
-</ul>
-<p>But, the social problems could &quot;just&quot; be addressed with AI Governance, and the technical problems could be addressed with many of the technical solutions described earlier.</p>
-<p>Still, I suspect <em>eventually</em> someone (some<em>thing?</em>) will make true AGI possible, and we want to be prepared for that. But in the meantime, the above alternatives <em>can</em> help us prepare the policy &amp; science for AGI, and be greatly beneficial to health &amp; flourishing. Curing cancer ain't no small thing!</p>
+<p>Sure, the social problems could &quot;just&quot; be addressed with AI Governance, and the technical problems could be addressed with many the many solutions on this page.</p>
+<p>Still, I suspect <em>eventually</em> someone (some<em>thing?</em>) will make true AGI possible, and we should be prepared for that. But in the meantime, the above can help us prepare, and have great benefits. Using narrow bio-medical AI to &quot;just&quot; cure cancer ain't no small thing!</p>
 <h3>🤔 Review #10</h3>
 <p>TODO</p>
 <hr>
@@ -809,9 +757,9 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <h2>Cyborgism</h2>
 <p>Re: humans &amp; possible future advanced AI,</p>
 <p><strong>If we can't beat 'em, join 'em!</strong></p>
-<p>We <em>could</em> interpret that literally: brain-computer interfaces<sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup> in the medium term, mind-uploading<sup class="footnote-ref"><a href="#fn70" id="fnref70">[70]</a></sup> in the long term. But we don't have to wait that long. The mythos of the &quot;cyborg&quot; can still be helpful, <em>right now!</em> In fact:</p>
+<p>We <em>could</em> interpret that literally: brain-computer interfaces<sup class="footnote-ref"><a href="#fn85" id="fnref85">[85]</a></sup> in the medium term, mind-uploading<sup class="footnote-ref"><a href="#fn86" id="fnref86">[86]</a></sup> in the long term. But we don't have to wait that long. The mythos of the &quot;cyborg&quot; can still be helpful, <em>right now!</em> In fact:</p>
 <p><em>YOU'RE ALREADY A CYBORG.</em></p>
-<p>...if &quot;cyborg&quot; means any human that's augmented their body or mind with technology. For example, you're <em>reading</em> this. Reading &amp; writing <em>is</em> a technology. (Remember: things are still technologies even if they were created before you were born.) Literacy even <em>measurably re-wires your brain.</em><sup class="footnote-ref"><a href="#fn71" id="fnref71">[71]</a></sup> You are not a natural human: a few hundred years ago, most people couldn't read or write.</p>
+<p>...if &quot;cyborg&quot; means any human that's augmented their body or mind with technology. For example, you're <em>reading</em> this. Reading &amp; writing <em>is</em> a technology. (Remember: things are still technologies even if they were created before you were born.) Literacy even <em>measurably re-wires your brain.</em><sup class="footnote-ref"><a href="#fn87" id="fnref87">[87]</a></sup> You are not a natural human: a few hundred years ago, most people couldn't read or write.</p>
 <p>Besides literacy, there's many other everyday cyborgisms:</p>
 <ul>
 <li><u>Physical augmentations:</u> glasses, pacemakers, prosthetics, implants, hearing aids</li>
@@ -825,14 +773,14 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <p><img src="../media/p3/cyborg/weaver.png" alt="Screenshot of Sigourney Weaver in the Power Loader. Caption: cyborgism, keeping the human in the center of our tools"></p>
 <p>Okay, enough metaphor, here's how Cyborgism has been applied to AI <em>specifically:</em></p>
 <ul>
-<li>Garry Kasparov, the former World Chess Grandmaster, who also famously lost to IBM's chess-playing AI, once proposed: CENTAURS. It turned out, <strong>human-AI teams could beat <em>both</em> the best humans &amp; best AIs at chess</strong>, by having the human's &amp; AI's strengths/weaknesses compensate for each other!<sup class="footnote-ref"><a href="#fn72" id="fnref72">[72]</a></sup> (This may or may not be true for chess specifically anymore<sup class="footnote-ref"><a href="#fn73" id="fnref73">[73]</a></sup>, but the general idea's still useful.)</li>
-<li>Likewise, some researchers are trying to combine the strengths/weaknesses of humans &amp; large language models (LLMs).<sup class="footnote-ref"><a href="#fn74" id="fnref74">[74]</a></sup> For example, humans are currently much better at long-term planning, LLMs are much better at high-variance brainstorming. Together, <strong>a &quot;cyborg&quot; may be able to plan deeper <em>and</em> broader than pure-human or pure-LLM!</strong>
+<li>Garry Kasparov, the former World Chess Grandmaster, who also famously lost to IBM's chess-playing AI, once proposed: CENTAURS. It turned out, <strong>human-AI teams could beat <em>both</em> the best humans &amp; best AIs at chess</strong>, by having the human's &amp; AI's strengths/weaknesses compensate for each other!<sup class="footnote-ref"><a href="#fn88" id="fnref88">[88]</a></sup> (This may or may not be true for chess specifically anymore<sup class="footnote-ref"><a href="#fn89" id="fnref89">[89]</a></sup>, but the general idea's still useful.)</li>
+<li>Likewise, some researchers are trying to combine the strengths/weaknesses of humans &amp; large language models (LLMs).<sup class="footnote-ref"><a href="#fn90" id="fnref90">[90]</a></sup> For example, humans are currently much better at long-term planning, LLMs are much better at high-variance brainstorming. Together, <strong>a &quot;cyborg&quot; may be able to plan deeper <em>and</em> broader than pure-human or pure-LLM!</strong>
 <ul>
 <li>(You can try this out <em>today!</em> janus made a tool called Loom, which lets you have a &quot;multiverse&quot; of thoughts. There's also an Obsidian plugin by Celeste!) // TODO links</li>
 </ul>
 </li>
-<li>Large Language Models are &quot;only&quot; about as good as the average person at forecasting future events, but <em>together</em>, a normal LLM can help normal humans improve their forecasting ability by up to 41%!<sup class="footnote-ref"><a href="#fn75" id="fnref75">[75]</a></sup></li>
-<li>Finally, check out this cool creativity-enhancing design tool, made by <a href="https://arxiv.org/pdf/1609.03552">Zhu et al <em>in 2016</em></a>. Long before DALL-E, and honestly <em>still</em> far better for precise artistic expression, than DALL-E/MidJourney/etc:</li>
+<li>Large Language Models are &quot;only&quot; about as good as the average person at forecasting future events, but <em>together</em>, a normal LLM can help normal humans improve their forecasting ability by up to 41%!<sup class="footnote-ref"><a href="#fn91" id="fnref91">[91]</a></sup></li>
+<li>Finally, check out this AI-augmented creative tool, made by <a href="https://arxiv.org/pdf/1609.03552">Zhu et al <em>in 2016</em></a>. This demo came out long before DALL-E, and honestly it's <em>still</em> far better for precise artistic expression, vs the &quot;write text and hope for the best&quot; approach of DALL-E / MidJourney / Adobe Firefly / etc:</li>
 </ul>
 <video width="640" height="360" controls>
     <source src="../media/p3/cyborg/shoe.mp4" type="video/mp4">
@@ -842,12 +790,19 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 <p>Caveats &amp; warnings:</p>
 <ul>
 <li>Humans may be too lazy, and opt for autonomous AIs, instead of augmenting their <em>own</em> autonomy. (Another reason to make this sound <em>cool</em> with &quot;cyborg&quot;, not just &quot;tool use&quot;.)</li>
-<li>When you put yourself inside a system, the system may modify <em>you</em>. Even for reading/writing, anthropologists agree that literacy isn't just a skill, it modifies your entire <em>culture and values</em>.<sup class="footnote-ref"><a href="#fn76" id="fnref76">[76]</a></sup> What would becoming a <em>cyborg multiverse-thinker</em> do to you?</li>
+<li>When you put yourself inside a system, the system may modify <em>you</em>. Even for reading/writing, anthropologists agree that literacy isn't just a skill, it modifies your entire <em>culture and values</em>.<sup class="footnote-ref"><a href="#fn92" id="fnref92">[92]</a></sup> What would becoming a <em>cyborg multiverse-thinker</em> do to you?</li>
 <li>Again, an AI-augmented human could be a sociopath, and bring about catastrophic risk. Again-again, <em>one</em> human's values ≠ humane values.</li>
 </ul>
 <p>Then again...</p>
 <p><img src="../media/p3/cyborg/weaver2.png" alt="Close-up of Sigourney Weaver"></p>
 <p>That's pretty cool.</p>
+<p>. . .</p>
+<p><strong>RECAP: How to deal with Problems with the Humans (in AI)...</strong></p>
+<ul>
+<li>Align the AI to a diverse range of human values/ethics. But allow it to self-reflect &amp; change.</li>
+<li>AI Governance to keep us above the &quot;safe&quot; line: Trust but verify, sticks &amp; carrots.</li>
+<li>Make tech that maximizes upsides while minimizing downsides: narrow non-agentic AI, and AI that <em>enhances, not replaces, humans</em>.</li>
+</ul>
 <h3>🤔 Review #11</h3>
 <p>TODO</p>
 <hr>
@@ -1013,7 +968,7 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 </li>
 <li id="fn59" class="footnote-item"><p>TODO <a href="#fnref59" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn60" class="footnote-item"><p>TODO - <a href="#fnref60" class="footnote-backref">↩︎</a></p>
+<li id="fn60" class="footnote-item"><p>TODO https://ourworldindata.org/nuclear-weapons#the-number-of-nuclear-weapons-has-declined-substantially-since-the-end-of-the-cold-war <a href="#fnref60" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn61" class="footnote-item"><p>TODO <a href="#fnref61" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1023,7 +978,7 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 </li>
 <li id="fn64" class="footnote-item"><p>TODO <a href="#fnref64" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn65" class="footnote-item"><p>TODO https://www.alignmentforum.org/posts/LxNwBNxXktvzAko65/reframing-superintelligence-llms-4-years <a href="#fnref65" class="footnote-backref">↩︎</a></p>
+<li id="fn65" class="footnote-item"><p>TODO <a href="#fnref65" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn66" class="footnote-item"><p>TODO <a href="#fnref66" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1035,17 +990,49 @@ you make an <em>even more</em> powerful AI that's trustworthy, and so on!</p>
 </li>
 <li id="fn70" class="footnote-item"><p>TODO <a href="#fnref70" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn71" class="footnote-item"><p>TODO <a href="#fnref71" class="footnote-backref">↩︎</a></p>
+<li id="fn71" class="footnote-item"><p>TODO: RLHF, Claude Sheets <a href="#fnref71" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn72" class="footnote-item"><p>// TODO cite our own article <a href="#fnref72" class="footnote-backref">↩︎</a></p>
+<li id="fn72" class="footnote-item"><p>TODO. also other citations for each point <a href="#fnref72" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn73" class="footnote-item"><p>TODO (Well, at the time. Gwern claims human-AI teams are strictly worse than pure-AI at chess now, but I couldn't find hard sources or data for that, in either direction. But anecdotally, it seems that human-AI centaurs are at least <em>on par</em> with pure-AI. Still, human-AI held its higher ground for a bit over a decade!) // TODO <a href="#fnref73" class="footnote-backref">↩︎</a></p>
+<li id="fn73" class="footnote-item"><p>TODO <a href="#fnref73" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn74" class="footnote-item"><p>TODO link janus <a href="#fnref74" class="footnote-backref">↩︎</a></p>
+<li id="fn74" class="footnote-item"><p>TODO <a href="#fnref74" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn75" class="footnote-item"><p>TODO https://arxiv.org/pdf/2402.07862 <a href="#fnref75" class="footnote-backref">↩︎</a></p>
+<li id="fn75" class="footnote-item"><p>TODO <a href="#fnref75" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn76" class="footnote-item"><p>TODO <a href="#fnref76" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn77" class="footnote-item"><p>TODO <a href="#fnref77" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn78" class="footnote-item"><p>TODO https://www.alignmentforum.org/posts/LxNwBNxXktvzAko65/reframing-superintelligence-llms-4-years <a href="#fnref78" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn79" class="footnote-item"><p>TODO <a href="#fnref79" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn80" class="footnote-item"><p>TODO <a href="#fnref80" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn81" class="footnote-item"><p>TODO <a href="#fnref81" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn82" class="footnote-item"><p>TODO like AlphaGo <a href="#fnref82" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn83" class="footnote-item"><p>TODO <a href="#fnref83" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn84" class="footnote-item"><p>TODO <a href="#fnref84" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn85" class="footnote-item"><p>TODO <a href="#fnref85" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn86" class="footnote-item"><p>TODO <a href="#fnref86" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn87" class="footnote-item"><p>TODO <a href="#fnref87" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn88" class="footnote-item"><p>// TODO cite own article <a href="#fnref88" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn89" class="footnote-item"><p>TODO (Well, at the time. Gwern claims human-AI teams are strictly worse than pure-AI at chess now, but I couldn't find hard sources or data for that, in either direction. But anecdotally, it seems that human-AI centaurs are at least <em>on par</em> with pure-AI. Still, human-AI held its higher ground for a bit over a decade!) // TODO <a href="#fnref89" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn90" class="footnote-item"><p>TODO link janus <a href="#fnref90" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn91" class="footnote-item"><p>TODO https://arxiv.org/pdf/2402.07862 <a href="#fnref91" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn92" class="footnote-item"><p>TODO <a href="#fnref92" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
