@@ -18,13 +18,17 @@ First, FORK AND MAKE YOUR OWN REPO for any translations. There is no way in heck
 
 ## The janky-as-heck "build process"
 
-Make edits to the Markdowns:
+Don't exit the .html files directly. Instead, make edits to the Markdowns:
 
-* Introduction is at `index.md`
+* Introduction is at `intro.md`
 * Part One is at `p1/p1.md`
+* and so on
 
-To build them into a static site, run the `build.js` Node script
+To build them into a static site, `npm run build`. This will write your updates to the html files (`index.html`, `p1/index.html`, etc.)
 
+<details>
+<summary>Orbit flashcard build (uncommon)</summary>
 (There's also another build script in `anki/all-orbits-to-anki.js` that converts all the Orbit flashcards in the above markdowns into .txt files that you can then import into Anki. You, dear contributor, probably won't personally need this.)
+</details>
 
 ## Anyway good luck have fun
