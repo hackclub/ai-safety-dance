@@ -1,0 +1,77 @@
+html, body{
+    width:100%;
+    height:100%;
+    margin:0;
+
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 1.27em;
+
+    scroll-behavior: smooth;
+
+    background:#000;
+    color:#fff;
+}
+
+b,strong{
+    font-weight:bold;
+}
+.container{
+    position:relative;
+    text-align:center;
+}
+.container > div{
+    width:800px;
+    margin:0 auto;
+}
+
+.glitchy{
+    text-shadow: -3px 0px 0px rgba(255,0,0,0.35), 3px 0px 0px rgba(0,0,255,0.35);
+}
+
+#splash_image{
+    position:fixed;
+    width:100%; height:100%;
+    z-index:0;
+    animation: header-background 8s linear infinite;
+}
+@keyframes header-background {
+    0% {
+        background-color: #41898D;
+    }
+    50% {
+        background-color: #91237A;
+    }
+    100%{
+        background-color: #41898D;
+    }
+}
+#crt_lines{
+    background: url(../media/splash/crt_lines.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-size: 100% 100%;
+}
+#static{
+    background: url(../media/splash/static.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-size: 100% 100%;
+    background-position: 0px 250px;
+}
+
+
+/* Mobile... tolerant. */
+@media (max-width: 850px) {
+    .container{
+        min-width: 800px;
+    }
+    body{
+        overflow-x: auto;
+    }
+}

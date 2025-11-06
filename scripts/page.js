@@ -6,6 +6,7 @@ window.$all = (query, el=document)=>{
     return [...document.querySelectorAll(query)];
 };
 
+// TODO: not DOMContentLoaded??!??!?
 window.addEventListener("DOMContentLoaded", ()=>{
 
     // DARK MODE INSTANT
