@@ -13,6 +13,9 @@ html, body{
     background:#000;
     color:#fff;
 }
+body{
+    overflow-x:hidden;
+}
 
 b,strong{
     font-weight:bold;
@@ -65,7 +68,6 @@ b,strong{
     background-position: 0px 250px;
 }
 
-
 /* Mobile... tolerant. */
 @media (max-width: 850px) {
     .container{
@@ -74,4 +76,67 @@ b,strong{
     body{
         overflow-x: auto;
     }
+}
+
+.load_me{
+    opacity:0.001;
+    position:absolute;
+    /*width:1px; height:1px;*/
+}
+
+/*************************
+MISC PICS
+**************************/
+#all_of_us{
+    background: url('pics/all_of_us.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.parallax{
+    overflow:hidden;
+    position:relative;
+}
+.parallax > img{
+    position:absolute;
+    top:0;left:0;
+}
+
+/*************************
+FORK
+**************************/
+#fork_1, #fork_2{
+    overflow:hidden;
+}
+#fork_1_visual, #fork_2_visual{
+    transition: transform 1s ease-in-out;
+}
+.fork_container{
+    position:absolute;
+}
+.fork_container > img{
+    position:absolute;
+    top:0; left:0;
+}
+
+/*************************
+SUNSET
+**************************/
+#sunset_bg{
+    background-image: url('pics/sunset_bg.png');
+    background-size: 105% auto;
+    background-repeat: no-repeat;
+    background-position: calc(50% - 14px) bottom;
+    box-shadow: inset 0 300px 100px -200px #000;
+}
+#sunset_chars{
+    background-image: url('pics/sunset_chars1.png');
+    background-size: 1000px auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+#sunset_railing{
+    background-image: url('pics/sunset_railing.png');
+    background-size: auto 300px;
+    background-repeat: repeat-x;
+    background-position: center bottom;
 }

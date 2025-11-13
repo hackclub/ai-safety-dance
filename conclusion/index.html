@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollytelling Demo</title>
+    <title>AI Safety for Fleshy Humans: THE GRAND CINEMATIC CONCLUSION</title>
 
     <!-- TODO: FAVICON -->
 
@@ -30,18 +30,24 @@
         <div class="glitchy" style="height:350px">
             ...but they all boil down to one question:
         </div>
-        <div style="position:absolute; width: 100%; height:2560px; z-index:1">
-            <div id="fork_1" style="position:sticky; top:60px; margin-left: calc(50% - 300px); background:#ff4040;width:600px;height:600px;"></div>
+        <div style="position:absolute; width: 100%; height:2860px; z-index:1">
+            <div id="fork_1" style="position:sticky; top:60px; margin-left: calc(50% - 300px); width:600px;height:600px;">
+                <div class="fork_container" id="fork_1_visual">
+                    <img id="fork_sprite_1" width="600" src="pics/fork_bg.png"/>
+                    <img id="fork_sprite_2" width="600" src="pics/fork_fwd.png"/>
+                    <img id="fork_sprite_3" width="600" src="pics/fork_back.png"/>
+                </div>
+            </div>
         </div>
         <div style="height:700px"></div>
-        <div style="height:600px;font-weight: bold;font-size: 85px;line-height: 1em;width: 1em;position: relative;left: -360px;">
+        <div style="height:600px;font-weight: bold;font-size: 70px;line-height: 1em;width: 1em;position: relative;left: -360px;">
             U<br>T<br>O<br>P<br>I<br>A<br><span style="padding-top: 30px;display: block;">?</span>
         </div>
         <div style="height:200px"></div>
-        <div style="height:600px;font-weight: bold;font-size: 85px;line-height: 1em;width: 1em;position: relative;right: -360px;">
+        <div style="height:600px;font-weight: bold;font-size: 70px;line-height: 1em;width: 1em;position: relative;right: -360px;">
             D<br>Y<br>S<br>T<br>O<br>P<br>I<br>A<br><span style="padding-top: 30px;display: block;">?</span>
         </div>
-        <div style="height:500px"></div>
+        <div style="height:800px"></div>
         <div style="height:600px">
             or THE STATUS QUO?
             <br>
@@ -58,16 +64,18 @@
             so that<br>
             <b>all of us</b>
         </div>
-        <div style="position:absolute; width: 100%; height:1150px; z-index:-1">
-            <div style="position:sticky; top:160px; margin-left: calc(50% - 400px); background:#ff4040;width:400px;height:400px;"></div>
+        <div style="position:absolute; left:-15px; width: 100%; height:1300px; z-index:-1">
+            <div id="all_of_us" style="position:sticky; top:160px; margin-left: calc(50% - 400px); ;width:400px;height:400px;"></div>
         </div>
-        <div style="height:450px"></div>
+        <div style="height:600px"></div>
         <div style="height:200px;width: 400px;position: relative;right: -200px;">
             can understand<br>
             <b>all of this</b>
         </div>
-        <div style="position:absolute; width: 100%; height:500px; z-index:-1">
-            <div style="position:sticky; top:160px; margin-left: calc(50%); background:#ff4040;width:400px;height:400px;"></div>
+        <div style="position:absolute; right:-15px; width: 100%; height:500px; z-index:-1">
+            <div class="parallax" style="position:sticky; top:160px; margin-left: calc(50%);width:400px;height:400px;">
+                <img width="400" height="800" src="more_pics/panel_0.png"/>
+            </div>
         </div>
         <div style="height:600px"></div>
         <div style="height:500px">
@@ -82,6 +90,7 @@
                 You've learnt about AI's past, present, and possible futures...
             </div>
             <div class="parallax" style="width:400px; height:400px; background:#ff4040; float:right">
+                <img width="400" height="800" src="more_pics/panel_1.png"/>
             </div>
         </div>
         <div style="height:600px; position:relative; line-height:1.5em;">
@@ -89,6 +98,7 @@
                 Broken down the problems, built up possible solutions...
             </div>
             <div class="parallax" style="width:400px; height:400px; background:#ff4040; float:left">
+                <img width="400" height="800" src="more_pics/panel_2.png"/>
             </div>
         </div>
         <div style="height:600px; position:relative; line-height:1.5em;">
@@ -96,12 +106,19 @@
                 ...and put up a lot of thinly-veiled furry comics.
             </div>
             <div class="parallax" style="width:400px; height:400px; background:#ff4040; float:right">
+                <img width="400" height="800" src="more_pics/panel_3.png"/>
             </div>
         </div>
 
         <!-- The Fork 2 -->
         <div style="position:absolute; width: 100%; height:2400px; z-index:-1">
-            <div id="fork_2" style="position:sticky; top:80px; margin-left: calc(50% - 300px); background:#ff4040;width:600px;height:600px;"></div>
+            <div id="fork_2" style="position:sticky; top:80px; margin-left: calc(50% - 300px); width:600px;height:600px;">
+                <div class="fork_container" id="fork_2_visual">
+                    <img id="fork_sprite_4" width="600" src="pics/fork_bg.png"/>
+                    <img id="fork_sprite_5" width="600" src="pics/fork_fwd.png"/>
+                    <img id="fork_sprite_6" width="600" src="pics/fork_back.png"/>
+                </div>
+            </div>
         </div>
         <div style="height:700px"></div>
         <div style="width:400px; height:150px; padding:20px; background:rgba(0,0,0,0.5);font-size: 30px;line-height: 1.5em;">
@@ -120,7 +137,10 @@
         </div>
         <div style="height:900px">
             We've faced & solved great challenges before.
-            <div class="parallax" style="width:800px;height:600px;background:#ff4040; margin:50px 0;"></div>
+            <div class="parallax" style="width:800px;height:600px; margin:50px 0;">
+                <img width="800" height="1000" src="more_pics/good_news.png"/>
+                <div style="position:absolute;top:0;left:0;width:800px;height:600px;box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);"></div>
+            </div>
         </div>
         <div style="height:600px">
             So, let's make sure that AI is aligned with us, and more importantly,
@@ -136,40 +156,54 @@
             <i>worth surviving for.</i>
         </div>
         <div class="glitchy" style="height:600px">
-            Stay fleshy, fellow humans.
+            Stay humane, fellow humans.
         </div>
 
         <!-- Sunset: Credits -->
-        <div style="position:absolute; width:100%; height:4200px;">
-            <div style="z-index:-1; position:sticky; top:0px; background:#882020;width:100%;height:615px;/*change programmatically*/"></div>
-            <div style="z-index:99; position:sticky; top:615px;/*change programmatically*/ background:#ff4040;width:100%;height:100px;"></div>
+        <div style="z-index:-1; position:absolute; width:100%; height:4950px;">
+            <div id="sunset_bg" style="position:sticky; top:-135px;/*programmatic TODO*/ width:100%; height:850px;"></div>
         </div>
-        <div style="height:600px"></div>
-        <div class="glitchy" style="height:600px; font-weight:bold;font-size: 100px;">
+        <div style="z-index:99; position:absolute; width:100%; height:4950px;">
+            <div id="sunset_railing" style="position:sticky; top:-135px; width:100%; height:850px; /*change programmatically TODO*/"></div>
+        </div>
+        <div style="z-index:99; position:absolute; width:100%; height:4950px;">
+            <div id="sunset_chars" style="position:sticky; top:-135px; width:100%; height:850px; /*change programmatically TODO*/"></div>
+        </div>
+        <img class="load_me" width="1000" height="1000" src="pics/sunset_bg.png"/>
+        <img class="load_me" width="1000" height="1000" src="pics/sunset_chars1.png"/>
+        <img class="load_me" width="1000" height="1000" src="pics/sunset_chars2.png"/>
+        <div style="height:900px"></div>
+        <div class="glitchy" style="height:800px; font-weight:bold;font-size: 100px;">
             <span style="display: block;margin-bottom: 10px;font-size: 102px;">AI SAFETY</span>
             <span style="display: block;font-size: 30px;margin-bottom: 22px;font-weight: lighter;letter-spacing: 20px;position: relative;left: 14px;">FOR</span>
             <span style="display: block;margin-bottom: 49px;font-size: 135px;">FLES<span style="position: relative;left: -4px;">H</span>Y</span>
             <span style="display: block;margin-bottom: -22px;font-size: 116px;">HUM<span style="position: relative;left: 7px;">A</span><span style="position: relative;left: 8px;">N</span>S</span>
         </div>
-        <div style="height:600px; letter-spacing:2px;">
+        <div class="glitchy" style="height:700px; letter-spacing:2px;">
             WRITTEN &amp; DRAWN<br>
             <span style="font-size: 67px;">BY <b>NICKY CASE</b></span><br>
             <span style="font-size: 21px;">(on-and-off, over the course of 2 years...)</span>
         </div>
-        <div style="height:600px">
+        <div class="glitchy" style="height:700px">
             IN COLLABORATION<br>
             WITH <b>HACK CLUB</b> &<br>
             THE <b>LONG TERM<br>FUTURE FOUNDATION</b>
         </div>
         <div style="height:800px; font-size: 40px;">
-            THANK YOU TO THESE PEOPLE FOR THEIR FEEDBACK:
+            <span class="glitchy" style="line-height: 1.2em;display: block;">
+                THANK YOU TO THESE PEOPLE FOR THEIR FEEDBACK:
+            </span>
+            <div style="background:rgba(0,0,0,0.5); color:#fff; font-size:15px;line-height: 1.5em;padding: 30px;/*! margin-top: 20px; */width: 600px;margin: 20px auto;">
+                name name name name name name name name name name name name name name name
+                name name name name name name name name name name name name name name name
+            </div>
         </div>
-        <div style="height:600px;">
+        <div class="glitchy" style="height:600px;">
             <span style="display: block;margin-bottom: 67px;font-size: 36px;">AND THANK</span>
-            <span style="display: block;margin-bottom: 64px;font-size: 250px;font-weight: bold;" class="glitchy">YOU</span>
+            <span style="display: block;margin-bottom: 64px;font-size: 250px;font-weight: bold;">YOU</span>
             <span style="display: block;margin-bottom: -11px;font-size: 40px;">FOR READING!</span>
         </div>
-        <div style="height:1400px"></div>
+        <div style="height:1200px"></div>
 
         <div style="background:#222; font-size:18px; width:100%; height:800px;">
             // TODO: Black to grey gradient.

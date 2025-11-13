@@ -18,8 +18,8 @@ window.addEventListener('scroll', ()=>{
 }, { passive: true }); // improves mobile scroll performance
 
 // ON SCROLL LOGIC
-let fork1 = $("#fork_1");
-let fork2 = $("#fork_2");
+let fork1 = $("#fork_1_visual");
+let fork2 = $("#fork_2_visual");
 let parallaxes = $all(".parallax");
 let splash = $("#splash_image");
 function onScrollChange(){
@@ -27,25 +27,34 @@ function onScrollChange(){
     console.log('Scroll Y:', scrollY);
 
     // The FORK animations...
-    if(scrollY<1400){
-        fork1.innerText = "look fwd";
-    }else if(scrollY<2200){
-        fork1.innerText = "look left";
-    }else if(scrollY<3250){
-        fork1.innerText = "look right";
+    if(scrollY<1600){
+        fork1.style.transform = 'scale(1.25) translate(-60px,0)';
+    }else if(scrollY<2500){
+        fork1.style.transform = 'scale(1.8) translate(0,0)';
+    }else if(scrollY<3200){
+        fork1.style.transform = 'scale(1.8) translate(-267px,0)';
     }else{
-        fork1.innerText = "look back";
+        fork1.style.transform = 'scale(1.25) translate(-60px,-229px)';
     }
-    if(scrollY<9600){
-        fork2.innerText = "look back";
+    if(scrollY<3200){
+        $("#fork_sprite_2").style.opacity = 1;
+        $("#fork_sprite_3").style.opacity = 0;
     }else{
-        fork2.innerText = "look fwd";
+        $("#fork_sprite_2").style.opacity = 0;
+        $("#fork_sprite_3").style.opacity = 1;
+    }
+    if(scrollY<9900){
+        fork2.style.transform = 'scale(1.25) translate(-60px,-229px)'; //= 'scale(1.1) translate(-30px,-163px)';
+        $("#fork_sprite_5").style.opacity = 0;
+        $("#fork_sprite_6").style.opacity = 1;
+    }else{
+        fork2.style.transform = 'scale(1) translate(0,0)';
+        $("#fork_sprite_5").style.opacity = 1;
+        $("#fork_sprite_6").style.opacity = 0;
     }
 
-    // CLAP
-    if(scrollY>18200){
-        console.log("CLAP");
-    }
+    // Thank YOU
+    $("#sunset_chars").style.backgroundImage = (scrollY<19300) ? "url('pics/sunset_chars1.png')" : "url('pics/sunset_chars2.png')"
 
     // SPLASH: 700 to 1300 => 1 to 0
     let splashOpacity = Math.max(0, Math.min(1, (1300-scrollY)/600));
@@ -59,8 +68,8 @@ function onScrollChange(){
         let ratio = 1 - currentDistanceTraveled/totalDistanceToTravel; // (1,0) => (0,1)
         ratio = Math.max(0, Math.min(1,ratio)); // bounded
 
-        // say it
-        el.innerText = ratio;
+        // Parallax the only image in there
+        $("img", el).style.top = ((-1+ratio)*400)+"px";
 
     });
 
