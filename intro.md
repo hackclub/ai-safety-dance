@@ -1,6 +1,6 @@
 **The AI debate is actually 100 debates in a trenchcoat.**
 
-Will artificial intelligence (AI) help us cure all disease, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI _itself_ becoming a bad actor? Is this all just hype? Why can AI imitate any artist's style in a minute, yet gets confused drawing more than 3 objects? Why is it hard to make AI robustly serve humane values, or robustly serve _any_ goal? What if an AI learns to be _more_ humane than us? What if an AI learns humanity's _inhumanity_, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate _worse_ than extinction, or — the most shocking outcome of all — _nothing changes?_ Also: will an AI take my job?
+Will artificial intelligence (AI) help us cure all disease, and build a post-scarcity world full of flourishing lives? Or will AI help tyrants surveil and manipulate us further? Are the main risks of AI from accidents, abuse by bad actors, or a rogue AI _itself_ becoming a bad actor? Is this all just hype? Why can AI solve Olympiad-level math problems, yet can't play Pokémon? Why is it hard to make AI robustly serve humane values, or robustly serve _any_ goal? What if an AI learns to be _more_ humane than us? What if an AI learns humanity's _inhumanity_, our prejudices and cruelty? Are we headed for utopia, dystopia, extinction, a fate _worse_ than extinction, or — the most shocking outcome of all — _nothing changes?_ Also: will an AI take my job?
 
 ...and many more questions.
 
@@ -12,7 +12,7 @@ So, I present to you:
 
 **This 3-part series is your one-stop-shop to understand the core ideas of AI & AI Safety\* — explained in a friendly, accessible, and slightly opinionated way!**
 
-(\* Related phrases: AI Risk, AI X-Risk, AI Alignment, AI Ethics, AI Not-Kill-Everyone-ism. There is *no* consensus on what these phrases do & don't mean, so I'm just using "AI Safety" as a catch-all.)
+(\* Related phrases: AI Security, AI Risk, AI X-Risk, AI Alignment, AI Ethics, AI Not-Kill-Everyone-ism. There is *no* consensus on what these phrases do & don't mean, so I'm just using "AI Safety" as a catch-all.)
 
 This series will also have comics starring a Robot Catboy Maid. Like so:
 
@@ -20,7 +20,13 @@ This series will also have comics starring a Robot Catboy Maid. Like so:
 
 `[tour guide voice]` And to your right 👉, you'll see buttons for <img src="media/intro/icon1.png" class="inline-icon"/> the Table of Contents, <img src="media/intro/icon2.png" class="inline-icon"/> changing this webpage's style, and <img src="media/intro/icon3.png" class="inline-icon"/> a reading-time-remaining clock.
 
-For this series, the Intro & Part 1 were published on **May 2024**, Part 2 is out now on **Aug 2024**, and Part Three will be out on **Dec 2024**. OPTIONAL: If you'd like to be notified on their release, signup below!👇 You *will not* be spammed with other stuff, just the two notification emails. (Buuuuut, `[podcast sponsor voice]` if you're in high school or earlier, and interested in AI/code/engineering, consider checking the box to learn more about [Hack Club!](https://hackclub.com/) P.S: There's free *stickers~~~* ✨)
+This series was/will be published in three parts:
+
+- This Intro & Part 1 were out on **May 2024**
+- Part 2 was out on **Aug 2024**
+- Part 3 & The Grand Cinematic Conclusion will be out by **end of Nov 2025**
+
+OPTIONAL: If you'd like to be notified on their release, signup below!👇 You *will not* be spammed with other stuff, just the two notification emails. (Buuuuut, `[podcast sponsor voice]` if you're in high school or earlier, and interested in AI/code/engineering, consider checking the box to learn more about [Hack Club!](https://hackclub.com/) P.S: There's free *stickers~~~* ✨)
 
 {% include 'templates/signup.html' %}
 
@@ -54,7 +60,7 @@ This was why, in 1997, AI could beat the world champion at chess... yet no AIs c
 
 **After 2000: AI could do "intuition", but had very poor logic.**    
 
-This is why generative AIs (*as of current writing, May 2024*) can dream up whole landscapes in any artist's style... [:yet gets confused drawing more than 3 objects](#FourObjects). *(👈 click this text! it also expands!)*
+This is why generative AIs (*as of current writing, May 2024*) can dream up whole landscapes in any artist's style... [:yet can't consistently draw more than 4 objects](#FourObjects). *(👈 click this text! it also expands!)*
 
 (Safety concern: Without logic, we can't verify what's happening in an AI's "intuition". That intuition could be biased, subtly-but-dangerously wrong, or fail bizarrely in new scenarios.)
 
@@ -100,10 +106,12 @@ We can break this problem down by "Problems in Humans vs AI":
 The *technical* alignment problem, in turn, can be broken down by "Logic vs Intuition":
 
 > <u>Problems with AI Logic</u>:[^fancy-1] ("game theory" problems)    
+> 
 > * AIs may accomplish goals in logical but undesirable ways.
 > * Most goals logically lead to the same unsafe sub-goals: "don't let anyone stop me from accomplishing my goal", "maximize my ability & resources to optimize for that goal", etc.
 
 > <u>Problems with AI Intuition</u>:[^fancy-2] ("deep learning" problems)    
+> 
 > * An AI trained on human data could learn our prejudices.
 > * AI "intuition" isn't understandable or verifiable.
 > * AI "intuition" is fragile, and fails in new scenarios.
@@ -130,12 +138,10 @@ So, if I may be a bit sappy, maybe understanding AI will help us understand ours
 Finally, we can understand some (possible) ways to solve the problems in logic, intuition, AIs, *and* humans! These include:
 
 * Technical solutions
-* Policy/governance solutions
-* "How 'bout you just shut it down & don't build the torture nexus"
+* Governance solutions, both top-down & bottom-up
+* "How about you just don't build the torment nexus"
 
 — and more! Experts disagree on which proposals will work, if any... but it's a good start.
-
-(Unfortunately, I can't give a layperson-friendly summary in this Intro, because these solutions won't make sense *until* you understand the problems, which is what Part 1 & 2 are for. That said, if you want spoilers, [:click here to see what Part 3 will cover!](#Part3Details))
 
 ---
 
@@ -194,7 +200,7 @@ Here: **try the below flashcards, to retain what you just learnt!**
 
 > “*It ain’t what you don’t know that gets you into trouble.
 > It’s what you know for sure that just ain’t so.*”
->
+> 
 > ~ often attributed to Mark Twain, but it just ain't so[^not-twain]
 
 For better and worse, you've already heard too much about AI. So before we connect *new* puzzle pieces in your mind, we gotta take out the *old* pieces that just ain't so.
@@ -207,9 +213,11 @@ Thus, if you'll indulge me in a "Top 5" listicle...
 
 ![RCM in front of a "crazy board" with red thread, thumbtacks, and papers with AI jargon.](media/intro/crazy.png)
 
-AI Safety / AI Risk used to be less mainstream, but now in 2024, the US & UK governments now have AI Safety-specific departments![^departments] This resulted from many of *the* top AI researchers raising alarm bells about it. These folks include:
+AI Safety / AI Risk used to be less mainstream, but now in 2024, the US & UK governments now have AI Safety-specific departments[^departments], and the US, EU & China have reached agreements on AI Safety research.[^international-agreements] This resulted from many of *the* top AI researchers raising alarm bells about it. These folks include:
 
-[^departments]: The UK introduced the world's first state-backed AI Safety Institute [in Nov 2023](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute). The US followed suit with an AI Safety Institute [in Feb 2024](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated). I just noticed *both* articles claim to be the "first". Okay.
+[^departments]: The UK introduced the world's first state-backed AI Safety Institute [in Nov 2023](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute). The US followed suit with an AI Safety Institute [in Feb 2024](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated). I just noticed *both* articles claim to be the "first". Okay then.
+
+[^international-agreements]: The [2023 Bletchley Declaration](https://www.computerworld.com/article/1638908/china-us-and-eu-agree-to-work-together-on-ai-safety.html), the [2024 AI Seoul Summit](https://www.gov.uk/government/news/global-leaders-agree-to-launch-first-international-network-of-ai-safety-institutes-to-boost-understanding-of-ai). **Update Nov 2025:** a sour note, the [2025 AI Action Summit](https://en.wikipedia.org/wiki/AI_Action_Summit) went much less well, because the US & UK refused to sign due to the agreement having a clause about "inclusive AI".
 
 * Geoffrey Hinton[^hinton] and Yoshua Bengio[^bengio], co-winners of the 2018 Turing Prize (the "Nobel Prize of Computing") for their work on deep neural networks, the thing that *all* the new famous AIs use.[^all-famous-ai]
 * Stuart Russell and Peter Norvig, the authors of *the* most-used textbook on Artificial Intelligence.[^russell-norvig]
@@ -243,11 +251,11 @@ Sci-fi authors write sentient AIs because they're writing *stories*, not technic
 
 As mentioned earlier, the real problems in AI Safety are "boring": an AI learns the wrong things from its biased training data, it breaks in slightly-new scenarios, it logically accomplishes goals in undesired ways, etc.
 
-But, "boring" doesn't mean *not important*. The technical details of how to design a safe elevator/airplane/bridge are boring to most laypeople... *and also* a matter of life-and-death.
+But, "boring" doesn't mean *not important*. The technical details of how to design a safe elevator/airplane/bridge are boring to most laypeople... *and also* a matter of life-and-death. Catastrophic AI Risk doesn't even require "super-human general intelligence"! For example, an AI that's "only" good at designing viruses could help a bio-terrorist organization (like Aum Shinrikyo[^aum]) kill millions of people.
 
-(Catastrophic AI Risk doesn't even require "super-human general intelligence"! For example, an AI that's "only" good at designing viruses could help a bio-terrorist organization (like Aum Shinrikyo[^aum]) kill millions of people.)
+(**update nov 2025:** while AI Consciousness is still perpendicular to AI Safety, in the 1.5 years between when I started this series and now, concern for the welfare *of the AIs themselves* has become a bit more mainstream. Not, like, *mainstream* mainstream, but one of the leading AI labs, Anthropic, recently hired [a full-time "AI Welfare" researcher](https://arstechnica.com/ai/2024/11/anthropic-hires-its-first-ai-welfare-researcher/), whose work has led to [actual changes to the product](https://www.anthropic.com/research/end-subset-conversations).)
 
-But speaking of killing people...
+But anyway! Speaking of killing people...
 
 [^aum]: A Japanese cult that attacked people with chemical & biological weapons. Most infamously, in 1995, they released nerve gas on the Tokyo Metro, injuring 1,050 people & killing 14 people. ([Wikipedia](https://en.wikipedia.org/wiki/Tokyo_subway_sarin_attack))
 
@@ -262,11 +270,12 @@ So instead, I'd like to highlight the ways that advanced AI – (especially when
 For example:
 
 * <u>Bio-engineered pandemics</u>: A bio-terrorist cult (like Aum Shinrikyo[^aum]) uses AI (like AlphaFold[^alphafold]) and DNA-printing (which is getting cheaper *fast*[^dna-printing]) to design multiple new super-viruses, and release them simultaneously in major airports around the globe.
-    * (Proof of concept: Scientists have *already* re-built polio from mail-order DNA... two decades ago.[^polio])
+  * (Proof of concept: Scientists have *already* re-built polio from mail-order DNA... two decades ago.[^polio])
 * <u>Digital authoritarianism</u>: A tyrant uses AI-enhanced surveillance to hunt down protestors ([already happening](https://www.reuters.com/article/us-russia-politics-navalny-tech-idUSKBN2AB1U2/)), generate individually-targeted propaganda ([kind of happening](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/)), and autonomous military robots ([soon-to-be happening](https://theconversation.com/us-military-plans-to-unleash-thousands-of-autonomous-war-robots-over-next-two-years-212444))... all to rule with a silicon fist.
 * <u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that *does its own hacking & re-programming*, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which holds critical infrastructure ransom, and manipulates top CEOs and politicians to do its bidding.
   * (For context: *without* AI, hackers have already damaged nuclear power plants,[^stuxnet] held hospitals ransom[^ransom-hospitals] which maybe killed someone,[^hospital-death] and almost poisoned a town's water supply *twice*.[^water-supply] *With* AI, deepfakes have been used to swing an election,[^deepfake-election] steal $25 million in a single heist,[^hong-kong] and target parents for ransom, using the faked voices of their children being kidnapped & crying for help.[^deepfake-ransom])
   * (This is why it's not easy to "just shut down an AI when we notice it going haywire"; as the history of computer security shows, we just *suck* at noticing problems in general. [:I cannot over-emphasize how much the modern world is built on an upside-down house of cards.](#xz))
+  * (**update nov 2025:** a few months ago, researchers found [the world's first confirmed case](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) of "agentic AI successfully obtaining access to confirmed high-value targets for intelligence collection, including major technology corporations and government agencies". It's happening!!)
 
 The above examples are all "humans *misuse* AI to cause havoc", but remember advanced AI could do the above *by itself*, due to "boring" reasons: it's accomplishing a goal in a logical-but-undesirable way, its goals glitch out but its skills remain intact, etc.
 
@@ -295,7 +304,6 @@ On the flipside...
 [^deepfake-election]: [Meaker \(2023\) for *Wired*](https://web.archive.org/web/20231102183904/https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/)
 
 [^deepfake-ransom]: “It was completely her voice. It was her inflection. It was the way [my daughter] would have cried.” [...] “Now there are ways in which you can [deepfake voices] with just three seconds of your voice.” ([Campbell, 2023 for local news outlet *Arizona's Family*](https://www.azfamily.com/2023/04/10/ive-got-your-daughter-scottsdale-mom-warns-close-encounter-with-ai-voice-cloning-scam/). CONTENT NOTE: threats of sexual assault.)
-
 
 ### 4) *Yes*, folks worried about AI's downsides *do* recognize its upsides.
 
@@ -350,7 +358,7 @@ Is our postmodern memory-span *that* bad? *One* decade ago, just *one*, the worl
 
 Is *current* AI a huge threat to our jobs, or safety? No. (Well, besides the aforementioned deepfake scams.)
 
-But: if AI keeps improving at a similar rate as it has for the last decade... it seems plausible to me we could get "Einstein/Oppenheimer-level" AI in 30 years.[^numerical-extraction] That's well within many folks' lifetimes!
+But: if AI keeps improving at a similar rate as it has for the last decade... it seems plausible to me we could get "Einstein/Oppenheimer-level" AI in 30 years.[^numerical-extraction][^actual-timeline-estimates] That's well within many folks' lifetimes!
 
 As "they" say:[^quote-trees]
 
@@ -359,6 +367,8 @@ As "they" say:[^quote-trees]
 Let's plant that tree today!
 
 [^numerical-extraction]: Estimate derived via "numerical posterior extraction". In other words, I pulled a number out my--
+
+[^actual-timeline-estimates]: Okay but more seriously: the best forecasters estimate human-level "artificial general intelligence" [by 2033, a bit under a decade](https://www.metaculus.com/questions/5121/date-of-general-ai/), and "transformative AI" whose impact is on par as the Industrial Revolution [by 2044, a bit under two decades](https://www.metaculus.com/questions/19356/transformative-ai-date/). I'm personally more pessimistic than that, but I'd be _shocked_ if we don't get Einstein-level AIs by 2060.
 
 [^quote-trees]: Quote source: [nobody knows lol.](https://en.wikiquote.org/wiki/Trees#Planting)
 
@@ -424,30 +434,15 @@ Finally! Now that we've taken the 10,000-foot view, let's get hiking on our whir
 {% include 'templates/next_page_button.html' %}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### :x Four Objects
 
 Hi! When I have a tangent that doesn't fit the main flow, I'll shove it into an "expandable" section like this one! (They'll be links with *dotted* underlines, not solid underlines.)
 
-Anyway, here's a prompt to draw four objects:
+~ ~ ~
+
+**UPDATE: This section was originally written in May 2024. One-and-a-half years later, on Nov 2025, it is _now false_. See the end of this section for more details.**
+
+So, here's a prompt to draw four objects:
 
 > “A yellow pyramid between a red sphere and green cylinder, all on top of a big blue cube.”
 
@@ -467,13 +462,25 @@ Here are the top generative AI's first four attempts (*not* cherry-picked):
 
 (The bottom-right one's pretty close! But judging by its other attempts, it's clearly luck.)
 
-Why does this demonstrate a lack of "logic" in AI? A core part of "symbolic logic" is the ability to do "compositionality", a fancy way of saying it can reliably combine old things into new things, like "green" + "cylinder" = "green cylinder". As shown above, generative AIs (as of May 2024) are *very* unreliable at combining stuff, when there's more than 3 objects.
+Why does this demonstrate a lack of "logic" in AI? A core part of "symbolic logic" is the ability to do "compositionality", a fancy way of saying it can reliably combine old things into new things, like "green" + "cylinder" = "green cylinder". As shown above, generative AIs (as of May 2024) are *very* unreliable at combining stuff, when there's 4 or more objects.
+
+**UPDATE NOV 2025: Image generation models have finally solved "compositionality"!**
+
+Here is ChatGPT 5.1 getting the above prompt right on the first try:
+
+![ChatGPT 5.1's attempt. It succeeds!](media/intro/ChatGPT5.png)
+
+I was originally planning to replace this section with "AI can't render a chessboard in the starting position", a more complex demonstration of compositionality that AIs still failed at [as recently as July 2025](https://manifold.markets/Hazel/an-ai-model-will-successfully-gener). But, as far as I can tell, even that works now! Read more on AI image models vs "compositionality" in [Scott Alexander's July 2025 post](https://www.astralcodexten.com/p/now-i-really-won-that-ai-bet).
+
+That said, AI [can solve Olympiad-level math problems](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/), but can't (yet) [play Pokémon](https://www.lesswrong.com/posts/HyD3khBjnBhvsp8Gb/so-how-well-is-claude-playing-pokemon) or [manage the business of a vending machine](https://www.anthropic.com/research/project-vend-1). It is very confusing and unintuitive what modern AI is or isn't good at.
 
 ~ ~ ~
 
 Anyway, that's the end of this Nutshell! To close it, click the "x" button below ⬇️ or the "Close All" tab in the top-right ↗️. Or just keep on scrollin'.
 
 [: (psst... wanna put these Nutshells in your *own* site?)](#Nutshells)
+
+
 
 #### :x Nutshells
 
@@ -486,27 +493,6 @@ Hover over the top-right of these Nutshells, or hover over any **main header** i
 Then, click that icon to get a popover, which will explain how to embed these Nutshells into your own blog/site!
 
 [Click here to learn more about Nutshell. 💖](https://ncase.me/nutshell/)
-
-#### :x Part 3 details
-
-NOTE: This expanded section won't make much sense *yet*, since it builds on the lessons in Part 1 & 2. But I'm putting this here now, for:
-
-a) The layperson audience, to reassure y'all that, yes, there *are* many promising proposed solutions.
-
-b) The expert audience, to reassure y'all that, yes, I probably have your niche lil' thing in here.
-
-Anyway, the TOP 10 TYPES-OF-SOLUTIONS to AI Safety: (with the fancy jargon in parentheses)
-
-1. A Level-0 human aligns a Level-1 bot, which aligns a Level-2 bot, which aligns [...] a Level-N bot. (Scalable reward/oversight, Iterated Distillation & Amplification)
-2. Bots of *roughly-equal* levels checking each other. (Constitutional AI, AI safety via debate)
-3. Instead of *directly* telling a bot what you want, have the bot *indirectly* learn what you want. (Reinforcement Learning with Human Feedback, Cooperative Inverse Reinforcement Learning, Approval-directed Agents)
-4. Instead of *directly* trying to install "humane values" into a bot, have it *indirectly* figure out what a more knowledgeable, kinder version of us would agree on. (Indirect Normativity, Coherent Extrapolated Volition)
-5. Solving robustness. (Simplicity, Sparsity, Regularization, Ensembles, Adversarial training)
-6. Reading the AI's mind. (Interpretability, Circuits, Eliciting Latent Knowledge)
-7. Maybe all our ideas just suck and we need to go back to square one. (Agent foundations, Causal AI, Shard theory, Bio-plausible learning, Embodied cognition)
-8. "Just Don't Build The Torture Nexus". Or: how can we get the benefits of AI *without* building powerful, general, agent-like AIs? (Comprehensive AI services, Narrow/Tool/Microscope AI, Quantilizers)
-9. The Human Alignment Problem: how do we coordinate *humans* to make sure AI goes well? (AI Governance, Evals-based governance, Differential technological development, Data/Privacy rights, Windfall Clauses)
-10. If you can't beat 'em, join 'em! (Cyborgism, Centaurs, Intelligence Amplification)
 
 #### :x Spaced Repetition
 
