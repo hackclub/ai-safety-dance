@@ -175,6 +175,9 @@ ul ul{
     margin-top: 0;
 }
 
+blockquote{
+    margin-right: 0;
+}
 blockquote, .nutshell-bubble blockquote{
     border-left: 5px solid rgba(128,128,128,0.4);
     margin-left: 0;
