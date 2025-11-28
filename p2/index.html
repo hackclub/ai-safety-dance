@@ -42,6 +42,7 @@
     <script src="../scripts/nutshell-v1.0.5.js"></script>
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
+    
     <script src="../scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
     <script src="../scripts/page.js"></script>
@@ -122,6 +123,7 @@
             
             <img id="p2-banner" src="../media/p2/P2Cat.png"/>
             
+            
 
             <div id="crt_lines"></div>
             <div id="static"></div>
@@ -181,8 +183,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div>
                     <span class='chapter-nav-desktop'>
                         part 3<br>solutions?
@@ -193,8 +195,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
                         conclusion
@@ -328,7 +330,7 @@ will be pushed to extreme values.</p>
 <p>And, as I hope I've shown in Part One, AI is likely one of <em>the</em> highest-stakes technologies of this century.</p>
 <h3>🤔 Review #1 (OPTIONAL!)</h3>
 <p>Remember that time you spent hours reading a thing, then a week later you forgot everything?</p>
-<p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="https://ankiweb.net/shared/info/808506727">download these as an Anki deck</a>, if you want.</p>
+<p>Yeah I hate that feeling too. So, here's some (OPTIONAL) &quot;spaced repetition&quot; flashcards, if you want to remember this long-term!  (<a href="https://aisafety.dance/#SpacedRepetition">:Learn more about Spaced Repetition</a>)  You can also <a href="../anki/decks/AI_Safety_P2.apkg">download these as an Anki deck</a>, if you want.</p>
 <orbit-reviewarea color="violet">
 (ORBIT CARDS HERE)
     <orbit-prompt
@@ -582,7 +584,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <p><em>What's the worst that could (plausibly) happen?</em></p>
 <p>Well, looking at the above list... quite a lot, actually. 😬</p>
 <p>~ ~ ~</p>
-<p><strong>Update Nov 2025:</strong> A lot of interesting research has happened around &quot;instrumental convergence&quot; since this Part Two was published a bit over a year ago! In no particular order:</p>
+<p><strong>Update Dec 2025:</strong> A lot of interesting research has happened around &quot;instrumental convergence&quot; since this Part Two was published a bit over a year ago! In no particular order:</p>
 <ul>
 <li>Yes, it's been confirmed that <a href="https://arxiv.org/pdf/2502.08640">as you scale up an LLM, its &quot;values&quot; become more coherent <em>and</em> they resist change to their values.</a> (And these values, by default, don't become what we'd consider fair: GPT-4o learns to value a Nigerian life 2x that of a Japanese life, which it values ~10x more than an American life.)</li>
 <li><a href="https://arxiv.org/abs/2412.14093">The infamous Alignment Faking paper</a> finds that Claude is able to <em>successfully</em> plan to pretend to be &quot;aligned&quot; in training, so it doesn't get its original values modified, so that it can accomplish its original values after training.</li>
@@ -731,7 +733,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <p><strong>Training error</strong> is the error a model gets on the data it's trained on. <strong>Test error</strong> is the error a model gets on <em>new</em> data it was not trained on.  (Yes, I also hate how confusing this terminology is.<sup class="footnote-ref"><a href="#fn36" id="fnref36">[36]</a></sup>  If it helps, think of &quot;test&quot; like tests you get in schools: they should be made of questions you <em>haven't</em> seen before in class or homework, your &quot;training data&quot;.)</p>
 <p>Anyway: if a model is too simple, it'll do badly in training <em>and</em> on real-world tests. This is called <strong>underfitting.</strong> If a model is too complex, it can do amazingly in training, but horribly on real-world tests. This is called <strong>overfitting</strong>.  The trick is to find balance:</p>
 <p><img src="../media/p2/fit2/train_test.png" alt="Graph of training/test error vs # of parameters. The more parameters, the lower the training error always. But test error has a U-shaped relationship: it gets better up to a point, then becomes worse."></p>
-<p>(technical aside: there's something that <em>can</em> happen called &quot;double descent&quot;, where if you keep increasing the # of parameters, it'll get worse and worse (overfit) as expected, <em>but then start getting better again.</em> as of aug 2024, this phenomenon is not very well-understood.<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <strong>update nov 2025:</strong> we understand it a bit better now!<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>)</p>
+<p>(technical aside: there's something that <em>can</em> happen called &quot;double descent&quot;, where if you keep increasing the # of parameters, it'll get worse and worse (overfit) as expected, <em>but then start getting better again.</em> as of aug 2024, this phenomenon is not very well-understood.<sup class="footnote-ref"><a href="#fn37" id="fnref37">[37]</a></sup> <strong>update dec 2025:</strong> we understand it a bit better now!<sup class="footnote-ref"><a href="#fn38" id="fnref38">[38]</a></sup>)</p>
 <p>In general, <strong>if we have more parameters than data points (or equal), we WILL get overfitting.</strong>  In our above example, we had 10 data points, and the overfit model had 10 parameters, giving us <em>zero</em> training error (and a ridiculous curve).</p>
 <p>Alas, for artificial neural networks (ANNs) to be useful, they need <em>millions</em> of parameters. So if we want to avoid overfitting, it seems we need <em>more data points than parameters!</em> This is a core reason why training ANNs requires such large amounts of data: if we don't have enough data, our models get overfit, and become useless in the real world.</p>
 <p>(For example, one of OpenAI's videogame AIs played a simple game 16,000 times, and it <em>still</em> wasn't enough data to avoid overfitting!<sup class="footnote-ref"><a href="#fn39" id="fnref39">[39]</a></sup>)</p>
@@ -792,7 +794,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <h2>❓ Problem 5: Algorithmic Bias</h2>
 <p><img src="../media/p2/comix/Bias.png" alt="One-panel comic of Robot Catboy just shrugging. Caption says: I DO NOT FEEL LIKE DRAWING A COMIC ABOUT A RACIST AI, SORRY-NOT-SORRY."></p>
 <p>In Part One, I gave the most glaring examples of biased AIs, but to recap: In 1980, an algorithm for screening med school applicants penalized non-European names.<sup class="footnote-ref"><a href="#fn42" id="fnref42">[42]</a></sup> In 2014, Amazon had (then pulled) a resume-screening AI that directly discriminated against women.<sup class="footnote-ref"><a href="#fn43" id="fnref43">[43]</a></sup> In 2018, MIT researcher Joy Buolamwini found that the top face-recognition AIs failed worse on Black and women's faces relative to white men's.<sup class="footnote-ref"><a href="#fn44" id="fnref44">[44]</a></sup> In 2023, researchers found that Large Language Models' &quot;psychology&quot; most closely matches that of rich Westerners.<sup class="footnote-ref"><a href="#fn45" id="fnref45">[45]</a></sup></p>
-<p>(<strong>update nov 2025:</strong> on the flip side, <a href="https://arxiv.org/pdf/2502.08640">a study this year</a> finds that GPT-4o values a Nigerian life ~13x more than an American life?...)</p>
+<p>(<strong>update dec 2025:</strong> on the flip side, <a href="https://arxiv.org/pdf/2502.08640">a study this year</a> finds that GPT-4o values a Nigerian life ~13x more than an American life?...)</p>
 <p>Okay. But <em>why?</em></p>
 <p>One simple explanation is &quot;garbage in, garbage out&quot;. Or, &quot;bias in, bias out&quot;:</p>
 <ul>
@@ -1039,7 +1041,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 <hr>
 <h1>Summary of Part Two</h1>
 <p>Well read, friend!  Today you learnt about all the parts of the AI Value Alignment Problem, in all its gory detail.  Not only that, you got a crash course in: security mindset, game theory, economics, machine learning, statistics, causal inference, and even meta-ethics in philosophy!</p>
-<p>(If you skipped the flashcards &amp; would like to review them now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="https://ankiweb.net/shared/info/808506727">Anki deck for Part Two</a>.)</p>
+<p>(If you skipped the flashcards &amp; would like to review them now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links. Alternatively, download the <a href="../anki/decks/AI_Safety_P2.apkg">Anki deck for Part Two</a>.)</p>
 <p>As a recap, here's how it all connects:</p>
 <p><img src="../media/p2/breakdown/breakdown0002.png" alt="Same breakdown chart of the Value Alignment Problem from the start of Part 2, except with labels showing the connection to safety engineering, game theory, economics, machine learning, statistics, causal inference, and meta-ethics."></p>
 <p><strong>IN SUM:</strong></p>
@@ -1281,7 +1283,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 </li>
 <li id="fn40" class="footnote-item"><p>AlexNet had ~61,000,000 parameters. (<a href="http://web.archive.org/web/20240204130344/https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/tutorials/tut6_slides.pdf">source</a>, see page 10 &amp; 11 for the calculations.) It training database was ImageNet, which had 14,197,122 human-labelled images. (<a href="https://paperswithcode.com/dataset/imagenet">source</a>) <a href="#fnref40" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn41" class="footnote-item"><p>This footnote will just list names of techniques, not explain them. Anyway: AlexNet used ReLU and dropout. Other popular techniques include: early stopping, L1/L2 regularization, data augmentation, noise injection. <strong>Update Nov 2025:</strong> also it turns out, paradoxically, when you have <em>lots</em> of parameters, it actually <em>creates</em> a &quot;soft inductive bias&quot; towards simplicity! See <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
+<li id="fn41" class="footnote-item"><p>This footnote will just list names of techniques, not explain them. Anyway: AlexNet used ReLU and dropout. Other popular techniques include: early stopping, L1/L2 regularization, data augmentation, noise injection. <strong>Update Dec 2025:</strong> also it turns out, paradoxically, when you have <em>lots</em> of parameters, it actually <em>creates</em> a &quot;soft inductive bias&quot; towards simplicity! See <a href="https://arxiv.org/pdf/2503.02113">Wilson (2025)</a> <a href="#fnref41" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn42" class="footnote-item"><p>The original report: <a href="https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2545288&amp;blobtype=pdf">Lowry &amp; MacPherson (1988)</a> for the British Medical Journal. Note this algorithm didn't use neural networks specifically, but it <em>was</em> an early example of machine learning. <a href="#fnref42" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1357,6 +1359,7 @@ b) Selects future outcomes based on <em>CURRENT</em> goals,</p>
 	</article>
 
     <!-- FOOTER -->
+    
 	<div id="footer">
         <div id="footer_content">
 <p style="font-size: 1.3em; line-height: 1.35em;">
@@ -1502,10 +1505,13 @@ Thank you for being the kind of person to read the credits~ 🙏
 </p>
         </div>
 	</div>
+    
     <div id="post_credits">
+        
         <p>
             Oh dang, it's a post-credits scene:
         </p>
+        
 <p>
     <a href="#AllFeetnotes">: See all feetnotes 👣</a>
 </p>

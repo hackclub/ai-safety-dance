@@ -42,6 +42,17 @@
     <script src="../scripts/nutshell-v1.0.5.js"></script>
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
+    
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)'], ['$', '$']],
+            displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            processEscapes: true
+        }
+    };
+    </script>
+    
     <script src="../scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
     <script src="../scripts/page.js"></script>
@@ -120,6 +131,9 @@
 
             
             
+            
+            <img id="p3-banner" src="../media/p3/P3Cat.png"/>
+            
 
             <div id="crt_lines"></div>
             <div id="static"></div>
@@ -179,8 +193,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div>
                     <span class='chapter-nav-desktop'>
                         part 3<br>solutions?
@@ -191,8 +205,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
                         conclusion
@@ -226,8 +240,8 @@
 
     <!-- BEHOLD! CONTENT!!!!! -->
 	<article id="content">
-<h3>This is a secret unlisted draft for beta-readers! Please don't share (yet), thank you for gifting me feedback! You'll be credited in the credits if you wish :3</h3>
-<p><em>(This is Part 3 of a series on AI Safety! You don't</em> have <em>to read the previous parts — <a href="https://aisafety.dance/">Intro</a>, <a href="https://aisafety.dance/p1/">Part 1</a>, <a href="https://aisafety.dance/p2/">Part 2</a> — but they'll help!)</em></p>
+<h3>This is a secret unlisted page! It'll go live on the first week of Dec 2025, finally!</h3>
+<div style="text-align:center"><i>(This is Part 3 of a series on AI Safety! You don't</i> have <i>to read the previous parts — <a href="https://aisafety.dance/">Intro</a>, <a href="https://aisafety.dance/p1">Part 1</a>, <a href="https://aisafety.dance/p2">Part 2</a> — but they'll help!)</i></div>
 <p>So, after writing 40,000+ words on how weird &amp; difficult AI Safety is... how am I feeling about the chances of humanity solving this problem?</p>
 <p>...pretty optimistic, actually!</p>
 <p>No, really!</p>
@@ -312,8 +326,12 @@
 <p><img src="../media/p3/so/meowdy0010.png" alt="Sheriff Meowdy blowing the smoke away from his gun, as the injured Varmin waltz off into the sunset"></p>
 <p>(👉 <a href="#ScalableOversightExtras">: click to expand bonus section - the &quot;alignment tax&quot;, P = NP?, alignment vs control, what about sudden-jump &quot;sharp left turns&quot;?</a>)</p>
 <hr>
-<p>Now that the visual hook is over, here's the quick sponsor intermission. This series was funded by <strong>Hack Club</strong> and the <strong>Long Term Future Fund</strong>; thank you both for helping me pay rent the last two years. <a href="https://hackclub.com/">Hack Club</a> helps teenage hackers around the world support each other. <a href="https://funds.effectivealtruism.org/funds/far-future">Long Term Future Fund</a> throws money at stuff that helps reduce P(doom). // TODO &quot;reach out if&quot;</p>
-<p>Also, since this is the <em>last</em> entry in this series, if you wanna stay up to date on my future math/science/AI-explainer-y projects, you can sign up for <a href="https://www.youtube.com/@itsnickycase">my YouTube channel</a> or <a href="https://ncase.me/sub/">my once-a-month newsletter</a>:</p>
+<p>Now that the visual hook is over, here's the quick sponsor intermission. This series was funded by <strong>Hack Club</strong> and the <strong>Long Term Future Fund</strong>; thank you both for helping me pay food &amp; rent in this economy.</p>
+<ul>
+<li>🦕 <a href="https://hackclub.com/"><strong>Hack Club</strong></a> helps teen hackers around the world learn from each other, and pssst they're hosting two <a href="https://midnight.hackclub.com/">cool</a> <a href="https://midnight.hackclub.com/">hackathons</a> soon!</li>
+<li>🔮 <a href="https://funds.effectivealtruism.org/funds/far-future"><strong>Long Term Future Fund</strong></a> throws money at stuff that helps reduce P(doom). Like, y'know, advanced AI, bioweapons, nuclear war, and other fun lighthearted topics.</li>
+</ul>
+<p>Also, since this is the <em>last</em> entry in this series, if you wanna stay up to date on my future math/science/AI-explainer-y projects, you can sign up for <a href="https://www.youtube.com/@itsnickycase">my YouTube channel</a> or <a href="https://ncase.me/sub/">my once-a-month newsletter</a>: 👇</p>
 <iframe src="https://ncase.me/ncase-credits/signup2.html" frameborder="no" width="640" height="250"></iframe>
 <p>Alright, back to the show!</p>
 <hr>
@@ -332,13 +350,17 @@
 <p>Anyway, that's the <em>general</em> idea. Here's some <em>specific</em> implementations &amp; empirical findings:</p>
 <ul>
 <li>💖➡️💖 <strong><a href="https://arxiv.org/abs/1811.07871">Recursive Reward Modeling</a></strong> uses a Level-N bot not just to check &amp; control a Level-(N+1) bot <em>in hindsight</em>, but to <em>train its intrinsic &quot;goals &amp; desires&quot; in the first place.</em><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> As AI researcher Jan Leike <a href="https://aligned.substack.com/p/should-we-control-ai">put it</a>: <em>“Don’t try to imprison a monster, build something that you can actually trust!”</em></li>
-<li>📈 <strong><a href="https://arxiv.org/abs/2504.18530">Scaling Laws For Scalable Oversight</a></strong> <em>quantitatively</em> measures how many oversight levels/steps you need to maximize oversight success. Encouragingly, like the previous &quot;scaling laws&quot; for how AI improves as you feed them more compute, these &quot;scaling laws of scalable oversight&quot; also seem to be predictable &amp; measurable. <a href="https://mikhailterekhov.github.io/control-tax/">Terekhov &amp; Liu et al 2025</a> goes further and calculates the &quot;control tax&quot; in $, for various AI attackers and defenders.</li>
+<li>📈 <strong><a href="https://arxiv.org/abs/2504.18530">Scaling Laws For Scalable Oversight</a></strong> <em>quantitatively</em> measures how many oversight levels/steps you need to maximize oversight success. Encouragingly, like the previous &quot;scaling laws&quot; for how AI improves as you feed them more compute, these &quot;scaling laws of scalable oversight&quot; also seem to be predictable &amp; measurable. <a href="https://mikhailterekhov.github.io/control-tax/">Terekhov &amp; Liu et al 2025</a> goes further and calculates the &quot;control tax&quot; in \$, for various AI attackers and defenders.</li>
 <li>🕵️🦹 <strong><a href="https://arxiv.org/abs/2312.06942">GPT-3.5 can catch sneaky, subtly-harmful code, written by the more-powerful GPT-4.
 </a></strong></li>
 <li>🕵️🥷 <strong><a href="https://openai.com/index/prover-verifier-games-improve-legibility/">Prover-Verifier Games</a></strong> pits a weak &quot;math proof verifier&quot; AI against two stronger AIs: a &quot;helpful prover&quot; that gives true proofs, and a &quot;sneaky prover&quot; that gives false proofs that <em>seem</em> true. Result of training on this game: the <em>weak verifier</em> can get good enough to distinguish true proofs, but the <em>strong sneaky prover can't win in the long run.</em> Nice!</li>
 <li>🪜 <strong><a href="https://openai.com/index/weak-to-strong-generalization/">Weak-to-Strong Generalization</a></strong> found that GPT-<em>2</em> did a pretty okay job at supervising &amp; training GPT-<em>4</em>. (an AI that's several orders of magnitude bigger)</li>
 <li>💬💬 <strong><a href="https://openai.com/index/debate/">Debate</a></strong> is slightly different. Instead of a weaker AI overseeing a stronger AI, Debate has 2 equally-powerful AIs debate each other, picking apart each others' logic. As long as truth can survive scrutiny better than falsehood, the truth will win. (Well, maybe.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>)</li>
-<li>☕️ <strong><a href="https://arxiv.org/pdf/2402.00530">Superfiltering</a></strong> uses a small, open-source AI to filter the data that's used to train a larger AI! This can help make sure the larger AI is not only trained on high-quality writing (vs 4chan s#!&amp;posts), but also doesn't learn how to jailbreak itself or its overseer, learn the answers to cheat on evalulation benchmarks, or learn risky capabilties like bomb &amp; bioweapons manufacturing.</li>
+<li>☕️ <strong><a href="https://arxiv.org/pdf/2402.00530">Superfiltering</a></strong> uses a small, open-source AI to filter the data that's used to train a larger AI! This can help make sure the larger AI is not only trained on high-quality writing (vs internet s#!&amp;posts), but also doesn't learn how to jailbreak itself or its overseer, learn the answers to cheat on evalulation benchmarks, or learn risky capabilties like bomb &amp; bioweapons manufacturing.
+<ul>
+<li>(not <em>oversight</em>, technically, but it's still an iterative, scalable approach!)</li>
+</ul>
+</li>
 <li>👯‍♀️ <strong><a href="https://www.lesswrong.com/posts/vhfATmAoJcN8RqGg6/a-guide-to-iterated-amplification-and-debate">Iterated Distillation &amp; Amplification (IDA)</a></strong> is even safer – instead of overseeing AIs slightly-smarter than you, you oversee AIs that are <em>strictly weaker</em> than you. How, then, can this setup give you superhuman intelligence? To very loosely summarize: in IDA, you become the CEO of an organization made out of AIs trained to imitate you! Since every AI imitates you, and you're the CEO of the whole thing, the system as a whole is aligned to your values — while <em>also</em> amplifying your capabilities.
 <ul>
 <li>(<a href="#IDA">: More about IDA, and critiques of it</a>)</li>
@@ -434,22 +456,35 @@
 <p>(See also: <a href="https://www.youtube.com/watch?v=v9M2Ho9I9Qo">this excellent Rob Miles video on IDA</a>)</p>
 <h3>🤔 (Optional!) Flashcard Review #1</h3>
 <p>You read a thing. You find it super insightful. Two weeks later you forget everything but the vibes.</p>
-<p>That sucks! So, here are some <em>100% OPTIONAL</em> Spaced Repetition flashcards, to help you remember these ideas long-term! ( 👉 <a href="https://aisafety.dance/#SpacedRepetition">: Click here to learn more about spaced repetition</a>) You can also download these as an Anki deck. TODO</p>
-<pre><code>We don't need One Perfect Solution;
-we can stack several imperfect solutions!
-
-The Swiss Cheese Model 
-
-What is Scalable Oversight?
-Using an AI to oversee a slightly-smarter AI, repeat
-// meme
-
-How can you make scalable oversight more robust?
-By adding extra, independent overseers
-// chains
-
-**Scalable Oversight** lets us convert the impossible question, &quot;How do you oversee a thing that's 1000x smarter than you?&quot; to the more feasible, &quot;How do you oversee a thing that's only a bit smarter than you, _and_ you can train it from scratch, read its mind, and nudge its thinking?&quot;
-</code></pre>
+<p>That sucks! So, here are some <em>100% OPTIONAL</em> Spaced Repetition flashcards, to help you remember these ideas long-term! ( 👉 <a href="https://aisafety.dance/#SpacedRepetition">: Click here to learn more about spaced repetition</a>) You can also <a href="https://ankiweb.net/shared/info/1788882060">download these as an Anki deck</a>.</p>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="We don't need One Perfect Solution, we can..."
+        answer="...stack several imperfect solutions! (Swiss Cheese Model)"
+        answer-attachments="https://aisafety.dance/media/p3/intro/cheese.png">
+        <!-- aisffs-cheese.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is Scalable Oversight?"
+        answer="Instead of trying to oversee an AI much more capable than you, you oversee a slightly-more capable AI, which oversees a slightly-more capable AI, repeat!"
+        answer-attachments="https://aisafety.dance/media/p3/so/sum.png">
+        <!-- aisffs-so.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="How can you make scalable oversight more robust?"
+        answer="By adding parallel chains of overseers (whose failure modes are as *uncorrelated* as possible)"
+        answer-attachments="https://aisafety.dance/media/p3/so/meowdy_robust.png">
+        <!-- aisffs-robust-chains.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Scalable Oversight lets us convert the impossible question, “How do you oversee a thing that's 1000x smarter than you?” to the more feasible question..."
+        answer="“How do you oversee a thing that's only a bit smarter than you, _and_ you can train it from scratch, read its mind, and nudge its thinking?” (you don't have to remember this exactly, just the gist of it) ">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 2 specific implementations of Scalable Oversight:"
+        answer="(any 2 of the following work:) Recursive Reward Modeling, Prover-Verifier Games, Weak-to-Strong Generalization, Debate, Superfiltering, Iterated Distillation & Amplification">
+    </orbit-prompt>
+</orbit-reviewarea>
 <p>Good? Let's move on...</p>
 <hr>
 <p><a id="future"></a></p>
@@ -486,7 +521,7 @@ By adding extra, independent overseers
 <p><em>Hang on</em>, you may think, <em>I can already think of ways the Future Lives approach can go wrong, even with an optimal AI:</em></p>
 <ul>
 <li>This locks us in into our <em>current</em> values, no room for personal/moral growth.</li>
-<li>Whether or not we approve of something is sensitive to psychological tricks, e.g. seeing a thing for &quot;$20&quot;, versus &quot;<s>$50</s> $20 (SALE: $30 OFF!!!)&quot;. The &quot;movies&quot; of possible future lives could be filmed in an emotionally manipulative way.</li>
+<li>Whether or not we approve of something is sensitive to psychological tricks, e.g. seeing a thing for &quot;\$20&quot;, versus &quot;<s>\$50</s> \$20 (SALE: \$30 OFF!!!)&quot;. The &quot;movies&quot; of possible future lives could be filmed in an emotionally manipulative way.</li>
 <li>If the truth is upsetting — like when we discovered Earth wasn't the center of the universe — the current-us would disapprove of learning about uncomfortable truths.</li>
 <li>I contain multitudes, I contradict myself. What happens if, when presented different pairs of futures, I'd prefer A over B, B over C, <em>and C over A?</em> What if at Time 1 I want one thing, at Time 2 I predictably want the opposite?</li>
 </ul>
@@ -511,7 +546,7 @@ By adding extra, independent overseers
 <p>No, duh. The tricky part is what do I consider to be manipulation, vs <a href="https://www.lesswrong.com/s/3QXNgNKXoLrdXJwWE">legitimate value change</a>? We may as well start with an approximate list.</p>
 <ul>
 <li>I'd approve of my beliefs/preferences/values being changed via: robust scientific evidence, robust logical argument, debate where all sides are steelmanned, safe exposure to new art &amp; cultures, learning about people's life experiences, standard human therapy, &quot;light&quot; drugs/supplements like kava or vitamin D, etc.</li>
-<li>I would NOT approve of my beliefs/preferences/values being changed via: wireheading, drugging, &quot;direct revelation&quot; from God or LSD or DMT Aliens, sneaky framings like &quot;<s>$50</s> $20 (SALE: $30 OFF!!!)&quot;, lies, lying-by-omission, misleadingly-presented truths, etc.</li>
+<li>I would NOT approve of my beliefs/preferences/values being changed via: wireheading, drugging, &quot;direct revelation&quot; from God or LSD or DMT Aliens, sneaky framings like &quot;<s>\$50</s> \$20 (SALE: \$30 OFF!!!)&quot;, lies, lying-by-omission, misleadingly-presented truths, etc.</li>
 </ul>
 <p>Most importantly, this list of &quot;what's legitimate change or not&quot; <em>IS ABLE TO MODIFY ITSELF</em>. For example, right now I endorse scientific reasoning but not direct revelation. But if science <em>proves</em> that direct revelation is reliable — for example, <a href="https://andzuck.com/blog/dmt-primes/">if people who take DMT and talk to the DMT Aliens can do superhuman computation</a> or know future lottery numbers — <em>then</em> I would believe in direct revelation.</p>
 <p>I don't have a nice, simple rule for what counts as &quot;legitimate value change&quot; or not, but as long as I have a rough list, <em>and the list can edit itself</em>, that's good enough in my opinion.</p>
@@ -547,48 +582,37 @@ By adding extra, independent overseers
 <li>The <a href="https://causalincentives.com/">Causal Incentives Working Group</a> uses cause-and-effect diagrams to figure out when an AI has an &quot;incentive&quot; to modify itself, or modify the human. The group has had some empirical success, too, in correctly predicting &amp; designing AIs that do <em>not</em> manipulate human values, yet can still learn &amp; serve them.</li>
 </ul>
 <h3>🤔 Review #2</h3>
-<p>(Again, <em>optional</em> flashcard review:)</p>
-<pre><code>The pattern in AI Safety paranoia:
-
-Security Mindset:
-
-- Imagine giving an AI an innocent-seeming goal
-- Think of a bad way it could _technically_ achieve that goal
-
----
-
-The &quot;Future Lives&quot; approach is an AI that applies \_\_\_\_\_\_ against itself
-
-Security Mindset
-
-&quot;Think of the worst that could happen, in advance. Then fix it.&quot;
-
----
-
-The &quot;Future Lives&quot; algorithm, in sum:
-
-Robot predicts the future results of possible actions, and how _current you_ would react to _those futures_.
-
-Robot picks the action whose future you'd most approve of, and *not* the futures that current-you would disapprove of.
-
----
-
-The &quot;Future Lives&quot; approach, as described by Stuart Russell (you don't need to remember the quote exactly, just paraphrase it:)
-
-&gt; \[Imagine\] if you were somehow able to **watch two movies**, each describing in sufficient detail and breadth **a future life** you might lead \[as well as the consequences outside of &amp; after your life.\] **You could say which you prefer, or express indifference.**
-
----
-
-What does &quot;indirect normativity&quot; mean?
-
-An approach where, instead of directly telling an AI our values, we ask it to _learn_ what our values are.
-
----
-
-Why may we NOT need a perfect alignment algorithm to start with?
-
-Like recursive self-improvement in AI Capabilities, above a certain &quot;critical mass&quot;, the alignment algorithm *can improve itself* to fix its flaws. (Let it go meta!)
-</code></pre>
+<p>(Again, <em>100% optional</em> flashcard review:)</p>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="The pattern in AI Safety ~~paranoia~~ Security Mindset:"
+        answer="Step 1: Imagine giving an AI an innocent-seeming goal. Step 2: Think of a bad way it could _technically_ achieve that goal.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 'Future Lives' approach is like having an AI apply \_\_\_\_\_ against itself"
+        answer="**Security Mindset** (“Think of the worst that could happen, in advance. Then fix it.”)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 'Future Lives' algorithm, in sum:"
+        answer="1] Robot predicts the future results of possible actions, and how _current you_ would react to _those futures_. 2] Robot picks the action whose future you'd most approve of, and *not* the futures that current-you would disapprove of.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 'Future Lives' approach, as described by Stuart Russell: (you don't need to remember the quote exactly, just paraphrase it)"
+        answer="\[Imagine\] if you were somehow able to **watch two movies**, each describing in sufficient detail and breadth **a future life** you might lead \[as well as the consequences outside of & after your life.\] **You could say which you prefer, or express indifference.**">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What does 'indirect normativity' mean?"
+        answer="An approach where, instead of directly specifying our values, we specify _how to learn_ our values.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Why may we NOT need a perfect alignment algorithm to start with?"
+        answer="Like recursive self-improvement in AI Capabilities, above a certain **'critical mass'**, the alignment algorithm *can improve itself* to fix its flaws. (Let it go meta!)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="One limitation of the 'self-improving AI Alignment' idea"
+        answer="It requires risky levels of AI Capabilities to work in the first place. (so, this needs to be stacked with other security measures)">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="uncertain"></a></p>
 <h2>AI Logic: Know You Don't Know Our Values</h2>
@@ -649,12 +673,12 @@ Like recursive self-improvement in AI Capabilities, above a certain &quot;critic
 <p>Then again, that paper studied an AI that <em>categorizes images</em>, not an AI that can <em>act on the world</em>. I'm unsure if &quot;best worst-case&quot; + &quot;simple models&quot; would be good for such &quot;agentic&quot; AIs.  Isn't &quot;don't do anything&quot; the <em>simplest</em> world model?</p>
 <p>Okay, let's go back to basics:</p>
 <p>Maybe the traditional &quot;maximize the <em>average</em> 'expected utility'&quot; is fine, and we don't need &quot;maximize the worst case&quot;?</p>
-<p>However, that could lead to <a href="https://nickbostrom.com/papers/pascal.pdf">&quot;Pascal's Muggings&quot;</a>: if someone comes up to you and says, <em>gimme $5 or all 8 billion people will die tomorrow</em>, then even if you think there's only a one-in-a-billion (0.0000001%) chance they're telling the truth, that's an &quot;expected value&quot; of saving 8 billion people * 1-in-a-billion chance = saving 8 people's lives for the cost of $5. The problem is, humans can't <em>feel</em> the difference between 0.0000001% and 0.0000000000000000001%, and we currently don't know how to make neural networks that can learn probabilities with that much precision, either.</p>
-<p>(To be fair, &quot;maximize the worst-case&quot; would be even <em>more</em> vulnerable to Pascal's Muggings. In the above scenario, the worst-case of <em>not</em> giving them $5 is 8 billion die, the worst-case of giving them $5 is you lose $5.)</p>
+<p>However, that could lead to <a href="https://nickbostrom.com/papers/pascal.pdf">&quot;Pascal's Muggings&quot;</a>: if someone comes up to you and says, <em>gimme \$5 or all 8 billion people will die tomorrow</em>, then even if you think there's only a one-in-a-billion (0.0000001%) chance they're telling the truth, that's an &quot;expected value&quot; of saving 8 billion people * 1-in-a-billion chance = saving 8 people's lives for the cost of \$5. The problem is, humans can't <em>feel</em> the difference between 0.0000001% and 0.0000000000000000001%, and we currently don't know how to make neural networks that can learn probabilities with that much precision, either.</p>
+<p>(To be fair, &quot;maximize the worst-case&quot; would be even <em>more</em> vulnerable to Pascal's Muggings. In the above scenario, the worst-case of <em>not</em> giving them \$5 is 8 billion die, the worst-case of giving them \$5 is you lose \$5.)</p>
 <p>And yet:</p>
 <p>Even though humans can't feel the difference between a 0.0000001% and 0.0000000000000000001% chance… most of us wouldn't fall for the above Pascal's Mugging. So, even though both naïve average-case &amp; worst-case fall prey to Pascal's Muggings, there must exist <em>some</em> way to make a neural network that can act not-terribly under uncertainty: human brains are an example.</p>
 <p>There's many proposed solutions to the Pascal's Mugging paradox of, uh, varying quality. But the most convincing solution I've seen so far comes from <a href="https://blog.givewell.org/2011/08/18/why-we-cant-take-expected-value-estimates-literally-even-when-theyre-unbiased/">&quot;Why we can’t take expected value estimates literally (even when they’re unbiased)&quot;, by Holden Karnofsky</a>, which &quot;[shows] how a Bayesian adjustment avoids the Pascal’s Mugging problem that those who rely on explicit expected value calculations seem prone to.</p>
-<p>The solution, in lay summary: the <em>higher</em>-impact an action is claimed to be, the <em>lower</em> your prior probability should be. In fact, <em>super-exponentially lower</em>. This explains a seeming paradox: you would take the mugger more seriously if they said &quot;give me $5 or I'll kill <em>you</em>&quot; than if they said &quot;give me $5 or I'll kill <em>everyone on Earth</em>&quot;, even though the latter is much higher stakes, and &quot;everyone&quot; includes you.</p>
+<p>The solution, in lay summary: the <em>higher</em>-impact an action is claimed to be, the <em>lower</em> your prior probability should be. In fact, <em>super-exponentially lower</em>. This explains a seeming paradox: you would take the mugger more seriously if they said &quot;give me \$5 or I'll kill <em>you</em>&quot; than if they said &quot;give me \$5 or I'll kill <em>everyone on Earth</em>&quot;, even though the latter is much higher stakes, and &quot;everyone&quot; includes you.</p>
 <p>If someone increases the claimed value by 8 billion, you should decrease your probability by <em>more than</em> a factor of 8 billion, so that the expected value (probability x value) ends up <em>lower</em> with higher-claimed stakes. This captures the intuition of things &quot;being too good to be true&quot;, or conversely, &quot;too bad to be true&quot;.</p>
 <p>(Which is why, perhaps reasonably, <a href="https://goodjudgment.com/superforecasting-ai/">superforecasters &quot;only&quot; place a 1% chance of AI Extinction Risk</a>. It seems &quot;too bad to be true&quot;. Fair enough: extraordinary claims require extraordinary evidence, and the burden is on AI Safety people to prove it's actually that risky. I hope this series has done that job!)</p>
 <p>So, this &quot;high-impact actions are unlikely&quot; prior leads to avoiding Pascal's Muggings! And with an extra prior on &quot;most actions are unhelpful until proven helpful&quot; — (if you were to randomly change a word in a story, it'll very likely make the story <em>worse</em>) — you can bias an AI towards safety, without becoming a totally useless &quot;do nothing ever&quot; robot.</p>
@@ -679,64 +703,42 @@ Like recursive self-improvement in AI Capabilities, above a certain &quot;critic
 <p><strong>Translation:</strong> In sum, for big ANNs, you need Adversity <em>and</em> Simplicity.</p>
 <h3>🤔 Review #3</h3>
 <p>Another (optional) flashcard review:</p>
-<pre><code>A solution to the problem of AIs being 100% sure about your values:
-
-Make AIs _know they don't know_ your true values.
-
----
-
-Uncertainty + Worst-case planning in a quip:
-
-learn like a scientist, act like an insurance agent!
-
----
-
-Three steps to learning your values &amp; acting on them safely:
-
-1. Start with &quot;good enough&quot; prior
-2. Everything Human says or does afterwards is A CLUE, not 100% ground truth
-3. Do what maximizes the (plausible) worst-case
-
----
-
-An example that shows why &quot;aim at a goal _you know you don't know_&quot; is not that mysterious:
-
-(Either example works:)
-
-1. The game of Battleship (goal is to hit ships, and you know you don't know where they are)
-2. Updating your beliefs of what your friend wants for a gift. (You want them to get what they want, and you can easily correct your mistaken beliefs of what they want.)
-
----
-
-Name one specific technique for &quot;learning a human's values&quot;
-
-(Any of the following work:)
-
-- Inverse reinforcement learning (IRL)
-- Cooperative inverse reinforcement learning (CIRL)
-- Reinforcement Learning from Human Feedback (RLHF)
-
----
-
-Do we sidestep the &quot;specification&quot; problem by using &quot;learn our values&quot;?
-
-No: we still have to specify _how it should learn_ one's values. (But this IS a much easier task than rigorously listing out one's full subconscious desires.)
-
----
-
-**Value learning + Uncertainty + Future Lives:**, in three steps:
-- 1️⃣: Learn our values
-- 2️⃣: But, be uncertain &amp; _know that you don't 100% know our values_.
-- 3️⃣: Then, choose actions that lead to _future_ lives than _current_ us would approve of. (And avoid worst-case futures)
-
----
-
-How &quot;learn our values&quot; makes the AI Capabilities vs Alignment graph more optimistic
-
-It _ties_ an AI's alignment to its capabilities: the better it is at &quot;normal machine learning&quot; in general, the better it will be at learning our values!
-
-// ADD PIC
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="A solution to the problem of AIs being 100% sure about your values:"
+        answer="Make AIs _know they don't know_ your true values. (and so, learn & serve them cautiously)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Three steps to learning your values & acting on them safely:"
+        answer="1] Start with a good-enough 'prior'. 2] Everything Human says/does is a _clue_ to true values, not 100% ground truth. 3] Maximize worst(-ish) case">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Three main ways to maximize uncertain value"
+        answer="Maximize average-case (most common), worst-case (safest), or best-case (riskiest). (extra note: it's also possible to do any in-between, like 'maximize the 5%th-worst percentile'.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="An example that shows why 'aim at a goal _you know you don't know_' is not that mysterious:"
+        answer="(Either example works:) 1] The game of Battleship (goal is to hit ships of unknown position). 2] Wanting to get a good gift for your friend, but not knowing what they'd want.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name one specific technique for “learning a human's values”"
+        answer="(Any of the following work:) Inverse reinforcement learning (IRL), Cooperative inverse reinforcement learning (CIRL), Reinforcement Learning from Human Feedback (RLHF)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Do we sidestep the 'specification' problem by using the 'learn our values' approach?"
+        answer="NO: we still have to specify _how an AI should learn_ one's values. (Which is tricky, but much easier than rigorously listing out one's full subconscious desires. It's like how it takes years to teach French, but 'only' hours to teach _how to teach oneself_ French.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="**Value learning + Uncertainty + Future Lives:**, in three steps:"
+        answer="1️⃣ Learn our values 2️⃣ But, be uncertain & _know that you don't 100% know our values_. 3️⃣ Then, choose actions that lead to _future_ lives than _current_ us would approve of.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="How 'learn our values' makes the AI Capabilities vs Alignment graph more optimistic"
+        answer="It _ties_ an AI's alignment to its capabilities: the better it is at 'normal machine learning' in general, the better it will be at learning our values!"
+        answer-attachments="https://aisafety.dance/media/p3/learn/rocket.png">
+        <!-- aisffs-floor.png -->
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="recap_1"></a></p>
 <h2>🎉 RECAP #1</h2>
@@ -851,89 +853,66 @@ It _ties_ an AI's alignment to its capabilities: the better it is at &quot;norma
 </ul>
 <p>Personally, I think steering vectors are very promising, since they: a) work for both reading and writing to AI's &quot;minds&quot;, b) works across several frontier AIs, c) and across several safety-important traits! That's very encouraging for oversight, especially <em>Scalable</em> Oversight.</p>
 <h3>🤔 Review #4</h3>
-<pre><code>&quot;Interpretability&quot; in AI is like... (analogy in humans)
-
- running a brain scan on a human, to figure out their thoughts &amp; feelings. 
-
----
-
-&quot;steering&quot; in AI is like... (analogy in humans)
-
-using magnets or ultrasound on a human's brain, to _change_ their thoughts &amp; feelings.
-
----
-
-Name at least _three_ AI Interpretability techniques:
-
-(any 3 of the following work)
-
-- Feature visualization (running ANNs in reverse)
-- Probing Classifiers
-- Sparse Auto-Encoders, Sparse Crosscoders, Jacobian SAEs (to get the &quot;essence&quot; of a concept)
-- Black-box detectors for lying &amp; hallucination (for totally untrusted AIs)
-- Monitoring the chain of thought
-- Steering Vectors
-
----
-
-Roughly speaking, how do you do Feature Visualization (figuring out what a neuron &quot;does&quot;)?
-
-Generate an input that maximizes the activation of that neuron.
-
----
-
-Roughly speaking, how does a Probing Classifier work?
-
-Train a _simple_ AI, to understand a single layer of a _complex_ AI.
-
-_(Yo dawg, I heard you like AIs, so I trained an AI on your AI, so you can predict your predictor.)_
-
----
-
-Roughly speaking, what do Auto-encoders do?
-
-An &quot;auto-encoder&quot; compresses a big thing, into a small thing, then converts it back to the _same_ big thing. This allows an AI to learn the &quot;essence&quot; of a thing, by squeezing inputs through a small bottleneck. (and the bottleneck can be: fewer neurons, fewer meanings, simpler computations, etc)
-
-// add pic
-
----
-
-Name a black-box method for interpreting AIs:
-
-(either works:)
-- Figure out if an LLM is lying by asking it a set of &quot;nonsensical&quot; questions
-- Figure out if an LLM is hallucinating by asking it the same question over and over. Truth is consistent, hallucinations aren't.
-
----
-
-&quot;Deliberative Alignment&quot; is:
-
-getting an AI to be more aligned to its policy, by simply prompting it to remember its policy &amp; reason about it.
-
----
-
-&quot;Chain-of-thought monitoring&quot; is:
-
-Monitoring, well, an LLM's chain-of-thought (reasoning) to make sure it's not being suspicious or harmful.
-
----
-
-How do you create &amp; use a Steering Vector?
-
-Creation: take the _difference_ between multiple examples of the ANN in state X vs not-X
-
-Using: add this difference _back_ to an ANN at run-time.
-
----
-
-An example of real Steering Vectors found for AI Safety uses:
-
-(any of the following works)
-
-Love-Hate, Honesty, Power-seeking, Fairness, Sycophancy, Corrigibility, Self-Preservation
-
-// ps funny Golden Gate Claude, precision
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="'Interpretability' in AI is like... (analogy in humans)"
+        answer="running a brain scan on a human, to figure out their thoughts & feelings.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="'steering' in AI is like... (analogy in humans)"
+        answer="using magnets or ultrasound on a human's brain, to _change_ their thoughts & feelings. (and yes, scientists have done this)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least _three_ AI Interpretability techniques:"
+        answer="(any 3 of the following work) Feature visualization, Probes, Sparse Auto-Encoders, Sparse Crosscoders, Jacobian SAEs, Black-box detectors for lying & hallucination, Monitoring chain of thought, Steering Vectors">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Roughly speaking, how do you do Feature Visualization (figuring out what a neuron 'does')?"
+        answer="Generate an input that maximizes the activation of that neuron."
+        answer-attachments="https://aisafety.dance/media/p3/interp/cat.png">
+        <!-- aisffs-feature-viz.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Roughly speaking, how does a Probing Classifier work?"
+        answer="Train a _simple_ AI, to understand a single layer of a _complex_ AI. _(Yo dawg, I heard you like AIs, so I trained an AI on your AI, so you can predict your predictor.)_"
+        answer-attachments="https://aisafety.dance/media/p3/interp/probe.png">
+        <!-- aisffs-probe.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Roughly speaking, what do Auto-encoders do?"
+        answer="An 'auto-encoder' compresses a big thing, into a small thing, then converts it back to the _same_ big thing. This allows an AI to learn the 'essence' of a thing, by squeezing inputs through a small bottleneck. (and the bottleneck can be: fewer neurons, fewer meanings, simpler computations, etc)"
+        answer-attachments="https://aisafety.dance/media/p3/interp/sae_2.png">
+        <!-- aisffs-autoencoder.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name a black-box method for interpreting AIs:"
+        answer="(either works:) 1] Figure out if an LLM is lying by asking it a set of 'nonsensical' questions. 2] Figure out if an LLM is hallucinating by asking it the same question over and over. Truth is consistent, hallucinations aren't.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="'Deliberative Alignment' is:"
+        answer="getting an AI to be more aligned to its policy, by simply prompting it to remember its policy & reason about it.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="'Chain-of-thought monitoring' is:"
+        answer="Monitoring, well, an LLM's chain-of-thought (reasoning) to make sure it's not being suspicious or harmful.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="How do you create & apply a Steering Vector?"
+        answer="Create: take the _difference_ between multiple examples of the ANN in state X vs not-X // Apply: add this difference _back_ to an ANN at run-time."
+        answer-attachments="https://aisafety.dance/media/p3/interp/honesty.png">
+        <!-- aisffs-steering.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name 1 example of real-life Steering Vectors found for AI Safety:"
+        answer="(any of the following works:) Love-Hate, Honesty, Power-seeking, Fairness, Sycophancy, Corrigibility, Self-Preservation, Jailbreaking.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Example of a funny & weirdly specific steering vector found in the Claude LLM"
+        answer="The 'Golden Gate' vector, that forces Claude to think about the Golden Gate Bridge in San Francisco"
+        answer-attachments="https://aisafety.dance/media/p3/interp/interp_steer.png">
+        <!-- aisffs-bridge.png -->
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="robust"></a></p>
 <h2>AI &quot;Intuition&quot;: Robustness</h2>
@@ -1025,62 +1004,38 @@ Love-Hate, Honesty, Power-seeking, Fairness, Sycophancy, Corrigibility, Self-Pre
 <p>Well, one, they usually <em>don't</em> do all, or even most, of the above. Frontier AIs are usually &quot;only&quot; trained with 1 or 2 of the above Robustness techniques. Each technique isn't <em>too</em> costly, but the costs add up.</p>
 <p>But even if AI engineers <em>did</em> apply all the above Robustness techniques, it may <em>still</em> not be enough. Many AI researchers suspect there's a <em>fundamental flaw</em> in the current way we do AI, which leads us to the next section...</p>
 <h3>🤔 Review #5</h3>
-<pre><code>THE THREE KEYS TO ROBUSTNESS
-
-Simplicity / Diversity / Adversity
-
----
-
-In the chain metaphor, how does Simplicity reduce the chance of failure?
-
-If a single link breaks in a chain, the whole chain breaks. Therefore, _minimize the number of necessary links in any chain._
-
----
-
-In the chain metaphor, how does Diversity reduce the chance of failure?
-
- If one chain breaks, it's good to have &quot;redundant&quot; backups. Therefore, _maximize the number of independent chains_. (note: the chains should be as different/independent from each other as possible, to lower the correlation between their failures.) 
-
----
-
-In the chain metaphor, how does Adversity reduce the chance of failure?
-
-Hunt down the weakest links, the weakest chains. Strengthen them, or replace them with something stronger.
-
-
----
-
-Name at least 1 way to do Simplicity for Robust AI:
-
-(any of the following works) 
-
-- Regularization
-- Auto-encoders (bottleneck for &quot;essence&quot;)
-- Speed/Simplicity Prior for Honest AI
-
----
-
-Name at least 1 way to do Diversity for Robust AI:
-
-(any of the following works) 
-
-- Ensembles
-- Dropout
-- Data Augmentation
-- Diverse Data
-
-
----
-
-Name at least 1 way to do Adversity for Robust AI:
-
-(any of the following works) 
-
-- Adversarial Training
-- Relaxed / Latent Adversarial Training
-- Red Teams
-- Best Worst-Case Performance
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="THE THREE KEYS TO ROBUSTNESS"
+        answer="**SIMPLICITY / DIVERSITY / ADVERSITY**"
+        answer-attachments="https://aisafety.dance/media/p3/robust/robust.png">
+        <!-- aisffs-robust.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="In the chain metaphor, how does **Simplicity** reduce the chance of failure?"
+        answer="If a single link breaks in a chain, the whole chain breaks. Therefore, _minimize the number of necessary links in any chain._">
+    </orbit-prompt>
+    <orbit-prompt
+        question="In the chain metaphor, how does **Diversity** reduce the chance of failure?"
+        answer="If one chain breaks, it's good to have 'redundant' backups. Therefore, _maximize the number of independent chains_. (note: the chains should be as different/independent from each other as possible, to lower the correlation between their failures.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="In the chain metaphor, how does **Adversity** reduce the chance of failure?"
+        answer="Hunt down the weakest links, the weakest chains. Strengthen them, or replace them with something stronger.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 way to do **Simplicity** for Robust AI:"
+        answer="(any of the following works) Regularization, Impact regularization, Auto-encoders (bottleneck for 'essence'), Speed/Simplicity Prior for Honest AI">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 way to do **Diversity** for Robust AI:"
+        answer="(any of the following works) Ensembles, Dropout, Data Augmentation, Diverse Data, Kalman filters, Shard theory">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 way to do **Adversity** for Robust AI:"
+        answer="(any of the following works) Adversarial Training, Relaxed / Latent Adversarial Training, Red Teams, Best Worst-Case Performance">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="causality"></a></p>
 <h2>AI &quot;Intuition&quot;: Thinking in Vibes <em>and</em> Gears</h2>
@@ -1129,7 +1084,7 @@ Name at least 1 way to do Adversity for Robust AI:
 <p><img src="../media/p1/sys1vs2_B.png" alt="Two-axis graph of System 1 (&quot;intuitive&quot;) vs System 2 (logical) thinking. Good Ol' Fashioned AI had high System 2, low System 1. Modern deep-learning AI has high System 1, low System 2"></p>
 <p>Good Ol' Fashioned AI (GOFAI): Robust but inflexible.</p>
 <p>Modern AI: Flexible, but not robust.</p>
-<p><strong>As of writing (Nov 2025), we do not know how to make an AI that do both: <em>flexibly</em> discovering &amp; using <em>robust models</em>.</strong> To be able to switch between vibes &amp; gears <em>at will, fluently</em>. The deduction of logic + the induction of intuition = the <em>abduction</em> of science.<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> It's not just interpolating &amp; extrapolating data, it's <em>hyper</em>-polating data: stepping out of the data's flatland, into a new dimension.<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup></p>
+<p><strong>As of writing (Dec 2025), we do not know how to make an AI that do both: <em>flexibly</em> discovering &amp; using <em>robust models</em>.</strong> To be able to switch between vibes &amp; gears <em>at will, fluently</em>. The deduction of logic + the induction of intuition = the <em>abduction</em> of science.<sup class="footnote-ref"><a href="#fn46" id="fnref46">[46]</a></sup> It's not just interpolating &amp; extrapolating data, it's <em>hyper</em>-polating data: stepping out of the data's flatland, into a new dimension.<sup class="footnote-ref"><a href="#fn47" id="fnref47">[47]</a></sup></p>
 <p>(Is this vague? Yes. Ironically, I only have a vibe-based understanding of gears. I don't have a rigorous mental model of <em>rigorous mental models</em>.)</p>
 <p>Solving vibes+gears may be <em>equivalent</em> to creating Artifical General Intelligence (AGI). I mean, people are <em>trying</em> to do this: there's the <a href="https://www.youtube.com/watch?v=GeN5XVA2e4w">Neuro-Symbolic</a> research program, training ANNs to <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">infer causal diagrams</a>, and <a href="https://garymarcus.substack.com/p/how-o3-and-grok-4-accidentally-vindicated">code interpreters</a> that let LLMs <em>make</em> GOFAIs… but so far, no AGI.</p>
 <p>. . .</p>
@@ -1152,7 +1107,7 @@ Name at least 1 way to do Adversity for Robust AI:
 <p>Mystery solved: that's why LLMs rock at human conversation, but suck at rule-discovery mini-games. And long tasks are &quot;less probable&quot; than short tasks, because homework problems &amp; textbook examples are almost always a page or two, not dozens of pages. (This, I suspect, is why Claude sucked at running a vending machine,<sup class="footnote-ref"><a href="#fn33" id="fnref33:1">[33:1]</a></sup> even though there's lots of writing on how to run a business: when business textbooks give examples, they list a few transactions, not <em>thousands</em>.<sup class="footnote-ref"><a href="#fn48" id="fnref48">[48]</a></sup>)</p>
 <p>This also explains why AI's success at <em>common</em> code tasks is exponential, with the length-of-task doubling every 7 months at a steady cost<sup class="footnote-ref"><a href="#fn49" id="fnref49">[49]</a></sup>... while AI's performance at games of <em>uncommon</em> rule-discovery have a <em>worse than exponential</em> cost:<sup class="footnote-ref"><a href="#fn50" id="fnref50">[50]</a></sup></p>
 <p><img src="../media/p3/gears/arc-agi.png" alt="Graph from ARC-AGI. Description below"></p>
-<p>The above graph shows various AIs' performance vs cost on ARC-AGI, a series of games where you have to <em>discover</em> the games' rules. Notice it's the <em>x-axis</em> that's exponential ($1, $10, $100), <em>not the y-axis, which 'exponential trend' graphs are supposed to be</em>. So a <em>straight</em> line on this graph means that performance-for-cost is getting exponentially <em>worse</em>, not better. And the above chart's &quot;frontier&quot; isn't a straight line, it's bending <em>downwards</em>, meaning LLMs' performance-for-cost is <em>worse</em> than exponential. (<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">beware AI labs disguising their crappy progress with exponential <em>x</em>-axes!</a>)</p>
+<p>The above graph shows various AIs' performance vs cost on ARC-AGI, a series of games where you have to <em>discover</em> the games' rules. Notice it's the <em>x-axis</em> that's exponential (\$1, \$10, \$100), <em>not the y-axis, which 'exponential trend' graphs are supposed to be</em>. So a <em>straight</em> line on this graph means that performance-for-cost is getting exponentially <em>worse</em>, not better. And the above chart's &quot;frontier&quot; isn't a straight line, it's bending <em>downwards</em>, meaning LLMs' performance-for-cost is <em>worse</em> than exponential. (<a href="https://www.tobyord.com/writing/inference-scaling-and-the-log-x-chart">beware AI labs disguising their crappy progress with exponential <em>x</em>-axes!</a>)</p>
 <p><strong>In sum:</strong></p>
 <p>Common task → LLMs get exponentially better over time</p>
 <p>Uncommon tasks → <img src="../media/p3/gears/cheems.png" alt="crying meme dog" class="inline-icon"></p>
@@ -1184,62 +1139,48 @@ Name at least 1 way to do Adversity for Robust AI:
 <p>And, if the &quot;treat learning our values as a standard machine-learning problem&quot; approach works, we <em>tie</em> Alignment to Capabilities. When AI can robustly learn about the world, they can robustly learn about <em>our values</em>. So: Capabilities becomes <em>the new floor</em> for Alignment, and we stay above the dotted line.</p>
 <hr>
 <h3>🤔 Review #6</h3>
-<pre><code>List at least 1 surprising thing LLMs are great at, and 1 surprising thing LLMs suck at. (as of Nov 2025)
-
-On one hand, LLMs have won gold at the International Math Olympiad,[^win-olympiad] passed the Turing Test[^win-turing-test], and humans _prefer AI over humans_ in &quot;blind taste-tests&quot; on poetry[^win-poetry], therapy[^win-therapy], and short fiction[^win-fiction].
-
-On the other hand, these _same_ state-of-the-art LLMs can't run the business of a vending machine[^fail-vending], can't play Pokémon Red[^fail-pokemon], can't do simple ciphers[^fail-cipher], and can't solve simple &quot;rule-discovery&quot; games[^fail-arc-agi].
-
----
-
-As of 2025, how do the frontier LLMs do on the Tower of Hanoi problem?
-
-Really well, up to 7 disks... then _completely collapses_ at 8+ disks.
-
-(This is like a human being able to add two 7-digit numbers on pen &amp; paper, then _utterly bomb_ on two 8-digit numbers. Very strange.)
-
----
-
-Modern AI's //////. They do not //////.
-
-Modern AIs &quot;think in vibes&quot;. They do not &quot;think in gears&quot;
-
----
-
-Good Ol' Fashioned AI (GOFAI): Robust but inflexible.
-
-Modern AI: Flexible, but not robust.
-
-(**As of writing (Nov 2025), we do not know how to make an AI that do both: _flexibly_ discovering &amp; using _robust models_.** To be able to switch between vibes &amp; gears _at will, fluently_. )
-
----
-
-According to the Embers of Autoregression paper, what are 3 factors that predict when an LLM will rock/suck at a task?
-
- We identify three factors that we hypothesize will influence LLM accuracy:
-&gt; - the probability of the task to be performed,
-&gt; - the probability of the target output, and
-&gt; - the probability of the provided input.
-
-Where &quot;probability&quot; ~= &quot;how common was it in the training data&quot;.
-
----
-
-Example where LLMs are getting exponentially good, versus exponentially bad:
-
-Software coding
-vs
-ARC-AGI tasks
-
-(beware AI labs disguising their bad news in exponential x-axes!)
-
----
-
-Name at least 2 benefits from having AI being able to think in cause-and-effect gears: (other than better capabailtities)
-
-// list
-
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="List at least 1 surprising thing **LLMs are great at** (as of December 2025)"
+        answer="(any of the following works:) International Math Olympiad, passed the Turing Test, humans _prefer AI over humans_ in poetry, therapy & short fiction">
+    </orbit-prompt>
+    <orbit-prompt
+        question="List at least 1 surprising thing **LLMs still suck at** (as of December 2025)"
+        answer="(any of the following works:) running the business of a vending machine, can't play Pokémon Red, can't solve simple 'rule-discovery' games, can't generalize on Tower of Hanoi or other classic puzzles.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="As of 2025, how do the frontier LLMs perform on the Tower of Hanoi problem?"
+        answer="Really well, up to 7 disks... then _completely collapses_ at 8+ disks. (This is like a human being able to add two 7-digit numbers on pen & paper, then _utterly bomb_ on two 8-digit numbers. Very strange.)"
+        answer-attachments='https://aisafety.dance/media/p3/gears/hanoi.jpg'>
+        <!-- aisffs-hanoi.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Modern AIs think in \_\_\_\_. They do not think in \_\_\_\_."
+        answer="They 'think in vibes'. They do not 'think in gears'. (To be precise: they do not form & use _robust mental models_.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Good Ol' Fashioned AI (GOFAI): \_\_\_\_\_ but \_\_\_\_\_ Modern AI: \_\_\_\_\_, but \_\_\_\_\_."
+        answer="Good Ol' Fashioned AI (GOFAI): Robust but inflexible. Modern AI: Flexible, but not robust. _(note: as of Dec 2025, we don't know how to make an AI that can do both: flexible discover & use robust mental models.)_">
+    </orbit-prompt>
+    <orbit-prompt
+        question="According to the Embers of Autoregression paper, what are 3 factors that predict when an LLM will rock/suck at a task?"
+        answer="The probability of 1] the task, 2] the target output, and 3] the provided input. (Where 'probability' ~= 'how common was it in the training data'.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's 1 task LLMs are getting exponentially better at, and 1 where they're exponentially bad at?"
+        answer="Common coding tasks (length of task doubling every 7 months), vs the ARC-AGI 'rule-discovery' games (cost scales worse-than-exponentially)"
+        answer-attachments='https://aisafety.dance/media/p3/gears/arc-agi.png'>
+        <!-- aisffs-arc-agi-cost.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 research direction that's (trying) to make AI both be flexible _and_ have robust mental models:"
+        answer="(any of the following works:) Neuro-Symbolic AIs, Hybrid AIs, ANNs that infer causal diagrams, code interpreters, program search & program synthesis, Theory-Based Reinforcement Learning, Free energy principle">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 2 benefits from having AI being able to think in cause-and-effect gears: (other than better capabilties)"
+        answer="(any 2 of the following works:) Interpretability & Steering, Trustworthiness & Accountability, Robustness, Learning our Values, The 'Future Lives' Algorithm, Getting the truth not just a human-imitator, Non-agentic Scientist AIs, Causal Incentives">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <h2>🎉 RECAP #2</h2>
 <ul>
@@ -1309,43 +1250,28 @@ Name at least 2 benefits from having AI being able to think in cause-and-effect 
 <p>Maybe AI will never solve ethics. Maybe <em>humans</em> will never solve ethics. If so, then I think we can only do our best: remain humble &amp; curious about what the right thing is to do, learn broadly, and self-reflect in a rigorous, brutally-honest way.</p>
 <p>That's the best we fleshy humans can do, so let's at least make that the <em>lower bound</em> for AI.</p>
 <h3>🤔 Review #7</h3>
-<pre><code>How does Constitutional AI work?
-
-1. Human creates a list of principles
-2. Teacher-bot uses this list to train a student-bot
-
-This is how you can get millions of training data-points, from a small human-made list (which can be democratically crowdsourced)
-
----
-
-What is Moral Parliament?
-
-A &quot;parliament&quot; of moral theories, with more seats for theories you're more confident in. The parliament votes on decisions.
-
-(This lets you incorporate Uncertainty and Diversity, for extra robustness)
-
----
-
-One way to distill human judgment using AI (not LLMs specifically)
-
-- ask human jury to answer lots of questions
-- people can submit AIs to predict their answers
-- use an ensemble (for robustness) of the best AIs as an Oracle for &quot;does this fit humanity's values&quot;
-
----
-
-What does &quot;Coherent Extrapolated Volition&quot; mean?
-
-What wishes (Volition) we'd have in common (Coherent) if we had a lot of time to reflect &amp; discuss with each other (Extrapolated)
-
----
-
-What is &quot;Coherent Blended Volition&quot;?
-
-Same as CEV, except that the AIs _actually help us_ reflect &amp; grow together, instead of simulating us doing that.
-
-(Success case: Taiwan's digital &quot;citizen's assembly&quot;, when Uber wanted to enter Taiwan)
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="How does Constitutional AI work?"
+        answer="1] Human creates a list of principles. 2] Teacher-bot uses this list to train a student-bot. (This is how you can get millions of training data-points, from a small human-made list, which can also be democratically crowdsourced.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What is Moral Parliament?"
+        answer="A 'parliament' of moral theories, with more seats for theories you're more confident in. The parliament votes on decisions.">
+    </orbit-prompt>
+    <orbit-prompt
+        question="One way to distill human judgment using AI (not limited to LLMs specifically)"
+        answer="1] ask human jury to answer lots of questions. 2] people can submit AIs to predict their answers. 3] use an ensemble (for robustness) of the best AIs as an Oracle for “does this fit humanity's values”">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What does 'Coherent Extrapolated Volition' (CEV) mean?"
+        answer="What wishes (Volition) we'd have in common (Coherent) if we had a lot of time to reflect & discuss with each other (Extrapolated)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What does 'Coherent _Blended_ Volition' (CBV) mean?"
+        answer="Same as CEV, except that the AIs _actually help us reflect & grow together_, instead of just simulating us doing that. (Success case: Taiwan's digital “citizen's assembly”, when Uber wanted to enter Taiwan)">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="governance"></a></p>
 <h2>AI Governance: the <em>Human</em> Alignment Problem</h2>
@@ -1377,7 +1303,7 @@ Same as CEV, except that the AIs _actually help us_ reflect &amp; grow together,
 </li>
 <li><u>Track chips &amp; compute</u>. Governments keep track of GPU clusters, and who's running large &quot;frontier AI&quot;-levels of training compute. Similar to how governments already track large &quot;bomb&quot;-levels of nuclear material.
 <ul>
-<li>although, in Nov 2025, this approach may already be obsolete: almost all the recent gains in AI Capabilities is not from <em>training</em> (which requires large centralized compute clusters), but <em>run-time</em> (which anyone can in a decentralized way). This means that open-source AIs can soon be as powerful as big-company AIs. It also means that another AI Governance idea, &quot;model weight security&quot; — keeping ChatGPT &amp; Claude's neural networks secret — will be of less importance.<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup></li>
+<li>although, in Dec 2025, this approach may already be obsolete: almost all the recent gains in AI Capabilities is not from <em>training</em> (which requires large centralized compute clusters), but <em>run-time</em> (which anyone can in a decentralized way). This means that open-source AIs can soon be as powerful as big-company AIs. It also means that another AI Governance idea, &quot;model weight security&quot; — keeping ChatGPT &amp; Claude's neural networks secret — will be of less importance.<sup class="footnote-ref"><a href="#fn67" id="fnref67">[67]</a></sup></li>
 </ul>
 </li>
 <li><u>Forecasting</u>. To know not just <em>where</em> we are, but our direction &amp; velocity: have &quot;super-predictors&quot; regularly forecast AI's upcoming capabilities &amp; risks.<sup class="footnote-ref"><a href="#fn68" id="fnref68">[68]</a></sup> (There's also early evidence showing that AI <em>itself</em> can boost Humans' forecasting! <sup class="footnote-ref"><a href="#fn69" id="fnref69">[69]</a></sup>)</li>
@@ -1418,7 +1344,7 @@ Same as CEV, except that the AIs _actually help us_ reflect &amp; grow together,
 <p>Actually, it's worse than that — even if you're in an AI-proof job, AI can still make your wages plummet. Why? Because the humans who lose <em>their</em> job to AI, will flood <em>your</em> field, and market competition will pull your wage downwards.</p>
 <p>But in the past, hasn't automation always been good on average, creating more jobs than it destroys?</p>
 <ol>
-<li>Well, re: &quot;average&quot;, the average person has one testicle. Point is: <strong>&quot;average&quot; ignores the <em>variance</em>.</strong> If the bottom 99% of people lose $10,000, so that the top 1% gain $1,000,000, that's a win &quot;on average&quot;. I exaggerate, but <a href="https://www.marketplace.org/story/2025/11/11/kshaped-economy-mirrored-by-covids-uneven-recovery">since Covid, we may already be in a K-shaped economy</a>: one line goes up for the rich, one line goes down for the rest of us. (And even if you're a utilitarian who only cares about total utility, remember utility is logarithmic to wealth. So if Alice gains $10,000 &amp; Bob loses $10,000, Alice gains <em>less</em> utility than Bob loses: total wealth is constant, but total <em>utility</em> drops. You wouldn't be <em>neutral</em> about a coin flip where you gain/lose $10,000, would you?)</li>
+<li>Well, re: &quot;average&quot;, the average person has one testicle. Point is: <strong>&quot;average&quot; ignores the <em>variance</em>.</strong> If the bottom 99% of people lose \$10,000, so that the top 1% gain \$1,000,000, that's a win &quot;on average&quot;. I exaggerate, but <a href="https://www.marketplace.org/story/2025/11/11/kshaped-economy-mirrored-by-covids-uneven-recovery">since Covid, we may already be in a K-shaped economy</a>: one line goes up for the rich, one line goes down for the rest of us. (And even if you're a utilitarian who only cares about total utility, remember utility is logarithmic to wealth. So if Alice gains \$10,000 &amp; Bob loses \$10,000, Alice gains <em>less</em> utility than Bob loses: total wealth is constant, but total <em>utility</em> drops. You wouldn't be <em>neutral</em> about a coin flip where you gain/lose \$10,000, would you?)</li>
 <li><strong>This time really is different.</strong> In the past, automation &quot;only&quot; took out one small sector at a time (textile workers, horse drivers, elevator operators, etc). But <em>this</em> time, with deep learning, AIs can automate a huge percentage of the human economy in one go: self-driving cars vs truckers &amp; taxicabs, LLMs vs programmers &amp; writers, diffusion models vs artists. (And if you're in an AI-safe job, like plumber? Good for you! But your wages will drop from <em>everyone else</em> scrambling to re-train to AI-safe jobs, like plumber.)</li>
 </ol>
 <p>(It's hard to tell how badly AI is affecting the job market <em>right now</em>. The hiring rates for artists, writers, and even newly-graduated programmers — once thought of a golden ticket to a 6-figure salary! — has been dropping since generative AI came out in late 2022. But that <em>also</em> coincides with a post-Covid recession, so it's hard to tell how much of the unemployment is due to AI specifically, vs the sucky economy in general.)</p>
@@ -1427,8 +1353,8 @@ Same as CEV, except that the AIs _actually help us_ reflect &amp; grow together,
 <p>A lot of skepticism about UBI comes from it promoted by tech CEOs <a href="https://moores.samaltman.com/">like Sam Altman</a>, who are, uh, <a href="https://garymarcus.substack.com/p/sam-altmans-pants-are-totally-on">&quot;not completely candid&quot;</a>. That said, just because someone's promoting an idea cynically to quell dissent, doesn't mean it's <em>not</em> a good idea. Tech CEOs could be lying about promising UBI, because UBI <em>would</em> be great. <a href="https://p1.portal2sounds.com/57">To quote GLaDOS</a>: &quot;Killing you, and giving you good advice, aren't mutually exclusive.&quot;</p>
 <p>Another common critique of UBI is that people don't just need money, they need <em>meaning</em>, and people get meaning from their jobs. (<a href="https://figuringoutfulfillment.wordpress.com/2012/01/23/lieben-und-arbeiten/">&quot;Love and Work&quot;</a>, Freud supposedly said.) Now: writing as someone who finds meaning in her job: <em>f@#k off</em>. I keep hearing the &quot;work is good coz it gives meaning&quot; line from think tanks &amp; pundits &amp; the Credentialed Class, and, yeah, easy for <em>you</em> to say, you have a <em>nice</em> job. <em>I</em> have a nice job. We're not working the night shift at 7/11, or slowly getting lung cancer from the industrial fumes. <em>But, oh, if we're all living off UBI, how will we get meaning if we can't sell our labour on a market?</em> Oh I dunno, how about spending life with family? friends? lovers? And if you love your job making art or writing essays, you know you can just <em>keep doing that</em> even with UBI, right? Sorry I'm pissy about this, I just do not respect Status Quo Stockholm Syndrome.</p>
 <p>However, there <em>is</em> one strong critique of UBI that I acknowledge. Despite all the exciting pilot programs in developing nations, <strong>UBI in <em>developed</em> nations like America mostly doesn't help.</strong> (see <a href="https://evavivalt.com/wp-content/uploads/Vivalt-et-al.-ORUS-employment.pdf">the OpenResearch study by Vivalt et al 2025</a>, lit review by <a href="https://www.theargumentmag.com/p/giving-people-money-helped-less-than">Kelsey Piper</a>)</p>
-<p>For example, <a href="https://basicincome.org/wp-content/uploads/2024/07/CGIRLABIGLEAPFinalReport.pdf">see the BIG:LEAP report</a>, a UBI experiment in Los Angeles. See Tables 4, 5, and 9: receipients' financial well-being, food security, and perceived stress were all <em>barely</em> any better than controls, after <em>18 months of getting $1000/month</em>.</p>
-<p>And it's not because &quot;well, Americans are already relatively rich compared to Africans, so extra cash doesn't do much&quot; – one RCT gave <em>$1000/month to homeless people in Denver</em>, and after ten months, they weren't any more likely to have stable housing than the controls getting $50/month. (<a href="https://www.denverbasicincomeproject.org/research">See Figures 1 &amp; 2 of their research page</a>, which tries to lie-via-misleading-truth, and play this off as a success?!?!)</p>
+<p>For example, <a href="https://basicincome.org/wp-content/uploads/2024/07/CGIRLABIGLEAPFinalReport.pdf">see the BIG:LEAP report</a>, a UBI experiment in Los Angeles. See Tables 4, 5, and 9: receipients' financial well-being, food security, and perceived stress were all <em>barely</em> any better than controls, after <em>18 months of getting \$1000/month</em>.</p>
+<p>And it's not because &quot;well, Americans are already relatively rich compared to Africans, so extra cash doesn't do much&quot; – one RCT gave <em>\$1000/month to homeless people in Denver</em>, and after ten months, they weren't any more likely to have stable housing than the controls getting \$50/month. (<a href="https://www.denverbasicincomeproject.org/research">See Figures 1 &amp; 2 of their research page</a>, which tries to lie-via-misleading-truth, and play this off as a success?!?!)</p>
 <p>So if UBI doesn't even help <em>literally homeless people</em>, how would it help people who lost their jobs to AI?</p>
 <p>Also, in these major UBI trials, recipients worked a bit less. Which would be good if the extra leisure time translated to better mental health, or better child health. It didn't.</p>
 <p>(To be fair, at least UBI in America doesn't <em>hurt.</em> The recipients mostly spent the extra money on nicer things for their kids &amp; loved ones, and did not spend it on drugs or gambling. And UBI <em>did</em> reduce intimate partner abuse, and make people happier… for about one year, before returning to baseline. Which isn't nothing! Not being beat by your spouse for a year matters!)</p>
@@ -1443,65 +1369,42 @@ Same as CEV, except that the AIs _actually help us_ reflect &amp; grow together,
 <p>= = =</p>
 <p>We're not even scratching the surface of economic policy proposals re: advanced AI. For a good overview, <a href="https://www.anthropic.com/research/economic-policy-responses">check out this review of options on Anthropic's blog.</a></p>
 <h3>🤔 Review #8</h3>
-<pre><code>all our work on the AI alignment problem means nothing if we can't solve the _human_ alignment problem: how do we get fallible fleshy humans to _actually coordinate on safe, humane AI?
-
----
-
-a 2-part strategy for AI Governance:
-
-1. Verify where we are
-2. Stay above the &quot;safe&quot; line.
-
-// pic
-
----
-
-Name at least one way to &quot;verify where we are&quot;:
-
-(any of the following work:)
-
-- evaluations (ideally crowdsourced)
-- protect whistleblowers
-- enforce transparency &amp; standards on AI labs
-- track chips &amp; compute
-- forecasting (maybe AI-aided)
-
----
-
-RSP in a nutshell
-&quot;We commit to not even _start_ training an AI of Level N, until we have safeguards and evaluations _up to Level N+1_.&quot;
-
----
-
-DTD in a nutshell
-// add
-
----
-
-Name at least one way to &quot;stay above the safe line&quot;:
-
-- Responsible Scaling Policy: commit to not start training AI Level N, until there's safeguards up to Level N+1
-- Differentially invest in Alignment &gt; Capabilities. (ideally in a decentralized, democratic way)
-* Tech to fight catastrophic risk: AI &amp; non-AI tools that *boost* our cybersecurity, biosecurity, and mental security.
-    * AI Safety research. Yes this suggestion is kinda back-scratchy, but I still endorse it.
-    * [Data filtering](https://arxiv.org/pdf/2402.00530) and [Machine Unlearning](https://www.ieee-security.org/TC/SP2015/papers-archived/6949a463.pdf), so that LLMs contain helpful knowledge, but not detailed knowledge of how to make bombs or superviruses.
-    * AI that *enhances* humans, not *replaces* humans. (See below: &quot;Alternatives to AGI&quot; and &quot;Cyborgism&quot;!)
-    * Combine this idea with _decentralized &amp; democratic tech_, to prevent AI and/or AI Governance from becoming a tools for tyrants. See: [d/acc](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html), [Plurality](https://vitalik.eth.limo/general/2024/08/21/plurality.html), [6pack.care](https://6pack.care/). (Also explained more below)
-
----
-
-So, if you want your AI Alignment &amp; Governance ideas to be _actually implemented in real life, not just in academic papers_...
-
-you need them to &quot;pay dividends&quot; in the short term.
-
-(&quot;Nobody cares about the bomb that didn't go off.&quot;)
-
----
-
-Name at least one time humanity successfully coordinated to solve a global problem:
-
-We eradicated smallpox, it's no longer the case that *half* of kids died before age 15, the ozone layer *is* actually healing!
-</code></pre>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="All our work on the AI alignment problem means nothing if we can't solve..."
+        answer="...the _human_ alignment problem: how do we get fallible fleshy humans to _actually coordinate on safe, humane AI?">
+    </orbit-prompt>
+    <orbit-prompt
+        question="The 2 core pillars of AI Governance:"
+        answer="1] Verify where we are. 2] Stay above the 'safe' line."
+        answer-attachments='https://aisafety.dance/media/p3/governance/rocket.png'>
+        <!-- aisffs-gov-rocket.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 way to 'verify where we are' in AI Governance:"
+        answer="(any of the following work:) evaluations (ideally crowdsourced), protect whistleblowers, enforce transparency & standards on AI labs, track chips & compute, forecasting (maybe AI-aided)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Responsible Scaling Policy, in a nutshell:"
+        answer="'We commit to not even _start_ training an AI of Level N, until we have safeguards and evaluations _up to Level N+1_.'">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Differential Technological Development in a nutshell:"
+        answer="Invest in tech/research that boosts Alignment _more than_ Capabilities. (or at least Safe Capabilities _more than_ Risky Capabilities)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 way to 'stay above the safe line':"
+        answer="(any of the following work:) Responsible Scaling Policy, Differentially invest in Alignment > Capabilities, Tech to fight catastrophic risk, Data filtering/machine unlearning so that AI doesn't know how to make bombs/superviruses, AI that enhances not replaces humans ('Cyborgism').">
+    </orbit-prompt>
+    <orbit-prompt
+        question="If you want your AI Alignment & Governance ideas to be _actually implemented in real life, not just in academic papers_..."
+        answer="You need your ideas to “pay dividends” right now, in the short term. (“Nobody cares about the bomb that didn't go off.”)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name at least 1 time humanity successfully coordinated to solve a global problem:"
+        answer="(any of the following works:) We eradicated smallpox, it's no longer the case that *half* of kids died before age 15, the ozone layer *is* actually healing!">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="alt"></a></p>
 <h2>Alternatives to AGI</h2>
@@ -1513,12 +1416,12 @@ We eradicated smallpox, it's no longer the case that *half* of kids died before 
 <p>Here's some proposals, of how to get the upsides with much fewer downsides:</p>
 <ul>
 <li><strong>Comprehensive AI Services (CAIS), Tool AIs</strong><sup class="footnote-ref"><a href="#fn80" id="fnref80">[80]</a></sup>: Make a large suite of narrow non-autonomous AI tools (think: Excel, Google Translate). To solve general problems, insert <em>human</em> agency: humans are the conductors for this AI orchestra. The human, and their values, stay in the center.</li>
-<li><strong>Pure Scientist AI</strong>.<sup class="footnote-ref"><a href="#fn81" id="fnref81">[81]</a></sup> Imagine an AI that just takes in data &amp; questions as input, and gives verifiable probabilistic answers as output. (The same way that Google Translate just takes English as input, and Mandarin as output.) Crucially, this AI <em>does not</em> have &quot;agency&quot;, which would lead to <a href="https://aisafety.dance/p2/#problem2">Instrumental Convergence</a> problems. It just fits <em>scientific models</em> to data, like how Excel fits lines to data. It <em>can't</em> go rogue any more than Google Translate can go rogue.
+<li><strong>Pure Scientist AI</strong>.<sup class="footnote-ref"><a href="#fn81" id="fnref81">[81]</a></sup> Imagine an AI that just takes in observations, and spits out theories. (The same way that Google Translate can take English as input, and Mandarin as output.) Crucially, this AI <em>does not</em> have &quot;agency&quot;, which would lead to <a href="https://aisafety.dance/p2/#problem2">Instrumental Convergence</a> problems. It just fits <em>scientific models</em> to data, like how Excel fits lines to data. It <em>can't</em> go rogue any more than Google Translate can go rogue.
 <ul>
-<li>It's far from a few Scientist AI, but Microsoft has done research in training ANNs to <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">infer causal diagrams</a></li>
+<li>It's far from a few Scientist AI, but Microsoft has done research in training ANNs to <a href="https://www.microsoft.com/en-us/research/publication/deep-end-to-end-causal-inference-2/">infer causal diagrams</a>.</li>
 </ul>
 </li>
-<li><strong>Microscope AIs</strong><sup class="footnote-ref"><a href="#fn82" id="fnref82">[82]</a></sup>: In contrast, instead of making an AI whose scientific findings are its <em>output</em>, we train an AI on real-world data... then look <em>at the neurons</em> to learn about the world! (If you remembered from the Interpretability section, researchers were able to find <em>an actual circular structure</em> inside an AI trained to do &quot;clock arithmetic&quot;!)</li>
+<li><strong>Microscope AIs</strong><sup class="footnote-ref"><a href="#fn82" id="fnref82">[82]</a></sup>: In contrast, instead of making an AI whose scientific findings are its <em>output</em>, we train an AI to predict real-world data, then look <em>at the neural connections themselves</em> to learn about that data! (using Interpretability techniques)</li>
 <li><strong>Quantilizers</strong><sup class="footnote-ref"><a href="#fn83" id="fnref83">[83]</a></sup>: Instead of making an AI that <em>optimizes</em> for a goal, make an AI that is trained to <em>imitate a (smart) human</em>. Then to solve a problem, run this human-imitator e.g. 20 times, and pick the best solution. This will be equivalent to getting a smart human on the best 5% of their days. This &quot;soft optimization&quot; avoids Goodhart-problems<sup class="footnote-ref"><a href="#fn84" id="fnref84">[84]</a></sup> of pure optimization, and keeps the resulting solutions human-understandable.</li>
 </ul>
 <p><em>All</em> of these are easier said than done, of course. And there's <em>still</em> other problems with a focus on &quot;Alternatives to AGI&quot;. Social problems, and technical problems:</p>
@@ -1531,6 +1434,25 @@ We eradicated smallpox, it's no longer the case that *half* of kids died before 
 </ul>
 <p>That said, it's good to stack extra solutions, even if imperfect!</p>
 <p>As for that last concern, about handing over our autonomy to AIs, that's what our final Cyborgism section covers...</p>
+<h3>🤔 Review #9</h3>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="Name at least 1 way to get the benefits of AI without making a powerful, general, autonomous AI"
+        answer="(Any of the following works:) Comprehensive AI Services, Tool AIs, Pure Scientist AIs, Microscope AIs, Quantilizers, Cyborgism">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's a 'Scientist AI'?"
+        answer="An AI that “just” takes in observations, and spits out theories. (The same way that Google Translate can take English as input, and give Mandarin as output.)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's Microscope AI?"
+        answer="Instead of making an AI whose scientific findings are its *output*, we train an AI to predict real-world data, then look *at the neural connections themselves* to learn about that data! (using Interpretability techniques)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="What's a 'Quantilizer'?"
+        answer="Instead of making an AI that *optimizes* for a goal, make an AI that is trained to *imitate a (smart) human*. Then to solve a problem, run this human-imitator e.g. 20 times, and pick the best solution. This will be equivalent to getting a smart human on the best 5% of their days.">
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <p><a id="cyborg"></a></p>
 <h2>Cyborgism</h2>
@@ -1607,48 +1529,35 @@ We eradicated smallpox, it's no longer the case that *half* of kids died before 
 </ul>
 <p>Hopefully that gives you (and myself) ideas for how to design tools that <em>combine</em> Human &amp; AI skills, while keeping Human autonomy at the center!</p>
 <hr>
-<h3>🤔 Review #9</h3>
-<pre><code>Name at least one way to get the benefits of AI without making a powerful, general, autonomous AI
-
-(Any of the following works)
-
-- Comprehensive AI Services
-- Tool AIs
-- Pure Scientist AIs
-- Microscope AIs
-- Quantilizers
-- Cybogism
-
----
-
-&quot;We're all already cyborgs&quot;. Examples?
-
-(any of the following works):
-
-* &lt;u&gt;Physical augmentations:&lt;/u&gt; glasses, pacemakers, prosthetics, implants, hearing aids, continuous glucose monitors
-* &lt;u&gt;Cognitive augmentations:&lt;/u&gt; reading/writing, math notation, computers, spaced repetition flashcards
-* &lt;u&gt;&lt;i&gt;Emotional&lt;/i&gt; augmentations!&lt;/u&gt; diaries, meditation apps, reading biographies or watching documentaries to empathize with folks across the world.
-
----
-
-Cyborgism: keeping the /////// in ///////////
-
-keeping the human in the center of our tools
-
----
-
-Name at least one real-world example where Human+AI team _proved_ to better than Human or AI alone
-
-Chess
-Forecasting
-
----
-
-Cyborgism, visualized as a Venn Diagram:
-
-// pic
-
-</code></pre>
+<h3>🤔 Review #10 (last one!)</h3>
+<orbit-reviewarea color="violet">
+    <orbit-prompt
+        question="“We're all already cyborgs”. Give 3 examples?"
+        answer="(any 3 of the following works): **Physical augmentations:** glasses, pacemakers, prosthetics, implants, hearing aids, continuous glucose monitors. **Cognitive augmentations:** reading/writing, math notation, computers, spaced repetition flashcards. **Emotional augmentations:** diaries, meditation apps, biographies & documentaries as empathy-enhancers"
+        answer-attachments='https://aisafety.dance/media/p3/cyborg/cyborg.png'>
+        <!-- aisffs-cyborg.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Cyborgism: “keeping the \_\_\_\_\_ in the \_\_\_\_\_”"
+        answer="keeping the human in the center of our tools">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Think of 1 thing that Humans are relatively better at than LLMs, and vice versa:"
+        answer="(any of the following in this puzzle-piece diagram:)"
+        answer-attachments='https://aisafety.dance/media/p3/cyborg/puzzle.png'>
+        <!-- aisffs-cyborg-puzzle.png -->
+    </orbit-prompt>
+    <orbit-prompt
+        question="Name a real-world example where Human+AI team _proved_ to better than Human or AI alone"
+        answer="Chess, Go, Forecasting future events. (although 'cyborgs/centaurs' in chess stopped having an advantage since 2017 -- there's a time limit to the 'sweet spot' for cyborgs!)">
+    </orbit-prompt>
+    <orbit-prompt
+        question="Visualize the sweet spot for Cyborgism, as 3 Venn diagrams:"
+        answer=""
+        answer-attachments='https://aisafety.dance/media/p3/cyborg/venn.png'>
+        <!-- aisffs-cyborg-venn.png -->
+    </orbit-prompt>
+</orbit-reviewarea>
 <hr>
 <h2>🎉 RECAP #3</h2>
 <ul>
@@ -1658,11 +1567,10 @@ Cyborgism, visualized as a Venn Diagram:
 </ul>
 <hr>
 <h2>In Sum:</h2>
-<p>Here's THE PROBLEM™️, broken down, with all the proposed solutions! (Click to see in full resolution! TODO)</p>
-<p><code>// TODO: less crappy-looking picture</code></p>
-<p><img src="../media/p3/SUM.png" alt="TODO"></p>
-<p>And here's the TODO Recap 1, Recap 2, and Recap 3.</p>
-<p>(Again, if you want to actually <em>remember</em> all this long-term, and not just be stuck with vague vibes two weeks from now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links for the flashcards. Alternatively, download the <a href="TODO">Anki deck for Part Three</a>.)</p>
+<p>Here's THE PROBLEM™️, broken down, with all the proposed solutions! (<a href="../media/p3/SUM.png">Click to see in full resolution!</a></p>
+<p><img src="../media/p3/SUM.png" alt="SUMMARY OF THIS WHOLE ARTICLE, AAAAA"></p>
+<p>And here's <a href="#recap1">Recap 1</a>, <a href="#recap2">Recap 2</a>, and <a href="#recap3">Recap 3</a>.</p>
+<p>(Again, if you want to actually <em>remember</em> all this long-term, and not just be stuck with vague vibes two weeks from now, click the Table of Contents icon in the right sidebar, then click the &quot;🤔 Review&quot; links for the flashcards. Alternatively, download the <a href="https://ankiweb.net/shared/info/1788882060">Anki deck for Part Three</a>.)</p>
 <p>. . .</p>
 <p><em>(EXTREMELY LONG INHALE)</em></p>
 <p><em>(10 second pause)</em></p>
@@ -1678,15 +1586,20 @@ Cyborgism, visualized as a Venn Diagram:
 <p><a
     
     
+    
+     href="../conclusion" 
     target="_self">
-<div id="next_button" >
+<div id="next_button">
     <div id="nb--crt_lines"></div>
     <div id="nb--static"></div>
     <div id="nb--words">
         
+            <b style="font-size:78px">CONCLUSION →</b>
+        
     </div>
 </div>
 </a>
+
 </p>
 <p>.</p>
 <p>.</p>
@@ -1698,7 +1611,7 @@ Cyborgism, visualized as a Venn Diagram:
 <p>.</p>
 <p>.</p>
 <p>wait what are you doing? scroll back up 👆👆👆, the cool ending's in the button up there.</p>
-<p>come on, it's just a boring footnotes below.</p>
+<p>come on, it's just boring footnotes below.</p>
 <p>.</p>
 <p>.</p>
 <p>.</p>
@@ -1799,8 +1712,8 @@ Emergent Value Systems in AIs</a> <a href="#fnref10" class="footnote-backref">�
 <li id="fn35" class="footnote-item"><p>[Embers of Autoregression (2024)] shows how GPT-4 could do the <em>common</em> <a href="https://en.wikipedia.org/wiki/ROT13">ROT-13</a> cipher, but utterly fail at the <em>uncommon</em>-but-trivially-similar ROT-12 cipher. As the <a href="https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.2322420121&amp;file=pnas.2322420121.sapp.pdf">Supplementary Info shows (Figure S13)</a>, this holds even with &quot;chain of thought&quot; reasoning turned on. Though to be fair, this paper was from 2024, and I tried ROT-12 and ROT-11 Claude Sonnet 4.5 just now, and it did fine. Though as we'll see later in this section, Claude &amp; LLMs chains-of-thought are <em>still</em> very fragile. <a href="#fnref35" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn36" class="footnote-item"><p><a href="https://arcprize.org/">ARC-AGI</a> is a bunch of pixel puzzle games. Instead of most games where you're told the rules up front, in ARC-AGI, <em>you have to learn the hidden rules via exploration,</em> then prove you understand it by applying the rules to win the game.</p>
-<p><a href="https://arcprize.org/leaderboard">See the Leaderboard Breakdown</a>: The Ten-Human Panel's performance on ARC-AGI-1 and -2 is 98% and 100%, costing $17/task (~10 workers hired per task on Mechanical Turk, success if <em>at least one</em> succeeds).</p>
-<p>The best AI (Gemini 3 Deep Think) on ARC-AGI-1 and -2 is 87.5% (a bit worse) and 45.1% (<em>much</em> worse) costing $77/task (almost <em>five times</em> more expensive than hiring <em>ten humans on MTurk</em>) <a href="#fnref36" class="footnote-backref">↩︎</a></p>
+<p><a href="https://arcprize.org/leaderboard">See the Leaderboard Breakdown</a>: The Ten-Human Panel's performance on ARC-AGI-1 and -2 is 98% and 100%, costing \$17/task (~10 workers hired per task on Mechanical Turk, success if <em>at least one</em> succeeds).</p>
+<p>The best AI (Gemini 3 Deep Think) on ARC-AGI-1 and -2 is 87.5% (a bit worse) and 45.1% (<em>much</em> worse) costing \$77/task (almost <em>five times</em> more expensive than hiring <em>ten humans on MTurk</em>) <a href="#fnref36" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn37" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/File:Tower_of_Hanoi.jpeg">Photo by User:Evanherk</a> <a href="#fnref37" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1841,7 +1754,7 @@ Emergent Value Systems in AIs</a> <a href="#fnref10" class="footnote-backref">�
 </li>
 <li id="fn48" class="footnote-item"><p>Maybe this can be solved by writing a <em>normal</em> program, that then writes you &quot;synthetic data&quot; for a business operating successfully over 365 days, that you can fine-tune an LLM on? I dunno, this still feels like the special pleading of &quot;yes I can add 7 digits &amp; bomb at 8, but if you give me more training I can do it!&quot; If you pass 7 but bomb 8, there's something fundamentally wrong that &quot;more scale&quot; don't fix. <a href="#fnref48" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn49" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>. “[software engineering] tasks that AI models can complete with 50% success rate [are] doubling approximately every seven months since 2019.” And Figure 13 shows that the cost of completing these tasks remains pretty stable even as task length grows, around 1% of a &quot;Level 4&quot; Google salary ($143.61/hour, so, $1.43/hour for an AI.) However, it's important to note the coding tasks in the benchmark are, by design, common tasks. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
+<li id="fn49" class="footnote-item"><p><a href="https://arxiv.org/pdf/2503.14499">METR (2025)</a>. “[software engineering] tasks that AI models can complete with 50% success rate [are] doubling approximately every seven months since 2019.” And Figure 13 shows that the cost of completing these tasks remains pretty stable even as task length grows, around 1% of a &quot;Level 4&quot; Google salary (\$143.61/hour, so, \$1.43/hour for an AI.) However, it's important to note the coding tasks in the benchmark are, by design, common tasks. <a href="#fnref49" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn50" class="footnote-item"><p><a href="https://arcprize.org/">From the ARC-AGI frontpage.</a> It's missing the newest Gemini, <a href="https://arcprize.org/leaderboard">but it doesn't push the frontier much</a>, and the frontier still bends downwards. <a href="#fnref50" class="footnote-backref">↩︎</a></p>
 </li>
@@ -1931,160 +1844,18 @@ a set of six forecasting questions and had the option to consult their assigned 
 	</article>
 
     <!-- FOOTER -->
-	<div id="footer">
-        <div id="footer_content">
-<p style="font-size: 1.3em; line-height: 1.35em;">
-<i>AI Safety for Fleshy Humans</i> was made by
-<a href="https://ncase.me/">Nicky Case</a>
-in collaboration with
-<a href="https://hackclub.com/">Hack Club</a>.
-</p>
-<p>
-🦕 <a href="https://ncase.me"><b>Hack Club</b></a>
-is a nonprofit where teenagers code awesome projects together -
-like <a href="https://cpu.land">cpu.land</a>,
-<a href="https://sinerider.com">SineRider</a>,
-and this!
-Join
-<a href="https://hackathons.hackclub.com">in-person hackathons</a>,
-run a
-<a href="https://hackclub.com/clubs/">club at your school</a>,
-and
-<a href="https://hackclub.com/slack/">connect with other friendly teenagers</a>.
-</p>
-<p>
-😻 <a href="https://ncase.me"><b>Nicky Case</b></a>
-is fifteen cats in a trenchcoat.
-She makes internet playthings, like
-<a href="https://ncase.me/trust/">The Evolution of Trust</a>,
-<a href="https://ncase.me/anxiety/">Adventures with Anxiety</a>,
-<a href="https://explorabl.es/">Explorable Explanations</a>, and more.
-</p>
-<p>
-💸 If you're <i>not</i> a teen, and are an AI moneybags person,
-<a href="https://hackclub.com/philanthropy/">learn how to support Hack Club!</a>
-Also, Nicky has a
-<a href="https://www.patreon.com/ncase">Patreon</a>
-&
-<a href="https://ko-fi.com/nickycase">Ko-Fi</a>.
-(p.s:
-<a href="../signup/supporters-p2.html">thank-you page for my supporters!</a>)
-</p>
-<p style="text-align:center">
-. . .
-</p>
-<p>
-Special thanks to these teens at Hack Club for
-<s>being free child labor</s>
-beta-reading & giving feedback on this piece:
-</p>
-<blockquote>
-
-<p>
-<b>Intro & Part 1:</b>
-Arthur Beck,
-Atharv Gupta,
-Brendan Lee,
-Celeste,
-Charalampos Fanoulis,
-Charlie,
-Cheru Berhanu,
-Claire Wang,
-Elijah,
-Fred Han,
-Gia Bách Nguyễn,
-Hajrah Siddiqui,
-Jakob,
-Joseph Ross,
-Kieran Klukas,
-Lexi Mattick,
-Mason Meirs,
-Michael Panait,
-Nick Zandbergen,
-Nila Palmo Ram,
-Pixelglide,
-py660,
-rivques,
-Samuel Cottrell,
-Samuel Fernandez,
-Saran Wagner,
-Skyler Grey,
-S&nbsp;P&nbsp;U&nbsp;N&nbsp;G&nbsp;E,
-Vihaan Sondhi
-</p>
-
-<p>
-<b>Part 2:</b>
-Nanda White,
-Nila Palmo Ram,
-rivques,
-Rohan K,
-Samuel Fernandez
-</p>
-
-</blockquote>
-<p>
-Also thank you to these non-teenagers for giving feedback:
-(Though I assume they were teenagers at <i>some</i> point)
-</p>
-
-<blockquote>
-<p>
-<b>Intro & Part 1:</b>
-Alex Kreitzberg,
-B Cavello,
-Paul Dancstep,
-Tobias Rose-Stockwell
-</p>
-
-<p>
-<b>Part 2:</b>
-Egg Syntax,
-Max Wofford,
-Mithuna Yoganathan,
-Tobias Rose-Stockwell
-</p>
-
-</blockquote>
-
-<p>
-Any errors remaining are solely the fault of
-<a href="../suzie.png">Suzie the Scapegoat</a>.
-</p>
-<p style="text-align:center">
-. . .
-</p>
-<p>
-<i>AI Safety For Fleshy Humans</i> is free for anyone to share & remix,
-as long as it's for non-commercial use (e.g. education):
-<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0</a>
-</p>
-<p>
-If you'd like to cite this work and you're a Serious Person™, here's your citation:
-</p>
-<blockquote>
-Nicky Case, <i>“AI Safety for Fleshy Humans”</i>,<br>
-https://AIsafety.dance, Hack Club (2024).
-</blockquote>
-<p>
-Finally, here's the
-<a href="https://github.com/hackclub/ai-safety-dance">open-source code</a>
-for this website!
-</p>
-<p>
-Thank you for being the kind of person to read the credits~ 🙏
-</p>
-        </div>
-	</div>
+    
     <div id="post_credits">
-        <p>
-            Oh dang, it's a post-credits scene:
-        </p>
+        
 <p>
     <a href="#AllFeetnotes">: See all feetnotes 👣</a>
 </p>
 <p>
     Also, expandable "Nutshells" that make good standalone bits:
+</p>
+
+<p>
+    TODO
 </p>
 
     </div>

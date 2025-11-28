@@ -42,6 +42,17 @@
     <script src="{{root}}scripts/nutshell-v1.0.5.js"></script>
     <script> Nutshell.setOptions({ startOnLoad: false, /* Start AFTER footnotes loaded */ }); </script>
     <!-- MathJAX: for nice math -->
+    {% if isPartThree %}
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)'], ['$', '$']],
+            displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            processEscapes: true
+        }
+    };
+    </script>
+    {% endif %}
     <script src="{{root}}scripts/tex-mml-chtml.js"></script>
 	<!-- This website's own scripts -->
     <script src="{{root}}scripts/page.js"></script>
@@ -123,6 +134,9 @@
             {% endif %}
             {% if isPartTwo %}
             <img id="p2-banner" src="../media/p2/P2Cat.png"/>
+            {% endif %}
+            {% if isPartThree %}
+            <img id="p3-banner" src="../media/p3/P3Cat.png"/>
             {% endif %}
 
             <div id="crt_lines"></div>
@@ -223,8 +237,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div>
                     <span class='chapter-nav-desktop'>
                         part 3<br>solutions?
@@ -235,8 +249,8 @@
                 </div>
             </a>
             <a target="_self" href="#"
-                title="COMING END OF NOVEMBER 2025"
-                onclick="alert('COMING END OF NOVEMBER 2025')">
+                title="COMING START OF DECEMBER 2025"
+                onclick="alert('COMING START OF DECEMBER 2025')">
                 <div style="border-right:1px solid rgba(128,128,128,0.8);">
                     <span class='chapter-nav-desktop'>
                         conclusion
@@ -274,15 +288,19 @@
 	</article>
 
     <!-- FOOTER -->
+    {% if not isPartThree %}
 	<div id="footer">
         <div id="footer_content">
 {% include 'templates/footer.html' %}
         </div>
 	</div>
+    {% endif %}
     <div id="post_credits">
+        {% if not isPartThree %}
         <p>
             Oh dang, it's a post-credits scene:
         </p>
+        {% endif %}
 <p>
     <a href="#AllFeetnotes">: See all feetnotes 👣</a>
 </p>
@@ -326,6 +344,10 @@
     <a href="#TradingWithAdvancedAIs">: Could humans trade with super-human AIs?</a>
     <br>
     <a href="#Axiom">: What's an "axiom"?</a>
+</p>
+{% elif isPartThree %}
+<p>
+    TODO
 </p>
 {% endif %}
     </div>

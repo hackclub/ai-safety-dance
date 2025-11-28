@@ -22,13 +22,13 @@ What about feetnotes?[^feet]
 
 <orbit-reviewarea color="violet">
     <orbit-prompt
-        question="Who's widely considered the founder of Computer Science & Artificial Intelligence?"
-        answer="Alan Turing (this handsome fella)"
+        question="Who's widely considered the founder of Computer Science & Artificial Intelligence? p3"
+        answer="Alan Turing (this handsome fella) p3"
         answer-attachments="https://cloud-c1yyfcjxd-hack-club-bot.vercel.app/0aisffs-turing.jpg">
         <!-- aisffs-turing.jpg -->
     </orbit-prompt>
     <orbit-prompt
-        question="The two main eras of AI (more or less):"
+        question="The two main eras of AI (more or less): p3"
         answer="Before 2000: Symbolic AI. After 2000: Deep Learning.">
     </orbit-prompt>
     <orbit-prompt

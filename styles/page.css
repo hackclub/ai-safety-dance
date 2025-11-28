@@ -304,6 +304,11 @@ s{
     height:100%;
     opacity: 0.75;
 }
+#header #p3-banner{
+    position: relative;
+    height:100%;
+    opacity: 0.5;
+}
 #header > #header_words{
     position: absolute;
     top: 355px;

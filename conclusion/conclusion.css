@@ -13,6 +13,36 @@ html, body{
     background:#000;
     color:#fff;
 }
+
+#scroll_arrow{
+    z-index:999;
+    position:fixed;
+    width:100px; height:100px;
+    left:calc(50% - 50px);
+    bottom:10px;
+    animation: bounce 2s ease-in-out infinite;
+    font-size: 20px;
+    text-align:center;
+    line-height: 50px;
+}
+@keyframes bounce {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     50% {
+         transform: translateY(-20px);
+     }
+ }
+
+
+
+a{
+    color: hsla(0, 80%, 60%);
+    transition: color 0.1s;
+}
+a:hover{
+    color: hsla(0, 80%, 70%);
+}
 body{
     overflow-x:hidden;
 }

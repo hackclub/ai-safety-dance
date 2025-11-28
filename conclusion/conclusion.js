@@ -22,9 +22,13 @@ let fork1 = $("#fork_1_visual");
 let fork2 = $("#fork_2_visual");
 let parallaxes = $all(".parallax");
 let splash = $("#splash_image");
+let scroll_arrow = $("#scroll_arrow");
 function onScrollChange(){
     const scrollY = getScrollY();
     console.log('Scroll Y:', scrollY);
+
+    // Scroll arrow
+    scroll_arrow.style.display = (scrollY>300) ? "none" : "block";
 
     // The FORK animations...
     if(scrollY<1600){

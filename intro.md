@@ -24,7 +24,7 @@ This series was/will be published in three parts:
 
 - This Intro & Part 1 were out on **May 2024**
 - Part 2 was out on **Aug 2024**
-- Part 3 & The Grand Cinematic Conclusion will be out by **end of Nov 2025**
+- Part 3 & The Grand Cinematic Conclusion will be out by **start of Dec 2025**
 
 OPTIONAL: If you'd like to be notified on their release, signup below!👇 You *will not* be spammed with other stuff, just the two notification emails. (Buuuuut, `[podcast sponsor voice]` if you're in high school or earlier, and interested in AI/code/engineering, consider checking the box to learn more about [Hack Club!](https://hackclub.com/) P.S: There's free *stickers~~~* ✨)
 
@@ -217,7 +217,7 @@ AI Safety / AI Risk used to be less mainstream, but now in 2024, the US & UK gov
 
 [^departments]: The UK introduced the world's first state-backed AI Safety Institute [in Nov 2023](https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute). The US followed suit with an AI Safety Institute [in Feb 2024](https://www.commerce.gov/news/press-releases/2024/02/biden-harris-administration-announces-first-ever-consortium-dedicated). I just noticed *both* articles claim to be the "first". Okay then.
 
-[^international-agreements]: The [2023 Bletchley Declaration](https://www.computerworld.com/article/1638908/china-us-and-eu-agree-to-work-together-on-ai-safety.html), the [2024 AI Seoul Summit](https://www.gov.uk/government/news/global-leaders-agree-to-launch-first-international-network-of-ai-safety-institutes-to-boost-understanding-of-ai). **Update Nov 2025:** a sour note, the [2025 AI Action Summit](https://en.wikipedia.org/wiki/AI_Action_Summit) went much less well, because the US & UK refused to sign due to the agreement having a clause about "inclusive AI".
+[^international-agreements]: The [2023 Bletchley Declaration](https://www.computerworld.com/article/1638908/china-us-and-eu-agree-to-work-together-on-ai-safety.html), the [2024 AI Seoul Summit](https://www.gov.uk/government/news/global-leaders-agree-to-launch-first-international-network-of-ai-safety-institutes-to-boost-understanding-of-ai). **Update Dec 2025:** a sour note, the [2025 AI Action Summit](https://en.wikipedia.org/wiki/AI_Action_Summit) went much less well, because the US & UK refused to sign due to the agreement having a clause about "inclusive AI".
 
 * Geoffrey Hinton[^hinton] and Yoshua Bengio[^bengio], co-winners of the 2018 Turing Prize (the "Nobel Prize of Computing") for their work on deep neural networks, the thing that *all* the new famous AIs use.[^all-famous-ai]
 * Stuart Russell and Peter Norvig, the authors of *the* most-used textbook on Artificial Intelligence.[^russell-norvig]
@@ -253,7 +253,7 @@ As mentioned earlier, the real problems in AI Safety are "boring": an AI learns 
 
 But, "boring" doesn't mean *not important*. The technical details of how to design a safe elevator/airplane/bridge are boring to most laypeople... *and also* a matter of life-and-death. Catastrophic AI Risk doesn't even require "super-human general intelligence"! For example, an AI that's "only" good at designing viruses could help a bio-terrorist organization (like Aum Shinrikyo[^aum]) kill millions of people.
 
-(**update nov 2025:** while AI Consciousness is still perpendicular to AI Safety, in the 1.5 years between when I started this series and now, concern for the welfare *of the AIs themselves* has become a bit more mainstream. Not, like, *mainstream* mainstream, but one of the leading AI labs, Anthropic, recently hired [a full-time "AI Welfare" researcher](https://arstechnica.com/ai/2024/11/anthropic-hires-its-first-ai-welfare-researcher/), whose work has led to [actual changes to the product](https://www.anthropic.com/research/end-subset-conversations).)
+(**update dec 2025:** while AI Consciousness is still perpendicular to AI Safety, in the 1.5 years between when I started this series and now, concern for the welfare *of the AIs themselves* has become a bit more mainstream. Not, like, *mainstream* mainstream, but one of the leading AI labs, Anthropic, recently hired [a full-time "AI Welfare" researcher](https://arstechnica.com/ai/2024/11/anthropic-hires-its-first-ai-welfare-researcher/), whose work has led to [actual changes to the product](https://www.anthropic.com/research/end-subset-conversations).)
 
 But anyway! Speaking of killing people...
 
@@ -275,7 +275,7 @@ For example:
 * <u>Cybersecurity Ransom Hell</u>: Cyber-criminals make a computer virus that *does its own hacking & re-programming*, so it's always one step ahead of human defenses. The result: an unstoppable worldwide bot-net, which holds critical infrastructure ransom, and manipulates top CEOs and politicians to do its bidding.
   * (For context: *without* AI, hackers have already damaged nuclear power plants,[^stuxnet] held hospitals ransom[^ransom-hospitals] which maybe killed someone,[^hospital-death] and almost poisoned a town's water supply *twice*.[^water-supply] *With* AI, deepfakes have been used to swing an election,[^deepfake-election] steal $25 million in a single heist,[^hong-kong] and target parents for ransom, using the faked voices of their children being kidnapped & crying for help.[^deepfake-ransom])
   * (This is why it's not easy to "just shut down an AI when we notice it going haywire"; as the history of computer security shows, we just *suck* at noticing problems in general. [:I cannot over-emphasize how much the modern world is built on an upside-down house of cards.](#xz))
-  * (**update nov 2025:** a few months ago, researchers found [the world's first confirmed case](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) of "agentic AI successfully obtaining access to confirmed high-value targets for intelligence collection, including major technology corporations and government agencies". It's happening!!)
+  * (**update dec 2025:** a few months ago, researchers found [the world's first confirmed case](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf) of "agentic AI successfully obtaining access to confirmed high-value targets for intelligence collection, including major technology corporations and government agencies". It's happening!!)
 
 The above examples are all "humans *misuse* AI to cause havoc", but remember advanced AI could do the above *by itself*, due to "boring" reasons: it's accomplishing a goal in a logical-but-undesirable way, its goals glitch out but its skills remain intact, etc.
 
@@ -440,7 +440,7 @@ Hi! When I have a tangent that doesn't fit the main flow, I'll shove it into an 
 
 ~ ~ ~
 
-**UPDATE: This section was originally written in May 2024. One-and-a-half years later, on Nov 2025, it is _now false_. See the end of this section for more details.**
+**UPDATE: This section was originally written in May 2024. One-and-a-half years later, on Dec 2025, it is _now false_. See the end of this section for more details.**
 
 So, here's a prompt to draw four objects:
 
@@ -464,7 +464,7 @@ Here are the top generative AI's first four attempts (*not* cherry-picked):
 
 Why does this demonstrate a lack of "logic" in AI? A core part of "symbolic logic" is the ability to do "compositionality", a fancy way of saying it can reliably combine old things into new things, like "green" + "cylinder" = "green cylinder". As shown above, generative AIs (as of May 2024) are *very* unreliable at combining stuff, when there's 4 or more objects.
 
-**UPDATE NOV 2025: Image generation models have finally solved "compositionality"!**
+**UPDATE DEC 2025: Image generation models have finally solved "compositionality"!**
 
 Here is ChatGPT 5.1 getting the above prompt right on the first try:
 
