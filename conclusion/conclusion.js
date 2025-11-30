@@ -23,9 +23,16 @@ let fork2 = $("#fork_2_visual");
 let parallaxes = $all(".parallax");
 let splash = $("#splash_image");
 let scroll_arrow = $("#scroll_arrow");
+let hack = $all(".programmatic_hack");
 function onScrollChange(){
     const scrollY = getScrollY();
     console.log('Scroll Y:', scrollY);
+
+    // HACK
+    hack.forEach(el=>{
+        el.style.top = '-135px';
+        el.style.height = (window.innerHeight+135)+'px';
+    });
 
     // Scroll arrow
     scroll_arrow.style.display = (scrollY>300) ? "none" : "block";

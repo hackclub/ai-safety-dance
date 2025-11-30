@@ -172,7 +172,10 @@ p + ul{
     margin-top: -1em;
 }
 ul ul{
-    margin-top: 0;
+    margin-top: 0.5em;
+}
+li{
+    margin-bottom: 0.5em;
 }
 
 blockquote{

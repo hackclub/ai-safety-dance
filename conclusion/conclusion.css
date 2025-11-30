@@ -20,7 +20,7 @@ html, body{
     width:100px; height:100px;
     left:calc(50% - 50px);
     bottom:10px;
-    animation: bounce 2s ease-in-out infinite;
+    animation: bounce 0.7s ease-in-out infinite;
     font-size: 20px;
     text-align:center;
     line-height: 50px;
