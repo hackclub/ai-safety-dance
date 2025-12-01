@@ -22,13 +22,9 @@ This series will also have comics starring a Robot Catboy Maid. Like so:
 
 This series was/will be published in three parts:
 
-- This Intro & Part 1 were out on **May 2024**
-- Part 2 was out on **Aug 2024**
-- Part 3 & The Grand Cinematic Conclusion will be out by **start of Dec 2025**
-
-OPTIONAL: If you'd like to be notified on their release, signup below!👇 You *will not* be spammed with other stuff, just the two notification emails. (Buuuuut, `[podcast sponsor voice]` if you're in high school or earlier, and interested in AI/code/engineering, consider checking the box to learn more about [Hack Club!](https://hackclub.com/) P.S: There's free *stickers~~~* ✨)
-
-{% include 'templates/signup.html' %}
+- This Intro & [Part 1: Past, Present & Future](/p1) were out on **May 2024**
+- [Part 2: Problems](/p2) was out on **Aug 2024**
+- [Part 3: Solutions](/p3) & [The Grand Cinematic Conclusion](/conclusion) were out on **Dec 2025**
 
 Anyway, `[tour guide voice again]` before we hike through the rocky terrain of AI & AI Safety, let's take a 10,000-foot look of the land:
 
