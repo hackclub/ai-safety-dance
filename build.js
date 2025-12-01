@@ -56,7 +56,7 @@ let convertConfigs = [
         }
     },
     {
-        markdown:'p3-secret/p3.md', template:'templates/page_template.html', exportTo:'p3-secret/index.html',
+        markdown:'p3/p3.md', template:'templates/page_template.html', exportTo:'p3/index.html',
         extras:{
             title: 'Part 3: The Proposed Solutions',
             share_desc: 'Chapter Three of “AI Safety for Fleshy Humans: a whirlwind tour”',
