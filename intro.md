@@ -26,6 +26,10 @@ This series was/will be published in three parts:
 - [Part 2: Problems](/p2) was out on **Aug 2024**
 - [Part 3: Solutions](/p3) & [The Grand Cinematic Conclusion](/conclusion) were out on **Dec 2025**
 
+*(By the way, this series was made in collaboration with Hack Club, a worldwide community for & by teen hackers! If you'd like to learn more, and get free stickers, sign up below👇)*
+
+{% include 'templates/signup.html' %}
+
 Anyway, `[tour guide voice again]` before we hike through the rocky terrain of AI & AI Safety, let's take a 10,000-foot look of the land:
 
 ---
